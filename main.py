@@ -369,9 +369,9 @@ def generate_crate(
 
     os.mkdir(os.path.join(path, package_name, "src"))
     with open(os.path.join(path, package_name, "src", "lib.rs"), 'w') as file:
-        file.write('#[cfg(all(feature = "async", feature = "async"))]\ncompile_error!("features `sync` and `async` are mutually exclusive");\n\n')
-        file.write(f'#[cfg(feature = "sync")]\nuse {sync_client_crate_name.replace('-', '_')}::*;\n')
-        file.write(f'#[cfg(feature = "async")]\nuse {async_client_crate_name.replace('-', '_')}::*;\n')
+        file.write('#[cfg(all(feature = "async", feature = "sync"))]\ncompile_error!("features `sync` and `async` are mutually exclusive");\n\n')
+        file.write(f'#[cfg(feature = "sync")]\npub use {sync_client_crate_name.replace('-', '_')}::*;\n')
+        file.write(f'#[cfg(feature = "async")]\npub use {async_client_crate_name.replace('-', '_')}::*;\n')
 
     pass
 
