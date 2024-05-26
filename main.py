@@ -348,11 +348,11 @@ def generate_crate(
         },
         "dependencies": {
             sync_client_crate_name: {
-                "path": f"../{sync_client_crate_name}",
+                "path": f"../sync-client",
                 "optional": True,
             },
             async_client_crate_name: {
-                "path": f"../{async_client_crate_name}",
+                "path": f"../async-client",
                 "optional": True,
             },
         },

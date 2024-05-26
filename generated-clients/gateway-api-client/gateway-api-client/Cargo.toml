@@ -12,9 +12,9 @@ async = [ "dep:gateway-api-client-async",]
 sync = [ "dep:gateway-api-client-sync",]
 
 [dependencies.gateway-api-client-sync]
-path = "../gateway-api-client-sync"
+path = "../sync-client"
 optional = true
 
 [dependencies.gateway-api-client-async]
-path = "../gateway-api-client-async"
+path = "../async-client"
 optional = true

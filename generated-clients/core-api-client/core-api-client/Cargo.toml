@@ -12,9 +12,9 @@ async = [ "dep:core-api-client-async",]
 sync = [ "dep:core-api-client-sync",]
 
 [dependencies.core-api-client-sync]
-path = "../core-api-client-sync"
+path = "../sync-client"
 optional = true
 
 [dependencies.core-api-client-async]
-path = "../core-api-client-async"
+path = "../async-client"
 optional = true
