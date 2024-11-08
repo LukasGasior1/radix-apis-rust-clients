@@ -310,7 +310,7 @@ def generate_crate(
 ) -> None:
     # Create the directory if it doesn't already exist.
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)
 
     # The shared generator configurations
     generator: RustOpenApiGenerator = (
@@ -368,10 +368,16 @@ def generate_crate(
         )
 
     os.mkdir(os.path.join(path, package_name, "src"))
-    with open(os.path.join(path, package_name, "src", "lib.rs"), 'w') as file:
-        file.write('#[cfg(all(feature = "async", feature = "sync"))]\ncompile_error!("features `sync` and `async` are mutually exclusive");\n\n')
-        file.write(f'#[cfg(feature = "sync")]\npub use {sync_client_crate_name.replace('-', '_')}::*;\n')
-        file.write(f'#[cfg(feature = "async")]\npub use {async_client_crate_name.replace('-', '_')}::*;\n')
+    with open(os.path.join(path, package_name, "src", "lib.rs"), "w") as file:
+        file.write(
+            '#[cfg(all(feature = "async", feature = "sync"))]\ncompile_error!("features `sync` and `async` are mutually exclusive");\n\n'
+        )
+        file.write(
+            f'#[cfg(feature = "sync")]\npub use {sync_client_crate_name.replace('-', '_')}::*;\n'
+        )
+        file.write(
+            f'#[cfg(feature = "async")]\npub use {async_client_crate_name.replace('-', '_')}::*;\n'
+        )
 
     pass
 
@@ -403,18 +409,23 @@ def main() -> None:
             )
         )
 
+        # If clients already exist delete them.
+        generated_clients_path: str = "./generated-clients"
+        if os.path.exists(generated_clients_path):
+            shutil.rmtree(generated_clients_path)
+
         # Generate the clients.
         generate_crate(
             gateway_api_spec,
             generator_path,
             "gateway-api-client",
-            "./generated-clients/gateway-api-client",
+            os.path.join(generated_clients_path, "gateway-api-client"),
         )
         generate_crate(
             core_api_spec,
             generator_path,
             "core-api-client",
-            "./generated-clients/core-api-client",
+            os.path.join(generated_clients_path, "core-api-client"),
         )
 
 

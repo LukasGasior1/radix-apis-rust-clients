@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **kind** | [**models::ProgrammaticScryptoSborValueKind**](ProgrammaticScryptoSborValueKind.md) |  | 
 **type_name** | Option<**String**> | The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.  | [optional]
 **fields** | [**Vec<models::ProgrammaticScryptoSborValue>**](ProgrammaticScryptoSborValue.md) |  | 
-**variant_id** | **u8** |  | 
+**variant_id** | **String** |  | 
 **variant_name** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

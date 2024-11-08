@@ -467,6 +467,7 @@ docs/TransactionPreviewRequest.md
 docs/TransactionPreviewRequestFlags.md
 docs/TransactionPreviewResponse.md
 docs/TransactionPreviewResponseLogsInner.md
+docs/TransactionPreviewResponseOptions.md
 docs/TransactionReceipt.md
 docs/TransactionReceiptRequest.md
 docs/TransactionReceiptResponse.md
@@ -972,6 +973,7 @@ src/models/transaction_preview_request.rs
 src/models/transaction_preview_request_flags.rs
 src/models/transaction_preview_response.rs
 src/models/transaction_preview_response_logs_inner.rs
+src/models/transaction_preview_response_options.rs
 src/models/transaction_receipt.rs
 src/models/transaction_receipt_request.rs
 src/models/transaction_receipt_response.rs

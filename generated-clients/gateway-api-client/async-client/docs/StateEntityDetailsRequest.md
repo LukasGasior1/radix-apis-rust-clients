@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **at_ledger_state** | Option<[**models::LedgerStateSelector**](LedgerStateSelector.md)> |  | [optional]
-**addresses** | **Vec<String>** | limited to max 100 items. | 
+**addresses** | **Vec<String>** | limited to max 20 items. | 
 **aggregation_level** | Option<[**models::ResourceAggregationLevel**](ResourceAggregationLevel.md)> |  | [optional]
 **opt_ins** | Option<[**models::StateEntityDetailsOptIns**](StateEntityDetailsOptIns.md)> |  | [optional]
 

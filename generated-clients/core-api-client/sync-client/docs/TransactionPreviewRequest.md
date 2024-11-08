@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **nonce** | **u64** | An integer between `0` and `2^32 - 1`, chosen to allow a unique intent to be created (to enable submitting an otherwise identical/duplicate intent).  | 
 **notary_is_signatory** | Option<**bool**> | Whether the notary should count as a signatory (optional, default false) | [optional]
 **notary_public_key** | Option<[**models::PublicKey**](PublicKey.md)> | The notary public key to use (optional) | [optional]
+**options** | Option<[**models::TransactionPreviewResponseOptions**](TransactionPreviewResponseOptions.md)> | A set of flags to configure the response of the transaction preview. | [optional]
 **signer_public_keys** | [**Vec<models::PublicKey>**](PublicKey.md) | A list of public keys to be used as transaction signers | 
 **start_epoch_inclusive** | **u64** | An integer between `0` and `10^10`, marking the epoch at which the transaction starts being valid | 
 **tip_percentage** | **u32** | An integer between `0` and `65535`, giving the validator tip as a percentage amount. A value of `1` corresponds to 1% of the fee. | 
