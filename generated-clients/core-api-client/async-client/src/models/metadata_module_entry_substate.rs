@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct MetadataModuleEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "key")]
     pub key: Box<models::MetadataKey>,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
@@ -24,10 +22,9 @@ pub struct MetadataModuleEntrySubstate {
 }
 
 impl MetadataModuleEntrySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, key: models::MetadataKey) -> MetadataModuleEntrySubstate {
+    pub fn new(is_locked: bool, key: models::MetadataKey) -> MetadataModuleEntrySubstate {
         MetadataModuleEntrySubstate {
             is_locked,
-            substate_type,
             key: Box::new(key),
             value: None,
         }

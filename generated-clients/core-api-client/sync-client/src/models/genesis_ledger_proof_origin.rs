@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenesisLedgerProofOrigin {
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerProofOriginType,
     #[serde(rename = "genesis_opaque_hash")]
     pub genesis_opaque_hash: String,
 }
 
 impl GenesisLedgerProofOrigin {
-    pub fn new(r#type: models::LedgerProofOriginType, genesis_opaque_hash: String) -> GenesisLedgerProofOrigin {
+    pub fn new(genesis_opaque_hash: String) -> GenesisLedgerProofOrigin {
         GenesisLedgerProofOrigin {
-            r#type,
             genesis_opaque_hash,
         }
     }

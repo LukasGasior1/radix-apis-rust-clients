@@ -15,213 +15,55 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "kind")]
 pub enum ProgrammaticScryptoSborValue {
-    #[serde(rename="Array")]
-    ProgrammaticScryptoSborValueArray {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
     #[serde(rename="Bool")]
-    ProgrammaticScryptoSborValueBool {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Bytes")]
-    ProgrammaticScryptoSborValueBytes {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Decimal")]
-    ProgrammaticScryptoSborValueDecimal {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Enum")]
-    ProgrammaticScryptoSborValueEnum {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="I128")]
-    ProgrammaticScryptoSborValueI128 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="I16")]
-    ProgrammaticScryptoSborValueI16 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="I32")]
-    ProgrammaticScryptoSborValueI32 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="I64")]
-    ProgrammaticScryptoSborValueI64 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
+    Bool(Box<models::ProgrammaticScryptoSborValueBool>),
     #[serde(rename="I8")]
-    ProgrammaticScryptoSborValueI8 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Map")]
-    ProgrammaticScryptoSborValueMap {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="NonFungibleLocalId")]
-    ProgrammaticScryptoSborValueNonFungibleLocalId {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Own")]
-    ProgrammaticScryptoSborValueOwn {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="PreciseDecimal")]
-    ProgrammaticScryptoSborValuePreciseDecimal {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Reference")]
-    ProgrammaticScryptoSborValueReference {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="String")]
-    ProgrammaticScryptoSborValueString {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="Tuple")]
-    ProgrammaticScryptoSborValueTuple {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="U128")]
-    ProgrammaticScryptoSborValueU128 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="U16")]
-    ProgrammaticScryptoSborValueU16 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="U32")]
-    ProgrammaticScryptoSborValueU32 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
-    #[serde(rename="U64")]
-    ProgrammaticScryptoSborValueU64 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
+    I8(Box<models::ProgrammaticScryptoSborValueI8>),
+    #[serde(rename="I16")]
+    I16(Box<models::ProgrammaticScryptoSborValueI16>),
+    #[serde(rename="I32")]
+    I32(Box<models::ProgrammaticScryptoSborValueI32>),
+    #[serde(rename="I64")]
+    I64(Box<models::ProgrammaticScryptoSborValueI64>),
+    #[serde(rename="I128")]
+    I128(Box<models::ProgrammaticScryptoSborValueI128>),
     #[serde(rename="U8")]
-    ProgrammaticScryptoSborValueU8 {
-        /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "field_name", skip_serializing_if = "Option::is_none")]
-        field_name: Option<String>,
-        /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-        #[serde(rename = "type_name", skip_serializing_if = "Option::is_none")]
-        type_name: Option<String>,
-    },
+    U8(Box<models::ProgrammaticScryptoSborValueU8>),
+    #[serde(rename="U16")]
+    U16(Box<models::ProgrammaticScryptoSborValueU16>),
+    #[serde(rename="U32")]
+    U32(Box<models::ProgrammaticScryptoSborValueU32>),
+    #[serde(rename="U64")]
+    U64(Box<models::ProgrammaticScryptoSborValueU64>),
+    #[serde(rename="U128")]
+    U128(Box<models::ProgrammaticScryptoSborValueU128>),
+    #[serde(rename="String")]
+    String(Box<models::ProgrammaticScryptoSborValueString>),
+    #[serde(rename="Enum")]
+    Enum(Box<models::ProgrammaticScryptoSborValueEnum>),
+    #[serde(rename="Array")]
+    Array(Box<models::ProgrammaticScryptoSborValueArray>),
+    #[serde(rename="Bytes")]
+    Bytes(Box<models::ProgrammaticScryptoSborValueBytes>),
+    #[serde(rename="Map")]
+    Map(Box<models::ProgrammaticScryptoSborValueMap>),
+    #[serde(rename="Tuple")]
+    Tuple(Box<models::ProgrammaticScryptoSborValueTuple>),
+    #[serde(rename="Reference")]
+    Reference(Box<models::ProgrammaticScryptoSborValueReference>),
+    #[serde(rename="Own")]
+    Own(Box<models::ProgrammaticScryptoSborValueOwn>),
+    #[serde(rename="Decimal")]
+    Decimal(Box<models::ProgrammaticScryptoSborValueDecimal>),
+    #[serde(rename="PreciseDecimal")]
+    PreciseDecimal(Box<models::ProgrammaticScryptoSborValuePreciseDecimal>),
+    #[serde(rename="NonFungibleLocalId")]
+    NonFungibleLocalId(Box<models::ProgrammaticScryptoSborValueNonFungibleLocalId>),
 }
 
 impl Default for ProgrammaticScryptoSborValue {
     fn default() -> Self {
-        Self::ProgrammaticScryptoSborValueArray {
-            field_name: Default::default(),
-            type_name: Default::default(),
-        }
-        
+        Self::Bool(Default::default())
     }
 }
 

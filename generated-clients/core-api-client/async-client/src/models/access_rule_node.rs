@@ -14,22 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum AccessRuleNode {
-    #[serde(rename="AllOf")]
-    AllOfAccessRuleNode {
-    },
-    #[serde(rename="AnyOf")]
-    AnyOfAccessRuleNode {
-    },
     #[serde(rename="ProofRule")]
-    ProofAccessRuleNode {
-    },
+    ProofRule(Box<models::ProofAccessRuleNode>),
+    #[serde(rename="AnyOf")]
+    AnyOf(Box<models::AnyOfAccessRuleNode>),
+    #[serde(rename="AllOf")]
+    AllOf(Box<models::AllOfAccessRuleNode>),
 }
 
 impl Default for AccessRuleNode {
     fn default() -> Self {
-        Self::AllOfAccessRuleNode {
-        }
-        
+        Self::ProofRule(Default::default())
     }
 }
 

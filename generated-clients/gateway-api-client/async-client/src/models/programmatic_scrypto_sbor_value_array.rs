@@ -13,31 +13,28 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProgrammaticScryptoSborValueArray {
-    /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-    #[serde(rename = "field_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub field_name: Option<Option<String>>,
-    #[serde(rename = "kind")]
-    pub kind: models::ProgrammaticScryptoSborValueKind,
-    /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-    #[serde(rename = "type_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub type_name: Option<Option<String>>,
     #[serde(rename = "element_kind")]
     pub element_kind: models::ProgrammaticScryptoSborValueKind,
     #[serde(rename = "element_type_name", skip_serializing_if = "Option::is_none")]
     pub element_type_name: Option<String>,
     #[serde(rename = "elements")]
     pub elements: Vec<models::ProgrammaticScryptoSborValue>,
+    /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
+    #[serde(rename = "field_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub field_name: Option<Option<String>>,
+    /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
+    #[serde(rename = "type_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub type_name: Option<Option<String>>,
 }
 
 impl ProgrammaticScryptoSborValueArray {
-    pub fn new(kind: models::ProgrammaticScryptoSborValueKind, element_kind: models::ProgrammaticScryptoSborValueKind, elements: Vec<models::ProgrammaticScryptoSborValue>) -> ProgrammaticScryptoSborValueArray {
+    pub fn new(element_kind: models::ProgrammaticScryptoSborValueKind, elements: Vec<models::ProgrammaticScryptoSborValue>) -> ProgrammaticScryptoSborValueArray {
         ProgrammaticScryptoSborValueArray {
-            field_name: None,
-            kind,
-            type_name: None,
             element_kind,
             element_type_name: None,
             elements,
+            field_name: None,
+            type_name: None,
         }
     }
 }

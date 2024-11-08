@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StreamProofsFilterAny {
-    #[serde(rename = "type")]
-    pub r#type: models::StreamProofsFilterType,
     #[serde(rename = "from_state_version", skip_serializing_if = "Option::is_none")]
     pub from_state_version: Option<u64>,
 }
 
 impl StreamProofsFilterAny {
-    pub fn new(r#type: models::StreamProofsFilterType) -> StreamProofsFilterAny {
+    pub fn new() -> StreamProofsFilterAny {
         StreamProofsFilterAny {
-            r#type,
             from_state_version: None,
         }
     }

@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct VersionLedgerStateSelector {
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerStateSelectorType,
     #[serde(rename = "state_version")]
     pub state_version: u64,
 }
 
 impl VersionLedgerStateSelector {
-    pub fn new(r#type: models::LedgerStateSelectorType, state_version: u64) -> VersionLedgerStateSelector {
+    pub fn new(state_version: u64) -> VersionLedgerStateSelector {
         VersionLedgerStateSelector {
-            r#type,
             state_version,
         }
     }

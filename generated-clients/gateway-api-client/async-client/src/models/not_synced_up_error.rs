@@ -13,9 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NotSyncedUpError {
-    /// The type of error. Each subtype may have its own additional structured fields.
-    #[serde(rename = "type")]
-    pub r#type: String,
     /// The current delay between the Gateway DB and the network ledger round timestamp.
     #[serde(rename = "current_sync_delay_seconds")]
     pub current_sync_delay_seconds: i64,
@@ -28,9 +25,8 @@ pub struct NotSyncedUpError {
 }
 
 impl NotSyncedUpError {
-    pub fn new(r#type: String, current_sync_delay_seconds: i64, max_allowed_sync_delay_seconds: i64, request_type: String) -> NotSyncedUpError {
+    pub fn new(current_sync_delay_seconds: i64, max_allowed_sync_delay_seconds: i64, request_type: String) -> NotSyncedUpError {
         NotSyncedUpError {
-            r#type,
             current_sync_delay_seconds,
             max_allowed_sync_delay_seconds,
             request_type,

@@ -11,18 +11,17 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// LocalGenericSubstitution : The generic substitution is provided by the instance itself. The `scoped_type_id` can be expanded to a `FullyScopedTypeId` by including the current entity's address. 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LocalGenericSubstitution {
-    #[serde(rename = "type")]
-    pub r#type: models::GenericSubstitutionType,
     #[serde(rename = "scoped_type_id")]
     pub scoped_type_id: Box<models::ScopedTypeId>,
 }
 
 impl LocalGenericSubstitution {
-    pub fn new(r#type: models::GenericSubstitutionType, scoped_type_id: models::ScopedTypeId) -> LocalGenericSubstitution {
+    /// The generic substitution is provided by the instance itself. The `scoped_type_id` can be expanded to a `FullyScopedTypeId` by including the current entity's address. 
+    pub fn new(scoped_type_id: models::ScopedTypeId) -> LocalGenericSubstitution {
         LocalGenericSubstitution {
-            r#type,
             scoped_type_id: Box::new(scoped_type_id),
         }
     }

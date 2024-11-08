@@ -15,17 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct OneResourcePoolFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "value")]
     pub value: Box<models::OneResourcePoolFieldStateValue>,
 }
 
 impl OneResourcePoolFieldStateSubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, value: models::OneResourcePoolFieldStateValue) -> OneResourcePoolFieldStateSubstate {
+    pub fn new(is_locked: bool, value: models::OneResourcePoolFieldStateValue) -> OneResourcePoolFieldStateSubstate {
         OneResourcePoolFieldStateSubstate {
             is_locked,
-            substate_type,
             value: Box::new(value),
         }
     }

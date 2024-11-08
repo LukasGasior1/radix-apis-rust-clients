@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::ParsedTransactionType**](ParsedTransactionType.md) |  | 
 **identifiers** | [**models::ParsedSignedTransactionIntentIdentifiers**](ParsedSignedTransactionIntentIdentifiers.md) |  | 
 **signed_intent** | Option<[**models::SignedTransactionIntent**](SignedTransactionIntent.md)> |  | [optional]
 

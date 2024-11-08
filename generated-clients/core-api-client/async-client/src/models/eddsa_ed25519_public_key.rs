@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EddsaEd25519PublicKey {
-    #[serde(rename = "key_type")]
-    pub key_type: models::PublicKeyType,
     /// The hex-encoded compressed EdDSA Ed25519 public key (32 bytes)
     #[serde(rename = "key_hex")]
     pub key_hex: String,
 }
 
 impl EddsaEd25519PublicKey {
-    pub fn new(key_type: models::PublicKeyType, key_hex: String) -> EddsaEd25519PublicKey {
+    pub fn new(key_hex: String) -> EddsaEd25519PublicKey {
         EddsaEd25519PublicKey {
-            key_type,
             key_hex,
         }
     }

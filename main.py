@@ -9,6 +9,11 @@ import copy
 import os
 
 
+class NoAliasDumper(yaml.SafeDumper):
+    def ignore_aliases(self, data):
+        return True
+
+
 def download_openapi_generator(directory: str, version: str) -> str:
     """
     Downloads the OpenAPI generator CLI of a given version to a given directory
@@ -256,7 +261,7 @@ class RustOpenApiGenerator:
         # Write the Schema to a temporary file that is deleted after this function
         # is executed.
         with NamedTemporaryFile("w") as temporary_file:
-            yaml.safe_dump(spec, temporary_file)
+            yaml.dump(spec, temporary_file, Dumper=NoAliasDumper)
 
             # Generate the client
             subprocess.run(
@@ -416,13 +421,13 @@ def main() -> None:
 
         # Generate the clients.
         generate_crate(
-            gateway_api_spec,
+            fix_discriminated_unions_in_spec(gateway_api_spec),
             generator_path,
             "gateway-api-client",
             os.path.join(generated_clients_path, "gateway-api-client"),
         )
         generate_crate(
-            core_api_spec,
+            fix_discriminated_unions_in_spec(core_api_spec),
             generator_path,
             "core-api-client",
             os.path.join(generated_clients_path, "core-api-client"),

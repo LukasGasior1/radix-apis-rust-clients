@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResourceRequirement {
-    #[serde(rename = "type")]
-    pub r#type: models::RequirementType,
     /// The Bech32m-encoded human readable version of the resource address
     #[serde(rename = "resource")]
     pub resource: String,
 }
 
 impl ResourceRequirement {
-    pub fn new(r#type: models::RequirementType, resource: String) -> ResourceRequirement {
+    pub fn new(resource: String) -> ResourceRequirement {
         ResourceRequirement {
-            r#type,
             resource,
         }
     }

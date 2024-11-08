@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AmountOfProofRule {
-    #[serde(rename = "type")]
-    pub r#type: models::ProofRuleType,
     #[serde(rename = "amount")]
     pub amount: String,
     /// The Bech32m-encoded human readable version of the resource address
@@ -23,9 +21,8 @@ pub struct AmountOfProofRule {
 }
 
 impl AmountOfProofRule {
-    pub fn new(r#type: models::ProofRuleType, amount: String, resource: String) -> AmountOfProofRule {
+    pub fn new(amount: String, resource: String) -> AmountOfProofRule {
         AmountOfProofRule {
-            r#type,
             amount,
             resource,
         }

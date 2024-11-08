@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct AccountVaultEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "key")]
     pub key: Box<models::ResourceKey>,
     #[serde(rename = "value")]
@@ -24,10 +22,9 @@ pub struct AccountVaultEntrySubstate {
 }
 
 impl AccountVaultEntrySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, key: models::ResourceKey, value: models::AccountVaultEntryValue) -> AccountVaultEntrySubstate {
+    pub fn new(is_locked: bool, key: models::ResourceKey, value: models::AccountVaultEntryValue) -> AccountVaultEntrySubstate {
         AccountVaultEntrySubstate {
             is_locked,
-            substate_type,
             key: Box::new(key),
             value: Box::new(value),
         }

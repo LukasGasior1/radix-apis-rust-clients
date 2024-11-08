@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataPublicKeyHashArrayValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "values")]
     pub values: Vec<models::PublicKeyHash>,
 }
 
 impl MetadataPublicKeyHashArrayValue {
-    pub fn new(r#type: models::MetadataValueType, values: Vec<models::PublicKeyHash>) -> MetadataPublicKeyHashArrayValue {
+    pub fn new(values: Vec<models::PublicKeyHash>) -> MetadataPublicKeyHashArrayValue {
         MetadataPublicKeyHashArrayValue {
-            r#type,
             values,
         }
     }

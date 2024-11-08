@@ -16,17 +16,14 @@ pub struct RoundUpdateLedgerTransaction {
     /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
     #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
     pub payload_hex: Option<String>,
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerTransactionType,
     #[serde(rename = "round_update_transaction")]
     pub round_update_transaction: Box<models::RoundUpdateTransaction>,
 }
 
 impl RoundUpdateLedgerTransaction {
-    pub fn new(r#type: models::LedgerTransactionType, round_update_transaction: models::RoundUpdateTransaction) -> RoundUpdateLedgerTransaction {
+    pub fn new(round_update_transaction: models::RoundUpdateTransaction) -> RoundUpdateLedgerTransaction {
         RoundUpdateLedgerTransaction {
             payload_hex: None,
-            r#type,
             round_update_transaction: Box::new(round_update_transaction),
         }
     }

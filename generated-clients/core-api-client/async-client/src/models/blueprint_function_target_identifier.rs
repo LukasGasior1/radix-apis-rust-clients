@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BlueprintFunctionTargetIdentifier {
-    #[serde(rename = "type")]
-    pub r#type: models::TargetIdentifierType,
     #[serde(rename = "blueprint_name")]
     pub blueprint_name: String,
     #[serde(rename = "function_name")]
@@ -25,9 +23,8 @@ pub struct BlueprintFunctionTargetIdentifier {
 }
 
 impl BlueprintFunctionTargetIdentifier {
-    pub fn new(r#type: models::TargetIdentifierType, blueprint_name: String, function_name: String, package_address: String) -> BlueprintFunctionTargetIdentifier {
+    pub fn new(blueprint_name: String, function_name: String, package_address: String) -> BlueprintFunctionTargetIdentifier {
         BlueprintFunctionTargetIdentifier {
-            r#type,
             blueprint_name,
             function_name,
             package_address,

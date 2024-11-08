@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_locked** | **bool** |  | 
-**substate_type** | [**models::SubstateType**](SubstateType.md) |  | 
 **key** | [**models::PackageCodeKey**](PackageCodeKey.md) |  | 
 **value** | [**models::PackageCodeVmTypeEntryValue**](PackageCodeVmTypeEntryValue.md) |  | 
 

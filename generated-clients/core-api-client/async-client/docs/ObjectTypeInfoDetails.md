@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::TypeInfoType**](TypeInfoType.md) |  | 
 **blueprint_info** | [**models::BlueprintInfo**](BlueprintInfo.md) |  | 
 **global** | **bool** |  | 
 **module_versions** | [**Vec<models::ModuleVersion>**](ModuleVersion.md) |  | 

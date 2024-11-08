@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EddsaEd25519Signature {
-    #[serde(rename = "key_type")]
-    pub key_type: models::PublicKeyType,
     /// A hex-encoded EdDSA Ed25519 signature (64 bytes). This is `CONCAT(R, s)` where `R` and `s` are each 32-bytes in padded big-endian format.
     #[serde(rename = "signature_hex")]
     pub signature_hex: String,
 }
 
 impl EddsaEd25519Signature {
-    pub fn new(key_type: models::PublicKeyType, signature_hex: String) -> EddsaEd25519Signature {
+    pub fn new(signature_hex: String) -> EddsaEd25519Signature {
         EddsaEd25519Signature {
-            key_type,
             signature_hex,
         }
     }

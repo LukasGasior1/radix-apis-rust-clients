@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ConsensusLedgerProofOrigin {
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerProofOriginType,
     /// A hex-encoded 32-byte vertex VoteData hash on the consensus side, opaque to ledger.
     #[serde(rename = "opaque_hash")]
     pub opaque_hash: String,
@@ -23,9 +21,8 @@ pub struct ConsensusLedgerProofOrigin {
 }
 
 impl ConsensusLedgerProofOrigin {
-    pub fn new(r#type: models::LedgerProofOriginType, opaque_hash: String, timestamped_signatures: Vec<models::TimestampedValidatorSignature>) -> ConsensusLedgerProofOrigin {
+    pub fn new(opaque_hash: String, timestamped_signatures: Vec<models::TimestampedValidatorSignature>) -> ConsensusLedgerProofOrigin {
         ConsensusLedgerProofOrigin {
-            r#type,
             opaque_hash,
             timestamped_signatures,
         }

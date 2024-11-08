@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LtsTransactionSubmitIntentAlreadyCommitted {
-    #[serde(rename = "type")]
-    pub r#type: models::LtsTransactionSubmitErrorDetailsType,
     /// Details of an already-committed transaction that had the same intent. 
     #[serde(rename = "committed_as")]
     pub committed_as: Box<models::CommittedIntentMetadata>,
 }
 
 impl LtsTransactionSubmitIntentAlreadyCommitted {
-    pub fn new(r#type: models::LtsTransactionSubmitErrorDetailsType, committed_as: models::CommittedIntentMetadata) -> LtsTransactionSubmitIntentAlreadyCommitted {
+    pub fn new(committed_as: models::CommittedIntentMetadata) -> LtsTransactionSubmitIntentAlreadyCommitted {
         LtsTransactionSubmitIntentAlreadyCommitted {
-            r#type,
             committed_as: Box::new(committed_as),
         }
     }

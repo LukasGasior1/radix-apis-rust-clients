@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::MetadataValueType**](MetadataValueType.md) |  | 
 **non_fungible_id** | **String** | String-encoded non-fungible ID. | 
 **resource_address** | **String** | Bech32m-encoded human readable version of the address. | 
 

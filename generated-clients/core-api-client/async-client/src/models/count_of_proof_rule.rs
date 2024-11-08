@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CountOfProofRule {
-    #[serde(rename = "type")]
-    pub r#type: models::ProofRuleType,
     #[serde(rename = "count")]
     pub count: i32,
     #[serde(rename = "list")]
@@ -22,9 +20,8 @@ pub struct CountOfProofRule {
 }
 
 impl CountOfProofRule {
-    pub fn new(r#type: models::ProofRuleType, count: i32, list: Vec<models::Requirement>) -> CountOfProofRule {
+    pub fn new(count: i32, list: Vec<models::Requirement>) -> CountOfProofRule {
         CountOfProofRule {
-            r#type,
             count,
             list,
         }

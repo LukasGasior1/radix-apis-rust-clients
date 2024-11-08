@@ -16,17 +16,14 @@ pub struct FieldSubstateKey {
     /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
     #[serde(rename = "db_sort_key_hex")]
     pub db_sort_key_hex: String,
-    #[serde(rename = "key_type")]
-    pub key_type: models::SubstateKeyType,
     #[serde(rename = "id")]
     pub id: u32,
 }
 
 impl FieldSubstateKey {
-    pub fn new(db_sort_key_hex: String, key_type: models::SubstateKeyType, id: u32) -> FieldSubstateKey {
+    pub fn new(db_sort_key_hex: String, id: u32) -> FieldSubstateKey {
         FieldSubstateKey {
             db_sort_key_hex,
-            key_type,
             id,
         }
     }

@@ -15,31 +15,16 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "key_type")]
 pub enum SubstateKey {
     #[serde(rename="Field")]
-    FieldSubstateKey {
-        /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
-        #[serde(rename = "db_sort_key_hex")]
-        db_sort_key_hex: String,
-    },
+    Field(Box<models::FieldSubstateKey>),
     #[serde(rename="Map")]
-    MapSubstateKey {
-        /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
-        #[serde(rename = "db_sort_key_hex")]
-        db_sort_key_hex: String,
-    },
+    Map(Box<models::MapSubstateKey>),
     #[serde(rename="Sorted")]
-    SortedSubstateKey {
-        /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
-        #[serde(rename = "db_sort_key_hex")]
-        db_sort_key_hex: String,
-    },
+    Sorted(Box<models::SortedSubstateKey>),
 }
 
 impl Default for SubstateKey {
     fn default() -> Self {
-        Self::FieldSubstateKey {
-            db_sort_key_hex: Default::default(),
-        }
-        
+        Self::Field(Default::default())
     }
 }
 

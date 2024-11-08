@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_locked** | **bool** |  | 
-**substate_type** | [**models::SubstateType**](SubstateType.md) |  | 
 **key** | [**models::AuthorizedDepositorKey**](AuthorizedDepositorKey.md) |  | 
 **value** | Option<[**models::AccountAuthorizedDepositorEntryValue**](AccountAuthorizedDepositorEntryValue.md)> |  | [optional]
 

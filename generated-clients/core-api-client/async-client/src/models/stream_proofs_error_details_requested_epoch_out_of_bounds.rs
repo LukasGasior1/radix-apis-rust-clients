@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StreamProofsErrorDetailsRequestedEpochOutOfBounds {
-    #[serde(rename = "type")]
-    pub r#type: models::StreamProofsErrorDetailsType,
     /// The maximum completed epoch committed to this node's ledger. *Note on the bounds:* the requested `from_epoch` cannot be greater than `max_ledger_epoch + 1`. Any greater requested value triggers this error. 
     #[serde(rename = "max_ledger_epoch")]
     pub max_ledger_epoch: u64,
 }
 
 impl StreamProofsErrorDetailsRequestedEpochOutOfBounds {
-    pub fn new(r#type: models::StreamProofsErrorDetailsType, max_ledger_epoch: u64) -> StreamProofsErrorDetailsRequestedEpochOutOfBounds {
+    pub fn new(max_ledger_epoch: u64) -> StreamProofsErrorDetailsRequestedEpochOutOfBounds {
         StreamProofsErrorDetailsRequestedEpochOutOfBounds {
-            r#type,
             max_ledger_epoch,
         }
     }

@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataNonFungibleGlobalIdValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     /// String-encoded non-fungible ID.
     #[serde(rename = "non_fungible_id")]
     pub non_fungible_id: String,
@@ -24,9 +22,8 @@ pub struct MetadataNonFungibleGlobalIdValue {
 }
 
 impl MetadataNonFungibleGlobalIdValue {
-    pub fn new(r#type: models::MetadataValueType, non_fungible_id: String, resource_address: String) -> MetadataNonFungibleGlobalIdValue {
+    pub fn new(non_fungible_id: String, resource_address: String) -> MetadataNonFungibleGlobalIdValue {
         MetadataNonFungibleGlobalIdValue {
-            r#type,
             non_fungible_id,
             resource_address,
         }

@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StreamProofsFilterProtocolUpdateExecution {
-    #[serde(rename = "type")]
-    pub r#type: models::StreamProofsFilterType,
     #[serde(rename = "from_state_version", skip_serializing_if = "Option::is_none")]
     pub from_state_version: Option<u64>,
     /// The protocol version name to filter to. 
@@ -23,9 +21,8 @@ pub struct StreamProofsFilterProtocolUpdateExecution {
 }
 
 impl StreamProofsFilterProtocolUpdateExecution {
-    pub fn new(r#type: models::StreamProofsFilterType) -> StreamProofsFilterProtocolUpdateExecution {
+    pub fn new() -> StreamProofsFilterProtocolUpdateExecution {
         StreamProofsFilterProtocolUpdateExecution {
-            r#type,
             from_state_version: None,
             protocol_version: None,
         }

@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct KeyValueStoreTypeInfoDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::TypeInfoType,
     /// The SBOR schema of the KeyValueStore
     #[serde(rename = "key_value_store_info")]
     pub key_value_store_info: Box<models::KeyValueStoreInfo>,
 }
 
 impl KeyValueStoreTypeInfoDetails {
-    pub fn new(r#type: models::TypeInfoType, key_value_store_info: models::KeyValueStoreInfo) -> KeyValueStoreTypeInfoDetails {
+    pub fn new(key_value_store_info: models::KeyValueStoreInfo) -> KeyValueStoreTypeInfoDetails {
         KeyValueStoreTypeInfoDetails {
-            r#type,
             key_value_store_info: Box::new(key_value_store_info),
         }
     }

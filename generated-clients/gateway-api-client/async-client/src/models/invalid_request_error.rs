@@ -13,18 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InvalidRequestError {
-    /// The type of error. Each subtype may have its own additional structured fields.
-    #[serde(rename = "type")]
-    pub r#type: String,
     /// One or more validation errors which occurred when validating the request.
     #[serde(rename = "validation_errors")]
     pub validation_errors: Vec<models::ValidationErrorsAtPath>,
 }
 
 impl InvalidRequestError {
-    pub fn new(r#type: String, validation_errors: Vec<models::ValidationErrorsAtPath>) -> InvalidRequestError {
+    pub fn new(validation_errors: Vec<models::ValidationErrorsAtPath>) -> InvalidRequestError {
         InvalidRequestError {
-            r#type,
             validation_errors,
         }
     }

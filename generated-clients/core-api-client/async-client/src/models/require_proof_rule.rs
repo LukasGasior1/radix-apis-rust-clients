@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequireProofRule {
-    #[serde(rename = "type")]
-    pub r#type: models::ProofRuleType,
     #[serde(rename = "requirement")]
     pub requirement: Box<models::Requirement>,
 }
 
 impl RequireProofRule {
-    pub fn new(r#type: models::ProofRuleType, requirement: models::Requirement) -> RequireProofRule {
+    pub fn new(requirement: models::Requirement) -> RequireProofRule {
         RequireProofRule {
-            r#type,
             requirement: Box::new(requirement),
         }
     }

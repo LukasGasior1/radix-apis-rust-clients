@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::EventEmitterIdentifierType**](EventEmitterIdentifierType.md) |  | 
 **entity** | [**models::EntityReference**](EntityReference.md) |  | 
 **object_module_id** | [**models::ModuleId**](ModuleId.md) |  | 
 

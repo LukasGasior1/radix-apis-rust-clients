@@ -15,18 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum BlueprintTypeReference {
     #[serde(rename="BlueprintSchema")]
-    BlueprintSchemaBlueprintTypeReference {
-    },
+    BlueprintSchema(Box<models::BlueprintSchemaBlueprintTypeReference>),
     #[serde(rename="InstanceSchema")]
-    InstanceSchemaBlueprintTypeReference {
-    },
+    InstanceSchema(Box<models::InstanceSchemaBlueprintTypeReference>),
 }
 
 impl Default for BlueprintTypeReference {
     fn default() -> Self {
-        Self::BlueprintSchemaBlueprintTypeReference {
-        }
-        
+        Self::BlueprintSchema(Default::default())
     }
 }
 

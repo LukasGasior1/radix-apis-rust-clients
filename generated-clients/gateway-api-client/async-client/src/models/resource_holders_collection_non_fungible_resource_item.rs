@@ -18,18 +18,15 @@ pub struct ResourceHoldersCollectionNonFungibleResourceItem {
     pub holder_address: String,
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: i64,
-    #[serde(rename = "type")]
-    pub r#type: models::ResourceHoldersResourceType,
     #[serde(rename = "non_fungible_ids_count")]
     pub non_fungible_ids_count: i64,
 }
 
 impl ResourceHoldersCollectionNonFungibleResourceItem {
-    pub fn new(holder_address: String, last_updated_at_state_version: i64, r#type: models::ResourceHoldersResourceType, non_fungible_ids_count: i64) -> ResourceHoldersCollectionNonFungibleResourceItem {
+    pub fn new(holder_address: String, last_updated_at_state_version: i64, non_fungible_ids_count: i64) -> ResourceHoldersCollectionNonFungibleResourceItem {
         ResourceHoldersCollectionNonFungibleResourceItem {
             holder_address,
             last_updated_at_state_version,
-            r#type,
             non_fungible_ids_count,
         }
     }

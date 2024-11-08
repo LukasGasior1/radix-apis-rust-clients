@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct AccountLockerAccountClaimsEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     /// An account which can claim the contents of associated vaults.
     #[serde(rename = "key")]
     pub key: Box<models::AccountAddressKey>,
@@ -25,10 +23,9 @@ pub struct AccountLockerAccountClaimsEntrySubstate {
 }
 
 impl AccountLockerAccountClaimsEntrySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, key: models::AccountAddressKey, value: models::AccountLockerAccountClaimsEntryValue) -> AccountLockerAccountClaimsEntrySubstate {
+    pub fn new(is_locked: bool, key: models::AccountAddressKey, value: models::AccountLockerAccountClaimsEntryValue) -> AccountLockerAccountClaimsEntrySubstate {
         AccountLockerAccountClaimsEntrySubstate {
             is_locked,
-            substate_type,
             key: Box::new(key),
             value: Box::new(value),
         }

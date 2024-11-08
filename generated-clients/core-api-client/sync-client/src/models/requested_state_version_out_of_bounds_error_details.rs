@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestedStateVersionOutOfBoundsErrorDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::StreamTransactionsErrorDetailsType,
     #[serde(rename = "max_ledger_state_version")]
     pub max_ledger_state_version: u64,
 }
 
 impl RequestedStateVersionOutOfBoundsErrorDetails {
-    pub fn new(r#type: models::StreamTransactionsErrorDetailsType, max_ledger_state_version: u64) -> RequestedStateVersionOutOfBoundsErrorDetails {
+    pub fn new(max_ledger_state_version: u64) -> RequestedStateVersionOutOfBoundsErrorDetails {
         RequestedStateVersionOutOfBoundsErrorDetails {
-            r#type,
             max_ledger_state_version,
         }
     }

@@ -13,25 +13,22 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlashLedgerTransaction {
-    /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
-    #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
-    pub payload_hex: Option<String>,
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerTransactionType,
     #[serde(rename = "flashed_state_updates")]
     pub flashed_state_updates: Box<models::FlashedStateUpdates>,
     /// Human-readable identifier of the flash transaction.
     #[serde(rename = "name")]
     pub name: String,
+    /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
+    #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
+    pub payload_hex: Option<String>,
 }
 
 impl FlashLedgerTransaction {
-    pub fn new(r#type: models::LedgerTransactionType, flashed_state_updates: models::FlashedStateUpdates, name: String) -> FlashLedgerTransaction {
+    pub fn new(flashed_state_updates: models::FlashedStateUpdates, name: String) -> FlashLedgerTransaction {
         FlashLedgerTransaction {
-            payload_hex: None,
-            r#type,
             flashed_state_updates: Box::new(flashed_state_updates),
             name,
+            payload_hex: None,
         }
     }
 }

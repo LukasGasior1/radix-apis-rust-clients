@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NativeResourceTwoResourcePoolUnitValue {
-    #[serde(rename = "kind")]
-    pub kind: models::NativeResourceKind,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "pool_address")]
     pub pool_address: String,
@@ -25,9 +23,8 @@ pub struct NativeResourceTwoResourcePoolUnitValue {
 }
 
 impl NativeResourceTwoResourcePoolUnitValue {
-    pub fn new(kind: models::NativeResourceKind, pool_address: String, redemption_resource_count: i32, unit_redemption_value: Vec<models::NativeResourceRedemptionValueItem>) -> NativeResourceTwoResourcePoolUnitValue {
+    pub fn new(pool_address: String, redemption_resource_count: i32, unit_redemption_value: Vec<models::NativeResourceRedemptionValueItem>) -> NativeResourceTwoResourcePoolUnitValue {
         NativeResourceTwoResourcePoolUnitValue {
-            kind,
             pool_address,
             redemption_resource_count,
             unit_redemption_value,

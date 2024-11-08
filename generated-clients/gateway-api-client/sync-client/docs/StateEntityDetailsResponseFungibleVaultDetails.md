@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::StateEntityDetailsResponseItemDetailsType**](StateEntityDetailsResponseItemDetailsType.md) |  | 
 **balance** | [**models::FungibleResourcesCollectionItemVaultAggregatedVaultItem**](FungibleResourcesCollectionItemVaultAggregatedVaultItem.md) |  | 
 **resource_address** | **String** | Bech32m-encoded human readable version of the address. | 
 

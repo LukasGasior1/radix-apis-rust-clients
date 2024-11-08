@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NativeResourceValidatorLiquidStakeUnitValue {
-    #[serde(rename = "kind")]
-    pub kind: models::NativeResourceKind,
     #[serde(rename = "redemption_resource_count")]
     pub redemption_resource_count: i32,
     #[serde(rename = "unit_redemption_value")]
@@ -25,9 +23,8 @@ pub struct NativeResourceValidatorLiquidStakeUnitValue {
 }
 
 impl NativeResourceValidatorLiquidStakeUnitValue {
-    pub fn new(kind: models::NativeResourceKind, redemption_resource_count: i32, unit_redemption_value: Vec<models::NativeResourceRedemptionValueItem>, validator_address: String) -> NativeResourceValidatorLiquidStakeUnitValue {
+    pub fn new(redemption_resource_count: i32, unit_redemption_value: Vec<models::NativeResourceRedemptionValueItem>, validator_address: String) -> NativeResourceValidatorLiquidStakeUnitValue {
         NativeResourceValidatorLiquidStakeUnitValue {
-            kind,
             redemption_resource_count,
             unit_redemption_value,
             validator_address,

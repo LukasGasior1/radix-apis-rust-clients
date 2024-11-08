@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::LedgerProofOriginType**](LedgerProofOriginType.md) |  | 
 **batch_idx** | **i64** |  | 
 **protocol_version_name** | **String** |  | 
 

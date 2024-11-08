@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SystemFieldStructure {
-    #[serde(rename = "type")]
-    pub r#type: models::SubstateSystemStructureType,
     #[serde(rename = "field_kind")]
     pub field_kind: models::SystemFieldKind,
 }
 
 impl SystemFieldStructure {
-    pub fn new(r#type: models::SubstateSystemStructureType, field_kind: models::SystemFieldKind) -> SystemFieldStructure {
+    pub fn new(field_kind: models::SystemFieldKind) -> SystemFieldStructure {
         SystemFieldStructure {
-            r#type,
             field_kind,
         }
     }

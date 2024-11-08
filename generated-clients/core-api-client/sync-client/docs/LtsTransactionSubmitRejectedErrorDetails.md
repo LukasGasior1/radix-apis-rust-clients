@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::LtsTransactionSubmitErrorDetailsType**](LtsTransactionSubmitErrorDetailsType.md) |  | 
 **error_message** | **String** | An explanation of the error | 
 **invalid_from_epoch** | Option<**u64**> | An integer between `0` and `10^10`, marking the epoch from which the transaction will no longer be valid, and be permanently rejected. Only present if the rejection isn't permanent.  | [optional]
 **is_fresh** | **bool** | Whether (true) this rejected status has just been calculated fresh, or (false) the status is from the pending transaction result cache.  | 

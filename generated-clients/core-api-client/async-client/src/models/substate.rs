@@ -14,274 +14,115 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "substate_type")]
 pub enum Substate {
-    #[serde(rename="AccessControllerFieldState")]
-    AccessControllerFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="AccountAuthorizedDepositorEntry")]
-    AccountAuthorizedDepositorEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="AccountFieldState")]
-    AccountFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="AccountLockerAccountClaimsEntry")]
-    AccountLockerAccountClaimsEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="AccountResourcePreferenceEntry")]
-    AccountResourcePreferenceEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="AccountVaultEntry")]
-    AccountVaultEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="BootLoaderModuleFieldKernelBoot")]
-    BootLoaderModuleFieldKernelBootSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
     #[serde(rename="BootLoaderModuleFieldSystemBoot")]
-    BootLoaderModuleFieldSystemBootSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
+    BootLoaderModuleFieldSystemBoot(Box<models::BootLoaderModuleFieldSystemBootSubstate>),
     #[serde(rename="BootLoaderModuleFieldVmBoot")]
-    BootLoaderModuleFieldVmBootSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldConfig")]
-    ConsensusManagerFieldConfigSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldCurrentProposalStatistic")]
-    ConsensusManagerFieldCurrentProposalStatisticSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldCurrentTime")]
-    ConsensusManagerFieldCurrentTimeSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldCurrentTimeRoundedToMinutes")]
-    ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldCurrentValidatorSet")]
-    ConsensusManagerFieldCurrentValidatorSetSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldState")]
-    ConsensusManagerFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerFieldValidatorRewards")]
-    ConsensusManagerFieldValidatorRewardsSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ConsensusManagerRegisteredValidatorsByStakeIndexEntry")]
-    ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="FungibleResourceManagerFieldDivisibility")]
-    FungibleResourceManagerFieldDivisibilitySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="FungibleResourceManagerFieldTotalSupply")]
-    FungibleResourceManagerFieldTotalSupplySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="FungibleVaultFieldBalance")]
-    FungibleVaultFieldBalanceSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="FungibleVaultFieldFrozenStatus")]
-    FungibleVaultFieldFrozenStatusSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="GenericKeyValueStoreEntry")]
-    GenericKeyValueStoreEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="GenericScryptoComponentFieldState")]
-    GenericScryptoComponentFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="MetadataModuleEntry")]
-    MetadataModuleEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="MultiResourcePoolFieldState")]
-    MultiResourcePoolFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleResourceManagerDataEntry")]
-    NonFungibleResourceManagerDataEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleResourceManagerFieldIdType")]
-    NonFungibleResourceManagerFieldIdTypeSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleResourceManagerFieldMutableFields")]
-    NonFungibleResourceManagerFieldMutableFieldsSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleResourceManagerFieldTotalSupply")]
-    NonFungibleResourceManagerFieldTotalSupplySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleVaultContentsIndexEntry")]
-    NonFungibleVaultContentsIndexEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleVaultFieldBalance")]
-    NonFungibleVaultFieldBalanceSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="NonFungibleVaultFieldFrozenStatus")]
-    NonFungibleVaultFieldFrozenStatusSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="OneResourcePoolFieldState")]
-    OneResourcePoolFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageBlueprintAuthTemplateEntry")]
-    PackageBlueprintAuthTemplateEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageBlueprintDefinitionEntry")]
-    PackageBlueprintDefinitionEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageBlueprintDependenciesEntry")]
-    PackageBlueprintDependenciesEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageBlueprintRoyaltyEntry")]
-    PackageBlueprintRoyaltyEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageCodeInstrumentedCodeEntry")]
-    PackageCodeInstrumentedCodeEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageCodeOriginalCodeEntry")]
-    PackageCodeOriginalCodeEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageCodeVmTypeEntry")]
-    PackageCodeVmTypeEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="PackageFieldRoyaltyAccumulator")]
-    PackageFieldRoyaltyAccumulatorSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="RoleAssignmentModuleFieldOwnerRole")]
-    RoleAssignmentModuleFieldOwnerRoleSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="RoleAssignmentModuleRuleEntry")]
-    RoleAssignmentModuleRuleEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="RoyaltyModuleFieldState")]
-    RoyaltyModuleFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="RoyaltyModuleMethodRoyaltyEntry")]
-    RoyaltyModuleMethodRoyaltyEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="SchemaEntry")]
-    SchemaEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="TransactionTrackerCollectionEntry")]
-    TransactionTrackerCollectionEntrySubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="TransactionTrackerFieldState")]
-    TransactionTrackerFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="TwoResourcePoolFieldState")]
-    TwoResourcePoolFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
+    BootLoaderModuleFieldVmBoot(Box<models::BootLoaderModuleFieldVmBootSubstate>),
+    #[serde(rename="BootLoaderModuleFieldKernelBoot")]
+    BootLoaderModuleFieldKernelBoot(Box<models::BootLoaderModuleFieldKernelBootSubstate>),
     #[serde(rename="TypeInfoModuleFieldTypeInfo")]
-    TypeInfoModuleFieldTypeInfoSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
-    #[serde(rename="ValidatorFieldProtocolUpdateReadinessSignal")]
-    ValidatorFieldProtocolUpdateReadinessSignalSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
+    TypeInfoModuleFieldTypeInfo(Box<models::TypeInfoModuleFieldTypeInfoSubstate>),
+    #[serde(rename="RoleAssignmentModuleFieldOwnerRole")]
+    RoleAssignmentModuleFieldOwnerRole(Box<models::RoleAssignmentModuleFieldOwnerRoleSubstate>),
+    #[serde(rename="RoleAssignmentModuleRuleEntry")]
+    RoleAssignmentModuleRuleEntry(Box<models::RoleAssignmentModuleRuleEntrySubstate>),
+    #[serde(rename="RoyaltyModuleFieldState")]
+    RoyaltyModuleFieldState(Box<models::RoyaltyModuleFieldStateSubstate>),
+    #[serde(rename="RoyaltyModuleMethodRoyaltyEntry")]
+    RoyaltyModuleMethodRoyaltyEntry(Box<models::RoyaltyModuleMethodRoyaltyEntrySubstate>),
+    #[serde(rename="MetadataModuleEntry")]
+    MetadataModuleEntry(Box<models::MetadataModuleEntrySubstate>),
+    #[serde(rename="PackageFieldRoyaltyAccumulator")]
+    PackageFieldRoyaltyAccumulator(Box<models::PackageFieldRoyaltyAccumulatorSubstate>),
+    #[serde(rename="PackageCodeVmTypeEntry")]
+    PackageCodeVmTypeEntry(Box<models::PackageCodeVmTypeEntrySubstate>),
+    #[serde(rename="PackageCodeOriginalCodeEntry")]
+    PackageCodeOriginalCodeEntry(Box<models::PackageCodeOriginalCodeEntrySubstate>),
+    #[serde(rename="PackageCodeInstrumentedCodeEntry")]
+    PackageCodeInstrumentedCodeEntry(Box<models::PackageCodeInstrumentedCodeEntrySubstate>),
+    #[serde(rename="SchemaEntry")]
+    SchemaEntry(Box<models::SchemaEntrySubstate>),
+    #[serde(rename="PackageBlueprintDefinitionEntry")]
+    PackageBlueprintDefinitionEntry(Box<models::PackageBlueprintDefinitionEntrySubstate>),
+    #[serde(rename="PackageBlueprintDependenciesEntry")]
+    PackageBlueprintDependenciesEntry(Box<models::PackageBlueprintDependenciesEntrySubstate>),
+    #[serde(rename="PackageBlueprintRoyaltyEntry")]
+    PackageBlueprintRoyaltyEntry(Box<models::PackageBlueprintRoyaltyEntrySubstate>),
+    #[serde(rename="PackageBlueprintAuthTemplateEntry")]
+    PackageBlueprintAuthTemplateEntry(Box<models::PackageBlueprintAuthTemplateEntrySubstate>),
+    #[serde(rename="FungibleResourceManagerFieldDivisibility")]
+    FungibleResourceManagerFieldDivisibility(Box<models::FungibleResourceManagerFieldDivisibilitySubstate>),
+    #[serde(rename="FungibleResourceManagerFieldTotalSupply")]
+    FungibleResourceManagerFieldTotalSupply(Box<models::FungibleResourceManagerFieldTotalSupplySubstate>),
+    #[serde(rename="NonFungibleResourceManagerFieldIdType")]
+    NonFungibleResourceManagerFieldIdType(Box<models::NonFungibleResourceManagerFieldIdTypeSubstate>),
+    #[serde(rename="NonFungibleResourceManagerFieldTotalSupply")]
+    NonFungibleResourceManagerFieldTotalSupply(Box<models::NonFungibleResourceManagerFieldTotalSupplySubstate>),
+    #[serde(rename="NonFungibleResourceManagerFieldMutableFields")]
+    NonFungibleResourceManagerFieldMutableFields(Box<models::NonFungibleResourceManagerFieldMutableFieldsSubstate>),
+    #[serde(rename="NonFungibleResourceManagerDataEntry")]
+    NonFungibleResourceManagerDataEntry(Box<models::NonFungibleResourceManagerDataEntrySubstate>),
+    #[serde(rename="FungibleVaultFieldBalance")]
+    FungibleVaultFieldBalance(Box<models::FungibleVaultFieldBalanceSubstate>),
+    #[serde(rename="FungibleVaultFieldFrozenStatus")]
+    FungibleVaultFieldFrozenStatus(Box<models::FungibleVaultFieldFrozenStatusSubstate>),
+    #[serde(rename="NonFungibleVaultFieldBalance")]
+    NonFungibleVaultFieldBalance(Box<models::NonFungibleVaultFieldBalanceSubstate>),
+    #[serde(rename="NonFungibleVaultFieldFrozenStatus")]
+    NonFungibleVaultFieldFrozenStatus(Box<models::NonFungibleVaultFieldFrozenStatusSubstate>),
+    #[serde(rename="NonFungibleVaultContentsIndexEntry")]
+    NonFungibleVaultContentsIndexEntry(Box<models::NonFungibleVaultContentsIndexEntrySubstate>),
+    #[serde(rename="ConsensusManagerFieldConfig")]
+    ConsensusManagerFieldConfig(Box<models::ConsensusManagerFieldConfigSubstate>),
+    #[serde(rename="ConsensusManagerFieldState")]
+    ConsensusManagerFieldState(Box<models::ConsensusManagerFieldStateSubstate>),
+    #[serde(rename="ConsensusManagerFieldCurrentValidatorSet")]
+    ConsensusManagerFieldCurrentValidatorSet(Box<models::ConsensusManagerFieldCurrentValidatorSetSubstate>),
+    #[serde(rename="ConsensusManagerFieldCurrentProposalStatistic")]
+    ConsensusManagerFieldCurrentProposalStatistic(Box<models::ConsensusManagerFieldCurrentProposalStatisticSubstate>),
+    #[serde(rename="ConsensusManagerFieldCurrentTimeRoundedToMinutes")]
+    ConsensusManagerFieldCurrentTimeRoundedToMinutes(Box<models::ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate>),
+    #[serde(rename="ConsensusManagerFieldCurrentTime")]
+    ConsensusManagerFieldCurrentTime(Box<models::ConsensusManagerFieldCurrentTimeSubstate>),
+    #[serde(rename="ConsensusManagerFieldValidatorRewards")]
+    ConsensusManagerFieldValidatorRewards(Box<models::ConsensusManagerFieldValidatorRewardsSubstate>),
+    #[serde(rename="ConsensusManagerRegisteredValidatorsByStakeIndexEntry")]
+    ConsensusManagerRegisteredValidatorsByStakeIndexEntry(Box<models::ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate>),
     #[serde(rename="ValidatorFieldState")]
-    ValidatorFieldStateSubstate {
-        #[serde(rename = "is_locked")]
-        is_locked: bool,
-    },
+    ValidatorFieldState(Box<models::ValidatorFieldStateSubstate>),
+    #[serde(rename="ValidatorFieldProtocolUpdateReadinessSignal")]
+    ValidatorFieldProtocolUpdateReadinessSignal(Box<models::ValidatorFieldProtocolUpdateReadinessSignalSubstate>),
+    #[serde(rename="AccountFieldState")]
+    AccountFieldState(Box<models::AccountFieldStateSubstate>),
+    #[serde(rename="AccountVaultEntry")]
+    AccountVaultEntry(Box<models::AccountVaultEntrySubstate>),
+    #[serde(rename="AccountResourcePreferenceEntry")]
+    AccountResourcePreferenceEntry(Box<models::AccountResourcePreferenceEntrySubstate>),
+    #[serde(rename="AccountAuthorizedDepositorEntry")]
+    AccountAuthorizedDepositorEntry(Box<models::AccountAuthorizedDepositorEntrySubstate>),
+    #[serde(rename="AccountLockerAccountClaimsEntry")]
+    AccountLockerAccountClaimsEntry(Box<models::AccountLockerAccountClaimsEntrySubstate>),
+    #[serde(rename="AccessControllerFieldState")]
+    AccessControllerFieldState(Box<models::AccessControllerFieldStateSubstate>),
+    #[serde(rename="GenericScryptoComponentFieldState")]
+    GenericScryptoComponentFieldState(Box<models::GenericScryptoComponentFieldStateSubstate>),
+    #[serde(rename="GenericKeyValueStoreEntry")]
+    GenericKeyValueStoreEntry(Box<models::GenericKeyValueStoreEntrySubstate>),
+    #[serde(rename="OneResourcePoolFieldState")]
+    OneResourcePoolFieldState(Box<models::OneResourcePoolFieldStateSubstate>),
+    #[serde(rename="TwoResourcePoolFieldState")]
+    TwoResourcePoolFieldState(Box<models::TwoResourcePoolFieldStateSubstate>),
+    #[serde(rename="MultiResourcePoolFieldState")]
+    MultiResourcePoolFieldState(Box<models::MultiResourcePoolFieldStateSubstate>),
+    #[serde(rename="TransactionTrackerFieldState")]
+    TransactionTrackerFieldState(Box<models::TransactionTrackerFieldStateSubstate>),
+    #[serde(rename="TransactionTrackerCollectionEntry")]
+    TransactionTrackerCollectionEntry(Box<models::TransactionTrackerCollectionEntrySubstate>),
 }
 
 impl Default for Substate {
     fn default() -> Self {
-        Self::AccessControllerFieldStateSubstate {
-            is_locked: Default::default(),
-        }
-        
+        Self::BootLoaderModuleFieldSystemBoot(Default::default())
     }
 }
 

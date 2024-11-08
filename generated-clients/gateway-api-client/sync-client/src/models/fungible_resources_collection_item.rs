@@ -15,30 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "aggregation_level")]
 pub enum FungibleResourcesCollectionItem {
     #[serde(rename="Global")]
-    FungibleResourcesCollectionItemGloballyAggregated {
-        #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
-        explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-    },
+    Global(Box<models::FungibleResourcesCollectionItemGloballyAggregated>),
     #[serde(rename="Vault")]
-    FungibleResourcesCollectionItemVaultAggregated {
-        #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
-        explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-    },
+    Vault(Box<models::FungibleResourcesCollectionItemVaultAggregated>),
 }
 
 impl Default for FungibleResourcesCollectionItem {
     fn default() -> Self {
-        Self::FungibleResourcesCollectionItemGloballyAggregated {
-            explicit_metadata: Default::default(),
-            resource_address: Default::default(),
-        }
-        
+        Self::Global(Default::default())
     }
 }
 

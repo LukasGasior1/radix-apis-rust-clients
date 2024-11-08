@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataNonFungibleLocalIdValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "value")]
     pub value: String,
 }
 
 impl MetadataNonFungibleLocalIdValue {
-    pub fn new(r#type: models::MetadataValueType, value: String) -> MetadataNonFungibleLocalIdValue {
+    pub fn new(value: String) -> MetadataNonFungibleLocalIdValue {
         MetadataNonFungibleLocalIdValue {
-            r#type,
             value,
         }
     }

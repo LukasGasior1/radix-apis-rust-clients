@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::TargetIdentifierType**](TargetIdentifierType.md) |  | 
 **blueprint_name** | **String** |  | 
 **function_name** | **String** |  | 
 **package_address** | **String** | The Bech32m-encoded human readable version of the package address | 

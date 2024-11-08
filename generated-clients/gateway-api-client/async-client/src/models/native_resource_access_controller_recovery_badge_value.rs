@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NativeResourceAccessControllerRecoveryBadgeValue {
-    #[serde(rename = "kind")]
-    pub kind: models::NativeResourceKind,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "access_controller_address")]
     pub access_controller_address: String,
 }
 
 impl NativeResourceAccessControllerRecoveryBadgeValue {
-    pub fn new(kind: models::NativeResourceKind, access_controller_address: String) -> NativeResourceAccessControllerRecoveryBadgeValue {
+    pub fn new(access_controller_address: String) -> NativeResourceAccessControllerRecoveryBadgeValue {
         NativeResourceAccessControllerRecoveryBadgeValue {
-            kind,
             access_controller_address,
         }
     }

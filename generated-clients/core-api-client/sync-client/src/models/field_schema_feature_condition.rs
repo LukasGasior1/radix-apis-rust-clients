@@ -15,21 +15,16 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum FieldSchemaFeatureCondition {
     #[serde(rename="Always")]
-    FieldSchemaFeatureConditionAlways {
-    },
-    #[serde(rename="IfOuterObjectFeature")]
-    FieldSchemaFeatureConditionIfOuterObjectFeature {
-    },
+    Always(serde_json::Value),
     #[serde(rename="IfOwnFeature")]
-    FieldSchemaFeatureConditionIfOwnFeature {
-    },
+    IfOwnFeature(Box<models::FieldSchemaFeatureConditionIfOwnFeature>),
+    #[serde(rename="IfOuterObjectFeature")]
+    IfOuterObjectFeature(Box<models::FieldSchemaFeatureConditionIfOuterObjectFeature>),
 }
 
 impl Default for FieldSchemaFeatureCondition {
     fn default() -> Self {
-        Self::FieldSchemaFeatureConditionAlways {
-        }
-        
+        Self::Always(Default::default())
     }
 }
 

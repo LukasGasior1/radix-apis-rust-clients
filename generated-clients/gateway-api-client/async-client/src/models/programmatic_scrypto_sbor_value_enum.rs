@@ -16,13 +16,11 @@ pub struct ProgrammaticScryptoSborValueEnum {
     /// The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
     #[serde(rename = "field_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub field_name: Option<Option<String>>,
-    #[serde(rename = "kind")]
-    pub kind: models::ProgrammaticScryptoSborValueKind,
+    #[serde(rename = "fields")]
+    pub fields: Vec<models::ProgrammaticScryptoSborValue>,
     /// The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
     #[serde(rename = "type_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub type_name: Option<Option<String>>,
-    #[serde(rename = "fields")]
-    pub fields: Vec<models::ProgrammaticScryptoSborValue>,
     #[serde(rename = "variant_id")]
     pub variant_id: String,
     #[serde(rename = "variant_name", skip_serializing_if = "Option::is_none")]
@@ -30,12 +28,11 @@ pub struct ProgrammaticScryptoSborValueEnum {
 }
 
 impl ProgrammaticScryptoSborValueEnum {
-    pub fn new(kind: models::ProgrammaticScryptoSborValueKind, fields: Vec<models::ProgrammaticScryptoSborValue>, variant_id: String) -> ProgrammaticScryptoSborValueEnum {
+    pub fn new(fields: Vec<models::ProgrammaticScryptoSborValue>, variant_id: String) -> ProgrammaticScryptoSborValueEnum {
         ProgrammaticScryptoSborValueEnum {
             field_name: None,
-            kind,
-            type_name: None,
             fields,
+            type_name: None,
             variant_id,
             variant_name: None,
         }

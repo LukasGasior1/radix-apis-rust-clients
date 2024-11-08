@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionSubmitPriorityThresholdNotMetErrorDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::TransactionSubmitErrorDetailsType,
     /// A lower bound for tip percentage at current mempool state. Anything lower than this will very likely result in a mempool rejection. A missing value means there is no tip that can guarantee submission. 
     #[serde(rename = "min_tip_percentage_required", skip_serializing_if = "Option::is_none")]
     pub min_tip_percentage_required: Option<u32>,
@@ -24,9 +22,8 @@ pub struct TransactionSubmitPriorityThresholdNotMetErrorDetails {
 }
 
 impl TransactionSubmitPriorityThresholdNotMetErrorDetails {
-    pub fn new(r#type: models::TransactionSubmitErrorDetailsType, tip_percentage: u32) -> TransactionSubmitPriorityThresholdNotMetErrorDetails {
+    pub fn new(tip_percentage: u32) -> TransactionSubmitPriorityThresholdNotMetErrorDetails {
         TransactionSubmitPriorityThresholdNotMetErrorDetails {
-            r#type,
             min_tip_percentage_required: None,
             tip_percentage,
         }

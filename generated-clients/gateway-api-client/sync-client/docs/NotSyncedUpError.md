@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | **String** | The type of error. Each subtype may have its own additional structured fields. | 
 **current_sync_delay_seconds** | **i64** | The current delay between the Gateway DB and the network ledger round timestamp. | 
 **max_allowed_sync_delay_seconds** | **i64** | The maximum allowed delay between the Gateway DB and the network ledger round timestamp for this `request_type`. | 
 **request_type** | **String** | The request type that triggered this exception. | 

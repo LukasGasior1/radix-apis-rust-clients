@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProtocolUpdateLedgerProofOrigin {
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerProofOriginType,
     #[serde(rename = "batch_idx")]
     pub batch_idx: i64,
     #[serde(rename = "protocol_version_name")]
@@ -22,9 +20,8 @@ pub struct ProtocolUpdateLedgerProofOrigin {
 }
 
 impl ProtocolUpdateLedgerProofOrigin {
-    pub fn new(r#type: models::LedgerProofOriginType, batch_idx: i64, protocol_version_name: String) -> ProtocolUpdateLedgerProofOrigin {
+    pub fn new(batch_idx: i64, protocol_version_name: String) -> ProtocolUpdateLedgerProofOrigin {
         ProtocolUpdateLedgerProofOrigin {
-            r#type,
             batch_idx,
             protocol_version_name,
         }

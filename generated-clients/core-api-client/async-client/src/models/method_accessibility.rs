@@ -14,25 +14,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum MethodAccessibility {
-    #[serde(rename="OuterObjectOnly")]
-    OuterObjectOnlyMethodAccessibility {
-    },
-    #[serde(rename="OwnPackageOnly")]
-    OwnPackageOnlyMethodAccessibility {
-    },
     #[serde(rename="Public")]
-    PublicMethodAccessibility {
-    },
+    Public(serde_json::Value),
+    #[serde(rename="OuterObjectOnly")]
+    OuterObjectOnly(serde_json::Value),
     #[serde(rename="RoleProtected")]
-    RoleProtectedMethodAccessibility {
-    },
+    RoleProtected(Box<models::RoleProtectedMethodAccessibility>),
+    #[serde(rename="OwnPackageOnly")]
+    OwnPackageOnly(serde_json::Value),
 }
 
 impl Default for MethodAccessibility {
     fn default() -> Self {
-        Self::OuterObjectOnlyMethodAccessibility {
-        }
-        
+        Self::Public(Default::default())
     }
 }
 

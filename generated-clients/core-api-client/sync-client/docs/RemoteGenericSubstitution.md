@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::GenericSubstitutionType**](GenericSubstitutionType.md) |  | 
 **blueprint_type_identifier** | [**models::BlueprintTypeIdentifier**](BlueprintTypeIdentifier.md) |  | 
 **resolved_full_type_id** | Option<[**models::FullyScopedTypeId**](FullyScopedTypeId.md)> |  | [optional]
 

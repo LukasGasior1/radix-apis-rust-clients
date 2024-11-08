@@ -15,18 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "resource_type")]
 pub enum StateResourceManager {
     #[serde(rename="Fungible")]
-    StateFungibleResourceManager {
-    },
+    Fungible(Box<models::StateFungibleResourceManager>),
     #[serde(rename="NonFungible")]
-    StateNonFungibleResourceManager {
-    },
+    NonFungible(Box<models::StateNonFungibleResourceManager>),
 }
 
 impl Default for StateResourceManager {
     fn default() -> Self {
-        Self::StateFungibleResourceManager {
-        }
-        
+        Self::Fungible(Default::default())
     }
 }
 

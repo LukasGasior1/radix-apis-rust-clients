@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenericBlueprintPayloadDef {
-    #[serde(rename = "type")]
-    pub r#type: models::BlueprintPayloadDefType,
     /// An index within the list of generic type substitutions.
     #[serde(rename = "generic_index")]
     pub generic_index: u32,
 }
 
 impl GenericBlueprintPayloadDef {
-    pub fn new(r#type: models::BlueprintPayloadDefType, generic_index: u32) -> GenericBlueprintPayloadDef {
+    pub fn new(generic_index: u32) -> GenericBlueprintPayloadDef {
         GenericBlueprintPayloadDef {
-            r#type,
             generic_index,
         }
     }

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::TargetIdentifierType**](TargetIdentifierType.md) |  | 
 **component_address** | **String** | The Bech32m-encoded human readable version of the component address | 
 **method_name** | **String** |  | 
 

@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FieldSchemaFeatureConditionIfOuterObjectFeature {
-    #[serde(rename = "type")]
-    pub r#type: models::FieldSchemaFeatureConditionType,
     #[serde(rename = "feature_name")]
     pub feature_name: String,
 }
 
 impl FieldSchemaFeatureConditionIfOuterObjectFeature {
-    pub fn new(r#type: models::FieldSchemaFeatureConditionType, feature_name: String) -> FieldSchemaFeatureConditionIfOuterObjectFeature {
+    pub fn new(feature_name: String) -> FieldSchemaFeatureConditionIfOuterObjectFeature {
         FieldSchemaFeatureConditionIfOuterObjectFeature {
-            r#type,
             feature_name,
         }
     }

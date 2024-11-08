@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **i32** | A numeric code corresponding to the given HTTP error code. | 
-**error_type** | [**models::ErrorResponseType**](ErrorResponseType.md) |  | 
 **message** | **String** | A human-readable error message. | 
 **trace_id** | Option<**String**> | A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden. | [optional]
 

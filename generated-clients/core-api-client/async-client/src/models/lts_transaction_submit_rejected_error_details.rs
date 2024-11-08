@@ -11,10 +11,9 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// LtsTransactionSubmitRejectedErrorDetails : Indicates that the transaction was executed and resulted in a rejection, therefore the transaction is not being added into the mempool. 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LtsTransactionSubmitRejectedErrorDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::LtsTransactionSubmitErrorDetailsType,
     /// An explanation of the error
     #[serde(rename = "error_message")]
     pub error_message: String,
@@ -39,9 +38,9 @@ pub struct LtsTransactionSubmitRejectedErrorDetails {
 }
 
 impl LtsTransactionSubmitRejectedErrorDetails {
-    pub fn new(r#type: models::LtsTransactionSubmitErrorDetailsType, error_message: String, is_fresh: bool, is_intent_rejection_permanent: bool, is_payload_rejection_permanent: bool) -> LtsTransactionSubmitRejectedErrorDetails {
+    /// Indicates that the transaction was executed and resulted in a rejection, therefore the transaction is not being added into the mempool. 
+    pub fn new(error_message: String, is_fresh: bool, is_intent_rejection_permanent: bool, is_payload_rejection_permanent: bool) -> LtsTransactionSubmitRejectedErrorDetails {
         LtsTransactionSubmitRejectedErrorDetails {
-            r#type,
             error_message,
             invalid_from_epoch: None,
             is_fresh,

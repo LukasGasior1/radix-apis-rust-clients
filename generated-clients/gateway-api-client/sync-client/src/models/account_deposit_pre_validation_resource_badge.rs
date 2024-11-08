@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccountDepositPreValidationResourceBadge {
-    #[serde(rename = "badge_type")]
-    pub badge_type: models::AccountAuthorizedDepositorBadgeType,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "resource_address")]
     pub resource_address: String,
 }
 
 impl AccountDepositPreValidationResourceBadge {
-    pub fn new(badge_type: models::AccountAuthorizedDepositorBadgeType, resource_address: String) -> AccountDepositPreValidationResourceBadge {
+    pub fn new(resource_address: String) -> AccountDepositPreValidationResourceBadge {
         AccountDepositPreValidationResourceBadge {
-            badge_type,
             resource_address,
         }
     }

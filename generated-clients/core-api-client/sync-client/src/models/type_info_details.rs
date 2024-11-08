@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum TypeInfoDetails {
-    #[serde(rename="KeyValueStore")]
-    KeyValueStoreTypeInfoDetails {
-    },
     #[serde(rename="Object")]
-    ObjectTypeInfoDetails {
-    },
+    Object(Box<models::ObjectTypeInfoDetails>),
+    #[serde(rename="KeyValueStore")]
+    KeyValueStore(Box<models::KeyValueStoreTypeInfoDetails>),
 }
 
 impl Default for TypeInfoDetails {
     fn default() -> Self {
-        Self::KeyValueStoreTypeInfoDetails {
-        }
-        
+        Self::Object(Default::default())
     }
 }
 

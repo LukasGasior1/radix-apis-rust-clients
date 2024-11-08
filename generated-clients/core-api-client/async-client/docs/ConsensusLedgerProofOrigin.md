@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::LedgerProofOriginType**](LedgerProofOriginType.md) |  | 
 **opaque_hash** | **String** | A hex-encoded 32-byte vertex VoteData hash on the consensus side, opaque to ledger. | 
 **timestamped_signatures** | [**Vec<models::TimestampedValidatorSignature>**](TimestampedValidatorSignature.md) |  | 
 

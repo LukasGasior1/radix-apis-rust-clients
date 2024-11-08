@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | [**models::NativeResourceKind**](NativeResourceKind.md) |  | 
 **redemption_resource_count** | **i32** |  | 
 **unit_redemption_value** | [**Vec<models::NativeResourceRedemptionValueItem>**](NativeResourceRedemptionValueItem.md) |  | 
 **validator_address** | **String** | Bech32m-encoded human readable version of the address. | 

@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EcdsaSecp256k1Signature {
-    #[serde(rename = "key_type")]
-    pub key_type: models::PublicKeyType,
     /// A hex-encoded recoverable ECDSA Secp256k1 signature (65 bytes). The first byte is the recovery id, the remaining 64 bytes are the compact signature, ie `CONCAT(R, s)` where `R` and `s` are each 32-bytes in padded big-endian format.
     #[serde(rename = "signature_hex")]
     pub signature_hex: String,
 }
 
 impl EcdsaSecp256k1Signature {
-    pub fn new(key_type: models::PublicKeyType, signature_hex: String) -> EcdsaSecp256k1Signature {
+    pub fn new(signature_hex: String) -> EcdsaSecp256k1Signature {
         EcdsaSecp256k1Signature {
-            key_type,
             signature_hex,
         }
     }

@@ -13,18 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionNotFoundError {
-    /// The type of error. Each subtype may have its own additional structured fields.
-    #[serde(rename = "type")]
-    pub r#type: String,
     /// Bech32m-encoded hash.
     #[serde(rename = "intent_hash")]
     pub intent_hash: String,
 }
 
 impl TransactionNotFoundError {
-    pub fn new(r#type: String, intent_hash: String) -> TransactionNotFoundError {
+    pub fn new(intent_hash: String) -> TransactionNotFoundError {
         TransactionNotFoundError {
-            r#type,
             intent_hash,
         }
     }

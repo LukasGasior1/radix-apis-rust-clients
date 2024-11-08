@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ObjectInstanceTypeReference {
-    #[serde(rename = "type")]
-    pub r#type: models::ObjectSubstateTypeReferenceType,
     /// The index of the generic parameter in the instance definition. Was called the `instance_type_index`. 
     #[serde(rename = "generic_index")]
     pub generic_index: u32,
@@ -23,9 +21,8 @@ pub struct ObjectInstanceTypeReference {
 }
 
 impl ObjectInstanceTypeReference {
-    pub fn new(r#type: models::ObjectSubstateTypeReferenceType, generic_index: u32, resolved_full_type_id: models::FullyScopedTypeId) -> ObjectInstanceTypeReference {
+    pub fn new(generic_index: u32, resolved_full_type_id: models::FullyScopedTypeId) -> ObjectInstanceTypeReference {
         ObjectInstanceTypeReference {
-            r#type,
             generic_index,
             resolved_full_type_id: Box::new(resolved_full_type_id),
         }

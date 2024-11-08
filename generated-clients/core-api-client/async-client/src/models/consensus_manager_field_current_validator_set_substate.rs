@@ -15,17 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct ConsensusManagerFieldCurrentValidatorSetSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "value")]
     pub value: Box<models::ConsensusManagerFieldCurrentValidatorSetValue>,
 }
 
 impl ConsensusManagerFieldCurrentValidatorSetSubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, value: models::ConsensusManagerFieldCurrentValidatorSetValue) -> ConsensusManagerFieldCurrentValidatorSetSubstate {
+    pub fn new(is_locked: bool, value: models::ConsensusManagerFieldCurrentValidatorSetValue) -> ConsensusManagerFieldCurrentValidatorSetSubstate {
         ConsensusManagerFieldCurrentValidatorSetSubstate {
             is_locked,
-            substate_type,
             value: Box::new(value),
         }
     }

@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateNonFungibleResourceManager {
-    #[serde(rename = "resource_type")]
-    pub resource_type: models::ResourceType,
     #[serde(rename = "id_type")]
     pub id_type: Box<models::Substate>,
     #[serde(rename = "mutable_fields")]
@@ -24,9 +22,8 @@ pub struct StateNonFungibleResourceManager {
 }
 
 impl StateNonFungibleResourceManager {
-    pub fn new(resource_type: models::ResourceType, id_type: models::Substate, mutable_fields: models::Substate) -> StateNonFungibleResourceManager {
+    pub fn new(id_type: models::Substate, mutable_fields: models::Substate) -> StateNonFungibleResourceManager {
         StateNonFungibleResourceManager {
-            resource_type,
             id_type: Box::new(id_type),
             mutable_fields: Box::new(mutable_fields),
             total_supply: None,

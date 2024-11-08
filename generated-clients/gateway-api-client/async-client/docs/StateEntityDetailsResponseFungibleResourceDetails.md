@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::StateEntityDetailsResponseItemDetailsType**](StateEntityDetailsResponseItemDetailsType.md) |  | 
 **divisibility** | **u32** |  | 
 **native_resource_details** | Option<[**models::NativeResourceDetails**](NativeResourceDetails.md)> |  | [optional]
 **role_assignments** | [**models::ComponentEntityRoleAssignments**](ComponentEntityRoleAssignments.md) |  | 

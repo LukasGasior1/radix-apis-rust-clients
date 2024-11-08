@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ParsedTransactionIntent {
-    #[serde(rename = "type")]
-    pub r#type: models::ParsedTransactionType,
     #[serde(rename = "identifiers")]
     pub identifiers: Box<models::ParsedTransactionIntentIdentifiers>,
     #[serde(rename = "intent", skip_serializing_if = "Option::is_none")]
@@ -22,9 +20,8 @@ pub struct ParsedTransactionIntent {
 }
 
 impl ParsedTransactionIntent {
-    pub fn new(r#type: models::ParsedTransactionType, identifiers: models::ParsedTransactionIntentIdentifiers) -> ParsedTransactionIntent {
+    pub fn new(identifiers: models::ParsedTransactionIntentIdentifiers) -> ParsedTransactionIntent {
         ParsedTransactionIntent {
-            r#type,
             identifiers: Box::new(identifiers),
             intent: None,
         }

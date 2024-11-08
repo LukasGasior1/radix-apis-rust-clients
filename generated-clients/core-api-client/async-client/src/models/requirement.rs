@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum Requirement {
-    #[serde(rename="NonFungible")]
-    NonFungibleRequirement {
-    },
     #[serde(rename="Resource")]
-    ResourceRequirement {
-    },
+    Resource(Box<models::ResourceRequirement>),
+    #[serde(rename="NonFungible")]
+    NonFungible(Box<models::NonFungibleRequirement>),
 }
 
 impl Default for Requirement {
     fn default() -> Self {
-        Self::NonFungibleRequirement {
-        }
-        
+        Self::Resource(Default::default())
     }
 }
 

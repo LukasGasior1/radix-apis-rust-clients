@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::ProofRuleType**](ProofRuleType.md) |  | 
 **amount** | **String** |  | 
 **resource** | **String** | The Bech32m-encoded human readable version of the resource address | 
 

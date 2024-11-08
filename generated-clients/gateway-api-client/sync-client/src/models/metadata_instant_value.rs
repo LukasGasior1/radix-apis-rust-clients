@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataInstantValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     /// A decimal string-encoded 64-bit signed integer, marking the unix timestamp in seconds.  Note: this field accurately represents the full range of possible on-ledger values (i.e. `-2^63 <= seconds < 2^63`). 
     #[serde(rename = "unix_timestamp_seconds")]
     pub unix_timestamp_seconds: String,
@@ -24,9 +22,8 @@ pub struct MetadataInstantValue {
 }
 
 impl MetadataInstantValue {
-    pub fn new(r#type: models::MetadataValueType, unix_timestamp_seconds: String, value: String) -> MetadataInstantValue {
+    pub fn new(unix_timestamp_seconds: String, value: String) -> MetadataInstantValue {
         MetadataInstantValue {
-            r#type,
             unix_timestamp_seconds,
             value,
         }

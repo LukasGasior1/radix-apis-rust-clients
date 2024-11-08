@@ -14,22 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum LtsTransactionSubmitErrorDetails {
-    #[serde(rename="IntentAlreadyCommitted")]
-    LtsTransactionSubmitIntentAlreadyCommitted {
-    },
     #[serde(rename="PriorityThresholdNotMet")]
-    LtsTransactionSubmitPriorityThresholdNotMetErrorDetails {
-    },
+    PriorityThresholdNotMet(Box<models::LtsTransactionSubmitPriorityThresholdNotMetErrorDetails>),
+    #[serde(rename="IntentAlreadyCommitted")]
+    IntentAlreadyCommitted(Box<models::LtsTransactionSubmitIntentAlreadyCommitted>),
     #[serde(rename="Rejected")]
-    LtsTransactionSubmitRejectedErrorDetails {
-    },
+    Rejected(Box<models::LtsTransactionSubmitRejectedErrorDetails>),
 }
 
 impl Default for LtsTransactionSubmitErrorDetails {
     fn default() -> Self {
-        Self::LtsTransactionSubmitIntentAlreadyCommitted {
-        }
-        
+        Self::PriorityThresholdNotMet(Default::default())
     }
 }
 

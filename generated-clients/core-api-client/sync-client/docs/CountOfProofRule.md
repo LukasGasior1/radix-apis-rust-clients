@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::ProofRuleType**](ProofRuleType.md) |  | 
 **count** | **i32** |  | 
 **list** | [**Vec<models::Requirement>**](Requirement.md) |  | 
 

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::StreamProofsFilterType**](StreamProofsFilterType.md) |  | 
 **from_state_version** | Option<**u64**> |  | [optional]
 **protocol_version** | Option<**String**> | The protocol version name to filter to.  | [optional]
 

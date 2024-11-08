@@ -15,15 +15,12 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum StreamTransactionsErrorDetails {
     #[serde(rename="RequestedStateVersionOutOfBounds")]
-    RequestedStateVersionOutOfBoundsErrorDetails {
-    },
+    RequestedStateVersionOutOfBounds(Box<models::RequestedStateVersionOutOfBoundsErrorDetails>),
 }
 
 impl Default for StreamTransactionsErrorDetails {
     fn default() -> Self {
-        Self::RequestedStateVersionOutOfBoundsErrorDetails {
-        }
-        
+        Self::RequestedStateVersionOutOfBounds(Default::default())
     }
 }
 

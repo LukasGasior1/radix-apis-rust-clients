@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccountAuthorizedDepositorsNonFungibleBadge {
-    #[serde(rename = "badge_type")]
-    pub badge_type: models::AccountAuthorizedDepositorBadgeType,
     /// The most recent state version underlying object was modified at.
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: u64,
@@ -27,9 +25,8 @@ pub struct AccountAuthorizedDepositorsNonFungibleBadge {
 }
 
 impl AccountAuthorizedDepositorsNonFungibleBadge {
-    pub fn new(badge_type: models::AccountAuthorizedDepositorBadgeType, last_updated_at_state_version: u64, non_fungible_id: String, resource_address: String) -> AccountAuthorizedDepositorsNonFungibleBadge {
+    pub fn new(last_updated_at_state_version: u64, non_fungible_id: String, resource_address: String) -> AccountAuthorizedDepositorsNonFungibleBadge {
         AccountAuthorizedDepositorsNonFungibleBadge {
-            badge_type,
             last_updated_at_state_version,
             non_fungible_id,
             resource_address,

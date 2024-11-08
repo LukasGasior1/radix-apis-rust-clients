@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key_type** | [**models::PublicKeyType**](PublicKeyType.md) |  | 
 **public_key** | [**models::EddsaEd25519PublicKey**](EddsaEd25519PublicKey.md) |  | 
 **signature** | [**models::EddsaEd25519Signature**](EddsaEd25519Signature.md) |  | 
 

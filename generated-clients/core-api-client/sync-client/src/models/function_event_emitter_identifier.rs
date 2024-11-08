@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FunctionEventEmitterIdentifier {
-    #[serde(rename = "type")]
-    pub r#type: models::EventEmitterIdentifierType,
     /// The blueprint under the package which emitted the event.
     #[serde(rename = "blueprint_name")]
     pub blueprint_name: String,
@@ -24,9 +22,8 @@ pub struct FunctionEventEmitterIdentifier {
 }
 
 impl FunctionEventEmitterIdentifier {
-    pub fn new(r#type: models::EventEmitterIdentifierType, blueprint_name: String, package_address: String) -> FunctionEventEmitterIdentifier {
+    pub fn new(blueprint_name: String, package_address: String) -> FunctionEventEmitterIdentifier {
         FunctionEventEmitterIdentifier {
-            r#type,
             blueprint_name,
             package_address,
         }

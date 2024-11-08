@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NativeResourceValidatorClaimNftValue {
-    #[serde(rename = "kind")]
-    pub kind: models::NativeResourceKind,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "validator_address")]
     pub validator_address: String,
 }
 
 impl NativeResourceValidatorClaimNftValue {
-    pub fn new(kind: models::NativeResourceKind, validator_address: String) -> NativeResourceValidatorClaimNftValue {
+    pub fn new(validator_address: String) -> NativeResourceValidatorClaimNftValue {
         NativeResourceValidatorClaimNftValue {
-            kind,
             validator_address,
         }
     }

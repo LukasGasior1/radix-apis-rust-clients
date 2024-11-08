@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataBoolValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "value")]
     pub value: bool,
 }
 
 impl MetadataBoolValue {
-    pub fn new(r#type: models::MetadataValueType, value: bool) -> MetadataBoolValue {
+    pub fn new(value: bool) -> MetadataBoolValue {
         MetadataBoolValue {
-            r#type,
             value,
         }
     }

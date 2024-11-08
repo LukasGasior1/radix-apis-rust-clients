@@ -15,39 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum AccountLockerVaultCollectionItem {
     #[serde(rename="Fungible")]
-    AccountLockerVaultCollectionItemFungible {
-        /// The most recent state version underlying object was modified at.
-        #[serde(rename = "last_updated_at_state_version")]
-        last_updated_at_state_version: u64,
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "vault_address")]
-        vault_address: String,
-    },
+    Fungible(Box<models::AccountLockerVaultCollectionItemFungible>),
     #[serde(rename="NonFungible")]
-    AccountLockerVaultCollectionItemNonFungible {
-        /// The most recent state version underlying object was modified at.
-        #[serde(rename = "last_updated_at_state_version")]
-        last_updated_at_state_version: u64,
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "vault_address")]
-        vault_address: String,
-    },
+    NonFungible(Box<models::AccountLockerVaultCollectionItemNonFungible>),
 }
 
 impl Default for AccountLockerVaultCollectionItem {
     fn default() -> Self {
-        Self::AccountLockerVaultCollectionItemFungible {
-            last_updated_at_state_version: Default::default(),
-            resource_address: Default::default(),
-            vault_address: Default::default(),
-        }
-        
+        Self::Fungible(Default::default())
     }
 }
 

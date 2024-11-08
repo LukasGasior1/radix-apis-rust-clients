@@ -14,26 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "badge_type")]
 pub enum TransactionAccountDepositPreValidationAuthorizedDepositorBadge {
-    #[serde(rename="NonFungibleBadge")]
-    AccountDepositPreValidationNonFungibleBadge {
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-    },
     #[serde(rename="ResourceBadge")]
-    AccountDepositPreValidationResourceBadge {
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-    },
+    ResourceBadge(Box<models::AccountDepositPreValidationResourceBadge>),
+    #[serde(rename="NonFungibleBadge")]
+    NonFungibleBadge(Box<models::AccountDepositPreValidationNonFungibleBadge>),
 }
 
 impl Default for TransactionAccountDepositPreValidationAuthorizedDepositorBadge {
     fn default() -> Self {
-        Self::AccountDepositPreValidationNonFungibleBadge {
-            resource_address: Default::default(),
-        }
-        
+        Self::ResourceBadge(Default::default())
     }
 }
 

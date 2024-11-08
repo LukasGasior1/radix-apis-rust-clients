@@ -26,7 +26,6 @@ docs/ActiveValidatorKey.md
 docs/AddressType.md
 docs/AllOfAccessRuleNode.md
 docs/AllOfProofRule.md
-docs/AllowAllAccessRule.md
 docs/AmountOfProofRule.md
 docs/AnyOfAccessRuleNode.md
 docs/AnyOfProofRule.md
@@ -89,7 +88,6 @@ docs/CreatedSubstate.md
 docs/DataStruct.md
 docs/DefaultDepositRule.md
 docs/DeletedSubstate.md
-docs/DenyAllAccessRule.md
 docs/EcdsaSecp256k1PublicKey.md
 docs/EcdsaSecp256k1Signature.md
 docs/EcdsaSecp256k1SignatureWithPublicKey.md
@@ -118,7 +116,6 @@ docs/FeeSource.md
 docs/FeeSummary.md
 docs/FieldSchema.md
 docs/FieldSchemaFeatureCondition.md
-docs/FieldSchemaFeatureConditionAlways.md
 docs/FieldSchemaFeatureConditionIfOuterObjectFeature.md
 docs/FieldSchemaFeatureConditionIfOwnFeature.md
 docs/FieldSchemaFeatureConditionType.md
@@ -267,18 +264,13 @@ docs/NonFungibleVaultFieldFrozenStatusValue.md
 docs/NotarizedTransaction.md
 docs/ObjectFieldStructure.md
 docs/ObjectHook.md
-docs/ObjectIndexPartitionEntryStructure.md
 docs/ObjectInstanceTypeReference.md
-docs/ObjectKeyValuePartitionEntryStructure.md
 docs/ObjectRoleKey.md
-docs/ObjectSortedIndexPartitionEntryStructure.md
 docs/ObjectSubstateTypeReference.md
 docs/ObjectSubstateTypeReferenceType.md
 docs/ObjectTypeInfoDetails.md
 docs/OneResourcePoolFieldStateSubstate.md
 docs/OneResourcePoolFieldStateValue.md
-docs/OuterObjectOnlyMethodAccessibility.md
-docs/OwnPackageOnlyMethodAccessibility.md
 docs/OwnerRole.md
 docs/OwnerRoleUpdater.md
 docs/PackageBlueprintAuthTemplateEntrySubstate.md
@@ -299,13 +291,12 @@ docs/PackageCodeVmTypeEntryValue.md
 docs/PackageExport.md
 docs/PackageFieldRoyaltyAccumulatorSubstate.md
 docs/PackageFieldRoyaltyAccumulatorValue.md
-docs/PackageObjectSubstateTypeReference.md
 docs/PackageTypeReference.md
 docs/ParsedLedgerTransaction.md
 docs/ParsedLedgerTransactionIdentifiers.md
 docs/ParsedNotarizedTransaction.md
-docs/ParsedNotarizedTransactionAllOfValidationError.md
 docs/ParsedNotarizedTransactionIdentifiers.md
+docs/ParsedNotarizedTransactionValidationError.md
 docs/ParsedSignedTransactionIntent.md
 docs/ParsedSignedTransactionIntentIdentifiers.md
 docs/ParsedTransaction.md
@@ -335,7 +326,6 @@ docs/ProtocolUpdateLedgerProofOrigin.md
 docs/ProtocolVersionReadiness.md
 docs/PublicKey.md
 docs/PublicKeyType.md
-docs/PublicMethodAccessibility.md
 docs/ReceiverInfo.md
 docs/RecoveryProposal.md
 docs/RecoveryRoleRecoveryAttempt.md
@@ -443,7 +433,6 @@ docs/SystemCostingParameters.md
 docs/SystemFieldKind.md
 docs/SystemFieldStructure.md
 docs/SystemParameters.md
-docs/SystemSchemaStructure.md
 docs/SystemTransaction.md
 docs/TargetIdentifier.md
 docs/TargetIdentifierType.md
@@ -537,7 +526,6 @@ src/models/active_validator_key.rs
 src/models/address_type.rs
 src/models/all_of_access_rule_node.rs
 src/models/all_of_proof_rule.rs
-src/models/allow_all_access_rule.rs
 src/models/amount_of_proof_rule.rs
 src/models/any_of_access_rule_node.rs
 src/models/any_of_proof_rule.rs
@@ -600,7 +588,6 @@ src/models/created_substate.rs
 src/models/data_struct.rs
 src/models/default_deposit_rule.rs
 src/models/deleted_substate.rs
-src/models/deny_all_access_rule.rs
 src/models/ecdsa_secp256k1_public_key.rs
 src/models/ecdsa_secp256k1_signature.rs
 src/models/ecdsa_secp256k1_signature_with_public_key.rs
@@ -629,7 +616,6 @@ src/models/fee_source.rs
 src/models/fee_summary.rs
 src/models/field_schema.rs
 src/models/field_schema_feature_condition.rs
-src/models/field_schema_feature_condition_always.rs
 src/models/field_schema_feature_condition_if_outer_object_feature.rs
 src/models/field_schema_feature_condition_if_own_feature.rs
 src/models/field_schema_feature_condition_type.rs
@@ -777,18 +763,13 @@ src/models/non_fungible_vault_field_frozen_status_value.rs
 src/models/notarized_transaction.rs
 src/models/object_field_structure.rs
 src/models/object_hook.rs
-src/models/object_index_partition_entry_structure.rs
 src/models/object_instance_type_reference.rs
-src/models/object_key_value_partition_entry_structure.rs
 src/models/object_role_key.rs
-src/models/object_sorted_index_partition_entry_structure.rs
 src/models/object_substate_type_reference.rs
 src/models/object_substate_type_reference_type.rs
 src/models/object_type_info_details.rs
 src/models/one_resource_pool_field_state_substate.rs
 src/models/one_resource_pool_field_state_value.rs
-src/models/outer_object_only_method_accessibility.rs
-src/models/own_package_only_method_accessibility.rs
 src/models/owner_role.rs
 src/models/owner_role_updater.rs
 src/models/package_blueprint_auth_template_entry_substate.rs
@@ -809,13 +790,12 @@ src/models/package_code_vm_type_entry_value.rs
 src/models/package_export.rs
 src/models/package_field_royalty_accumulator_substate.rs
 src/models/package_field_royalty_accumulator_value.rs
-src/models/package_object_substate_type_reference.rs
 src/models/package_type_reference.rs
 src/models/parsed_ledger_transaction.rs
 src/models/parsed_ledger_transaction_identifiers.rs
 src/models/parsed_notarized_transaction.rs
-src/models/parsed_notarized_transaction_all_of_validation_error.rs
 src/models/parsed_notarized_transaction_identifiers.rs
+src/models/parsed_notarized_transaction_validation_error.rs
 src/models/parsed_signed_transaction_intent.rs
 src/models/parsed_signed_transaction_intent_identifiers.rs
 src/models/parsed_transaction.rs
@@ -845,7 +825,6 @@ src/models/protocol_update_ledger_proof_origin.rs
 src/models/protocol_version_readiness.rs
 src/models/public_key.rs
 src/models/public_key_type.rs
-src/models/public_method_accessibility.rs
 src/models/receiver_info.rs
 src/models/recovery_proposal.rs
 src/models/recovery_role_recovery_attempt.rs
@@ -950,7 +929,6 @@ src/models/system_costing_parameters.rs
 src/models/system_field_kind.rs
 src/models/system_field_structure.rs
 src/models/system_parameters.rs
-src/models/system_schema_structure.rs
 src/models/system_transaction.rs
 src/models/target_identifier.rs
 src/models/target_identifier_type.rs

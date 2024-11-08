@@ -13,21 +13,18 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UserLedgerTransaction {
+    #[serde(rename = "notarized_transaction")]
+    pub notarized_transaction: Box<models::NotarizedTransaction>,
     /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
     #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
     pub payload_hex: Option<String>,
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerTransactionType,
-    #[serde(rename = "notarized_transaction")]
-    pub notarized_transaction: Box<models::NotarizedTransaction>,
 }
 
 impl UserLedgerTransaction {
-    pub fn new(r#type: models::LedgerTransactionType, notarized_transaction: models::NotarizedTransaction) -> UserLedgerTransaction {
+    pub fn new(notarized_transaction: models::NotarizedTransaction) -> UserLedgerTransaction {
         UserLedgerTransaction {
-            payload_hex: None,
-            r#type,
             notarized_transaction: Box::new(notarized_transaction),
+            payload_hex: None,
         }
     }
 }

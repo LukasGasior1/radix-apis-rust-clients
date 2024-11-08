@@ -11,10 +11,9 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// PlaintextTransactionMessage : An unencrypted message.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PlaintextTransactionMessage {
-    #[serde(rename = "type")]
-    pub r#type: models::TransactionMessageType,
     #[serde(rename = "content")]
     pub content: Box<models::PlaintextMessageContent>,
     /// Intended to represent the RFC 2046 MIME type of the `content`. A client cannot trust that this field is a valid mime type - in particular, the choice between `String` or `Binary` representation of the content is not enforced by this `mime_type`. 
@@ -23,9 +22,9 @@ pub struct PlaintextTransactionMessage {
 }
 
 impl PlaintextTransactionMessage {
-    pub fn new(r#type: models::TransactionMessageType, content: models::PlaintextMessageContent, mime_type: String) -> PlaintextTransactionMessage {
+    /// An unencrypted message.
+    pub fn new(content: models::PlaintextMessageContent, mime_type: String) -> PlaintextTransactionMessage {
         PlaintextTransactionMessage {
-            r#type,
             content: Box::new(content),
             mime_type,
         }

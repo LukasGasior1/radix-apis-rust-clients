@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "badge_type")]
 pub enum AccountAuthorizedDepositorsResponseItem {
-    #[serde(rename="NonFungibleBadge")]
-    AccountAuthorizedDepositorsNonFungibleBadge {
-    },
     #[serde(rename="ResourceBadge")]
-    AccountAuthorizedDepositorsResourceBadge {
-    },
+    ResourceBadge(Box<models::AccountAuthorizedDepositorsResourceBadge>),
+    #[serde(rename="NonFungibleBadge")]
+    NonFungibleBadge(Box<models::AccountAuthorizedDepositorsNonFungibleBadge>),
 }
 
 impl Default for AccountAuthorizedDepositorsResponseItem {
     fn default() -> Self {
-        Self::AccountAuthorizedDepositorsNonFungibleBadge {
-        }
-        
+        Self::ResourceBadge(Default::default())
     }
 }
 

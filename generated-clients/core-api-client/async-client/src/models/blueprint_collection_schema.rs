@@ -14,22 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum BlueprintCollectionSchema {
-    #[serde(rename="Index")]
-    IndexBlueprintCollectionSchema {
-    },
     #[serde(rename="KeyValue")]
-    KeyValueBlueprintCollectionSchema {
-    },
+    KeyValue(Box<models::KeyValueBlueprintCollectionSchema>),
+    #[serde(rename="Index")]
+    Index(Box<models::IndexBlueprintCollectionSchema>),
     #[serde(rename="SortedIndex")]
-    SortedIndexBlueprintCollectionSchema {
-    },
+    SortedIndex(Box<models::SortedIndexBlueprintCollectionSchema>),
 }
 
 impl Default for BlueprintCollectionSchema {
     fn default() -> Self {
-        Self::IndexBlueprintCollectionSchema {
-        }
-        
+        Self::KeyValue(Default::default())
     }
 }
 

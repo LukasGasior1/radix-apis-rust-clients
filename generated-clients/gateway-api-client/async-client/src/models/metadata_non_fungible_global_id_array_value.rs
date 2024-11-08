@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataNonFungibleGlobalIdArrayValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "values")]
-    pub values: Vec<models::MetadataNonFungibleGlobalIdArrayValueAllOfValues>,
+    pub values: Vec<models::MetadataNonFungibleGlobalIdArrayValueValuesInner>,
 }
 
 impl MetadataNonFungibleGlobalIdArrayValue {
-    pub fn new(r#type: models::MetadataValueType, values: Vec<models::MetadataNonFungibleGlobalIdArrayValueAllOfValues>) -> MetadataNonFungibleGlobalIdArrayValue {
+    pub fn new(values: Vec<models::MetadataNonFungibleGlobalIdArrayValueValuesInner>) -> MetadataNonFungibleGlobalIdArrayValue {
         MetadataNonFungibleGlobalIdArrayValue {
-            r#type,
             values,
         }
     }

@@ -15,17 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct FungibleResourceManagerFieldDivisibilitySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "value")]
     pub value: Box<models::FungibleResourceManagerFieldDivisibilityValue>,
 }
 
 impl FungibleResourceManagerFieldDivisibilitySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, value: models::FungibleResourceManagerFieldDivisibilityValue) -> FungibleResourceManagerFieldDivisibilitySubstate {
+    pub fn new(is_locked: bool, value: models::FungibleResourceManagerFieldDivisibilityValue) -> FungibleResourceManagerFieldDivisibilitySubstate {
         FungibleResourceManagerFieldDivisibilitySubstate {
             is_locked,
-            substate_type,
             value: Box::new(value),
         }
     }

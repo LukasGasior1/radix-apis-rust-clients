@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataGlobalAddressValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "value")]
     pub value: String,
 }
 
 impl MetadataGlobalAddressValue {
-    pub fn new(r#type: models::MetadataValueType, value: String) -> MetadataGlobalAddressValue {
+    pub fn new(value: String) -> MetadataGlobalAddressValue {
         MetadataGlobalAddressValue {
-            r#type,
             value,
         }
     }

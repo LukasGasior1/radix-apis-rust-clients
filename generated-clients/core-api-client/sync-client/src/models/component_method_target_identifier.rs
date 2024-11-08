@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ComponentMethodTargetIdentifier {
-    #[serde(rename = "type")]
-    pub r#type: models::TargetIdentifierType,
     /// The Bech32m-encoded human readable version of the component address
     #[serde(rename = "component_address")]
     pub component_address: String,
@@ -23,9 +21,8 @@ pub struct ComponentMethodTargetIdentifier {
 }
 
 impl ComponentMethodTargetIdentifier {
-    pub fn new(r#type: models::TargetIdentifierType, component_address: String, method_name: String) -> ComponentMethodTargetIdentifier {
+    pub fn new(component_address: String, method_name: String) -> ComponentMethodTargetIdentifier {
         ComponentMethodTargetIdentifier {
-            r#type,
             component_address,
             method_name,
         }

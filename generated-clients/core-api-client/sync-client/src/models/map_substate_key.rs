@@ -16,18 +16,15 @@ pub struct MapSubstateKey {
     /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
     #[serde(rename = "db_sort_key_hex")]
     pub db_sort_key_hex: String,
-    #[serde(rename = "key_type")]
-    pub key_type: models::SubstateKeyType,
     /// The hex-encoded bytes of the substate key
     #[serde(rename = "key_hex")]
     pub key_hex: String,
 }
 
 impl MapSubstateKey {
-    pub fn new(db_sort_key_hex: String, key_type: models::SubstateKeyType, key_hex: String) -> MapSubstateKey {
+    pub fn new(db_sort_key_hex: String, key_hex: String) -> MapSubstateKey {
         MapSubstateKey {
             db_sort_key_hex,
-            key_type,
             key_hex,
         }
     }

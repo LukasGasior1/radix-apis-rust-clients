@@ -13,24 +13,21 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenesisLedgerTransaction {
-    /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
-    #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
-    pub payload_hex: Option<String>,
-    #[serde(rename = "type")]
-    pub r#type: models::LedgerTransactionType,
     /// The first genesis \"transaction\" flashes state into the database to prepare for the bootstrap transaction. Such a transaction does not have an associated `system_transaction` 
     #[serde(rename = "is_flash")]
     pub is_flash: bool,
+    /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
+    #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
+    pub payload_hex: Option<String>,
     #[serde(rename = "system_transaction", skip_serializing_if = "Option::is_none")]
     pub system_transaction: Option<Box<models::SystemTransaction>>,
 }
 
 impl GenesisLedgerTransaction {
-    pub fn new(r#type: models::LedgerTransactionType, is_flash: bool) -> GenesisLedgerTransaction {
+    pub fn new(is_flash: bool) -> GenesisLedgerTransaction {
         GenesisLedgerTransaction {
-            payload_hex: None,
-            r#type,
             is_flash,
+            payload_hex: None,
             system_transaction: None,
         }
     }

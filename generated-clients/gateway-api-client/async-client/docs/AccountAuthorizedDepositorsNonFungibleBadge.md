@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**badge_type** | [**models::AccountAuthorizedDepositorBadgeType**](AccountAuthorizedDepositorBadgeType.md) |  | 
 **last_updated_at_state_version** | **u64** | The most recent state version underlying object was modified at. | 
 **non_fungible_id** | **String** | String-encoded non-fungible ID. | 
 **resource_address** | **String** | Bech32m-encoded human readable version of the address. | 

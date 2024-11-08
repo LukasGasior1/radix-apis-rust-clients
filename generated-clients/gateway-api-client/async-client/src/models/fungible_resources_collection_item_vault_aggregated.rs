@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FungibleResourcesCollectionItemVaultAggregated {
-    #[serde(rename = "aggregation_level")]
-    pub aggregation_level: models::ResourceAggregationLevel,
     #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
     pub explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
     /// Bech32m-encoded human readable version of the address.
@@ -25,9 +23,8 @@ pub struct FungibleResourcesCollectionItemVaultAggregated {
 }
 
 impl FungibleResourcesCollectionItemVaultAggregated {
-    pub fn new(aggregation_level: models::ResourceAggregationLevel, resource_address: String, vaults: models::FungibleResourcesCollectionItemVaultAggregatedVault) -> FungibleResourcesCollectionItemVaultAggregated {
+    pub fn new(resource_address: String, vaults: models::FungibleResourcesCollectionItemVaultAggregatedVault) -> FungibleResourcesCollectionItemVaultAggregated {
         FungibleResourcesCollectionItemVaultAggregated {
-            aggregation_level,
             explicit_metadata: None,
             resource_address,
             vaults: Box::new(vaults),

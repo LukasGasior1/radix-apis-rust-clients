@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregation_level** | [**models::ResourceAggregationLevel**](ResourceAggregationLevel.md) |  | 
 **explicit_metadata** | Option<[**models::EntityMetadataCollection**](EntityMetadataCollection.md)> |  | [optional]
 **resource_address** | **String** | Bech32m-encoded human readable version of the address. | 
 **vaults** | [**models::FungibleResourcesCollectionItemVaultAggregatedVault**](FungibleResourcesCollectionItemVaultAggregatedVault.md) |  | 

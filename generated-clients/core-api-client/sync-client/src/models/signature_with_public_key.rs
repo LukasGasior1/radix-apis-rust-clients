@@ -15,18 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "key_type")]
 pub enum SignatureWithPublicKey {
     #[serde(rename="EcdsaSecp256k1")]
-    EcdsaSecp256k1SignatureWithPublicKey {
-    },
+    EcdsaSecp256k1(Box<models::EcdsaSecp256k1SignatureWithPublicKey>),
     #[serde(rename="EddsaEd25519")]
-    EddsaEd25519SignatureWithPublicKey {
-    },
+    EddsaEd25519(Box<models::EddsaEd25519SignatureWithPublicKey>),
 }
 
 impl Default for SignatureWithPublicKey {
     fn default() -> Self {
-        Self::EcdsaSecp256k1SignatureWithPublicKey {
-        }
-        
+        Self::EcdsaSecp256k1(Default::default())
     }
 }
 

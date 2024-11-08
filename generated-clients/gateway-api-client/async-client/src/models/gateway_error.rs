@@ -15,36 +15,26 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum GatewayError {
     #[serde(rename="AccountLockerNotFoundError")]
-    AccountLockerNotFoundError {
-    },
+    AccountLockerNotFoundError(Box<models::AccountLockerAddress>),
     #[serde(rename="EntityNotFoundError")]
-    EntityNotFoundError {
-    },
-    #[serde(rename="InternalServerError")]
-    InternalServerError {
-    },
+    EntityNotFoundError(Box<models::EntityNotFoundError>),
     #[serde(rename="InvalidEntityError")]
-    InvalidEntityError {
-    },
-    #[serde(rename="InvalidRequestError")]
-    InvalidRequestError {
-    },
-    #[serde(rename="InvalidTransactionError")]
-    InvalidTransactionError {
-    },
+    InvalidEntityError(Box<models::InvalidEntityError>),
     #[serde(rename="NotSyncedUpError")]
-    NotSyncedUpError {
-    },
+    NotSyncedUpError(Box<models::NotSyncedUpError>),
+    #[serde(rename="InvalidRequestError")]
+    InvalidRequestError(Box<models::InvalidRequestError>),
+    #[serde(rename="InvalidTransactionError")]
+    InvalidTransactionError(serde_json::Value),
     #[serde(rename="TransactionNotFoundError")]
-    TransactionNotFoundError {
-    },
+    TransactionNotFoundError(Box<models::TransactionNotFoundError>),
+    #[serde(rename="InternalServerError")]
+    InternalServerError(Box<models::InternalServerError>),
 }
 
 impl Default for GatewayError {
     fn default() -> Self {
-        Self::AccountLockerNotFoundError {
-        }
-        
+        Self::AccountLockerNotFoundError(Default::default())
     }
 }
 

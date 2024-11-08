@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum ObjectSubstateTypeReference {
-    #[serde(rename="ObjectInstance")]
-    ObjectInstanceTypeReference {
-    },
     #[serde(rename="Package")]
-    PackageObjectSubstateTypeReference {
-    },
+    Package(Box<models::PackageTypeReference>),
+    #[serde(rename="ObjectInstance")]
+    ObjectInstance(Box<models::ObjectInstanceTypeReference>),
 }
 
 impl Default for ObjectSubstateTypeReference {
     fn default() -> Self {
-        Self::ObjectInstanceTypeReference {
-        }
-        
+        Self::Package(Default::default())
     }
 }
 

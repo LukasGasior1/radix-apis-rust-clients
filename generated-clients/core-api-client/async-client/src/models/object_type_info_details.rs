@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ObjectTypeInfoDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::TypeInfoType,
     #[serde(rename = "blueprint_info")]
     pub blueprint_info: Box<models::BlueprintInfo>,
     #[serde(rename = "global")]
@@ -24,9 +22,8 @@ pub struct ObjectTypeInfoDetails {
 }
 
 impl ObjectTypeInfoDetails {
-    pub fn new(r#type: models::TypeInfoType, blueprint_info: models::BlueprintInfo, global: bool, module_versions: Vec<models::ModuleVersion>) -> ObjectTypeInfoDetails {
+    pub fn new(blueprint_info: models::BlueprintInfo, global: bool, module_versions: Vec<models::ModuleVersion>) -> ObjectTypeInfoDetails {
         ObjectTypeInfoDetails {
-            r#type,
             blueprint_info: Box::new(blueprint_info),
             global,
             module_versions,

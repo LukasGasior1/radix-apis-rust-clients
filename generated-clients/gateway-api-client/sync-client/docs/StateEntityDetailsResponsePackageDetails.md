@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::StateEntityDetailsResponseItemDetailsType**](StateEntityDetailsResponseItemDetailsType.md) |  | 
 **blueprints** | Option<[**models::PackageBlueprintCollection**](PackageBlueprintCollection.md)> |  | [optional]
 **code_hash_hex** | **String** | Hex-encoded binary blob. | 
 **code_hex** | **String** | Hex-encoded binary blob. | 

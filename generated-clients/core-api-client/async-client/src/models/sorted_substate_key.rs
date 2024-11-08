@@ -16,8 +16,6 @@ pub struct SortedSubstateKey {
     /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
     #[serde(rename = "db_sort_key_hex")]
     pub db_sort_key_hex: String,
-    #[serde(rename = "key_type")]
-    pub key_type: models::SubstateKeyType,
     /// The hex-encoded remaining bytes of the key
     #[serde(rename = "key_hex")]
     pub key_hex: String,
@@ -27,10 +25,9 @@ pub struct SortedSubstateKey {
 }
 
 impl SortedSubstateKey {
-    pub fn new(db_sort_key_hex: String, key_type: models::SubstateKeyType, key_hex: String, sort_prefix_hex: String) -> SortedSubstateKey {
+    pub fn new(db_sort_key_hex: String, key_hex: String, sort_prefix_hex: String) -> SortedSubstateKey {
         SortedSubstateKey {
             db_sort_key_hex,
-            key_type,
             key_hex,
             sort_prefix_hex,
         }

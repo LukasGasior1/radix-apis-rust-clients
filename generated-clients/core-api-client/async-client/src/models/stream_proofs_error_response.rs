@@ -16,26 +16,23 @@ pub struct StreamProofsErrorResponse {
     /// A numeric code corresponding to the given HTTP error code.
     #[serde(rename = "code")]
     pub code: i32,
-    #[serde(rename = "error_type")]
-    pub error_type: models::ErrorResponseType,
+    #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
+    pub details: Option<Box<models::StreamProofsErrorDetails>>,
     /// A human-readable error message.
     #[serde(rename = "message")]
     pub message: String,
     /// A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden.
     #[serde(rename = "trace_id", skip_serializing_if = "Option::is_none")]
     pub trace_id: Option<String>,
-    #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<Box<models::StreamProofsErrorDetails>>,
 }
 
 impl StreamProofsErrorResponse {
-    pub fn new(code: i32, error_type: models::ErrorResponseType, message: String) -> StreamProofsErrorResponse {
+    pub fn new(code: i32, message: String) -> StreamProofsErrorResponse {
         StreamProofsErrorResponse {
             code,
-            error_type,
+            details: None,
             message,
             trace_id: None,
-            details: None,
         }
     }
 }

@@ -14,28 +14,21 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum ProofRule {
-    #[serde(rename="AllOf")]
-    AllOfProofRule {
-    },
-    #[serde(rename="AmountOf")]
-    AmountOfProofRule {
-    },
-    #[serde(rename="AnyOf")]
-    AnyOfProofRule {
-    },
-    #[serde(rename="CountOf")]
-    CountOfProofRule {
-    },
     #[serde(rename="Require")]
-    RequireProofRule {
-    },
+    Require(Box<models::RequireProofRule>),
+    #[serde(rename="AmountOf")]
+    AmountOf(Box<models::AmountOfProofRule>),
+    #[serde(rename="AllOf")]
+    AllOf(Box<models::AllOfProofRule>),
+    #[serde(rename="AnyOf")]
+    AnyOf(Box<models::AnyOfProofRule>),
+    #[serde(rename="CountOf")]
+    CountOf(Box<models::CountOfProofRule>),
 }
 
 impl Default for ProofRule {
     fn default() -> Self {
-        Self::AllOfProofRule {
-        }
-        
+        Self::Require(Default::default())
     }
 }
 

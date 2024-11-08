@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StringPlaintextMessageContent {
-    #[serde(rename = "type")]
-    pub r#type: models::PlaintextMessageContentType,
     /// The value of a message that the author decided to provide as a UTF-8 string.
     #[serde(rename = "value")]
     pub value: String,
 }
 
 impl StringPlaintextMessageContent {
-    pub fn new(r#type: models::PlaintextMessageContentType, value: String) -> StringPlaintextMessageContent {
+    pub fn new(value: String) -> StringPlaintextMessageContent {
         StringPlaintextMessageContent {
-            r#type,
             value,
         }
     }

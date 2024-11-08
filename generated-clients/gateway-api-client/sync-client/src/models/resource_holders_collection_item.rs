@@ -15,30 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ResourceHoldersCollectionItem {
     #[serde(rename="FungibleResource")]
-    ResourceHoldersCollectionFungibleResourceItem {
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "holder_address")]
-        holder_address: String,
-        #[serde(rename = "last_updated_at_state_version")]
-        last_updated_at_state_version: i64,
-    },
+    FungibleResource(Box<models::ResourceHoldersCollectionFungibleResourceItem>),
     #[serde(rename="NonFungibleResource")]
-    ResourceHoldersCollectionNonFungibleResourceItem {
-        /// Bech32m-encoded human readable version of the address.
-        #[serde(rename = "holder_address")]
-        holder_address: String,
-        #[serde(rename = "last_updated_at_state_version")]
-        last_updated_at_state_version: i64,
-    },
+    NonFungibleResource(Box<models::ResourceHoldersCollectionNonFungibleResourceItem>),
 }
 
 impl Default for ResourceHoldersCollectionItem {
     fn default() -> Self {
-        Self::ResourceHoldersCollectionFungibleResourceItem {
-            holder_address: Default::default(),
-            last_updated_at_state_version: Default::default(),
-        }
-        
+        Self::FungibleResource(Default::default())
     }
 }
 

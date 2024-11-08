@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataI64Value {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "value")]
     pub value: String,
 }
 
 impl MetadataI64Value {
-    pub fn new(r#type: models::MetadataValueType, value: String) -> MetadataI64Value {
+    pub fn new(value: String) -> MetadataI64Value {
         MetadataI64Value {
-            r#type,
             value,
         }
     }

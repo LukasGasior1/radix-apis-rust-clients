@@ -13,9 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InternalServerError {
-    /// The type of error. Each subtype may have its own additional structured fields.
-    #[serde(rename = "type")]
-    pub r#type: String,
     /// Gives a human readable message - likely just a trace ID for reporting the error.
     #[serde(rename = "cause")]
     pub cause: String,
@@ -25,9 +22,8 @@ pub struct InternalServerError {
 }
 
 impl InternalServerError {
-    pub fn new(r#type: String, cause: String, exception: String) -> InternalServerError {
+    pub fn new(cause: String, exception: String) -> InternalServerError {
         InternalServerError {
-            r#type,
             cause,
             exception,
         }

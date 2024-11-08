@@ -14,22 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum LedgerProofOrigin {
-    #[serde(rename="Consensus")]
-    ConsensusLedgerProofOrigin {
-    },
     #[serde(rename="Genesis")]
-    GenesisLedgerProofOrigin {
-    },
+    Genesis(Box<models::GenesisLedgerProofOrigin>),
+    #[serde(rename="Consensus")]
+    Consensus(Box<models::ConsensusLedgerProofOrigin>),
     #[serde(rename="ProtocolUpdate")]
-    ProtocolUpdateLedgerProofOrigin {
-    },
+    ProtocolUpdate(Box<models::ProtocolUpdateLedgerProofOrigin>),
 }
 
 impl Default for LedgerProofOrigin {
     fn default() -> Self {
-        Self::ConsensusLedgerProofOrigin {
-        }
-        
+        Self::Genesis(Default::default())
     }
 }
 

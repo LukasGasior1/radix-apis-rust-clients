@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponseNonFungibleResourceDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::StateEntityDetailsResponseItemDetailsType,
     #[serde(rename = "native_resource_details", skip_serializing_if = "Option::is_none")]
     pub native_resource_details: Option<Box<models::NativeResourceDetails>>,
     #[serde(rename = "non_fungible_data_mutable_fields")]
@@ -37,9 +35,8 @@ pub struct StateEntityDetailsResponseNonFungibleResourceDetails {
 }
 
 impl StateEntityDetailsResponseNonFungibleResourceDetails {
-    pub fn new(r#type: models::StateEntityDetailsResponseItemDetailsType, non_fungible_data_mutable_fields: Vec<String>, non_fungible_id_type: models::NonFungibleIdType, role_assignments: models::ComponentEntityRoleAssignments, total_burned: String, total_minted: String, total_supply: String) -> StateEntityDetailsResponseNonFungibleResourceDetails {
+    pub fn new(non_fungible_data_mutable_fields: Vec<String>, non_fungible_id_type: models::NonFungibleIdType, role_assignments: models::ComponentEntityRoleAssignments, total_burned: String, total_minted: String, total_supply: String) -> StateEntityDetailsResponseNonFungibleResourceDetails {
         StateEntityDetailsResponseNonFungibleResourceDetails {
-            r#type,
             native_resource_details: None,
             non_fungible_data_mutable_fields,
             non_fungible_id_type,

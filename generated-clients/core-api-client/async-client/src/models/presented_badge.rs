@@ -14,26 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum PresentedBadge {
-    #[serde(rename="NonFungible")]
-    NonFungiblePresentedBadge {
-        /// The Bech32m-encoded human readable version of the resource address
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-    },
     #[serde(rename="Resource")]
-    ResourcePresentedBadge {
-        /// The Bech32m-encoded human readable version of the resource address
-        #[serde(rename = "resource_address")]
-        resource_address: String,
-    },
+    Resource(Box<models::ResourcePresentedBadge>),
+    #[serde(rename="NonFungible")]
+    NonFungible(Box<models::NonFungiblePresentedBadge>),
 }
 
 impl Default for PresentedBadge {
     fn default() -> Self {
-        Self::NonFungiblePresentedBadge {
-            resource_address: Default::default(),
-        }
-        
+        Self::Resource(Default::default())
     }
 }
 

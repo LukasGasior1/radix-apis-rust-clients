@@ -16,8 +16,6 @@ pub struct BasicErrorResponse {
     /// A numeric code corresponding to the given HTTP error code.
     #[serde(rename = "code")]
     pub code: i32,
-    #[serde(rename = "error_type")]
-    pub error_type: models::ErrorResponseType,
     /// A human-readable error message.
     #[serde(rename = "message")]
     pub message: String,
@@ -27,10 +25,9 @@ pub struct BasicErrorResponse {
 }
 
 impl BasicErrorResponse {
-    pub fn new(code: i32, error_type: models::ErrorResponseType, message: String) -> BasicErrorResponse {
+    pub fn new(code: i32, message: String) -> BasicErrorResponse {
         BasicErrorResponse {
             code,
-            error_type,
             message,
             trace_id: None,
         }

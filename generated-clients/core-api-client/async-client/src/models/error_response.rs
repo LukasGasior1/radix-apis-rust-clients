@@ -15,75 +15,20 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "error_type")]
 pub enum ErrorResponse {
     #[serde(rename="Basic")]
-    BasicErrorResponse {
-        /// A numeric code corresponding to the given HTTP error code.
-        #[serde(rename = "code")]
-        code: i32,
-        /// A human-readable error message.
-        #[serde(rename = "message")]
-        message: String,
-        /// A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden.
-        #[serde(rename = "trace_id", skip_serializing_if = "Option::is_none")]
-        trace_id: Option<String>,
-    },
-    #[serde(rename="LtsTransactionSubmit")]
-    LtsTransactionSubmitErrorResponse {
-        /// A numeric code corresponding to the given HTTP error code.
-        #[serde(rename = "code")]
-        code: i32,
-        /// A human-readable error message.
-        #[serde(rename = "message")]
-        message: String,
-        /// A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden.
-        #[serde(rename = "trace_id", skip_serializing_if = "Option::is_none")]
-        trace_id: Option<String>,
-    },
-    #[serde(rename="StreamProofs")]
-    StreamProofsErrorResponse {
-        /// A numeric code corresponding to the given HTTP error code.
-        #[serde(rename = "code")]
-        code: i32,
-        /// A human-readable error message.
-        #[serde(rename = "message")]
-        message: String,
-        /// A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden.
-        #[serde(rename = "trace_id", skip_serializing_if = "Option::is_none")]
-        trace_id: Option<String>,
-    },
-    #[serde(rename="StreamTransactions")]
-    StreamTransactionsErrorResponse {
-        /// A numeric code corresponding to the given HTTP error code.
-        #[serde(rename = "code")]
-        code: i32,
-        /// A human-readable error message.
-        #[serde(rename = "message")]
-        message: String,
-        /// A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden.
-        #[serde(rename = "trace_id", skip_serializing_if = "Option::is_none")]
-        trace_id: Option<String>,
-    },
+    Basic(Box<models::BasicErrorResponse>),
     #[serde(rename="TransactionSubmit")]
-    TransactionSubmitErrorResponse {
-        /// A numeric code corresponding to the given HTTP error code.
-        #[serde(rename = "code")]
-        code: i32,
-        /// A human-readable error message.
-        #[serde(rename = "message")]
-        message: String,
-        /// A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden.
-        #[serde(rename = "trace_id", skip_serializing_if = "Option::is_none")]
-        trace_id: Option<String>,
-    },
+    TransactionSubmit(Box<models::TransactionSubmitErrorResponse>),
+    #[serde(rename="LtsTransactionSubmit")]
+    LtsTransactionSubmit(Box<models::LtsTransactionSubmitErrorResponse>),
+    #[serde(rename="StreamTransactions")]
+    StreamTransactions(Box<models::StreamTransactionsErrorResponse>),
+    #[serde(rename="StreamProofs")]
+    StreamProofs(Box<models::StreamProofsErrorResponse>),
 }
 
 impl Default for ErrorResponse {
     fn default() -> Self {
-        Self::BasicErrorResponse {
-            code: Default::default(),
-            message: Default::default(),
-            trace_id: Default::default(),
-        }
-        
+        Self::Basic(Default::default())
     }
 }
 

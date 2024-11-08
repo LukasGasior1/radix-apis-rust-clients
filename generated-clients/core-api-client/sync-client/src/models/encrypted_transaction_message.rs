@@ -11,10 +11,9 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// EncryptedTransactionMessage : A `PlaintextTransactionMessage` encrypted with \"Multi-party ECIES\" for a number of decryptors (public keys).
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EncryptedTransactionMessage {
-    #[serde(rename = "type")]
-    pub r#type: models::TransactionMessageType,
     #[serde(rename = "curve_decryptor_sets")]
     pub curve_decryptor_sets: Vec<models::EncryptedMessageCurveDecryptorSet>,
     /// The hex-encoded (128-bit) AES-GCM encrypted bytes of an SBOR-encoded `PlaintextTransactionMessage`. The bytes are serialized as the concatenation `Nonce/IV (12 bytes) || Cipher (variable length) || Tag/MAC (16 bytes)`: 
@@ -23,9 +22,9 @@ pub struct EncryptedTransactionMessage {
 }
 
 impl EncryptedTransactionMessage {
-    pub fn new(r#type: models::TransactionMessageType, curve_decryptor_sets: Vec<models::EncryptedMessageCurveDecryptorSet>, encrypted_hex: String) -> EncryptedTransactionMessage {
+    /// A `PlaintextTransactionMessage` encrypted with \"Multi-party ECIES\" for a number of decryptors (public keys).
+    pub fn new(curve_decryptor_sets: Vec<models::EncryptedMessageCurveDecryptorSet>, encrypted_hex: String) -> EncryptedTransactionMessage {
         EncryptedTransactionMessage {
-            r#type,
             curve_decryptor_sets,
             encrypted_hex,
         }

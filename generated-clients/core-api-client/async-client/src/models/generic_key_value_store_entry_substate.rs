@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct GenericKeyValueStoreEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "key")]
     pub key: Box<models::GenericKey>,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
@@ -24,10 +22,9 @@ pub struct GenericKeyValueStoreEntrySubstate {
 }
 
 impl GenericKeyValueStoreEntrySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, key: models::GenericKey) -> GenericKeyValueStoreEntrySubstate {
+    pub fn new(is_locked: bool, key: models::GenericKey) -> GenericKeyValueStoreEntrySubstate {
         GenericKeyValueStoreEntrySubstate {
             is_locked,
-            substate_type,
             key: Box::new(key),
             value: None,
         }

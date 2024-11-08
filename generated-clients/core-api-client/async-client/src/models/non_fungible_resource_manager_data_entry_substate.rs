@@ -11,12 +11,11 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// NonFungibleResourceManagerDataEntrySubstate : If the NF has been burned, the value is deleted and empty. 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleResourceManagerDataEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "key")]
     pub key: Box<models::LocalNonFungibleKey>,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
@@ -24,10 +23,10 @@ pub struct NonFungibleResourceManagerDataEntrySubstate {
 }
 
 impl NonFungibleResourceManagerDataEntrySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, key: models::LocalNonFungibleKey) -> NonFungibleResourceManagerDataEntrySubstate {
+    /// If the NF has been burned, the value is deleted and empty. 
+    pub fn new(is_locked: bool, key: models::LocalNonFungibleKey) -> NonFungibleResourceManagerDataEntrySubstate {
         NonFungibleResourceManagerDataEntrySubstate {
             is_locked,
-            substate_type,
             key: Box::new(key),
             value: None,
         }

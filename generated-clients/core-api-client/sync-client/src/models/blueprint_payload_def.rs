@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum BlueprintPayloadDef {
-    #[serde(rename="Generic")]
-    GenericBlueprintPayloadDef {
-    },
     #[serde(rename="Static")]
-    StaticBlueprintPayloadDef {
-    },
+    Static(Box<models::StaticBlueprintPayloadDef>),
+    #[serde(rename="Generic")]
+    Generic(Box<models::GenericBlueprintPayloadDef>),
 }
 
 impl Default for BlueprintPayloadDef {
     fn default() -> Self {
-        Self::GenericBlueprintPayloadDef {
-        }
-        
+        Self::Static(Default::default())
     }
 }
 

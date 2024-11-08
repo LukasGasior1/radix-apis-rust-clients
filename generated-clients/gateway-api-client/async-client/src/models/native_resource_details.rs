@@ -14,61 +14,43 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "kind")]
 pub enum NativeResourceDetails {
-    #[serde(rename="AccessControllerRecoveryBadge")]
-    NativeResourceAccessControllerRecoveryBadgeValue {
-    },
-    #[serde(rename="AccountOwnerBadge")]
-    NativeResourceAccountOwnerBadgeValue {
-    },
-    #[serde(rename="Ed25519SignatureResource")]
-    NativeResourceEd25519SignatureResourceValue {
-    },
-    #[serde(rename="GlobalCallerResource")]
-    NativeResourceGlobalCallerResourceValue {
-    },
-    #[serde(rename="IdentityOwnerBadge")]
-    NativeResourceIdentityOwnerBadgeValue {
-    },
-    #[serde(rename="MultiResourcePoolUnit")]
-    NativeResourceMultiResourcePoolUnitValue {
-    },
-    #[serde(rename="OneResourcePoolUnit")]
-    NativeResourceOneResourcePoolUnitValue {
-    },
-    #[serde(rename="PackageOfDirectCallerResource")]
-    NativeResourcePackageOfDirectCallerResourceValue {
-    },
-    #[serde(rename="PackageOwnerBadge")]
-    NativeResourcePackageOwnerBadgeValue {
-    },
-    #[serde(rename="Secp256k1SignatureResource")]
-    NativeResourceSecp256k1SignatureResourceValue {
-    },
-    #[serde(rename="SystemExecutionResource")]
-    NativeResourceSystemExecutionResourceValue {
-    },
-    #[serde(rename="TwoResourcePoolUnit")]
-    NativeResourceTwoResourcePoolUnitValue {
-    },
-    #[serde(rename="ValidatorClaimNft")]
-    NativeResourceValidatorClaimNftValue {
-    },
-    #[serde(rename="ValidatorLiquidStakeUnit")]
-    NativeResourceValidatorLiquidStakeUnitValue {
-    },
-    #[serde(rename="ValidatorOwnerBadge")]
-    NativeResourceValidatorOwnerBadgeValue {
-    },
     #[serde(rename="Xrd")]
-    NativeResourceXrdValue {
-    },
+    Xrd(serde_json::Value),
+    #[serde(rename="PackageOwnerBadge")]
+    PackageOwnerBadge(serde_json::Value),
+    #[serde(rename="AccountOwnerBadge")]
+    AccountOwnerBadge(serde_json::Value),
+    #[serde(rename="IdentityOwnerBadge")]
+    IdentityOwnerBadge(serde_json::Value),
+    #[serde(rename="ValidatorOwnerBadge")]
+    ValidatorOwnerBadge(serde_json::Value),
+    #[serde(rename="Secp256k1SignatureResource")]
+    Secp256k1SignatureResource(serde_json::Value),
+    #[serde(rename="Ed25519SignatureResource")]
+    Ed25519SignatureResource(serde_json::Value),
+    #[serde(rename="GlobalCallerResource")]
+    GlobalCallerResource(serde_json::Value),
+    #[serde(rename="PackageOfDirectCallerResource")]
+    PackageOfDirectCallerResource(serde_json::Value),
+    #[serde(rename="SystemExecutionResource")]
+    SystemExecutionResource(serde_json::Value),
+    #[serde(rename="ValidatorLiquidStakeUnit")]
+    ValidatorLiquidStakeUnit(Box<models::NativeResourceValidatorLiquidStakeUnitValue>),
+    #[serde(rename="ValidatorClaimNft")]
+    ValidatorClaimNft(Box<models::NativeResourceValidatorClaimNftValue>),
+    #[serde(rename="OneResourcePoolUnit")]
+    OneResourcePoolUnit(Box<models::NativeResourceOneResourcePoolUnitValue>),
+    #[serde(rename="TwoResourcePoolUnit")]
+    TwoResourcePoolUnit(Box<models::NativeResourceTwoResourcePoolUnitValue>),
+    #[serde(rename="MultiResourcePoolUnit")]
+    MultiResourcePoolUnit(Box<models::NativeResourceMultiResourcePoolUnitValue>),
+    #[serde(rename="AccessControllerRecoveryBadge")]
+    AccessControllerRecoveryBadge(Box<models::NativeResourceAccessControllerRecoveryBadgeValue>),
 }
 
 impl Default for NativeResourceDetails {
     fn default() -> Self {
-        Self::NativeResourceAccessControllerRecoveryBadgeValue {
-        }
-        
+        Self::Xrd(Default::default())
     }
 }
 

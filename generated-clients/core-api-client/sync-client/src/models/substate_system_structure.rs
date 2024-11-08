@@ -14,34 +14,25 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum SubstateSystemStructure {
-    #[serde(rename="KeyValueStoreEntry")]
-    KeyValueStoreEntryStructure {
-    },
-    #[serde(rename="ObjectField")]
-    ObjectFieldStructure {
-    },
-    #[serde(rename="ObjectIndexPartitionEntry")]
-    ObjectIndexPartitionEntryStructure {
-    },
-    #[serde(rename="ObjectKeyValuePartitionEntry")]
-    ObjectKeyValuePartitionEntryStructure {
-    },
-    #[serde(rename="ObjectSortedIndexPartitionEntry")]
-    ObjectSortedIndexPartitionEntryStructure {
-    },
     #[serde(rename="SystemField")]
-    SystemFieldStructure {
-    },
+    SystemField(Box<models::SystemFieldStructure>),
     #[serde(rename="SystemSchema")]
-    SystemSchemaStructure {
-    },
+    SystemSchema(serde_json::Value),
+    #[serde(rename="KeyValueStoreEntry")]
+    KeyValueStoreEntry(Box<models::KeyValueStoreEntryStructure>),
+    #[serde(rename="ObjectField")]
+    ObjectField(Box<models::ObjectFieldStructure>),
+    #[serde(rename="ObjectKeyValuePartitionEntry")]
+    ObjectKeyValuePartitionEntry(Box<models::KeyValueBasedStructure>),
+    #[serde(rename="ObjectIndexPartitionEntry")]
+    ObjectIndexPartitionEntry(Box<models::KeyValueBasedStructure>),
+    #[serde(rename="ObjectSortedIndexPartitionEntry")]
+    ObjectSortedIndexPartitionEntry(Box<models::KeyValueBasedStructure>),
 }
 
 impl Default for SubstateSystemStructure {
     fn default() -> Self {
-        Self::KeyValueStoreEntryStructure {
-        }
-        
+        Self::SystemField(Default::default())
     }
 }
 

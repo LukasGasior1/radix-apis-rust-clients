@@ -16,15 +16,12 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum LedgerStateSelector {
     #[serde(rename="ByStateVersion")]
-    VersionLedgerStateSelector {
-    },
+    ByStateVersion(Box<models::VersionLedgerStateSelector>),
 }
 
 impl Default for LedgerStateSelector {
     fn default() -> Self {
-        Self::VersionLedgerStateSelector {
-        }
-        
+        Self::ByStateVersion(Default::default())
     }
 }
 

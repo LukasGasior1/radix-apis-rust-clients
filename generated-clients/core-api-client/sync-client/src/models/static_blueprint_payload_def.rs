@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StaticBlueprintPayloadDef {
-    #[serde(rename = "type")]
-    pub r#type: models::BlueprintPayloadDefType,
     #[serde(rename = "type_id")]
     pub type_id: Box<models::ScopedTypeId>,
 }
 
 impl StaticBlueprintPayloadDef {
-    pub fn new(r#type: models::BlueprintPayloadDefType, type_id: models::ScopedTypeId) -> StaticBlueprintPayloadDef {
+    pub fn new(type_id: models::ScopedTypeId) -> StaticBlueprintPayloadDef {
         StaticBlueprintPayloadDef {
-            r#type,
             type_id: Box::new(type_id),
         }
     }

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::MetadataValueType**](MetadataValueType.md) |  | 
 **values** | **Vec<String>** |  | 
 **values_unix_timestamp_seconds** | **Vec<String>** |  | 
 

@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StreamProofsFilterNewEpochs {
-    #[serde(rename = "type")]
-    pub r#type: models::StreamProofsFilterType,
     /// The first proof to be returned should be the proof starting this epoch. If empty, it starts from the first epoch proof after genesis. The network status endpoint can be used to find the current epoch.
     #[serde(rename = "from_epoch", skip_serializing_if = "Option::is_none")]
     pub from_epoch: Option<u64>,
 }
 
 impl StreamProofsFilterNewEpochs {
-    pub fn new(r#type: models::StreamProofsFilterType) -> StreamProofsFilterNewEpochs {
+    pub fn new() -> StreamProofsFilterNewEpochs {
         StreamProofsFilterNewEpochs {
-            r#type,
             from_epoch: None,
         }
     }

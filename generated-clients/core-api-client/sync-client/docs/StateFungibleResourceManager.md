@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource_type** | [**models::ResourceType**](ResourceType.md) |  | 
 **divisibility** | [**models::Substate**](Substate.md) |  | 
 **total_supply** | Option<[**models::Substate**](Substate.md)> |  | [optional]
 

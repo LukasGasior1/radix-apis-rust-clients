@@ -14,22 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum AccessRule {
-    #[serde(rename="AllowAll")]
-    AllowAllAccessRule {
-    },
-    #[serde(rename="DenyAll")]
-    DenyAllAccessRule {
-    },
     #[serde(rename="Protected")]
-    ProtectedAccessRule {
-    },
+    Protected(Box<models::ProtectedAccessRule>),
+    #[serde(rename="AllowAll")]
+    AllowAll(serde_json::Value),
+    #[serde(rename="DenyAll")]
+    DenyAll(serde_json::Value),
 }
 
 impl Default for AccessRule {
     fn default() -> Self {
-        Self::AllowAllAccessRule {
-        }
-        
+        Self::Protected(Default::default())
     }
 }
 

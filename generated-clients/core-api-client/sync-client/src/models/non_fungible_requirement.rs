@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleRequirement {
-    #[serde(rename = "type")]
-    pub r#type: models::RequirementType,
     #[serde(rename = "non_fungible")]
     pub non_fungible: Box<models::NonFungibleGlobalId>,
 }
 
 impl NonFungibleRequirement {
-    pub fn new(r#type: models::RequirementType, non_fungible: models::NonFungibleGlobalId) -> NonFungibleRequirement {
+    pub fn new(non_fungible: models::NonFungibleGlobalId) -> NonFungibleRequirement {
         NonFungibleRequirement {
-            r#type,
             non_fungible: Box::new(non_fungible),
         }
     }

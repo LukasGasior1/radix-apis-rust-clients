@@ -13,22 +13,19 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungiblePresentedBadge {
-    /// The Bech32m-encoded human readable version of the resource address
-    #[serde(rename = "resource_address")]
-    pub resource_address: String,
-    #[serde(rename = "type")]
-    pub r#type: models::PresentedBadgeType,
     /// The simple string representation of the non-fungible id. * For string ids, this is `<the-string-id>` * For integer ids, this is `#the-integer-id#` * For bytes ids, this is `[the-lower-case-hex-representation]` * For RUID ids, this is `{...-...-...-...}` where `...` are each 16 hex characters. A given non-fungible resource has a fixed `NonFungibleIdType`, so this representation uniquely identifies this non-fungible under the given resource address. 
     #[serde(rename = "local_id")]
     pub local_id: String,
+    /// The Bech32m-encoded human readable version of the resource address
+    #[serde(rename = "resource_address")]
+    pub resource_address: String,
 }
 
 impl NonFungiblePresentedBadge {
-    pub fn new(resource_address: String, r#type: models::PresentedBadgeType, local_id: String) -> NonFungiblePresentedBadge {
+    pub fn new(local_id: String, resource_address: String) -> NonFungiblePresentedBadge {
         NonFungiblePresentedBadge {
-            resource_address,
-            r#type,
             local_id,
+            resource_address,
         }
     }
 }

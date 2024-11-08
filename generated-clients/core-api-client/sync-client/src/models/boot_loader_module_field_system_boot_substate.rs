@@ -15,17 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct BootLoaderModuleFieldSystemBootSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "value")]
     pub value: Box<models::BootLoaderModuleFieldSystemBootValue>,
 }
 
 impl BootLoaderModuleFieldSystemBootSubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, value: models::BootLoaderModuleFieldSystemBootValue) -> BootLoaderModuleFieldSystemBootSubstate {
+    pub fn new(is_locked: bool, value: models::BootLoaderModuleFieldSystemBootValue) -> BootLoaderModuleFieldSystemBootSubstate {
         BootLoaderModuleFieldSystemBootSubstate {
             is_locked,
-            substate_type,
             value: Box::new(value),
         }
     }

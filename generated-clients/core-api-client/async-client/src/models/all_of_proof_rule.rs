@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AllOfProofRule {
-    #[serde(rename = "type")]
-    pub r#type: models::ProofRuleType,
     #[serde(rename = "list")]
     pub list: Vec<models::Requirement>,
 }
 
 impl AllOfProofRule {
-    pub fn new(r#type: models::ProofRuleType, list: Vec<models::Requirement>) -> AllOfProofRule {
+    pub fn new(list: Vec<models::Requirement>) -> AllOfProofRule {
         AllOfProofRule {
-            r#type,
             list,
         }
     }

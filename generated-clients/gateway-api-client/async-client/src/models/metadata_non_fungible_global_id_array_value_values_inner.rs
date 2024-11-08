@@ -12,15 +12,20 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct NativeResourceValidatorOwnerBadgeValue {
-    #[serde(rename = "kind")]
-    pub kind: models::NativeResourceKind,
+pub struct MetadataNonFungibleGlobalIdArrayValueValuesInner {
+    /// String-encoded non-fungible ID.
+    #[serde(rename = "non_fungible_id")]
+    pub non_fungible_id: String,
+    /// Bech32m-encoded human readable version of the address.
+    #[serde(rename = "resource_address")]
+    pub resource_address: String,
 }
 
-impl NativeResourceValidatorOwnerBadgeValue {
-    pub fn new(kind: models::NativeResourceKind) -> NativeResourceValidatorOwnerBadgeValue {
-        NativeResourceValidatorOwnerBadgeValue {
-            kind,
+impl MetadataNonFungibleGlobalIdArrayValueValuesInner {
+    pub fn new(non_fungible_id: String, resource_address: String) -> MetadataNonFungibleGlobalIdArrayValueValuesInner {
+        MetadataNonFungibleGlobalIdArrayValueValuesInner {
+            non_fungible_id,
+            resource_address,
         }
     }
 }

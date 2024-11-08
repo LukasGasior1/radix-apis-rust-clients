@@ -14,31 +14,23 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum StateEntityDetailsResponseItemDetails {
-    #[serde(rename="Component")]
-    StateEntityDetailsResponseComponentDetails {
-    },
     #[serde(rename="FungibleResource")]
-    StateEntityDetailsResponseFungibleResourceDetails {
-    },
-    #[serde(rename="FungibleVault")]
-    StateEntityDetailsResponseFungibleVaultDetails {
-    },
+    FungibleResource(Box<models::StateEntityDetailsResponseFungibleResourceDetails>),
     #[serde(rename="NonFungibleResource")]
-    StateEntityDetailsResponseNonFungibleResourceDetails {
-    },
+    NonFungibleResource(Box<models::StateEntityDetailsResponseNonFungibleResourceDetails>),
+    #[serde(rename="FungibleVault")]
+    FungibleVault(Box<models::StateEntityDetailsResponseFungibleVaultDetails>),
     #[serde(rename="NonFungibleVault")]
-    StateEntityDetailsResponseNonFungibleVaultDetails {
-    },
+    NonFungibleVault(Box<models::StateEntityDetailsResponseNonFungibleVaultDetails>),
     #[serde(rename="Package")]
-    StateEntityDetailsResponsePackageDetails {
-    },
+    Package(Box<models::StateEntityDetailsResponsePackageDetails>),
+    #[serde(rename="Component")]
+    Component(Box<models::StateEntityDetailsResponseComponentDetails>),
 }
 
 impl Default for StateEntityDetailsResponseItemDetails {
     fn default() -> Self {
-        Self::StateEntityDetailsResponseComponentDetails {
-        }
-        
+        Self::FungibleResource(Default::default())
     }
 }
 

@@ -1,4 +1,4 @@
-# ParsedNotarizedTransactionAllOfValidationError
+# ParsedNotarizedTransactionValidationError
 
 ## Properties
 

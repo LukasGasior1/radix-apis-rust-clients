@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct PackageBlueprintRoyaltyEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
-    #[serde(rename = "substate_type")]
-    pub substate_type: models::SubstateType,
     #[serde(rename = "key")]
     pub key: Box<models::BlueprintVersionKey>,
     #[serde(rename = "value")]
@@ -24,10 +22,9 @@ pub struct PackageBlueprintRoyaltyEntrySubstate {
 }
 
 impl PackageBlueprintRoyaltyEntrySubstate {
-    pub fn new(is_locked: bool, substate_type: models::SubstateType, key: models::BlueprintVersionKey, value: models::PackageBlueprintRoyaltyEntryValue) -> PackageBlueprintRoyaltyEntrySubstate {
+    pub fn new(is_locked: bool, key: models::BlueprintVersionKey, value: models::PackageBlueprintRoyaltyEntryValue) -> PackageBlueprintRoyaltyEntrySubstate {
         PackageBlueprintRoyaltyEntrySubstate {
             is_locked,
-            substate_type,
             key: Box::new(key),
             value: Box::new(value),
         }

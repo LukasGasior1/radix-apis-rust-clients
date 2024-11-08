@@ -13,29 +13,26 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FungibleResourcesCollectionItemGloballyAggregated {
-    #[serde(rename = "aggregation_level")]
-    pub aggregation_level: models::ResourceAggregationLevel,
-    #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
-    pub explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
-    /// Bech32m-encoded human readable version of the address.
-    #[serde(rename = "resource_address")]
-    pub resource_address: String,
     /// String-encoded decimal representing the amount of a related fungible resource.
     #[serde(rename = "amount")]
     pub amount: String,
+    #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
+    pub explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
     /// The most recent state version underlying object was modified at.
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: u64,
+    /// Bech32m-encoded human readable version of the address.
+    #[serde(rename = "resource_address")]
+    pub resource_address: String,
 }
 
 impl FungibleResourcesCollectionItemGloballyAggregated {
-    pub fn new(aggregation_level: models::ResourceAggregationLevel, resource_address: String, amount: String, last_updated_at_state_version: u64) -> FungibleResourcesCollectionItemGloballyAggregated {
+    pub fn new(amount: String, last_updated_at_state_version: u64, resource_address: String) -> FungibleResourcesCollectionItemGloballyAggregated {
         FungibleResourcesCollectionItemGloballyAggregated {
-            aggregation_level,
-            explicit_metadata: None,
-            resource_address,
             amount,
+            explicit_metadata: None,
             last_updated_at_state_version,
+            resource_address,
         }
     }
 }

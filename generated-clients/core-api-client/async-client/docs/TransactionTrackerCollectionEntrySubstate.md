@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_locked** | **bool** |  | 
-**substate_type** | [**models::SubstateType**](SubstateType.md) |  | 
 **key** | [**models::TransactionIdKey**](TransactionIdKey.md) |  | 
 **value** | [**models::TransactionTrackerCollectionEntryValue**](TransactionTrackerCollectionEntryValue.md) |  | 
 

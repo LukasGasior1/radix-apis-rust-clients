@@ -16,15 +16,12 @@ pub struct ResourcePresentedBadge {
     /// The Bech32m-encoded human readable version of the resource address
     #[serde(rename = "resource_address")]
     pub resource_address: String,
-    #[serde(rename = "type")]
-    pub r#type: models::PresentedBadgeType,
 }
 
 impl ResourcePresentedBadge {
-    pub fn new(resource_address: String, r#type: models::PresentedBadgeType) -> ResourcePresentedBadge {
+    pub fn new(resource_address: String) -> ResourcePresentedBadge {
         ResourcePresentedBadge {
             resource_address,
-            r#type,
         }
     }
 }

@@ -13,18 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EntityNotFoundError {
-    /// The type of error. Each subtype may have its own additional structured fields.
-    #[serde(rename = "type")]
-    pub r#type: String,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "address")]
     pub address: String,
 }
 
 impl EntityNotFoundError {
-    pub fn new(r#type: String, address: String) -> EntityNotFoundError {
+    pub fn new(address: String) -> EntityNotFoundError {
         EntityNotFoundError {
-            r#type,
             address,
         }
     }

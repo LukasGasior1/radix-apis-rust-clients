@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AllOfAccessRuleNode {
-    #[serde(rename = "type")]
-    pub r#type: models::AccessRuleNodeType,
     #[serde(rename = "access_rules")]
     pub access_rules: Vec<models::AccessRuleNode>,
 }
 
 impl AllOfAccessRuleNode {
-    pub fn new(r#type: models::AccessRuleNodeType, access_rules: Vec<models::AccessRuleNode>) -> AllOfAccessRuleNode {
+    pub fn new(access_rules: Vec<models::AccessRuleNode>) -> AllOfAccessRuleNode {
         AllOfAccessRuleNode {
-            r#type,
             access_rules,
         }
     }

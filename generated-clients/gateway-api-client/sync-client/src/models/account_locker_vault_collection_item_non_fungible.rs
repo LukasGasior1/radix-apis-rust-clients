@@ -19,23 +19,20 @@ pub struct AccountLockerVaultCollectionItemNonFungible {
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "resource_address")]
     pub resource_address: String,
-    #[serde(rename = "type")]
-    pub r#type: models::AccountLockerVaultCollectionItemType,
+    #[serde(rename = "total_count")]
+    pub total_count: i64,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "vault_address")]
     pub vault_address: String,
-    #[serde(rename = "total_count")]
-    pub total_count: i64,
 }
 
 impl AccountLockerVaultCollectionItemNonFungible {
-    pub fn new(last_updated_at_state_version: u64, resource_address: String, r#type: models::AccountLockerVaultCollectionItemType, vault_address: String, total_count: i64) -> AccountLockerVaultCollectionItemNonFungible {
+    pub fn new(last_updated_at_state_version: u64, resource_address: String, total_count: i64, vault_address: String) -> AccountLockerVaultCollectionItemNonFungible {
         AccountLockerVaultCollectionItemNonFungible {
             last_updated_at_state_version,
             resource_address,
-            r#type,
-            vault_address,
             total_count,
+            vault_address,
         }
     }
 }

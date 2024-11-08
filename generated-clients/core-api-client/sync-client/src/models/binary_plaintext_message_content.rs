@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BinaryPlaintextMessageContent {
-    #[serde(rename = "type")]
-    pub r#type: models::PlaintextMessageContentType,
     /// The hex-encoded value of a message that the author decided to provide as raw bytes.
     #[serde(rename = "value_hex")]
     pub value_hex: String,
 }
 
 impl BinaryPlaintextMessageContent {
-    pub fn new(r#type: models::PlaintextMessageContentType, value_hex: String) -> BinaryPlaintextMessageContent {
+    pub fn new(value_hex: String) -> BinaryPlaintextMessageContent {
         BinaryPlaintextMessageContent {
-            r#type,
             value_hex,
         }
     }

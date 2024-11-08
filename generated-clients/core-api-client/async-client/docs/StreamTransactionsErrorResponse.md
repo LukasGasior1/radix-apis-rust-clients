@@ -5,10 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **i32** | A numeric code corresponding to the given HTTP error code. | 
-**error_type** | [**models::ErrorResponseType**](ErrorResponseType.md) |  | 
+**details** | Option<[**models::StreamTransactionsErrorDetails**](StreamTransactionsErrorDetails.md)> |  | [optional]
 **message** | **String** | A human-readable error message. | 
 **trace_id** | Option<**String**> | A GUID to be used when reporting errors, to allow correlation with the Core API's error logs, in the case where the Core API details are hidden. | [optional]
-**details** | Option<[**models::StreamTransactionsErrorDetails**](StreamTransactionsErrorDetails.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

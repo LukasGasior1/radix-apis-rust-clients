@@ -11,10 +11,9 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// MetadataInstantArrayValue : See documentation of `MetadataInstantValue` for detailed description of `values` vs `values_unix_timestamp_seconds`. 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataInstantArrayValue {
-    #[serde(rename = "type")]
-    pub r#type: models::MetadataValueType,
     #[serde(rename = "values")]
     pub values: Vec<String>,
     #[serde(rename = "values_unix_timestamp_seconds")]
@@ -22,9 +21,9 @@ pub struct MetadataInstantArrayValue {
 }
 
 impl MetadataInstantArrayValue {
-    pub fn new(r#type: models::MetadataValueType, values: Vec<String>, values_unix_timestamp_seconds: Vec<String>) -> MetadataInstantArrayValue {
+    /// See documentation of `MetadataInstantValue` for detailed description of `values` vs `values_unix_timestamp_seconds`. 
+    pub fn new(values: Vec<String>, values_unix_timestamp_seconds: Vec<String>) -> MetadataInstantArrayValue {
         MetadataInstantArrayValue {
-            r#type,
             values,
             values_unix_timestamp_seconds,
         }

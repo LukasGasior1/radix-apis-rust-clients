@@ -14,38 +14,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum LedgerTransaction {
-    #[serde(rename="Flash")]
-    FlashLedgerTransaction {
-        /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
-        #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
-        payload_hex: Option<String>,
-    },
     #[serde(rename="Genesis")]
-    GenesisLedgerTransaction {
-        /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
-        #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
-        payload_hex: Option<String>,
-    },
-    #[serde(rename="RoundUpdate")]
-    RoundUpdateLedgerTransaction {
-        /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
-        #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
-        payload_hex: Option<String>,
-    },
+    Genesis(Box<models::GenesisLedgerTransaction>),
     #[serde(rename="User")]
-    UserLedgerTransaction {
-        /// The hex-encoded full ledger transaction payload. Only returned if enabled in TransactionFormatOptions on your request.
-        #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
-        payload_hex: Option<String>,
-    },
+    User(Box<models::UserLedgerTransaction>),
+    #[serde(rename="RoundUpdate")]
+    RoundUpdate(Box<models::RoundUpdateLedgerTransaction>),
+    #[serde(rename="Flash")]
+    Flash(Box<models::FlashLedgerTransaction>),
 }
 
 impl Default for LedgerTransaction {
     fn default() -> Self {
-        Self::FlashLedgerTransaction {
-            payload_hex: Default::default(),
-        }
-        
+        Self::Genesis(Default::default())
     }
 }
 

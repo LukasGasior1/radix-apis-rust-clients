@@ -15,18 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum GenericSubstitution {
     #[serde(rename="Local")]
-    LocalGenericSubstitution {
-    },
+    Local(Box<models::LocalGenericSubstitution>),
     #[serde(rename="Remote")]
-    RemoteGenericSubstitution {
-    },
+    Remote(Box<models::RemoteGenericSubstitution>),
 }
 
 impl Default for GenericSubstitution {
     fn default() -> Self {
-        Self::LocalGenericSubstitution {
-        }
-        
+        Self::Local(Default::default())
     }
 }
 

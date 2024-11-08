@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::ParsedTransactionType**](ParsedTransactionType.md) |  | 
 **identifiers** | [**models::ParsedLedgerTransactionIdentifiers**](ParsedLedgerTransactionIdentifiers.md) |  | 
 **ledger_transaction** | Option<[**models::LedgerTransaction**](LedgerTransaction.md)> |  | [optional]
 

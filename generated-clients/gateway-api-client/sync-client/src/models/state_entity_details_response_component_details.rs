@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponseComponentDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::StateEntityDetailsResponseItemDetailsType,
     #[serde(rename = "blueprint_name")]
     pub blueprint_name: String,
     #[serde(rename = "blueprint_version")]
@@ -42,9 +40,8 @@ pub struct StateEntityDetailsResponseComponentDetails {
 }
 
 impl StateEntityDetailsResponseComponentDetails {
-    pub fn new(r#type: models::StateEntityDetailsResponseItemDetailsType, blueprint_name: String, blueprint_version: String) -> StateEntityDetailsResponseComponentDetails {
+    pub fn new(blueprint_name: String, blueprint_version: String) -> StateEntityDetailsResponseComponentDetails {
         StateEntityDetailsResponseComponentDetails {
-            r#type,
             blueprint_name,
             blueprint_version,
             native_resource_details: None,

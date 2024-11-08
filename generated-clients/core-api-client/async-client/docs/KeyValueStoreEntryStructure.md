@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::SubstateSystemStructureType**](SubstateSystemStructureType.md) |  | 
 **key_full_type_id** | [**models::FullyScopedTypeId**](FullyScopedTypeId.md) |  | 
 **value_full_type_id** | [**models::FullyScopedTypeId**](FullyScopedTypeId.md) |  | 
 

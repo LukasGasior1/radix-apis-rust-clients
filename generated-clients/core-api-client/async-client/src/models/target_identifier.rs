@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum TargetIdentifier {
-    #[serde(rename="Function")]
-    BlueprintFunctionTargetIdentifier {
-    },
     #[serde(rename="Method")]
-    ComponentMethodTargetIdentifier {
-    },
+    Method(Box<models::ComponentMethodTargetIdentifier>),
+    #[serde(rename="Function")]
+    Function(Box<models::BlueprintFunctionTargetIdentifier>),
 }
 
 impl Default for TargetIdentifier {
     fn default() -> Self {
-        Self::BlueprintFunctionTargetIdentifier {
-        }
-        
+        Self::Method(Default::default())
     }
 }
 

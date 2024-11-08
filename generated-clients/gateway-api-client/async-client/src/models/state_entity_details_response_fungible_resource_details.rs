@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponseFungibleResourceDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::StateEntityDetailsResponseItemDetailsType,
     #[serde(rename = "divisibility")]
     pub divisibility: u32,
     #[serde(rename = "native_resource_details", skip_serializing_if = "Option::is_none")]
@@ -35,9 +33,8 @@ pub struct StateEntityDetailsResponseFungibleResourceDetails {
 }
 
 impl StateEntityDetailsResponseFungibleResourceDetails {
-    pub fn new(r#type: models::StateEntityDetailsResponseItemDetailsType, divisibility: u32, role_assignments: models::ComponentEntityRoleAssignments, total_burned: String, total_minted: String, total_supply: String) -> StateEntityDetailsResponseFungibleResourceDetails {
+    pub fn new(divisibility: u32, role_assignments: models::ComponentEntityRoleAssignments, total_burned: String, total_minted: String, total_supply: String) -> StateEntityDetailsResponseFungibleResourceDetails {
         StateEntityDetailsResponseFungibleResourceDetails {
-            r#type,
             divisibility,
             native_resource_details: None,
             role_assignments: Box::new(role_assignments),

@@ -11,11 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// StateEntityDetailsResponsePackageDetails : vm_type, code_hash_hex and code_hex are always going to be empty, use `codes` property which will return collection (it's possible after protocol update that package might have multiple codes)
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponsePackageDetails {
-    #[serde(rename = "type")]
-    pub r#type: models::StateEntityDetailsResponseItemDetailsType,
     #[serde(rename = "blueprints", skip_serializing_if = "Option::is_none")]
     pub blueprints: Option<Box<models::PackageBlueprintCollection>>,
     /// Hex-encoded binary blob.
@@ -41,10 +38,8 @@ pub struct StateEntityDetailsResponsePackageDetails {
 }
 
 impl StateEntityDetailsResponsePackageDetails {
-    /// vm_type, code_hash_hex and code_hex are always going to be empty, use `codes` property which will return collection (it's possible after protocol update that package might have multiple codes)
-    pub fn new(r#type: models::StateEntityDetailsResponseItemDetailsType, code_hash_hex: String, code_hex: String, codes: models::PackageCodeCollection, vm_type: models::PackageVmType) -> StateEntityDetailsResponsePackageDetails {
+    pub fn new(code_hash_hex: String, code_hex: String, codes: models::PackageCodeCollection, vm_type: models::PackageVmType) -> StateEntityDetailsResponsePackageDetails {
         StateEntityDetailsResponsePackageDetails {
-            r#type,
             blueprints: None,
             code_hash_hex,
             code_hex,

@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SortedIndexBlueprintCollectionSchema {
-    #[serde(rename = "type")]
-    pub r#type: models::BlueprintCollectionSchemaType,
     /// Whether the entries of the sorted index partition are allowed to own child nodes.
     #[serde(rename = "allow_ownership")]
     pub allow_ownership: bool,
@@ -25,9 +23,8 @@ pub struct SortedIndexBlueprintCollectionSchema {
 }
 
 impl SortedIndexBlueprintCollectionSchema {
-    pub fn new(r#type: models::BlueprintCollectionSchemaType, allow_ownership: bool, key_type_ref: models::BlueprintPayloadDef, value_type_ref: models::BlueprintPayloadDef) -> SortedIndexBlueprintCollectionSchema {
+    pub fn new(allow_ownership: bool, key_type_ref: models::BlueprintPayloadDef, value_type_ref: models::BlueprintPayloadDef) -> SortedIndexBlueprintCollectionSchema {
         SortedIndexBlueprintCollectionSchema {
-            r#type,
             allow_ownership,
             key_type_ref: Box::new(key_type_ref),
             value_type_ref: Box::new(value_type_ref),

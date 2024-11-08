@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::StateEntityDetailsResponseItemDetailsType**](StateEntityDetailsResponseItemDetailsType.md) |  | 
 **native_resource_details** | Option<[**models::NativeResourceDetails**](NativeResourceDetails.md)> |  | [optional]
 **non_fungible_data_mutable_fields** | **Vec<String>** |  | 
 **non_fungible_id_type** | [**models::NonFungibleIdType**](NonFungibleIdType.md) |  | 

@@ -14,19 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum StreamProofsErrorDetails {
-    #[serde(rename="RequestedEpochOutOfBounds")]
-    StreamProofsErrorDetailsRequestedEpochOutOfBounds {
-    },
     #[serde(rename="RequestedStateVersionOutOfBounds")]
-    StreamProofsErrorDetailsRequestedStateVersionOutOfBounds {
-    },
+    RequestedStateVersionOutOfBounds(Box<models::StreamProofsErrorDetailsRequestedStateVersionOutOfBounds>),
+    #[serde(rename="RequestedEpochOutOfBounds")]
+    RequestedEpochOutOfBounds(Box<models::StreamProofsErrorDetailsRequestedEpochOutOfBounds>),
 }
 
 impl Default for StreamProofsErrorDetails {
     fn default() -> Self {
-        Self::StreamProofsErrorDetailsRequestedEpochOutOfBounds {
-        }
-        
+        Self::RequestedStateVersionOutOfBounds(Default::default())
     }
 }
 

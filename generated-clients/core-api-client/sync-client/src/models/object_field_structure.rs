@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ObjectFieldStructure {
-    #[serde(rename = "type")]
-    pub r#type: models::SubstateSystemStructureType,
     #[serde(rename = "value_schema")]
     pub value_schema: Box<models::ObjectSubstateTypeReference>,
 }
 
 impl ObjectFieldStructure {
-    pub fn new(r#type: models::SubstateSystemStructureType, value_schema: models::ObjectSubstateTypeReference) -> ObjectFieldStructure {
+    pub fn new(value_schema: models::ObjectSubstateTypeReference) -> ObjectFieldStructure {
         ObjectFieldStructure {
-            r#type,
             value_schema: Box::new(value_schema),
         }
     }

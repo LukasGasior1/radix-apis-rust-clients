@@ -11,18 +11,17 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// EcdsaSecp256k1SignatureWithPublicKey : Because ECDSA has recoverable signatures, this only includes a signature
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EcdsaSecp256k1SignatureWithPublicKey {
-    #[serde(rename = "key_type")]
-    pub key_type: models::PublicKeyType,
     #[serde(rename = "recoverable_signature")]
     pub recoverable_signature: Box<models::EcdsaSecp256k1Signature>,
 }
 
 impl EcdsaSecp256k1SignatureWithPublicKey {
-    pub fn new(key_type: models::PublicKeyType, recoverable_signature: models::EcdsaSecp256k1Signature) -> EcdsaSecp256k1SignatureWithPublicKey {
+    /// Because ECDSA has recoverable signatures, this only includes a signature
+    pub fn new(recoverable_signature: models::EcdsaSecp256k1Signature) -> EcdsaSecp256k1SignatureWithPublicKey {
         EcdsaSecp256k1SignatureWithPublicKey {
-            key_type,
             recoverable_signature: Box::new(recoverable_signature),
         }
     }

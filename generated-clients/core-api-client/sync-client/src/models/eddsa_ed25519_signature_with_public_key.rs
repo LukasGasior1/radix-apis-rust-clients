@@ -11,10 +11,9 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// EddsaEd25519SignatureWithPublicKey : The EdDSA public key and signature
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EddsaEd25519SignatureWithPublicKey {
-    #[serde(rename = "key_type")]
-    pub key_type: models::PublicKeyType,
     #[serde(rename = "public_key")]
     pub public_key: Box<models::EddsaEd25519PublicKey>,
     #[serde(rename = "signature")]
@@ -22,9 +21,9 @@ pub struct EddsaEd25519SignatureWithPublicKey {
 }
 
 impl EddsaEd25519SignatureWithPublicKey {
-    pub fn new(key_type: models::PublicKeyType, public_key: models::EddsaEd25519PublicKey, signature: models::EddsaEd25519Signature) -> EddsaEd25519SignatureWithPublicKey {
+    /// The EdDSA public key and signature
+    pub fn new(public_key: models::EddsaEd25519PublicKey, signature: models::EddsaEd25519Signature) -> EddsaEd25519SignatureWithPublicKey {
         EddsaEd25519SignatureWithPublicKey {
-            key_type,
             public_key: Box::new(public_key),
             signature: Box::new(signature),
         }

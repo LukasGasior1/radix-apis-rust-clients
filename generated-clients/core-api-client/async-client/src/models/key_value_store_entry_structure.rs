@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct KeyValueStoreEntryStructure {
-    #[serde(rename = "type")]
-    pub r#type: models::SubstateSystemStructureType,
     #[serde(rename = "key_full_type_id")]
     pub key_full_type_id: Box<models::FullyScopedTypeId>,
     #[serde(rename = "value_full_type_id")]
@@ -22,9 +20,8 @@ pub struct KeyValueStoreEntryStructure {
 }
 
 impl KeyValueStoreEntryStructure {
-    pub fn new(r#type: models::SubstateSystemStructureType, key_full_type_id: models::FullyScopedTypeId, value_full_type_id: models::FullyScopedTypeId) -> KeyValueStoreEntryStructure {
+    pub fn new(key_full_type_id: models::FullyScopedTypeId, value_full_type_id: models::FullyScopedTypeId) -> KeyValueStoreEntryStructure {
         KeyValueStoreEntryStructure {
-            r#type,
             key_full_type_id: Box::new(key_full_type_id),
             value_full_type_id: Box::new(value_full_type_id),
         }

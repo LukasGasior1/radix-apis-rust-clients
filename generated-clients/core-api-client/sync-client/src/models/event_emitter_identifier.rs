@@ -15,18 +15,14 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum EventEmitterIdentifier {
     #[serde(rename="Function")]
-    FunctionEventEmitterIdentifier {
-    },
+    Function(Box<models::FunctionEventEmitterIdentifier>),
     #[serde(rename="Method")]
-    MethodEventEmitterIdentifier {
-    },
+    Method(Box<models::MethodEventEmitterIdentifier>),
 }
 
 impl Default for EventEmitterIdentifier {
     fn default() -> Self {
-        Self::FunctionEventEmitterIdentifier {
-        }
-        
+        Self::Function(Default::default())
     }
 }
 

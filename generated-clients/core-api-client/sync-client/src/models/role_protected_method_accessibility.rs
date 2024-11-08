@@ -13,16 +13,13 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RoleProtectedMethodAccessibility {
-    #[serde(rename = "type")]
-    pub r#type: models::MethodAccessibilityType,
     #[serde(rename = "allowed_roles")]
     pub allowed_roles: Vec<String>,
 }
 
 impl RoleProtectedMethodAccessibility {
-    pub fn new(r#type: models::MethodAccessibilityType, allowed_roles: Vec<String>) -> RoleProtectedMethodAccessibility {
+    pub fn new(allowed_roles: Vec<String>) -> RoleProtectedMethodAccessibility {
         RoleProtectedMethodAccessibility {
-            r#type,
             allowed_roles,
         }
     }

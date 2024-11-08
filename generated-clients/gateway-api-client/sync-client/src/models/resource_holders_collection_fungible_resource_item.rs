@@ -13,25 +13,22 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResourceHoldersCollectionFungibleResourceItem {
+    /// String-encoded decimal representing the amount of a related fungible resource.
+    #[serde(rename = "amount")]
+    pub amount: String,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "holder_address")]
     pub holder_address: String,
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: i64,
-    #[serde(rename = "type")]
-    pub r#type: models::ResourceHoldersResourceType,
-    /// String-encoded decimal representing the amount of a related fungible resource.
-    #[serde(rename = "amount")]
-    pub amount: String,
 }
 
 impl ResourceHoldersCollectionFungibleResourceItem {
-    pub fn new(holder_address: String, last_updated_at_state_version: i64, r#type: models::ResourceHoldersResourceType, amount: String) -> ResourceHoldersCollectionFungibleResourceItem {
+    pub fn new(amount: String, holder_address: String, last_updated_at_state_version: i64) -> ResourceHoldersCollectionFungibleResourceItem {
         ResourceHoldersCollectionFungibleResourceItem {
+            amount,
             holder_address,
             last_updated_at_state_version,
-            r#type,
-            amount,
         }
     }
 }

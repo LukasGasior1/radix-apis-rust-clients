@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**r#type** | [**models::StateEntityDetailsResponseItemDetailsType**](StateEntityDetailsResponseItemDetailsType.md) |  | 
 **blueprint_name** | **String** |  | 
 **blueprint_version** | **String** |  | 
 **native_resource_details** | Option<[**models::NativeResourceDetails**](NativeResourceDetails.md)> |  | [optional]

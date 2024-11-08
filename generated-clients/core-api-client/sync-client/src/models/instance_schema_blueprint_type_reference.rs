@@ -13,17 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InstanceSchemaBlueprintTypeReference {
-    #[serde(rename = "type")]
-    pub r#type: models::BlueprintTypeReferenceKind,
     /// Provided by an instance's schema at the given index in its provided types array.
     #[serde(rename = "instance_provided_type_index")]
     pub instance_provided_type_index: u32,
 }
 
 impl InstanceSchemaBlueprintTypeReference {
-    pub fn new(r#type: models::BlueprintTypeReferenceKind, instance_provided_type_index: u32) -> InstanceSchemaBlueprintTypeReference {
+    pub fn new(instance_provided_type_index: u32) -> InstanceSchemaBlueprintTypeReference {
         InstanceSchemaBlueprintTypeReference {
-            r#type,
             instance_provided_type_index,
         }
     }
