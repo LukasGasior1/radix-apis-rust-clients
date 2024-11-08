@@ -11,6 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ConsensusLedgerProofOrigin : Represents a proof from the execution of a consensus round. 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ConsensusLedgerProofOrigin {
     /// A hex-encoded 32-byte vertex VoteData hash on the consensus side, opaque to ledger.
@@ -21,6 +22,7 @@ pub struct ConsensusLedgerProofOrigin {
 }
 
 impl ConsensusLedgerProofOrigin {
+    /// Represents a proof from the execution of a consensus round. 
     pub fn new(opaque_hash: String, timestamped_signatures: Vec<models::TimestampedValidatorSignature>) -> ConsensusLedgerProofOrigin {
         ConsensusLedgerProofOrigin {
             opaque_hash,

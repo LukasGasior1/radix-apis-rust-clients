@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hash** | **String** | The hex-encoded signed intent hash for a user transaction. This hash identifies the transaction intent, plus additional signatures. This hash is signed by the notary, to create the submittable NotarizedTransaction.  | 
-**hash_bech32m** | **String** | The Bech32m-encoded human readable `SignedIntentHash`. | 
+**hash** | **String** | The hex-encoded signed intent hash for a user transaction. This hash identifies the transaction intent, plus additional signatures. This hash is signed by the notary, to create the submittable `NotarizedTransaction`.  | 
+**hash_bech32m** | **String** | The Bech32m-encoded human readable `SignedTransactionIntentHash`. | 
 **intent** | [**models::TransactionIntent**](TransactionIntent.md) |  | 
 **intent_signatures** | [**Vec<models::SignatureWithPublicKey>**](SignatureWithPublicKey.md) |  | 
 

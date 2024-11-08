@@ -11,8 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// LtsTransactionIntentStatus : The status of the transaction intent, as determined by the node. FateUncertain or FateUncertainButLikelyRejection mean that it's still possible that a payload containing the transaction  
-/// The status of the transaction intent, as determined by the node. FateUncertain or FateUncertainButLikelyRejection mean that it's still possible that a payload containing the transaction  
+/// LtsTransactionIntentStatus : The status of the transaction intent, as determined by the node. FateUncertain or FateUncertainButLikelyRejection mean that it's still possible that a payload containing the transaction 
+/// The status of the transaction intent, as determined by the node. FateUncertain or FateUncertainButLikelyRejection mean that it's still possible that a payload containing the transaction 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum LtsTransactionIntentStatus {
     #[serde(rename = "CommittedSuccess")]

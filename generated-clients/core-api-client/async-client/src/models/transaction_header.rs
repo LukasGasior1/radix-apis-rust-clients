@@ -19,7 +19,7 @@ pub struct TransactionHeader {
     /// The logical id of the network
     #[serde(rename = "network_id")]
     pub network_id: u32,
-    /// An integer between `0` and `2^32 - 1`, chosen to allow a unique intent to be created (to enable submitting an otherwise identical/duplicate intent). 
+    /// An integer between `0` and `2^32 - 1`, chosen to allow a unique intent to be created (to enable submitting an otherwise identical/duplicate intent).  As of Cuttlefish and V2 transaction models, this is now referred to in documentation as the `intent_discriminator`. 
     #[serde(rename = "nonce")]
     pub nonce: u64,
     /// Specifies whether the notary public key should be included in the transaction signers list

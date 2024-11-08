@@ -4,7 +4,11 @@
 
 | Name | Value |
 |---- | -----|
+| BootLoaderModuleFieldSystemBoot | BootLoaderModuleFieldSystemBoot |
+| BootLoaderModuleFieldKernelBoot | BootLoaderModuleFieldKernelBoot |
 | BootLoaderModuleFieldVmBoot | BootLoaderModuleFieldVmBoot |
+| BootLoaderModuleFieldTransactionValidationConfiguration | BootLoaderModuleFieldTransactionValidationConfiguration |
+| ProtocolUpdateStatusModuleFieldSummary | ProtocolUpdateStatusModuleFieldSummary |
 | TypeInfoModuleFieldTypeInfo | TypeInfoModuleFieldTypeInfo |
 | RoleAssignmentModuleFieldOwnerRole | RoleAssignmentModuleFieldOwnerRole |
 | RoleAssignmentModuleRuleEntry | RoleAssignmentModuleRuleEntry |
@@ -56,8 +60,6 @@
 | TransactionTrackerFieldState | TransactionTrackerFieldState |
 | TransactionTrackerCollectionEntry | TransactionTrackerCollectionEntry |
 | AccountLockerAccountClaimsEntry | AccountLockerAccountClaimsEntry |
-| BootLoaderModuleFieldSystemBoot | BootLoaderModuleFieldSystemBoot |
-| BootLoaderModuleFieldKernelBoot | BootLoaderModuleFieldKernelBoot |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

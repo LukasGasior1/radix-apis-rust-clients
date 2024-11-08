@@ -14,12 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(tag = "substate_type")]
 pub enum Substate {
+    #[serde(rename="BootLoaderModuleFieldKernelBoot")]
+    BootLoaderModuleFieldKernelBoot(Box<models::BootLoaderModuleFieldKernelBootSubstate>),
     #[serde(rename="BootLoaderModuleFieldSystemBoot")]
     BootLoaderModuleFieldSystemBoot(Box<models::BootLoaderModuleFieldSystemBootSubstate>),
     #[serde(rename="BootLoaderModuleFieldVmBoot")]
     BootLoaderModuleFieldVmBoot(Box<models::BootLoaderModuleFieldVmBootSubstate>),
-    #[serde(rename="BootLoaderModuleFieldKernelBoot")]
-    BootLoaderModuleFieldKernelBoot(Box<models::BootLoaderModuleFieldKernelBootSubstate>),
+    #[serde(rename="BootLoaderModuleFieldTransactionValidationConfiguration")]
+    BootLoaderModuleFieldTransactionValidationConfiguration(Box<models::BootLoaderModuleFieldTransactionValidationConfigurationSubstate>),
+    #[serde(rename="ProtocolUpdateStatusModuleFieldSummary")]
+    ProtocolUpdateStatusModuleFieldSummary(Box<models::ProtocolUpdateStatusModuleFieldSummarySubstate>),
     #[serde(rename="TypeInfoModuleFieldTypeInfo")]
     TypeInfoModuleFieldTypeInfo(Box<models::TypeInfoModuleFieldTypeInfoSubstate>),
     #[serde(rename="RoleAssignmentModuleFieldOwnerRole")]
@@ -122,7 +126,7 @@ pub enum Substate {
 
 impl Default for Substate {
     fn default() -> Self {
-        Self::BootLoaderModuleFieldSystemBoot(Default::default())
+        Self::BootLoaderModuleFieldKernelBoot(Default::default())
     }
 }
 

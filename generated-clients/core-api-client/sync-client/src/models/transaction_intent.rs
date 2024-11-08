@@ -16,10 +16,10 @@ pub struct TransactionIntent {
     /// A map of the hex-encoded blob hash, to hex-encoded blob content. Only returned if enabled in `TransactionFormatOptions` on your request.
     #[serde(rename = "blobs_hex", skip_serializing_if = "Option::is_none")]
     pub blobs_hex: Option<std::collections::HashMap<String, String>>,
-    /// The hex-encoded intent hash for a user transaction, also known as the transaction id. This hash identifies the core content \"intent\" of the transaction. Each intent can only be committed once. This hash gets signed by any signatories on the transaction, to create the signed intent. 
+    /// The hex-encoded transaction intent hash for a user transaction, also known as the transaction id. This hash identifies the core \"intent\" of the transaction. Each transaction intent can only be committed once. This hash gets signed by any signatories on the transaction, to create the signed intent. 
     #[serde(rename = "hash")]
     pub hash: String,
-    /// The Bech32m-encoded human readable `IntentHash`.
+    /// The Bech32m-encoded human readable `TransactionIntentHash`.
     #[serde(rename = "hash_bech32m")]
     pub hash_bech32m: String,
     #[serde(rename = "header")]

@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// RemoteGenericSubstitution : The generic substitution is provided remotely by a blueprint type. The `resolved_full_type_id` is added by the node, and is always present in the model returned from the transaction stream API. Other APIs may not resolve the type from the blueprint definition.  
+/// RemoteGenericSubstitution : The generic substitution is provided remotely by a blueprint type. The `resolved_full_type_id` is added by the node, and is always present in the model returned from the transaction stream API. Other APIs may not resolve the type from the blueprint definition. 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RemoteGenericSubstitution {
     #[serde(rename = "blueprint_type_identifier")]
@@ -21,7 +21,7 @@ pub struct RemoteGenericSubstitution {
 }
 
 impl RemoteGenericSubstitution {
-    /// The generic substitution is provided remotely by a blueprint type. The `resolved_full_type_id` is added by the node, and is always present in the model returned from the transaction stream API. Other APIs may not resolve the type from the blueprint definition.  
+    /// The generic substitution is provided remotely by a blueprint type. The `resolved_full_type_id` is added by the node, and is always present in the model returned from the transaction stream API. Other APIs may not resolve the type from the blueprint definition. 
     pub fn new(blueprint_type_identifier: models::BlueprintTypeIdentifier) -> RemoteGenericSubstitution {
         RemoteGenericSubstitution {
             blueprint_type_identifier: Box::new(blueprint_type_identifier),

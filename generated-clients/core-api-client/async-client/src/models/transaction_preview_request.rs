@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 pub struct TransactionPreviewRequest {
     #[serde(rename = "at_ledger_state", skip_serializing_if = "Option::is_none")]
     pub at_ledger_state: Option<Box<models::LedgerStateSelector>>,
-    /// An array of hex-encoded blob data (optional)
+    /// An array of hex-encoded blob data, if referenced by the manifest.
     #[serde(rename = "blobs_hex", skip_serializing_if = "Option::is_none")]
     pub blobs_hex: Option<Vec<String>>,
-    /// An integer between `0` and `10^10`, marking the epoch at which the transaction is no longer valid
-    #[serde(rename = "end_epoch_exclusive")]
-    pub end_epoch_exclusive: u64,
+    /// An integer between `0` and `10^10`, marking the epoch at which the transaction is no longer valid. If omitted, a maximum epoch (relative to the `start_epoch_inclusive`) will be used. 
+    #[serde(rename = "end_epoch_exclusive", skip_serializing_if = "Option::is_none")]
+    pub end_epoch_exclusive: Option<u64>,
     #[serde(rename = "flags")]
     pub flags: Box<models::TransactionPreviewRequestFlags>,
-    /// A text-representation of a transaction manifest
+    /// A text representation of a transaction manifest.
     #[serde(rename = "manifest")]
     pub manifest: String,
     /// An optional transaction message. Only affects the costing.
@@ -35,10 +35,10 @@ pub struct TransactionPreviewRequest {
     /// An integer between `0` and `2^32 - 1`, chosen to allow a unique intent to be created (to enable submitting an otherwise identical/duplicate intent). 
     #[serde(rename = "nonce")]
     pub nonce: u64,
-    /// Whether the notary should count as a signatory (optional, default false)
+    /// Whether the notary should count as a signatory (defaults to `false`).
     #[serde(rename = "notary_is_signatory", skip_serializing_if = "Option::is_none")]
     pub notary_is_signatory: Option<bool>,
-    /// The notary public key to use (optional)
+    /// The notary public key to use (optional).
     #[serde(rename = "notary_public_key", skip_serializing_if = "Option::is_none")]
     pub notary_public_key: Option<Box<models::PublicKey>>,
     /// A set of flags to configure the response of the transaction preview.
@@ -47,20 +47,20 @@ pub struct TransactionPreviewRequest {
     /// A list of public keys to be used as transaction signers
     #[serde(rename = "signer_public_keys")]
     pub signer_public_keys: Vec<models::PublicKey>,
-    /// An integer between `0` and `10^10`, marking the epoch at which the transaction starts being valid
-    #[serde(rename = "start_epoch_inclusive")]
-    pub start_epoch_inclusive: u64,
-    /// An integer between `0` and `65535`, giving the validator tip as a percentage amount. A value of `1` corresponds to 1% of the fee.
+    /// An integer between `0` and `10^10`, marking the epoch at which the transaction starts being valid. If omitted, the current epoch will be used (taking into account the `at_ledger_state`, if specified). 
+    #[serde(rename = "start_epoch_inclusive", skip_serializing_if = "Option::is_none")]
+    pub start_epoch_inclusive: Option<u64>,
+    /// An integer between `0` and `65535`, giving the validator tip as a percentage amount. A value of `1` corresponds to a 1% fee. 
     #[serde(rename = "tip_percentage")]
     pub tip_percentage: u32,
 }
 
 impl TransactionPreviewRequest {
-    pub fn new(end_epoch_exclusive: u64, flags: models::TransactionPreviewRequestFlags, manifest: String, network: String, nonce: u64, signer_public_keys: Vec<models::PublicKey>, start_epoch_inclusive: u64, tip_percentage: u32) -> TransactionPreviewRequest {
+    pub fn new(flags: models::TransactionPreviewRequestFlags, manifest: String, network: String, nonce: u64, signer_public_keys: Vec<models::PublicKey>, tip_percentage: u32) -> TransactionPreviewRequest {
         TransactionPreviewRequest {
             at_ledger_state: None,
             blobs_hex: None,
-            end_epoch_exclusive,
+            end_epoch_exclusive: None,
             flags: Box::new(flags),
             manifest,
             message: None,
@@ -70,7 +70,7 @@ impl TransactionPreviewRequest {
             notary_public_key: None,
             options: None,
             signer_public_keys,
-            start_epoch_inclusive,
+            start_epoch_inclusive: None,
             tip_percentage,
         }
     }

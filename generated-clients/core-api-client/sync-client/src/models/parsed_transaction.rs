@@ -16,6 +16,8 @@ use serde::{Deserialize, Serialize};
 pub enum ParsedTransaction {
     #[serde(rename="NotarizedTransaction")]
     NotarizedTransaction(Box<models::ParsedNotarizedTransaction>),
+    #[serde(rename="NotarizedTransactionV2")]
+    NotarizedTransactionV2(Box<models::ParsedNotarizedTransactionV2>),
     #[serde(rename="SignedTransactionIntent")]
     SignedTransactionIntent(Box<models::ParsedSignedTransactionIntent>),
     #[serde(rename="TransactionIntent")]

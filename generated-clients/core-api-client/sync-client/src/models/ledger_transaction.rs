@@ -18,6 +18,8 @@ pub enum LedgerTransaction {
     Genesis(Box<models::GenesisLedgerTransaction>),
     #[serde(rename="User")]
     User(Box<models::UserLedgerTransaction>),
+    #[serde(rename="UserV2")]
+    UserV2(Box<models::UserLedgerTransactionV2>),
     #[serde(rename="RoundUpdate")]
     RoundUpdate(Box<models::RoundUpdateLedgerTransaction>),
     #[serde(rename="Flash")]

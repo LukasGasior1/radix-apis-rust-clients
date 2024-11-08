@@ -26,6 +26,7 @@ docs/ActiveValidatorKey.md
 docs/AddressType.md
 docs/AllOfAccessRuleNode.md
 docs/AllOfProofRule.md
+docs/AlwaysVisibleGlobalNodesVersion.md
 docs/AmountOfProofRule.md
 docs/AnyOfAccessRuleNode.md
 docs/AnyOfProofRule.md
@@ -55,8 +56,10 @@ docs/BlueprintTypeReference.md
 docs/BlueprintTypeReferenceKind.md
 docs/BlueprintVersionKey.md
 docs/BootLoaderModuleFieldKernelBootSubstate.md
+docs/BootLoaderModuleFieldKernelBootValue.md
 docs/BootLoaderModuleFieldSystemBootSubstate.md
 docs/BootLoaderModuleFieldSystemBootValue.md
+docs/BootLoaderModuleFieldTransactionValidationConfigurationSubstate.md
 docs/BootLoaderModuleFieldVmBootSubstate.md
 docs/BootLoaderModuleFieldVmBootValue.md
 docs/CommittedIntentMetadata.md
@@ -150,11 +153,15 @@ docs/GenericTypeParameterConstraints.md
 docs/GenesisLedgerProofOrigin.md
 docs/GenesisLedgerTransaction.md
 docs/HookExport.md
+docs/InProgressProtocolUpdateStatus.md
 docs/IndexBlueprintCollectionSchema.md
 docs/IndexedStateSchema.md
 docs/InstanceSchemaBlueprintTypeReference.md
 docs/InstantMs.md
 docs/InstructionResourceChanges.md
+docs/IntentCoreV2.md
+docs/IntentHeaderV2.md
+docs/IntentSignatures.md
 docs/KeyValueBasedStructure.md
 docs/KeyValueBlueprintCollectionSchema.md
 docs/KeyValueStoreEntryStructure.md
@@ -262,6 +269,7 @@ docs/NonFungibleVaultFieldBalanceValue.md
 docs/NonFungibleVaultFieldFrozenStatusSubstate.md
 docs/NonFungibleVaultFieldFrozenStatusValue.md
 docs/NotarizedTransaction.md
+docs/NotarizedTransactionV2.md
 docs/ObjectFieldStructure.md
 docs/ObjectHook.md
 docs/ObjectInstanceTypeReference.md
@@ -296,6 +304,7 @@ docs/ParsedLedgerTransaction.md
 docs/ParsedLedgerTransactionIdentifiers.md
 docs/ParsedNotarizedTransaction.md
 docs/ParsedNotarizedTransactionIdentifiers.md
+docs/ParsedNotarizedTransactionV2.md
 docs/ParsedNotarizedTransactionValidationError.md
 docs/ParsedSignedTransactionIntent.md
 docs/ParsedSignedTransactionIntentIdentifiers.md
@@ -323,6 +332,10 @@ docs/ProofRuleType.md
 docs/ProposerReward.md
 docs/ProtectedAccessRule.md
 docs/ProtocolUpdateLedgerProofOrigin.md
+docs/ProtocolUpdateStatus.md
+docs/ProtocolUpdateStatusLatestCommit.md
+docs/ProtocolUpdateStatusModuleFieldSummarySubstate.md
+docs/ProtocolUpdateStatusType.md
 docs/ProtocolVersionReadiness.md
 docs/PublicKey.md
 docs/PublicKeyType.md
@@ -372,6 +385,7 @@ docs/SignallingValidator.md
 docs/Signature.md
 docs/SignatureWithPublicKey.md
 docs/SignedTransactionIntent.md
+docs/SignedTransactionIntentV2.md
 docs/SignificantProtocolUpdateReadinessEntry.md
 docs/SortedIndexBlueprintCollectionSchema.md
 docs/SortedSubstateKey.md
@@ -420,6 +434,7 @@ docs/StreamTransactionsErrorResponse.md
 docs/StreamTransactionsRequest.md
 docs/StreamTransactionsResponse.md
 docs/StringPlaintextMessageContent.md
+docs/SubintentV2.md
 docs/Substate.md
 docs/SubstateFormatOptions.md
 docs/SubstateId.md
@@ -434,6 +449,7 @@ docs/SystemFieldKind.md
 docs/SystemFieldStructure.md
 docs/SystemParameters.md
 docs/SystemTransaction.md
+docs/SystemVersion.md
 docs/TargetIdentifier.md
 docs/TargetIdentifierType.md
 docs/TimestampedValidatorSignature.md
@@ -442,10 +458,12 @@ docs/TransactionCallPreviewRequest.md
 docs/TransactionCallPreviewResponse.md
 docs/TransactionFormatOptions.md
 docs/TransactionHeader.md
+docs/TransactionHeaderV2.md
 docs/TransactionIdKey.md
 docs/TransactionIdentifiers.md
 docs/TransactionIntent.md
 docs/TransactionIntentStatus.md
+docs/TransactionIntentV2.md
 docs/TransactionMessage.md
 docs/TransactionMessageType.md
 docs/TransactionParseRequest.md
@@ -484,6 +502,7 @@ docs/TypeInfoModuleFieldTypeInfoValue.md
 docs/TypeInfoType.md
 docs/UpdatedSubstate.md
 docs/UserLedgerTransaction.md
+docs/UserLedgerTransactionV2.md
 docs/ValidatorFeeChangeRequest.md
 docs/ValidatorFieldProtocolUpdateReadinessSignalSubstate.md
 docs/ValidatorFieldProtocolUpdateReadinessSignalValue.md
@@ -526,6 +545,7 @@ src/models/active_validator_key.rs
 src/models/address_type.rs
 src/models/all_of_access_rule_node.rs
 src/models/all_of_proof_rule.rs
+src/models/always_visible_global_nodes_version.rs
 src/models/amount_of_proof_rule.rs
 src/models/any_of_access_rule_node.rs
 src/models/any_of_proof_rule.rs
@@ -555,8 +575,10 @@ src/models/blueprint_type_reference.rs
 src/models/blueprint_type_reference_kind.rs
 src/models/blueprint_version_key.rs
 src/models/boot_loader_module_field_kernel_boot_substate.rs
+src/models/boot_loader_module_field_kernel_boot_value.rs
 src/models/boot_loader_module_field_system_boot_substate.rs
 src/models/boot_loader_module_field_system_boot_value.rs
+src/models/boot_loader_module_field_transaction_validation_configuration_substate.rs
 src/models/boot_loader_module_field_vm_boot_substate.rs
 src/models/boot_loader_module_field_vm_boot_value.rs
 src/models/committed_intent_metadata.rs
@@ -650,11 +672,15 @@ src/models/generic_type_parameter_constraints.rs
 src/models/genesis_ledger_proof_origin.rs
 src/models/genesis_ledger_transaction.rs
 src/models/hook_export.rs
+src/models/in_progress_protocol_update_status.rs
 src/models/index_blueprint_collection_schema.rs
 src/models/indexed_state_schema.rs
 src/models/instance_schema_blueprint_type_reference.rs
 src/models/instant_ms.rs
 src/models/instruction_resource_changes.rs
+src/models/intent_core_v2.rs
+src/models/intent_header_v2.rs
+src/models/intent_signatures.rs
 src/models/key_value_based_structure.rs
 src/models/key_value_blueprint_collection_schema.rs
 src/models/key_value_store_entry_structure.rs
@@ -761,6 +787,7 @@ src/models/non_fungible_vault_field_balance_value.rs
 src/models/non_fungible_vault_field_frozen_status_substate.rs
 src/models/non_fungible_vault_field_frozen_status_value.rs
 src/models/notarized_transaction.rs
+src/models/notarized_transaction_v2.rs
 src/models/object_field_structure.rs
 src/models/object_hook.rs
 src/models/object_instance_type_reference.rs
@@ -795,6 +822,7 @@ src/models/parsed_ledger_transaction.rs
 src/models/parsed_ledger_transaction_identifiers.rs
 src/models/parsed_notarized_transaction.rs
 src/models/parsed_notarized_transaction_identifiers.rs
+src/models/parsed_notarized_transaction_v2.rs
 src/models/parsed_notarized_transaction_validation_error.rs
 src/models/parsed_signed_transaction_intent.rs
 src/models/parsed_signed_transaction_intent_identifiers.rs
@@ -822,6 +850,10 @@ src/models/proof_rule_type.rs
 src/models/proposer_reward.rs
 src/models/protected_access_rule.rs
 src/models/protocol_update_ledger_proof_origin.rs
+src/models/protocol_update_status.rs
+src/models/protocol_update_status_latest_commit.rs
+src/models/protocol_update_status_module_field_summary_substate.rs
+src/models/protocol_update_status_type.rs
 src/models/protocol_version_readiness.rs
 src/models/public_key.rs
 src/models/public_key_type.rs
@@ -871,6 +903,7 @@ src/models/signalling_validator.rs
 src/models/signature.rs
 src/models/signature_with_public_key.rs
 src/models/signed_transaction_intent.rs
+src/models/signed_transaction_intent_v2.rs
 src/models/significant_protocol_update_readiness_entry.rs
 src/models/sorted_index_blueprint_collection_schema.rs
 src/models/sorted_substate_key.rs
@@ -916,6 +949,7 @@ src/models/stream_transactions_error_response.rs
 src/models/stream_transactions_request.rs
 src/models/stream_transactions_response.rs
 src/models/string_plaintext_message_content.rs
+src/models/subintent_v2.rs
 src/models/substate.rs
 src/models/substate_format_options.rs
 src/models/substate_id.rs
@@ -930,6 +964,7 @@ src/models/system_field_kind.rs
 src/models/system_field_structure.rs
 src/models/system_parameters.rs
 src/models/system_transaction.rs
+src/models/system_version.rs
 src/models/target_identifier.rs
 src/models/target_identifier_type.rs
 src/models/timestamped_validator_signature.rs
@@ -937,10 +972,12 @@ src/models/transaction_call_preview_request.rs
 src/models/transaction_call_preview_response.rs
 src/models/transaction_format_options.rs
 src/models/transaction_header.rs
+src/models/transaction_header_v2.rs
 src/models/transaction_id_key.rs
 src/models/transaction_identifiers.rs
 src/models/transaction_intent.rs
 src/models/transaction_intent_status.rs
+src/models/transaction_intent_v2.rs
 src/models/transaction_message.rs
 src/models/transaction_message_type.rs
 src/models/transaction_parse_request.rs
@@ -979,6 +1016,7 @@ src/models/type_info_module_field_type_info_value.rs
 src/models/type_info_type.rs
 src/models/updated_substate.rs
 src/models/user_ledger_transaction.rs
+src/models/user_ledger_transaction_v2.rs
 src/models/validator_fee_change_request.rs
 src/models/validator_field_protocol_update_readiness_signal_substate.rs
 src/models/validator_field_protocol_update_readiness_signal_value.rs

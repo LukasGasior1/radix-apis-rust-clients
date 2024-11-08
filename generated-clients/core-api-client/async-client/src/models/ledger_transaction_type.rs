@@ -19,6 +19,8 @@ pub enum LedgerTransactionType {
     Genesis,
     #[serde(rename = "User")]
     User,
+    #[serde(rename = "UserV2")]
+    UserV2,
     #[serde(rename = "RoundUpdate")]
     RoundUpdate,
     #[serde(rename = "Flash")]
@@ -31,6 +33,7 @@ impl std::fmt::Display for LedgerTransactionType {
         match self {
             Self::Genesis => write!(f, "Genesis"),
             Self::User => write!(f, "User"),
+            Self::UserV2 => write!(f, "UserV2"),
             Self::RoundUpdate => write!(f, "RoundUpdate"),
             Self::Flash => write!(f, "Flash"),
         }

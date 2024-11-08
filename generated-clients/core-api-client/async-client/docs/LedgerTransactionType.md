@@ -6,6 +6,7 @@
 |---- | -----|
 | Genesis | Genesis |
 | User | User |
+| UserV2 | UserV2 |
 | RoundUpdate | RoundUpdate |
 | Flash | Flash |
 

@@ -11,16 +11,36 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// GenesisLedgerProofOrigin : Represents a proof from the execution of the babylon genesis protocol update, which starts the babylon-node ledger.  Behind-the-scenes, this is now the same as a `ProtocolUpdateLedgerProofOrigin`, but is kept separate for backwards-compatibility.  NOTE: Some of these values may be placeholder values on nodes which haven't resynced since Cuttlefish. In particular, the following values might be invalid on such nodes:  * `batch_group_idx` (placeholder of 0) * `batch_group_name` (placeholder of \"\") * `batch_idx` (placeholder of 0) * `batch_name` (placeholder of \"\") * `is_end_of_update` (placeholder of false) 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenesisLedgerProofOrigin {
+    #[serde(rename = "batch_group_idx")]
+    pub batch_group_idx: i64,
+    #[serde(rename = "batch_group_name")]
+    pub batch_group_name: String,
+    #[serde(rename = "batch_idx")]
+    pub batch_idx: i64,
+    #[serde(rename = "batch_name")]
+    pub batch_name: String,
     #[serde(rename = "genesis_opaque_hash")]
     pub genesis_opaque_hash: String,
+    #[serde(rename = "is_end_of_update")]
+    pub is_end_of_update: bool,
+    #[serde(rename = "protocol_version_name")]
+    pub protocol_version_name: String,
 }
 
 impl GenesisLedgerProofOrigin {
-    pub fn new(genesis_opaque_hash: String) -> GenesisLedgerProofOrigin {
+    /// Represents a proof from the execution of the babylon genesis protocol update, which starts the babylon-node ledger.  Behind-the-scenes, this is now the same as a `ProtocolUpdateLedgerProofOrigin`, but is kept separate for backwards-compatibility.  NOTE: Some of these values may be placeholder values on nodes which haven't resynced since Cuttlefish. In particular, the following values might be invalid on such nodes:  * `batch_group_idx` (placeholder of 0) * `batch_group_name` (placeholder of \"\") * `batch_idx` (placeholder of 0) * `batch_name` (placeholder of \"\") * `is_end_of_update` (placeholder of false) 
+    pub fn new(batch_group_idx: i64, batch_group_name: String, batch_idx: i64, batch_name: String, genesis_opaque_hash: String, is_end_of_update: bool, protocol_version_name: String) -> GenesisLedgerProofOrigin {
         GenesisLedgerProofOrigin {
+            batch_group_idx,
+            batch_group_name,
+            batch_idx,
+            batch_name,
             genesis_opaque_hash,
+            is_end_of_update,
+            protocol_version_name,
         }
     }
 }
