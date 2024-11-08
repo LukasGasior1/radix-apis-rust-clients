@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "key_hash_type")]
 pub enum PublicKeyHash {
     #[serde(rename="EcdsaSecp256k1")]
-    EcdsaSecp256k1(Box<models::PublicKeyHashEcdsaSecp256k1>),
+    EcdsaSecp256k1(models::PublicKeyHashEcdsaSecp256k1),
     #[serde(rename="EddsaEd25519")]
-    EddsaEd25519(Box<models::PublicKeyHashEddsaEd25519>),
+    EddsaEd25519(models::PublicKeyHashEddsaEd25519),
 }
 
 impl Default for PublicKeyHash {

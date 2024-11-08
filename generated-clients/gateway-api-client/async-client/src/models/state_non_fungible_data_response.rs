@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateNonFungibleDataResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "non_fungible_id_type")]
     pub non_fungible_id_type: models::NonFungibleIdType,
     #[serde(rename = "non_fungible_ids")]
@@ -27,7 +27,7 @@ pub struct StateNonFungibleDataResponse {
 impl StateNonFungibleDataResponse {
     pub fn new(ledger_state: models::LedgerState, non_fungible_id_type: models::NonFungibleIdType, non_fungible_ids: Vec<models::StateNonFungibleDetailsResponseItem>, resource_address: String) -> StateNonFungibleDataResponse {
         StateNonFungibleDataResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             non_fungible_id_type,
             non_fungible_ids,
             resource_address,

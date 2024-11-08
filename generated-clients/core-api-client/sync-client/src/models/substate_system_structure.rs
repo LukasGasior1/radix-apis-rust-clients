@@ -15,19 +15,19 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum SubstateSystemStructure {
     #[serde(rename="SystemField")]
-    SystemField(Box<models::SystemFieldStructure>),
+    SystemField(models::SystemFieldStructure),
     #[serde(rename="SystemSchema")]
     SystemSchema(serde_json::Value),
     #[serde(rename="KeyValueStoreEntry")]
-    KeyValueStoreEntry(Box<models::KeyValueStoreEntryStructure>),
+    KeyValueStoreEntry(models::KeyValueStoreEntryStructure),
     #[serde(rename="ObjectField")]
-    ObjectField(Box<models::ObjectFieldStructure>),
+    ObjectField(models::ObjectFieldStructure),
     #[serde(rename="ObjectKeyValuePartitionEntry")]
-    ObjectKeyValuePartitionEntry(Box<models::KeyValueBasedStructure>),
+    ObjectKeyValuePartitionEntry(models::KeyValueBasedStructure),
     #[serde(rename="ObjectIndexPartitionEntry")]
-    ObjectIndexPartitionEntry(Box<models::KeyValueBasedStructure>),
+    ObjectIndexPartitionEntry(models::KeyValueBasedStructure),
     #[serde(rename="ObjectSortedIndexPartitionEntry")]
-    ObjectSortedIndexPartitionEntry(Box<models::KeyValueBasedStructure>),
+    ObjectSortedIndexPartitionEntry(models::KeyValueBasedStructure),
 }
 
 impl Default for SubstateSystemStructure {

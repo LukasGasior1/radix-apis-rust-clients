@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InProgressProtocolUpdateStatus {
     #[serde(rename = "latest_commit")]
-    pub latest_commit: Box<models::ProtocolUpdateStatusLatestCommit>,
+    pub latest_commit: models::ProtocolUpdateStatusLatestCommit,
 }
 
 impl InProgressProtocolUpdateStatus {
     pub fn new(latest_commit: models::ProtocolUpdateStatusLatestCommit) -> InProgressProtocolUpdateStatus {
         InProgressProtocolUpdateStatus {
-            latest_commit: Box::new(latest_commit),
+            latest_commit,
         }
     }
 }

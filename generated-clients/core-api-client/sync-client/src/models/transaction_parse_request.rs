@@ -26,7 +26,7 @@ pub struct TransactionParseRequest {
     #[serde(rename = "response_mode", skip_serializing_if = "Option::is_none")]
     pub response_mode: Option<ResponseMode>,
     #[serde(rename = "transaction_format_options", skip_serializing_if = "Option::is_none")]
-    pub transaction_format_options: Option<Box<models::TransactionFormatOptions>>,
+    pub transaction_format_options: Option<models::TransactionFormatOptions>,
     /// The type of validation that should be performed, if the payload correctly decompiles as a Notarized Transaction. This is only relevant for Notarized payloads. If omitted, \"Static\" is used. 
     #[serde(rename = "validation_mode", skip_serializing_if = "Option::is_none")]
     pub validation_mode: Option<ValidationMode>,

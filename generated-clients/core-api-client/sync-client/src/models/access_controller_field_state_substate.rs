@@ -16,14 +16,14 @@ pub struct AccessControllerFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::AccessControllerFieldStateValue>,
+    pub value: models::AccessControllerFieldStateValue,
 }
 
 impl AccessControllerFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::AccessControllerFieldStateValue) -> AccessControllerFieldStateSubstate {
         AccessControllerFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

@@ -18,14 +18,14 @@ pub struct StateEntityDetailsResponseComponentDetails {
     #[serde(rename = "blueprint_version")]
     pub blueprint_version: String,
     #[serde(rename = "native_resource_details", skip_serializing_if = "Option::is_none")]
-    pub native_resource_details: Option<Box<models::NativeResourceDetails>>,
+    pub native_resource_details: Option<models::NativeResourceDetails>,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "package_address", skip_serializing_if = "Option::is_none")]
     pub package_address: Option<String>,
     #[serde(rename = "role_assignments", skip_serializing_if = "Option::is_none")]
-    pub role_assignments: Option<Box<models::ComponentEntityRoleAssignments>>,
+    pub role_assignments: Option<models::ComponentEntityRoleAssignments>,
     #[serde(rename = "royalty_config", skip_serializing_if = "Option::is_none")]
-    pub royalty_config: Option<Box<models::ComponentRoyaltyConfig>>,
+    pub royalty_config: Option<models::ComponentRoyaltyConfig>,
     /// String-encoded decimal representing the amount of a related fungible resource.
     #[serde(rename = "royalty_vault_balance", skip_serializing_if = "Option::is_none")]
     pub royalty_vault_balance: Option<String>,
@@ -36,7 +36,7 @@ pub struct StateEntityDetailsResponseComponentDetails {
     #[serde(rename = "two_way_linked_dapp_address", skip_serializing_if = "Option::is_none")]
     pub two_way_linked_dapp_address: Option<String>,
     #[serde(rename = "two_way_linked_dapp_details", skip_serializing_if = "Option::is_none")]
-    pub two_way_linked_dapp_details: Option<Box<models::TwoWayLinkedDappOnLedgerDetails>>,
+    pub two_way_linked_dapp_details: Option<models::TwoWayLinkedDappOnLedgerDetails>,
 }
 
 impl StateEntityDetailsResponseComponentDetails {

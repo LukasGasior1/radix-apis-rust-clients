@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "key_type")]
 pub enum Signature {
     #[serde(rename="EcdsaSecp256k1")]
-    EcdsaSecp256k1(Box<models::EcdsaSecp256k1Signature>),
+    EcdsaSecp256k1(models::EcdsaSecp256k1Signature),
     #[serde(rename="EddsaEd25519")]
-    EddsaEd25519(Box<models::EddsaEd25519Signature>),
+    EddsaEd25519(models::EddsaEd25519Signature),
 }
 
 impl Default for Signature {

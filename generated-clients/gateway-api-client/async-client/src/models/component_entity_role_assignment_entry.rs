@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ComponentEntityRoleAssignmentEntry {
     #[serde(rename = "assignment")]
-    pub assignment: Box<models::ComponentEntityRoleAssignmentEntryAssignment>,
+    pub assignment: models::ComponentEntityRoleAssignmentEntryAssignment,
     #[serde(rename = "role_key")]
-    pub role_key: Box<models::RoleKey>,
+    pub role_key: models::RoleKey,
     #[serde(rename = "updater_roles", skip_serializing_if = "Option::is_none")]
     pub updater_roles: Option<Vec<models::RoleKey>>,
 }
@@ -24,8 +24,8 @@ pub struct ComponentEntityRoleAssignmentEntry {
 impl ComponentEntityRoleAssignmentEntry {
     pub fn new(assignment: models::ComponentEntityRoleAssignmentEntryAssignment, role_key: models::RoleKey) -> ComponentEntityRoleAssignmentEntry {
         ComponentEntityRoleAssignmentEntry {
-            assignment: Box::new(assignment),
-            role_key: Box::new(role_key),
+            assignment,
+            role_key,
             updater_roles: None,
         }
     }

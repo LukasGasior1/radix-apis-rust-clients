@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LocalGenericSubstitution {
     #[serde(rename = "scoped_type_id")]
-    pub scoped_type_id: Box<models::ScopedTypeId>,
+    pub scoped_type_id: models::ScopedTypeId,
 }
 
 impl LocalGenericSubstitution {
     /// The generic substitution is provided by the instance itself. The `scoped_type_id` can be expanded to a `FullyScopedTypeId` by including the current entity's address. 
     pub fn new(scoped_type_id: models::ScopedTypeId) -> LocalGenericSubstitution {
         LocalGenericSubstitution {
-            scoped_type_id: Box::new(scoped_type_id),
+            scoped_type_id,
         }
     }
 }

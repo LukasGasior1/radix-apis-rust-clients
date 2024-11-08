@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LedgerProof {
     #[serde(rename = "ledger_header")]
-    pub ledger_header: Box<models::LedgerHeader>,
+    pub ledger_header: models::LedgerHeader,
     #[serde(rename = "origin")]
-    pub origin: Box<models::LedgerProofOrigin>,
+    pub origin: models::LedgerProofOrigin,
 }
 
 impl LedgerProof {
     pub fn new(ledger_header: models::LedgerHeader, origin: models::LedgerProofOrigin) -> LedgerProof {
         LedgerProof {
-            ledger_header: Box::new(ledger_header),
-            origin: Box::new(origin),
+            ledger_header,
+            origin,
         }
     }
 }

@@ -17,12 +17,12 @@ pub struct TransactionCallPreviewRequest {
     #[serde(rename = "arguments")]
     pub arguments: Vec<String>,
     #[serde(rename = "at_ledger_state", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Box<models::LedgerStateSelector>>,
+    pub at_ledger_state: Option<models::LedgerStateSelector>,
     /// The logical name of the network
     #[serde(rename = "network")]
     pub network: String,
     #[serde(rename = "target")]
-    pub target: Box<models::TargetIdentifier>,
+    pub target: models::TargetIdentifier,
 }
 
 impl TransactionCallPreviewRequest {
@@ -31,7 +31,7 @@ impl TransactionCallPreviewRequest {
             arguments,
             at_ledger_state: None,
             network,
-            target: Box::new(target),
+            target,
         }
     }
 }

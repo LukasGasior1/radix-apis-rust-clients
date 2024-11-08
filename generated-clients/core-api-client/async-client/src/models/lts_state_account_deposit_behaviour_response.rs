@@ -20,7 +20,7 @@ pub struct LtsStateAccountDepositBehaviourResponse {
     pub is_badge_authorized_depositor: Option<bool>,
     /// The excerpt from the ledger header committed at the `state_version`.
     #[serde(rename = "ledger_header_summary")]
-    pub ledger_header_summary: Box<models::LedgerHeaderSummary>,
+    pub ledger_header_summary: models::LedgerHeaderSummary,
     /// A map from one of the input `resource_addresses` to its specific deposit behavior configured for this account. This field will only be present if an array of specific resource addresses was passed in the request (even if empty). 
     #[serde(rename = "resource_specific_behaviours", skip_serializing_if = "Option::is_none")]
     pub resource_specific_behaviours: Option<std::collections::HashMap<String, models::ResourceSpecificDepositBehaviour>>,
@@ -33,7 +33,7 @@ impl LtsStateAccountDepositBehaviourResponse {
         LtsStateAccountDepositBehaviourResponse {
             default_deposit_rule,
             is_badge_authorized_depositor: None,
-            ledger_header_summary: Box::new(ledger_header_summary),
+            ledger_header_summary,
             resource_specific_behaviours: None,
             state_version,
         }

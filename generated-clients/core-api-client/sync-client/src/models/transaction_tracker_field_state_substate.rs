@@ -16,14 +16,14 @@ pub struct TransactionTrackerFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::TransactionTrackerFieldStateValue>,
+    pub value: models::TransactionTrackerFieldStateValue,
 }
 
 impl TransactionTrackerFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::TransactionTrackerFieldStateValue) -> TransactionTrackerFieldStateSubstate {
         TransactionTrackerFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

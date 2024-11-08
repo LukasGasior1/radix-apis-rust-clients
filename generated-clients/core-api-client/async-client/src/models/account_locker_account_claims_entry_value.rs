@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct AccountLockerAccountClaimsEntryValue {
     /// An owned Key-Value Store entity, which maps each `ResourceAddress` to its corresponding `Vault`.
     #[serde(rename = "resource_vaults")]
-    pub resource_vaults: Box<models::EntityReference>,
+    pub resource_vaults: models::EntityReference,
 }
 
 impl AccountLockerAccountClaimsEntryValue {
     pub fn new(resource_vaults: models::EntityReference) -> AccountLockerAccountClaimsEntryValue {
         AccountLockerAccountClaimsEntryValue {
-            resource_vaults: Box::new(resource_vaults),
+            resource_vaults,
         }
     }
 }

@@ -16,14 +16,14 @@ pub struct GenericScryptoComponentFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::GenericScryptoComponentFieldStateValue>,
+    pub value: models::GenericScryptoComponentFieldStateValue,
 }
 
 impl GenericScryptoComponentFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::GenericScryptoComponentFieldStateValue) -> GenericScryptoComponentFieldStateSubstate {
         GenericScryptoComponentFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

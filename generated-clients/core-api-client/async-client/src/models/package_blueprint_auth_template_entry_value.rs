@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct PackageBlueprintAuthTemplateEntryValue {
     /// The configuration of the package blueprint.
     #[serde(rename = "auth_config")]
-    pub auth_config: Box<models::AuthConfig>,
+    pub auth_config: models::AuthConfig,
 }
 
 impl PackageBlueprintAuthTemplateEntryValue {
     pub fn new(auth_config: models::AuthConfig) -> PackageBlueprintAuthTemplateEntryValue {
         PackageBlueprintAuthTemplateEntryValue {
-            auth_config: Box::new(auth_config),
+            auth_config,
         }
     }
 }

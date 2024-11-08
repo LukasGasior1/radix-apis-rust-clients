@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionReceiptResponse {
     #[serde(rename = "committed")]
-    pub committed: Box<models::CommittedTransaction>,
+    pub committed: models::CommittedTransaction,
 }
 
 impl TransactionReceiptResponse {
     pub fn new(committed: models::CommittedTransaction) -> TransactionReceiptResponse {
         TransactionReceiptResponse {
-            committed: Box::new(committed),
+            committed,
         }
     }
 }

@@ -22,7 +22,7 @@ pub struct StreamTransactionsResponse {
     pub max_ledger_state_version: u64,
     /// Identifiers for the state on top of which the returned transactions were executed (ie `from_state_version - 1`). This should be used for sanity-checking that you're reading from the ledger history you're expecting. If this is field is missing, the previous state does not exists (`from_state_version` is 0). 
     #[serde(rename = "previous_state_identifiers", skip_serializing_if = "Option::is_none")]
-    pub previous_state_identifiers: Option<Box<models::CommittedStateIdentifier>>,
+    pub previous_state_identifiers: Option<models::CommittedStateIdentifier>,
     /// A ledger proof list starting from `from_state_version` (inclusive) stored by this node.
     #[serde(rename = "proofs", skip_serializing_if = "Option::is_none")]
     pub proofs: Option<Vec<models::LedgerProof>>,

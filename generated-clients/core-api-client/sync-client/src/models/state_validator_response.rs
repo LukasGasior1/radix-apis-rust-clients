@@ -18,16 +18,16 @@ pub struct StateValidatorResponse {
     pub address: String,
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     /// Any descendent nodes owned directly or indirectly by the component
     #[serde(rename = "descendent_nodes")]
     pub descendent_nodes: Vec<models::StateComponentDescendentNode>,
     #[serde(rename = "owner_role")]
-    pub owner_role: Box<models::Substate>,
+    pub owner_role: models::Substate,
     #[serde(rename = "protocol_update_readiness_signal")]
-    pub protocol_update_readiness_signal: Box<models::Substate>,
+    pub protocol_update_readiness_signal: models::Substate,
     #[serde(rename = "state")]
-    pub state: Box<models::Substate>,
+    pub state: models::Substate,
     /// Any vaults owned directly or indirectly by the component
     #[serde(rename = "vaults")]
     pub vaults: Vec<models::VaultBalance>,
@@ -37,11 +37,11 @@ impl StateValidatorResponse {
     pub fn new(address: String, at_ledger_state: models::LedgerStateSummary, descendent_nodes: Vec<models::StateComponentDescendentNode>, owner_role: models::Substate, protocol_update_readiness_signal: models::Substate, state: models::Substate, vaults: Vec<models::VaultBalance>) -> StateValidatorResponse {
         StateValidatorResponse {
             address,
-            at_ledger_state: Box::new(at_ledger_state),
+            at_ledger_state,
             descendent_nodes,
-            owner_role: Box::new(owner_role),
-            protocol_update_readiness_signal: Box::new(protocol_update_readiness_signal),
-            state: Box::new(state),
+            owner_role,
+            protocol_update_readiness_signal,
+            state,
             vaults,
         }
     }

@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProgrammaticScryptoSborValueMapEntry {
     #[serde(rename = "key")]
-    pub key: Box<models::ProgrammaticScryptoSborValue>,
+    pub key: models::ProgrammaticScryptoSborValue,
     #[serde(rename = "value")]
-    pub value: Box<models::ProgrammaticScryptoSborValue>,
+    pub value: models::ProgrammaticScryptoSborValue,
 }
 
 impl ProgrammaticScryptoSborValueMapEntry {
     pub fn new(key: models::ProgrammaticScryptoSborValue, value: models::ProgrammaticScryptoSborValue) -> ProgrammaticScryptoSborValueMapEntry {
         ProgrammaticScryptoSborValueMapEntry {
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

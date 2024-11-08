@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct PrimaryRoleRecoveryAttempt {
     /// A new set of rules being proposed for different roles.
     #[serde(rename = "recovery_proposal")]
-    pub recovery_proposal: Box<models::RecoveryProposal>,
+    pub recovery_proposal: models::RecoveryProposal,
 }
 
 impl PrimaryRoleRecoveryAttempt {
     pub fn new(recovery_proposal: models::RecoveryProposal) -> PrimaryRoleRecoveryAttempt {
         PrimaryRoleRecoveryAttempt {
-            recovery_proposal: Box::new(recovery_proposal),
+            recovery_proposal,
         }
     }
 }

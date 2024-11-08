@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlashLedgerTransaction {
     #[serde(rename = "flashed_state_updates")]
-    pub flashed_state_updates: Box<models::FlashedStateUpdates>,
+    pub flashed_state_updates: models::FlashedStateUpdates,
     /// Human-readable identifier of the flash transaction.
     #[serde(rename = "name")]
     pub name: String,
@@ -26,7 +26,7 @@ pub struct FlashLedgerTransaction {
 impl FlashLedgerTransaction {
     pub fn new(flashed_state_updates: models::FlashedStateUpdates, name: String) -> FlashLedgerTransaction {
         FlashLedgerTransaction {
-            flashed_state_updates: Box::new(flashed_state_updates),
+            flashed_state_updates,
             name,
             payload_hex: None,
         }

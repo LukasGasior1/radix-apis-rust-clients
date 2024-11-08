@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct GenericKey {
     /// If it can be decoded as SBOR, this is the data
     #[serde(rename = "key_data", skip_serializing_if = "Option::is_none")]
-    pub key_data: Option<Box<models::SborData>>,
+    pub key_data: Option<models::SborData>,
 }
 
 impl GenericKey {

@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PackageBlueprintDefinitionEntryValue {
     #[serde(rename = "definition")]
-    pub definition: Box<models::BlueprintDefinition>,
+    pub definition: models::BlueprintDefinition,
 }
 
 impl PackageBlueprintDefinitionEntryValue {
     pub fn new(definition: models::BlueprintDefinition) -> PackageBlueprintDefinitionEntryValue {
         PackageBlueprintDefinitionEntryValue {
-            definition: Box::new(definition),
+            definition,
         }
     }
 }

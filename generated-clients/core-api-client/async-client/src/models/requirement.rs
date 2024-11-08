@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum Requirement {
     #[serde(rename="Resource")]
-    Resource(Box<models::ResourceRequirement>),
+    Resource(models::ResourceRequirement),
     #[serde(rename="NonFungible")]
-    NonFungible(Box<models::NonFungibleRequirement>),
+    NonFungible(models::NonFungibleRequirement),
 }
 
 impl Default for Requirement {

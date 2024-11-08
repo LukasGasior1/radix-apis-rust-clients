@@ -20,9 +20,9 @@ pub struct LedgerHeader {
     #[serde(rename = "epoch")]
     pub epoch: u64,
     #[serde(rename = "hashes")]
-    pub hashes: Box<models::LedgerHashes>,
+    pub hashes: models::LedgerHashes,
     #[serde(rename = "next_epoch", skip_serializing_if = "Option::is_none")]
-    pub next_epoch: Option<Box<models::NextEpoch>>,
+    pub next_epoch: Option<models::NextEpoch>,
     /// If present, indicates that this proof triggers the enactment of the given protocol version.
     #[serde(rename = "next_protocol_version", skip_serializing_if = "Option::is_none")]
     pub next_protocol_version: Option<String>,
@@ -41,7 +41,7 @@ impl LedgerHeader {
         LedgerHeader {
             consensus_parent_round_timestamp_ms,
             epoch,
-            hashes: Box::new(hashes),
+            hashes,
             next_epoch: None,
             next_protocol_version: None,
             proposer_timestamp_ms,

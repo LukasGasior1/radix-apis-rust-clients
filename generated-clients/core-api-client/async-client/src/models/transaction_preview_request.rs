@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionPreviewRequest {
     #[serde(rename = "at_ledger_state", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Box<models::LedgerStateSelector>>,
+    pub at_ledger_state: Option<models::LedgerStateSelector>,
     /// An array of hex-encoded blob data, if referenced by the manifest.
     #[serde(rename = "blobs_hex", skip_serializing_if = "Option::is_none")]
     pub blobs_hex: Option<Vec<String>>,
@@ -22,13 +22,13 @@ pub struct TransactionPreviewRequest {
     #[serde(rename = "end_epoch_exclusive", skip_serializing_if = "Option::is_none")]
     pub end_epoch_exclusive: Option<u64>,
     #[serde(rename = "flags")]
-    pub flags: Box<models::TransactionPreviewRequestFlags>,
+    pub flags: models::TransactionPreviewRequestFlags,
     /// A text representation of a transaction manifest.
     #[serde(rename = "manifest")]
     pub manifest: String,
     /// An optional transaction message. Only affects the costing.
     #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<Box<models::TransactionMessage>>,
+    pub message: Option<models::TransactionMessage>,
     /// The logical name of the network
     #[serde(rename = "network")]
     pub network: String,
@@ -40,10 +40,10 @@ pub struct TransactionPreviewRequest {
     pub notary_is_signatory: Option<bool>,
     /// The notary public key to use (optional).
     #[serde(rename = "notary_public_key", skip_serializing_if = "Option::is_none")]
-    pub notary_public_key: Option<Box<models::PublicKey>>,
+    pub notary_public_key: Option<models::PublicKey>,
     /// A set of flags to configure the response of the transaction preview.
     #[serde(rename = "options", skip_serializing_if = "Option::is_none")]
-    pub options: Option<Box<models::TransactionPreviewResponseOptions>>,
+    pub options: Option<models::TransactionPreviewResponseOptions>,
     /// A list of public keys to be used as transaction signers
     #[serde(rename = "signer_public_keys")]
     pub signer_public_keys: Vec<models::PublicKey>,
@@ -61,7 +61,7 @@ impl TransactionPreviewRequest {
             at_ledger_state: None,
             blobs_hex: None,
             end_epoch_exclusive: None,
-            flags: Box::new(flags),
+            flags,
             manifest,
             message: None,
             network,

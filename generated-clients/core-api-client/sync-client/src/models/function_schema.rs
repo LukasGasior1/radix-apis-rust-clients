@@ -15,19 +15,19 @@ use serde::{Deserialize, Serialize};
 pub struct FunctionSchema {
     /// The reference to the function's parameter struct. 
     #[serde(rename = "input")]
-    pub input: Box<models::BlueprintPayloadDef>,
+    pub input: models::BlueprintPayloadDef,
     /// The reference to the function output struct. 
     #[serde(rename = "output")]
-    pub output: Box<models::BlueprintPayloadDef>,
+    pub output: models::BlueprintPayloadDef,
     #[serde(rename = "receiver_info", skip_serializing_if = "Option::is_none")]
-    pub receiver_info: Option<Box<models::ReceiverInfo>>,
+    pub receiver_info: Option<models::ReceiverInfo>,
 }
 
 impl FunctionSchema {
     pub fn new(input: models::BlueprintPayloadDef, output: models::BlueprintPayloadDef) -> FunctionSchema {
         FunctionSchema {
-            input: Box::new(input),
-            output: Box::new(output),
+            input,
+            output,
             receiver_info: None,
         }
     }

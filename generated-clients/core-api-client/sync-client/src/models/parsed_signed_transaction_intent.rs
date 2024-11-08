@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ParsedSignedTransactionIntent {
     #[serde(rename = "identifiers")]
-    pub identifiers: Box<models::ParsedSignedTransactionIntentIdentifiers>,
+    pub identifiers: models::ParsedSignedTransactionIntentIdentifiers,
     #[serde(rename = "signed_intent", skip_serializing_if = "Option::is_none")]
-    pub signed_intent: Option<Box<models::SignedTransactionIntent>>,
+    pub signed_intent: Option<models::SignedTransactionIntent>,
 }
 
 impl ParsedSignedTransactionIntent {
     pub fn new(identifiers: models::ParsedSignedTransactionIntentIdentifiers) -> ParsedSignedTransactionIntent {
         ParsedSignedTransactionIntent {
-            identifiers: Box::new(identifiers),
+            identifiers,
             signed_intent: None,
         }
     }

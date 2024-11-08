@@ -17,10 +17,10 @@ pub struct LtsStateAccountFungibleResourceBalanceResponse {
     #[serde(rename = "account_address")]
     pub account_address: String,
     #[serde(rename = "fungible_resource_balance")]
-    pub fungible_resource_balance: Box<models::LtsFungibleResourceBalance>,
+    pub fungible_resource_balance: models::LtsFungibleResourceBalance,
     /// The excerpt from the ledger header committed at the `state_version`.
     #[serde(rename = "ledger_header_summary")]
-    pub ledger_header_summary: Box<models::LedgerHeaderSummary>,
+    pub ledger_header_summary: models::LedgerHeaderSummary,
     #[serde(rename = "state_version")]
     pub state_version: u64,
 }
@@ -29,8 +29,8 @@ impl LtsStateAccountFungibleResourceBalanceResponse {
     pub fn new(account_address: String, fungible_resource_balance: models::LtsFungibleResourceBalance, ledger_header_summary: models::LedgerHeaderSummary, state_version: u64) -> LtsStateAccountFungibleResourceBalanceResponse {
         LtsStateAccountFungibleResourceBalanceResponse {
             account_address,
-            fungible_resource_balance: Box::new(fungible_resource_balance),
-            ledger_header_summary: Box::new(ledger_header_summary),
+            fungible_resource_balance,
+            ledger_header_summary,
             state_version,
         }
     }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleGlobalId {
     #[serde(rename = "local_id")]
-    pub local_id: Box<models::NonFungibleLocalId>,
+    pub local_id: models::NonFungibleLocalId,
     /// The Bech32m-encoded human readable version of the resource address
     #[serde(rename = "resource_address")]
     pub resource_address: String,
@@ -23,7 +23,7 @@ pub struct NonFungibleGlobalId {
 impl NonFungibleGlobalId {
     pub fn new(local_id: models::NonFungibleLocalId, resource_address: String) -> NonFungibleGlobalId {
         NonFungibleGlobalId {
-            local_id: Box::new(local_id),
+            local_id,
             resource_address,
         }
     }

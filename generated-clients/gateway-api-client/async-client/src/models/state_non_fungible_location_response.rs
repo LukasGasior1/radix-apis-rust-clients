@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateNonFungibleLocationResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "non_fungible_ids")]
     pub non_fungible_ids: Vec<models::StateNonFungibleLocationResponseItem>,
     /// Bech32m-encoded human readable version of the address.
@@ -25,7 +25,7 @@ pub struct StateNonFungibleLocationResponse {
 impl StateNonFungibleLocationResponse {
     pub fn new(ledger_state: models::LedgerState, non_fungible_ids: Vec<models::StateNonFungibleLocationResponseItem>, resource_address: String) -> StateNonFungibleLocationResponse {
         StateNonFungibleLocationResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             non_fungible_ids,
             resource_address,
         }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateKeyValueStoreDataResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "entries")]
     pub entries: Vec<models::StateKeyValueStoreDataResponseItem>,
     /// Bech32m-encoded human readable version of the address.
@@ -25,7 +25,7 @@ pub struct StateKeyValueStoreDataResponse {
 impl StateKeyValueStoreDataResponse {
     pub fn new(ledger_state: models::LedgerState, entries: Vec<models::StateKeyValueStoreDataResponseItem>, key_value_store_address: String) -> StateKeyValueStoreDataResponse {
         StateKeyValueStoreDataResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             entries,
             key_value_store_address,
         }

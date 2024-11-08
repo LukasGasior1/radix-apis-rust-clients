@@ -35,17 +35,17 @@ pub enum NativeResourceDetails {
     #[serde(rename="SystemExecutionResource")]
     SystemExecutionResource(serde_json::Value),
     #[serde(rename="ValidatorLiquidStakeUnit")]
-    ValidatorLiquidStakeUnit(Box<models::NativeResourceValidatorLiquidStakeUnitValue>),
+    ValidatorLiquidStakeUnit(models::NativeResourceValidatorLiquidStakeUnitValue),
     #[serde(rename="ValidatorClaimNft")]
-    ValidatorClaimNft(Box<models::NativeResourceValidatorClaimNftValue>),
+    ValidatorClaimNft(models::NativeResourceValidatorClaimNftValue),
     #[serde(rename="OneResourcePoolUnit")]
-    OneResourcePoolUnit(Box<models::NativeResourceOneResourcePoolUnitValue>),
+    OneResourcePoolUnit(models::NativeResourceOneResourcePoolUnitValue),
     #[serde(rename="TwoResourcePoolUnit")]
-    TwoResourcePoolUnit(Box<models::NativeResourceTwoResourcePoolUnitValue>),
+    TwoResourcePoolUnit(models::NativeResourceTwoResourcePoolUnitValue),
     #[serde(rename="MultiResourcePoolUnit")]
-    MultiResourcePoolUnit(Box<models::NativeResourceMultiResourcePoolUnitValue>),
+    MultiResourcePoolUnit(models::NativeResourceMultiResourcePoolUnitValue),
     #[serde(rename="AccessControllerRecoveryBadge")]
-    AccessControllerRecoveryBadge(Box<models::NativeResourceAccessControllerRecoveryBadgeValue>),
+    AccessControllerRecoveryBadge(models::NativeResourceAccessControllerRecoveryBadgeValue),
 }
 
 impl Default for NativeResourceDetails {

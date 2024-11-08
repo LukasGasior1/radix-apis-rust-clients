@@ -17,9 +17,9 @@ pub enum FieldSchemaFeatureCondition {
     #[serde(rename="Always")]
     Always(serde_json::Value),
     #[serde(rename="IfOwnFeature")]
-    IfOwnFeature(Box<models::FieldSchemaFeatureConditionIfOwnFeature>),
+    IfOwnFeature(models::FieldSchemaFeatureConditionIfOwnFeature),
     #[serde(rename="IfOuterObjectFeature")]
-    IfOuterObjectFeature(Box<models::FieldSchemaFeatureConditionIfOuterObjectFeature>),
+    IfOuterObjectFeature(models::FieldSchemaFeatureConditionIfOuterObjectFeature),
 }
 
 impl Default for FieldSchemaFeatureCondition {

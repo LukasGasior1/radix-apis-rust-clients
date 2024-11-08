@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccountDepositPreValidationResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "allows_try_deposit_batch")]
     pub allows_try_deposit_batch: bool,
     #[serde(rename = "deciding_factors")]
-    pub deciding_factors: Box<models::AccountDepositPreValidationDecidingFactors>,
+    pub deciding_factors: models::AccountDepositPreValidationDecidingFactors,
     /// The fully resolved try_deposit_* ability of each resource (which takes all the inputs into account, including the authorized depositor badge, the default deposit rule and the resource-specific details).
     #[serde(rename = "resource_specific_behaviour", skip_serializing_if = "Option::is_none")]
     pub resource_specific_behaviour: Option<Vec<models::AccountDepositPreValidationResourceSpecificBehaviourItem>>,
@@ -27,9 +27,9 @@ pub struct AccountDepositPreValidationResponse {
 impl AccountDepositPreValidationResponse {
     pub fn new(ledger_state: models::LedgerState, allows_try_deposit_batch: bool, deciding_factors: models::AccountDepositPreValidationDecidingFactors) -> AccountDepositPreValidationResponse {
         AccountDepositPreValidationResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             allows_try_deposit_batch,
-            deciding_factors: Box::new(deciding_factors),
+            deciding_factors,
             resource_specific_behaviour: None,
         }
     }

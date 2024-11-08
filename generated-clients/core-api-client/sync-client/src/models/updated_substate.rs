@@ -15,24 +15,24 @@ use serde::{Deserialize, Serialize};
 pub struct UpdatedSubstate {
     /// The new value assigned to the substate.
     #[serde(rename = "new_value")]
-    pub new_value: Box<models::SubstateValue>,
+    pub new_value: models::SubstateValue,
     /// The previous value of the substate. Only returned if enabled in SubstateFormatOptions on your request (default false).
     #[serde(rename = "previous_value", skip_serializing_if = "Option::is_none")]
-    pub previous_value: Option<Box<models::SubstateValue>>,
+    pub previous_value: Option<models::SubstateValue>,
     #[serde(rename = "substate_id")]
-    pub substate_id: Box<models::SubstateId>,
+    pub substate_id: models::SubstateId,
     /// A structure with type references describing the substate's schema.
     #[serde(rename = "system_structure")]
-    pub system_structure: Box<models::SubstateSystemStructure>,
+    pub system_structure: models::SubstateSystemStructure,
 }
 
 impl UpdatedSubstate {
     pub fn new(new_value: models::SubstateValue, substate_id: models::SubstateId, system_structure: models::SubstateSystemStructure) -> UpdatedSubstate {
         UpdatedSubstate {
-            new_value: Box::new(new_value),
+            new_value,
             previous_value: None,
-            substate_id: Box::new(substate_id),
-            system_structure: Box::new(system_structure),
+            substate_id,
+            system_structure,
         }
     }
 }

@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EddsaEd25519SignatureWithPublicKey {
     #[serde(rename = "public_key")]
-    pub public_key: Box<models::EddsaEd25519PublicKey>,
+    pub public_key: models::EddsaEd25519PublicKey,
     #[serde(rename = "signature")]
-    pub signature: Box<models::EddsaEd25519Signature>,
+    pub signature: models::EddsaEd25519Signature,
 }
 
 impl EddsaEd25519SignatureWithPublicKey {
     /// The EdDSA public key and signature
     pub fn new(public_key: models::EddsaEd25519PublicKey, signature: models::EddsaEd25519Signature) -> EddsaEd25519SignatureWithPublicKey {
         EddsaEd25519SignatureWithPublicKey {
-            public_key: Box::new(public_key),
-            signature: Box::new(signature),
+            public_key,
+            signature,
         }
     }
 }

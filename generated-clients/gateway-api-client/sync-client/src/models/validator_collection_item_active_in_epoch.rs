@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValidatorCollectionItemActiveInEpoch {
     #[serde(rename = "key")]
-    pub key: Box<models::PublicKey>,
+    pub key: models::PublicKey,
     /// String-encoded decimal representing the amount of a related fungible resource.
     #[serde(rename = "stake")]
     pub stake: String,
@@ -25,7 +25,7 @@ pub struct ValidatorCollectionItemActiveInEpoch {
 impl ValidatorCollectionItemActiveInEpoch {
     pub fn new(key: models::PublicKey, stake: String, stake_percentage: f64) -> ValidatorCollectionItemActiveInEpoch {
         ValidatorCollectionItemActiveInEpoch {
-            key: Box::new(key),
+            key,
             stake,
             stake_percentage,
         }

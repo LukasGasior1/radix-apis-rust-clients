@@ -15,20 +15,20 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EventTypeIdentifier {
     #[serde(rename = "emitter")]
-    pub emitter: Box<models::EventEmitterIdentifier>,
+    pub emitter: models::EventEmitterIdentifier,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "type_reference")]
-    pub type_reference: Box<models::PackageTypeReference>,
+    pub type_reference: models::PackageTypeReference,
 }
 
 impl EventTypeIdentifier {
     /// Identifier of a specific event schema.
     pub fn new(emitter: models::EventEmitterIdentifier, name: String, type_reference: models::PackageTypeReference) -> EventTypeIdentifier {
         EventTypeIdentifier {
-            emitter: Box::new(emitter),
+            emitter,
             name,
-            type_reference: Box::new(type_reference),
+            type_reference,
         }
     }
 }

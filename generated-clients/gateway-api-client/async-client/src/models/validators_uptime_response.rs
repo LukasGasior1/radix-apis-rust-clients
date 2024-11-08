@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValidatorsUptimeResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "validators")]
-    pub validators: Box<models::ValidatorUptimeCollection>,
+    pub validators: models::ValidatorUptimeCollection,
 }
 
 impl ValidatorsUptimeResponse {
     pub fn new(ledger_state: models::LedgerState, validators: models::ValidatorUptimeCollection) -> ValidatorsUptimeResponse {
         ValidatorsUptimeResponse {
-            ledger_state: Box::new(ledger_state),
-            validators: Box::new(validators),
+            ledger_state,
+            validators,
         }
     }
 }

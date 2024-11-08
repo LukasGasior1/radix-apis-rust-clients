@@ -20,7 +20,7 @@ pub struct GenesisLedgerTransaction {
     #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
     pub payload_hex: Option<String>,
     #[serde(rename = "system_transaction", skip_serializing_if = "Option::is_none")]
-    pub system_transaction: Option<Box<models::SystemTransaction>>,
+    pub system_transaction: Option<models::SystemTransaction>,
 }
 
 impl GenesisLedgerTransaction {

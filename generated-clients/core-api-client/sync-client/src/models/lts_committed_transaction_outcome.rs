@@ -38,7 +38,7 @@ pub struct LtsCommittedTransactionOutcome {
     pub total_fee: String,
     /// Only present if the transaction is a user-submitted notarized transaction.
     #[serde(rename = "user_transaction_identifiers", skip_serializing_if = "Option::is_none")]
-    pub user_transaction_identifiers: Option<Box<models::TransactionIdentifiers>>,
+    pub user_transaction_identifiers: Option<models::TransactionIdentifiers>,
 }
 
 impl LtsCommittedTransactionOutcome {

@@ -17,14 +17,14 @@ pub struct PoolVault {
     #[serde(rename = "resource_address")]
     pub resource_address: String,
     #[serde(rename = "vault")]
-    pub vault: Box<models::EntityReference>,
+    pub vault: models::EntityReference,
 }
 
 impl PoolVault {
     pub fn new(resource_address: String, vault: models::EntityReference) -> PoolVault {
         PoolVault {
             resource_address,
-            vault: Box::new(vault),
+            vault,
         }
     }
 }

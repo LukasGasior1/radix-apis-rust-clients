@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue {
     #[serde(rename = "active_validator")]
-    pub active_validator: Box<models::ActiveValidator>,
+    pub active_validator: models::ActiveValidator,
 }
 
 impl ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue {
     pub fn new(active_validator: models::ActiveValidator) -> ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue {
         ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue {
-            active_validator: Box::new(active_validator),
+            active_validator,
         }
     }
 }

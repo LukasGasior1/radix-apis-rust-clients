@@ -16,14 +16,14 @@ pub struct ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::ConsensusManagerFieldCurrentTimeRoundedToMinutesValue>,
+    pub value: models::ConsensusManagerFieldCurrentTimeRoundedToMinutesValue,
 }
 
 impl ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate {
     pub fn new(is_locked: bool, value: models::ConsensusManagerFieldCurrentTimeRoundedToMinutesValue) -> ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate {
         ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

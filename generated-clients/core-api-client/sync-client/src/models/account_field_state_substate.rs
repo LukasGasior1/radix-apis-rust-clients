@@ -16,14 +16,14 @@ pub struct AccountFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::AccountFieldStateValue>,
+    pub value: models::AccountFieldStateValue,
 }
 
 impl AccountFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::AccountFieldStateValue) -> AccountFieldStateSubstate {
         AccountFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

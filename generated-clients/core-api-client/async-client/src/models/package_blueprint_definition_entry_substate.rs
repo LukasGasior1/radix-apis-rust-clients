@@ -16,17 +16,17 @@ pub struct PackageBlueprintDefinitionEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::BlueprintVersionKey>,
+    pub key: models::BlueprintVersionKey,
     #[serde(rename = "value")]
-    pub value: Box<models::PackageBlueprintDefinitionEntryValue>,
+    pub value: models::PackageBlueprintDefinitionEntryValue,
 }
 
 impl PackageBlueprintDefinitionEntrySubstate {
     pub fn new(is_locked: bool, key: models::BlueprintVersionKey, value: models::PackageBlueprintDefinitionEntryValue) -> PackageBlueprintDefinitionEntrySubstate {
         PackageBlueprintDefinitionEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

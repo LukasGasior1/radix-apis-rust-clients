@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct KeyValueStoreEntryStructure {
     #[serde(rename = "key_full_type_id")]
-    pub key_full_type_id: Box<models::FullyScopedTypeId>,
+    pub key_full_type_id: models::FullyScopedTypeId,
     #[serde(rename = "value_full_type_id")]
-    pub value_full_type_id: Box<models::FullyScopedTypeId>,
+    pub value_full_type_id: models::FullyScopedTypeId,
 }
 
 impl KeyValueStoreEntryStructure {
     pub fn new(key_full_type_id: models::FullyScopedTypeId, value_full_type_id: models::FullyScopedTypeId) -> KeyValueStoreEntryStructure {
         KeyValueStoreEntryStructure {
-            key_full_type_id: Box::new(key_full_type_id),
-            value_full_type_id: Box::new(value_full_type_id),
+            key_full_type_id,
+            value_full_type_id,
         }
     }
 }

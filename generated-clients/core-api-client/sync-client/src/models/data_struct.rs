@@ -19,7 +19,7 @@ pub struct DataStruct {
     pub referenced_entities: Vec<models::EntityReference>,
     /// The struct data
     #[serde(rename = "struct_data")]
-    pub struct_data: Box<models::SborData>,
+    pub struct_data: models::SborData,
 }
 
 impl DataStruct {
@@ -27,7 +27,7 @@ impl DataStruct {
         DataStruct {
             owned_entities,
             referenced_entities,
-            struct_data: Box::new(struct_data),
+            struct_data,
         }
     }
 }

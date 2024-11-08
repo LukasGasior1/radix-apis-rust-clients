@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PackageBlueprintRoyaltyEntryValue {
     #[serde(rename = "royalty_config")]
-    pub royalty_config: Box<models::BlueprintRoyaltyConfig>,
+    pub royalty_config: models::BlueprintRoyaltyConfig,
 }
 
 impl PackageBlueprintRoyaltyEntryValue {
     pub fn new(royalty_config: models::BlueprintRoyaltyConfig) -> PackageBlueprintRoyaltyEntryValue {
         PackageBlueprintRoyaltyEntryValue {
-            royalty_config: Box::new(royalty_config),
+            royalty_config,
         }
     }
 }

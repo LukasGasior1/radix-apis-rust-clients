@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValidatorCollectionItemEffectiveFeeFactor {
     #[serde(rename = "current")]
-    pub current: Box<models::ValidatorCollectionItemEffectiveFeeFactorCurrent>,
+    pub current: models::ValidatorCollectionItemEffectiveFeeFactorCurrent,
     #[serde(rename = "pending", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub pending: Option<Option<Box<models::ValidatorCollectionItemEffectiveFeeFactorPending>>>,
+    pub pending: Option<Option<models::ValidatorCollectionItemEffectiveFeeFactorPending>>,
 }
 
 impl ValidatorCollectionItemEffectiveFeeFactor {
     pub fn new(current: models::ValidatorCollectionItemEffectiveFeeFactorCurrent) -> ValidatorCollectionItemEffectiveFeeFactor {
         ValidatorCollectionItemEffectiveFeeFactor {
-            current: Box::new(current),
+            current,
             pending: None,
         }
     }

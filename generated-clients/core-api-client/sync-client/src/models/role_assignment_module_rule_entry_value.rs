@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RoleAssignmentModuleRuleEntryValue {
     #[serde(rename = "access_rule")]
-    pub access_rule: Box<models::AccessRule>,
+    pub access_rule: models::AccessRule,
 }
 
 impl RoleAssignmentModuleRuleEntryValue {
     pub fn new(access_rule: models::AccessRule) -> RoleAssignmentModuleRuleEntryValue {
         RoleAssignmentModuleRuleEntryValue {
-            access_rule: Box::new(access_rule),
+            access_rule,
         }
     }
 }

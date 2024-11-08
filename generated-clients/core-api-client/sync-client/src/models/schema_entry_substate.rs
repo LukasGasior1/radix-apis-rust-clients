@@ -16,17 +16,17 @@ pub struct SchemaEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::SchemaKey>,
+    pub key: models::SchemaKey,
     #[serde(rename = "value")]
-    pub value: Box<models::SchemaEntryValue>,
+    pub value: models::SchemaEntryValue,
 }
 
 impl SchemaEntrySubstate {
     pub fn new(is_locked: bool, key: models::SchemaKey, value: models::SchemaEntryValue) -> SchemaEntrySubstate {
         SchemaEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

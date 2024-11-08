@@ -16,14 +16,14 @@ pub struct ConsensusManagerFieldValidatorRewardsSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::ConsensusManagerFieldValidatorRewardsValue>,
+    pub value: models::ConsensusManagerFieldValidatorRewardsValue,
 }
 
 impl ConsensusManagerFieldValidatorRewardsSubstate {
     pub fn new(is_locked: bool, value: models::ConsensusManagerFieldValidatorRewardsValue) -> ConsensusManagerFieldValidatorRewardsSubstate {
         ConsensusManagerFieldValidatorRewardsSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

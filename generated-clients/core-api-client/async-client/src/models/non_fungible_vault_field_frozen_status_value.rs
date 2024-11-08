@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleVaultFieldFrozenStatusValue {
     #[serde(rename = "frozen_status")]
-    pub frozen_status: Box<models::FrozenStatus>,
+    pub frozen_status: models::FrozenStatus,
 }
 
 impl NonFungibleVaultFieldFrozenStatusValue {
     pub fn new(frozen_status: models::FrozenStatus) -> NonFungibleVaultFieldFrozenStatusValue {
         NonFungibleVaultFieldFrozenStatusValue {
-            frozen_status: Box::new(frozen_status),
+            frozen_status,
         }
     }
 }

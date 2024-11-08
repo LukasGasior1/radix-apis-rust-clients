@@ -16,17 +16,17 @@ pub struct ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::ActiveValidatorKey>,
+    pub key: models::ActiveValidatorKey,
     #[serde(rename = "value")]
-    pub value: Box<models::ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue>,
+    pub value: models::ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue,
 }
 
 impl ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate {
     pub fn new(is_locked: bool, key: models::ActiveValidatorKey, value: models::ConsensusManagerRegisteredValidatorsByStakeIndexEntryValue) -> ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate {
         ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

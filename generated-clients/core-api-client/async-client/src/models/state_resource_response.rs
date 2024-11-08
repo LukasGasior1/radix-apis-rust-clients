@@ -15,19 +15,19 @@ use serde::{Deserialize, Serialize};
 pub struct StateResourceResponse {
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     #[serde(rename = "manager")]
-    pub manager: Box<models::StateResourceManager>,
+    pub manager: models::StateResourceManager,
     #[serde(rename = "owner_role")]
-    pub owner_role: Box<models::Substate>,
+    pub owner_role: models::Substate,
 }
 
 impl StateResourceResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, manager: models::StateResourceManager, owner_role: models::Substate) -> StateResourceResponse {
         StateResourceResponse {
-            at_ledger_state: Box::new(at_ledger_state),
-            manager: Box::new(manager),
-            owner_role: Box::new(owner_role),
+            at_ledger_state,
+            manager,
+            owner_role,
         }
     }
 }

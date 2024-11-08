@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponsePackageDetails {
     #[serde(rename = "blueprints", skip_serializing_if = "Option::is_none")]
-    pub blueprints: Option<Box<models::PackageBlueprintCollection>>,
+    pub blueprints: Option<models::PackageBlueprintCollection>,
     /// Hex-encoded binary blob.
     #[serde(rename = "code_hash_hex")]
     pub code_hash_hex: String,
@@ -22,14 +22,14 @@ pub struct StateEntityDetailsResponsePackageDetails {
     #[serde(rename = "code_hex")]
     pub code_hex: String,
     #[serde(rename = "codes")]
-    pub codes: Box<models::PackageCodeCollection>,
+    pub codes: models::PackageCodeCollection,
     #[serde(rename = "role_assignments", skip_serializing_if = "Option::is_none")]
-    pub role_assignments: Option<Box<models::ComponentEntityRoleAssignments>>,
+    pub role_assignments: Option<models::ComponentEntityRoleAssignments>,
     /// String-encoded decimal representing the amount of a related fungible resource.
     #[serde(rename = "royalty_vault_balance", skip_serializing_if = "Option::is_none")]
     pub royalty_vault_balance: Option<String>,
     #[serde(rename = "schemas", skip_serializing_if = "Option::is_none")]
-    pub schemas: Option<Box<models::EntitySchemaCollection>>,
+    pub schemas: Option<models::EntitySchemaCollection>,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "two_way_linked_dapp_address", skip_serializing_if = "Option::is_none")]
     pub two_way_linked_dapp_address: Option<String>,
@@ -43,7 +43,7 @@ impl StateEntityDetailsResponsePackageDetails {
             blueprints: None,
             code_hash_hex,
             code_hex,
-            codes: Box::new(codes),
+            codes,
             role_assignments: None,
             royalty_vault_balance: None,
             schemas: None,

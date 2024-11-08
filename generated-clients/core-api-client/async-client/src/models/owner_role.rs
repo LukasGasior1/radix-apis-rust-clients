@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OwnerRole {
     #[serde(rename = "rule")]
-    pub rule: Box<models::AccessRule>,
+    pub rule: models::AccessRule,
     #[serde(rename = "updater")]
     pub updater: models::OwnerRoleUpdater,
 }
@@ -22,7 +22,7 @@ pub struct OwnerRole {
 impl OwnerRole {
     pub fn new(rule: models::AccessRule, updater: models::OwnerRoleUpdater) -> OwnerRole {
         OwnerRole {
-            rule: Box::new(rule),
+            rule,
             updater,
         }
     }

@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct KeyValueBasedStructure {
     #[serde(rename = "key_schema")]
-    pub key_schema: Box<models::ObjectSubstateTypeReference>,
+    pub key_schema: models::ObjectSubstateTypeReference,
     #[serde(rename = "value_schema")]
-    pub value_schema: Box<models::ObjectSubstateTypeReference>,
+    pub value_schema: models::ObjectSubstateTypeReference,
 }
 
 impl KeyValueBasedStructure {
     pub fn new(key_schema: models::ObjectSubstateTypeReference, value_schema: models::ObjectSubstateTypeReference) -> KeyValueBasedStructure {
         KeyValueBasedStructure {
-            key_schema: Box::new(key_schema),
-            value_schema: Box::new(value_schema),
+            key_schema,
+            value_schema,
         }
     }
 }

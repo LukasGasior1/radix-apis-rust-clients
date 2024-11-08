@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct LeaderProposalHistory {
     /// The leader of the concluded round.
     #[serde(rename = "current_leader")]
-    pub current_leader: Box<models::ActiveValidatorIndex>,
+    pub current_leader: models::ActiveValidatorIndex,
     /// The validators which were leaders of the \"gap\" rounds (i.e. since the previous `RoundUpdateValidatorTransaction` - which means that this list will contain exactly `current.round - previous.round - 1` elements). The validators on this list should be penalized during emissions at the end of the epoch.
     #[serde(rename = "gap_round_leaders")]
     pub gap_round_leaders: Vec<models::ActiveValidatorIndex>,
@@ -27,7 +27,7 @@ pub struct LeaderProposalHistory {
 impl LeaderProposalHistory {
     pub fn new(current_leader: models::ActiveValidatorIndex, gap_round_leaders: Vec<models::ActiveValidatorIndex>, is_fallback: bool) -> LeaderProposalHistory {
         LeaderProposalHistory {
-            current_leader: Box::new(current_leader),
+            current_leader,
             gap_round_leaders,
             is_fallback,
         }

@@ -324,6 +324,7 @@ def generate_crate(
         .package_version("1.0.0")
         .best_fit_int(True)
         .prefer_unsigned_int(True)
+        .avoid_boxed_models(True)
     )
 
     # Generate a sync client

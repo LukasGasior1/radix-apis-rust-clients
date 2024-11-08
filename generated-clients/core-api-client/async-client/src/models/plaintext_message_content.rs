@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum PlaintextMessageContent {
     #[serde(rename="String")]
-    String(Box<models::StringPlaintextMessageContent>),
+    String(models::StringPlaintextMessageContent),
     #[serde(rename="Binary")]
-    Binary(Box<models::BinaryPlaintextMessageContent>),
+    Binary(models::BinaryPlaintextMessageContent),
 }
 
 impl Default for PlaintextMessageContent {

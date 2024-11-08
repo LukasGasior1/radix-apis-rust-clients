@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleResourceManagerDataEntryValue {
     #[serde(rename = "data_struct")]
-    pub data_struct: Box<models::DataStruct>,
+    pub data_struct: models::DataStruct,
 }
 
 impl NonFungibleResourceManagerDataEntryValue {
     /// If missing, it represents a burned Non-Fungible. A Non-Fungible with that local id cannot be minted again - the id is not re-usable. 
     pub fn new(data_struct: models::DataStruct) -> NonFungibleResourceManagerDataEntryValue {
         NonFungibleResourceManagerDataEntryValue {
-            data_struct: Box::new(data_struct),
+            data_struct,
         }
     }
 }

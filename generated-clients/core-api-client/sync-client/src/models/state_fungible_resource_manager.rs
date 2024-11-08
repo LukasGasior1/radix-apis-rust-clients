@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateFungibleResourceManager {
     #[serde(rename = "divisibility")]
-    pub divisibility: Box<models::Substate>,
+    pub divisibility: models::Substate,
     #[serde(rename = "total_supply", skip_serializing_if = "Option::is_none")]
-    pub total_supply: Option<Box<models::Substate>>,
+    pub total_supply: Option<models::Substate>,
 }
 
 impl StateFungibleResourceManager {
     pub fn new(divisibility: models::Substate) -> StateFungibleResourceManager {
         StateFungibleResourceManager {
-            divisibility: Box::new(divisibility),
+            divisibility,
             total_supply: None,
         }
     }

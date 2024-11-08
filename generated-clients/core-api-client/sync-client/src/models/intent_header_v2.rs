@@ -21,9 +21,9 @@ pub struct IntentHeaderV2 {
     #[serde(rename = "intent_discriminator")]
     pub intent_discriminator: String,
     #[serde(rename = "max_proposer_timestamp_exclusive", skip_serializing_if = "Option::is_none")]
-    pub max_proposer_timestamp_exclusive: Option<Box<models::ScryptoInstant>>,
+    pub max_proposer_timestamp_exclusive: Option<models::ScryptoInstant>,
     #[serde(rename = "min_proposer_timestamp_inclusive", skip_serializing_if = "Option::is_none")]
-    pub min_proposer_timestamp_inclusive: Option<Box<models::ScryptoInstant>>,
+    pub min_proposer_timestamp_inclusive: Option<models::ScryptoInstant>,
     /// The logical id of the network
     #[serde(rename = "network_id")]
     pub network_id: u32,

@@ -16,17 +16,17 @@ pub struct PackageCodeInstrumentedCodeEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::PackageCodeKey>,
+    pub key: models::PackageCodeKey,
     #[serde(rename = "value")]
-    pub value: Box<models::PackageCodeInstrumentedCodeEntryValue>,
+    pub value: models::PackageCodeInstrumentedCodeEntryValue,
 }
 
 impl PackageCodeInstrumentedCodeEntrySubstate {
     pub fn new(is_locked: bool, key: models::PackageCodeKey, value: models::PackageCodeInstrumentedCodeEntryValue) -> PackageCodeInstrumentedCodeEntrySubstate {
         PackageCodeInstrumentedCodeEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

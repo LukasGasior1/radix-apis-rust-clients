@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum TargetIdentifier {
     #[serde(rename="Method")]
-    Method(Box<models::ComponentMethodTargetIdentifier>),
+    Method(models::ComponentMethodTargetIdentifier),
     #[serde(rename="Function")]
-    Function(Box<models::BlueprintFunctionTargetIdentifier>),
+    Function(models::BlueprintFunctionTargetIdentifier),
 }
 
 impl Default for TargetIdentifier {

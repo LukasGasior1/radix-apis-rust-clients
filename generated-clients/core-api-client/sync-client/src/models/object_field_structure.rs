@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ObjectFieldStructure {
     #[serde(rename = "value_schema")]
-    pub value_schema: Box<models::ObjectSubstateTypeReference>,
+    pub value_schema: models::ObjectSubstateTypeReference,
 }
 
 impl ObjectFieldStructure {
     pub fn new(value_schema: models::ObjectSubstateTypeReference) -> ObjectFieldStructure {
         ObjectFieldStructure {
-            value_schema: Box::new(value_schema),
+            value_schema,
         }
     }
 }

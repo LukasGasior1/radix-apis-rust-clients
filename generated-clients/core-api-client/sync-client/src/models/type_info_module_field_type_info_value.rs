@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TypeInfoModuleFieldTypeInfoValue {
     #[serde(rename = "details")]
-    pub details: Box<models::TypeInfoDetails>,
+    pub details: models::TypeInfoDetails,
 }
 
 impl TypeInfoModuleFieldTypeInfoValue {
     pub fn new(details: models::TypeInfoDetails) -> TypeInfoModuleFieldTypeInfoValue {
         TypeInfoModuleFieldTypeInfoValue {
-            details: Box::new(details),
+            details,
         }
     }
 }

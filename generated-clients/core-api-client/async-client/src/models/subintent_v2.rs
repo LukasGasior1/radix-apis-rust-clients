@@ -20,7 +20,7 @@ pub struct SubintentV2 {
     #[serde(rename = "hash_bech32m")]
     pub hash_bech32m: String,
     #[serde(rename = "intent_core")]
-    pub intent_core: Box<models::IntentCoreV2>,
+    pub intent_core: models::IntentCoreV2,
 }
 
 impl SubintentV2 {
@@ -28,7 +28,7 @@ impl SubintentV2 {
         SubintentV2 {
             hash,
             hash_bech32m,
-            intent_core: Box::new(intent_core),
+            intent_core,
         }
     }
 }

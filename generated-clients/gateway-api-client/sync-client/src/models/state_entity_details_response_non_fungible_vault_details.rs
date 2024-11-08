@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponseNonFungibleVaultDetails {
     #[serde(rename = "balance")]
-    pub balance: Box<models::NonFungibleResourcesCollectionItemVaultAggregatedVaultItem>,
+    pub balance: models::NonFungibleResourcesCollectionItemVaultAggregatedVaultItem,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "resource_address")]
     pub resource_address: String,
@@ -23,7 +23,7 @@ pub struct StateEntityDetailsResponseNonFungibleVaultDetails {
 impl StateEntityDetailsResponseNonFungibleVaultDetails {
     pub fn new(balance: models::NonFungibleResourcesCollectionItemVaultAggregatedVaultItem, resource_address: String) -> StateEntityDetailsResponseNonFungibleVaultDetails {
         StateEntityDetailsResponseNonFungibleVaultDetails {
-            balance: Box::new(balance),
+            balance,
             resource_address,
         }
     }

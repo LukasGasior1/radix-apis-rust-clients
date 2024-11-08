@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ProofRule {
     #[serde(rename="Require")]
-    Require(Box<models::RequireProofRule>),
+    Require(models::RequireProofRule),
     #[serde(rename="AmountOf")]
-    AmountOf(Box<models::AmountOfProofRule>),
+    AmountOf(models::AmountOfProofRule),
     #[serde(rename="AllOf")]
-    AllOf(Box<models::AllOfProofRule>),
+    AllOf(models::AllOfProofRule),
     #[serde(rename="AnyOf")]
-    AnyOf(Box<models::AnyOfProofRule>),
+    AnyOf(models::AnyOfProofRule),
     #[serde(rename="CountOf")]
-    CountOf(Box<models::CountOfProofRule>),
+    CountOf(models::CountOfProofRule),
 }
 
 impl Default for ProofRule {

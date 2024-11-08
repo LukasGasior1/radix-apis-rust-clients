@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RoleAssignmentModuleFieldOwnerRoleValue {
     #[serde(rename = "owner_role")]
-    pub owner_role: Box<models::OwnerRole>,
+    pub owner_role: models::OwnerRole,
 }
 
 impl RoleAssignmentModuleFieldOwnerRoleValue {
     pub fn new(owner_role: models::OwnerRole) -> RoleAssignmentModuleFieldOwnerRoleValue {
         RoleAssignmentModuleFieldOwnerRoleValue {
-            owner_role: Box::new(owner_role),
+            owner_role,
         }
     }
 }

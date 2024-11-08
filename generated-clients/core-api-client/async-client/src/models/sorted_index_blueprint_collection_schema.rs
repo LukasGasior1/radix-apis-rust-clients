@@ -17,17 +17,17 @@ pub struct SortedIndexBlueprintCollectionSchema {
     #[serde(rename = "allow_ownership")]
     pub allow_ownership: bool,
     #[serde(rename = "key_type_ref")]
-    pub key_type_ref: Box<models::BlueprintPayloadDef>,
+    pub key_type_ref: models::BlueprintPayloadDef,
     #[serde(rename = "value_type_ref")]
-    pub value_type_ref: Box<models::BlueprintPayloadDef>,
+    pub value_type_ref: models::BlueprintPayloadDef,
 }
 
 impl SortedIndexBlueprintCollectionSchema {
     pub fn new(allow_ownership: bool, key_type_ref: models::BlueprintPayloadDef, value_type_ref: models::BlueprintPayloadDef) -> SortedIndexBlueprintCollectionSchema {
         SortedIndexBlueprintCollectionSchema {
             allow_ownership,
-            key_type_ref: Box::new(key_type_ref),
-            value_type_ref: Box::new(value_type_ref),
+            key_type_ref,
+            value_type_ref,
         }
     }
 }

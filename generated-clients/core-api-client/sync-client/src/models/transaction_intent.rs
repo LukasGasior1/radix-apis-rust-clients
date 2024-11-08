@@ -23,13 +23,13 @@ pub struct TransactionIntent {
     #[serde(rename = "hash_bech32m")]
     pub hash_bech32m: String,
     #[serde(rename = "header")]
-    pub header: Box<models::TransactionHeader>,
+    pub header: models::TransactionHeader,
     /// The decompiled transaction manifest instructions. Only returned if enabled in `TransactionFormatOptions` on your request.
     #[serde(rename = "instructions", skip_serializing_if = "Option::is_none")]
     pub instructions: Option<String>,
     /// The optional transaction message. Only returned if present and enabled in `TransactionFormatOptions` on your request.
     #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<Box<models::TransactionMessage>>,
+    pub message: Option<models::TransactionMessage>,
 }
 
 impl TransactionIntent {
@@ -38,7 +38,7 @@ impl TransactionIntent {
             blobs_hex: None,
             hash,
             hash_bech32m,
-            header: Box::new(header),
+            header,
             instructions: None,
             message: None,
         }

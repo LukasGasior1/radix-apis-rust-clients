@@ -16,13 +16,13 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum StreamProofsFilter {
     #[serde(rename="Any")]
-    Any(Box<models::StreamProofsFilterAny>),
+    Any(models::StreamProofsFilterAny),
     #[serde(rename="NewEpochs")]
-    NewEpochs(Box<models::StreamProofsFilterNewEpochs>),
+    NewEpochs(models::StreamProofsFilterNewEpochs),
     #[serde(rename="ProtocolUpdateInitializations")]
-    ProtocolUpdateInitializations(Box<models::StreamProofsFilterProtocolUpdateInitializations>),
+    ProtocolUpdateInitializations(models::StreamProofsFilterProtocolUpdateInitializations),
     #[serde(rename="ProtocolUpdateExecution")]
-    ProtocolUpdateExecution(Box<models::StreamProofsFilterProtocolUpdateExecution>),
+    ProtocolUpdateExecution(models::StreamProofsFilterProtocolUpdateExecution),
 }
 
 impl Default for StreamProofsFilter {

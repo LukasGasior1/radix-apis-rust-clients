@@ -16,14 +16,14 @@ pub struct NonFungibleVaultFieldBalanceSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::NonFungibleVaultFieldBalanceValue>,
+    pub value: models::NonFungibleVaultFieldBalanceValue,
 }
 
 impl NonFungibleVaultFieldBalanceSubstate {
     pub fn new(is_locked: bool, value: models::NonFungibleVaultFieldBalanceValue) -> NonFungibleVaultFieldBalanceSubstate {
         NonFungibleVaultFieldBalanceSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

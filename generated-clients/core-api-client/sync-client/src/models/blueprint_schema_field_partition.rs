@@ -18,7 +18,7 @@ pub struct BlueprintSchemaFieldPartition {
     #[serde(rename = "fields")]
     pub fields: Vec<models::FieldSchema>,
     #[serde(rename = "partition_description")]
-    pub partition_description: Box<models::PartitionDescription>,
+    pub partition_description: models::PartitionDescription,
 }
 
 impl BlueprintSchemaFieldPartition {
@@ -26,7 +26,7 @@ impl BlueprintSchemaFieldPartition {
     pub fn new(fields: Vec<models::FieldSchema>, partition_description: models::PartitionDescription) -> BlueprintSchemaFieldPartition {
         BlueprintSchemaFieldPartition {
             fields,
-            partition_description: Box::new(partition_description),
+            partition_description,
         }
     }
 }

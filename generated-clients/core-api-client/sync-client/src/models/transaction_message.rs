@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum TransactionMessage {
     #[serde(rename="Plaintext")]
-    Plaintext(Box<models::PlaintextTransactionMessage>),
+    Plaintext(models::PlaintextTransactionMessage),
     #[serde(rename="Encrypted")]
-    Encrypted(Box<models::EncryptedTransactionMessage>),
+    Encrypted(models::EncryptedTransactionMessage),
 }
 
 impl Default for TransactionMessage {

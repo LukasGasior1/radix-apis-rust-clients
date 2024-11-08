@@ -18,7 +18,7 @@ pub struct FullyScopedTypeId {
     #[serde(rename = "entity_address")]
     pub entity_address: String,
     #[serde(rename = "local_type_id")]
-    pub local_type_id: Box<models::LocalTypeId>,
+    pub local_type_id: models::LocalTypeId,
     /// The hex-encoded schema hash, capturing the identity of an SBOR schema.
     #[serde(rename = "schema_hash")]
     pub schema_hash: String,
@@ -29,7 +29,7 @@ impl FullyScopedTypeId {
     pub fn new(entity_address: String, local_type_id: models::LocalTypeId, schema_hash: String) -> FullyScopedTypeId {
         FullyScopedTypeId {
             entity_address,
-            local_type_id: Box::new(local_type_id),
+            local_type_id,
             schema_hash,
         }
     }

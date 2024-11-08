@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateNonFungibleIdsResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "non_fungible_ids")]
-    pub non_fungible_ids: Box<models::NonFungibleIdsCollection>,
+    pub non_fungible_ids: models::NonFungibleIdsCollection,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "resource_address")]
     pub resource_address: String,
@@ -25,8 +25,8 @@ pub struct StateNonFungibleIdsResponse {
 impl StateNonFungibleIdsResponse {
     pub fn new(ledger_state: models::LedgerState, non_fungible_ids: models::NonFungibleIdsCollection, resource_address: String) -> StateNonFungibleIdsResponse {
         StateNonFungibleIdsResponse {
-            ledger_state: Box::new(ledger_state),
-            non_fungible_ids: Box::new(non_fungible_ids),
+            ledger_state,
+            non_fungible_ids,
             resource_address,
         }
     }

@@ -17,9 +17,9 @@ pub struct NonFungibleResourceManagerDataEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::LocalNonFungibleKey>,
+    pub key: models::LocalNonFungibleKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::NonFungibleResourceManagerDataEntryValue>>,
+    pub value: Option<models::NonFungibleResourceManagerDataEntryValue>,
 }
 
 impl NonFungibleResourceManagerDataEntrySubstate {
@@ -27,7 +27,7 @@ impl NonFungibleResourceManagerDataEntrySubstate {
     pub fn new(is_locked: bool, key: models::LocalNonFungibleKey) -> NonFungibleResourceManagerDataEntrySubstate {
         NonFungibleResourceManagerDataEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

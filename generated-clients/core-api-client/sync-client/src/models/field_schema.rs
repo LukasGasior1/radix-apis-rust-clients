@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FieldSchema {
     #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
-    pub condition: Option<Box<models::FieldSchemaFeatureCondition>>,
+    pub condition: Option<models::FieldSchemaFeatureCondition>,
     #[serde(rename = "field_type_ref")]
-    pub field_type_ref: Box<models::BlueprintPayloadDef>,
+    pub field_type_ref: models::BlueprintPayloadDef,
     /// The hex-encoded default value of this field. Only present if this field is transient.
     #[serde(rename = "transient_default_value_hex", skip_serializing_if = "Option::is_none")]
     pub transient_default_value_hex: Option<String>,
@@ -26,7 +26,7 @@ impl FieldSchema {
     pub fn new(field_type_ref: models::BlueprintPayloadDef) -> FieldSchema {
         FieldSchema {
             condition: None,
-            field_type_ref: Box::new(field_type_ref),
+            field_type_ref,
             transient_default_value_hex: None,
         }
     }

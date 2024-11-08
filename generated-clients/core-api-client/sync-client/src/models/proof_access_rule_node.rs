@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProofAccessRuleNode {
     #[serde(rename = "proof_rule")]
-    pub proof_rule: Box<models::ProofRule>,
+    pub proof_rule: models::ProofRule,
 }
 
 impl ProofAccessRuleNode {
     pub fn new(proof_rule: models::ProofRule) -> ProofAccessRuleNode {
         ProofAccessRuleNode {
-            proof_rule: Box::new(proof_rule),
+            proof_rule,
         }
     }
 }

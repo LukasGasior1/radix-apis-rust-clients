@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PackageFieldRoyaltyAccumulatorValue {
     #[serde(rename = "vault_entity")]
-    pub vault_entity: Box<models::EntityReference>,
+    pub vault_entity: models::EntityReference,
 }
 
 impl PackageFieldRoyaltyAccumulatorValue {
     pub fn new(vault_entity: models::EntityReference) -> PackageFieldRoyaltyAccumulatorValue {
         PackageFieldRoyaltyAccumulatorValue {
-            vault_entity: Box::new(vault_entity),
+            vault_entity,
         }
     }
 }

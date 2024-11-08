@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValidatorCollectionItem {
     #[serde(rename = "active_in_epoch", skip_serializing_if = "Option::is_none")]
-    pub active_in_epoch: Option<Box<models::ValidatorCollectionItemActiveInEpoch>>,
+    pub active_in_epoch: Option<models::ValidatorCollectionItemActiveInEpoch>,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "address")]
     pub address: String,
     #[serde(rename = "effective_fee_factor")]
-    pub effective_fee_factor: Box<models::ValidatorCollectionItemEffectiveFeeFactor>,
+    pub effective_fee_factor: models::ValidatorCollectionItemEffectiveFeeFactor,
     #[serde(rename = "locked_owner_stake_unit_vault")]
-    pub locked_owner_stake_unit_vault: Box<models::ValidatorVaultItem>,
+    pub locked_owner_stake_unit_vault: models::ValidatorVaultItem,
     #[serde(rename = "metadata")]
-    pub metadata: Box<models::EntityMetadataCollection>,
+    pub metadata: models::EntityMetadataCollection,
     #[serde(rename = "pending_owner_stake_unit_unlock_vault")]
-    pub pending_owner_stake_unit_unlock_vault: Box<models::ValidatorVaultItem>,
+    pub pending_owner_stake_unit_unlock_vault: models::ValidatorVaultItem,
     #[serde(rename = "pending_xrd_withdraw_vault")]
-    pub pending_xrd_withdraw_vault: Box<models::ValidatorVaultItem>,
+    pub pending_xrd_withdraw_vault: models::ValidatorVaultItem,
     #[serde(rename = "stake_vault")]
-    pub stake_vault: Box<models::ValidatorVaultItem>,
+    pub stake_vault: models::ValidatorVaultItem,
     /// Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details. 
     #[serde(rename = "state", deserialize_with = "Option::deserialize")]
     pub state: Option<serde_json::Value>,
@@ -40,12 +40,12 @@ impl ValidatorCollectionItem {
         ValidatorCollectionItem {
             active_in_epoch: None,
             address,
-            effective_fee_factor: Box::new(effective_fee_factor),
-            locked_owner_stake_unit_vault: Box::new(locked_owner_stake_unit_vault),
-            metadata: Box::new(metadata),
-            pending_owner_stake_unit_unlock_vault: Box::new(pending_owner_stake_unit_unlock_vault),
-            pending_xrd_withdraw_vault: Box::new(pending_xrd_withdraw_vault),
-            stake_vault: Box::new(stake_vault),
+            effective_fee_factor,
+            locked_owner_stake_unit_vault,
+            metadata,
+            pending_owner_stake_unit_unlock_vault,
+            pending_xrd_withdraw_vault,
+            stake_vault,
             state,
         }
     }

@@ -17,17 +17,17 @@ pub struct StateEntityDetailsResponseItem {
     #[serde(rename = "address")]
     pub address: String,
     #[serde(rename = "ancestor_identities", skip_serializing_if = "Option::is_none")]
-    pub ancestor_identities: Option<Box<models::StateEntityDetailsResponseItemAncestorIdentities>>,
+    pub ancestor_identities: Option<models::StateEntityDetailsResponseItemAncestorIdentities>,
     #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<Box<models::StateEntityDetailsResponseItemDetails>>,
+    pub details: Option<models::StateEntityDetailsResponseItemDetails>,
     #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
-    pub explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
+    pub explicit_metadata: Option<models::EntityMetadataCollection>,
     #[serde(rename = "fungible_resources", skip_serializing_if = "Option::is_none")]
-    pub fungible_resources: Option<Box<models::FungibleResourcesCollection>>,
+    pub fungible_resources: Option<models::FungibleResourcesCollection>,
     #[serde(rename = "metadata")]
-    pub metadata: Box<models::EntityMetadataCollection>,
+    pub metadata: models::EntityMetadataCollection,
     #[serde(rename = "non_fungible_resources", skip_serializing_if = "Option::is_none")]
-    pub non_fungible_resources: Option<Box<models::NonFungibleResourcesCollection>>,
+    pub non_fungible_resources: Option<models::NonFungibleResourcesCollection>,
 }
 
 impl StateEntityDetailsResponseItem {
@@ -38,7 +38,7 @@ impl StateEntityDetailsResponseItem {
             details: None,
             explicit_metadata: None,
             fungible_resources: None,
-            metadata: Box::new(metadata),
+            metadata,
             non_fungible_resources: None,
         }
     }

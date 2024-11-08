@@ -17,7 +17,7 @@ pub struct AccountDepositPreValidationRequest {
     #[serde(rename = "account_address")]
     pub account_address: String,
     #[serde(rename = "badge", skip_serializing_if = "Option::is_none")]
-    pub badge: Option<Box<models::TransactionAccountDepositPreValidationAuthorizedDepositorBadge>>,
+    pub badge: Option<models::TransactionAccountDepositPreValidationAuthorizedDepositorBadge>,
     #[serde(rename = "resource_addresses")]
     pub resource_addresses: Vec<String>,
 }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StreamTransactionsResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     /// The page of user transactions.
     #[serde(rename = "items")]
     pub items: Vec<models::CommittedTransactionInfo>,
@@ -26,7 +26,7 @@ pub struct StreamTransactionsResponse {
 impl StreamTransactionsResponse {
     pub fn new(ledger_state: models::LedgerState, items: Vec<models::CommittedTransactionInfo>) -> StreamTransactionsResponse {
         StreamTransactionsResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             items,
             next_cursor: None,
         }

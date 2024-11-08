@@ -16,16 +16,16 @@ pub struct RoleAssignmentModuleRuleEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::ObjectRoleKey>,
+    pub key: models::ObjectRoleKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::RoleAssignmentModuleRuleEntryValue>>,
+    pub value: Option<models::RoleAssignmentModuleRuleEntryValue>,
 }
 
 impl RoleAssignmentModuleRuleEntrySubstate {
     pub fn new(is_locked: bool, key: models::ObjectRoleKey) -> RoleAssignmentModuleRuleEntrySubstate {
         RoleAssignmentModuleRuleEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

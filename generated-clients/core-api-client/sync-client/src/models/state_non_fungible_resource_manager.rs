@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateNonFungibleResourceManager {
     #[serde(rename = "id_type")]
-    pub id_type: Box<models::Substate>,
+    pub id_type: models::Substate,
     #[serde(rename = "mutable_fields")]
-    pub mutable_fields: Box<models::Substate>,
+    pub mutable_fields: models::Substate,
     #[serde(rename = "total_supply", skip_serializing_if = "Option::is_none")]
-    pub total_supply: Option<Box<models::Substate>>,
+    pub total_supply: Option<models::Substate>,
 }
 
 impl StateNonFungibleResourceManager {
     pub fn new(id_type: models::Substate, mutable_fields: models::Substate) -> StateNonFungibleResourceManager {
         StateNonFungibleResourceManager {
-            id_type: Box::new(id_type),
-            mutable_fields: Box::new(mutable_fields),
+            id_type,
+            mutable_fields,
             total_supply: None,
         }
     }

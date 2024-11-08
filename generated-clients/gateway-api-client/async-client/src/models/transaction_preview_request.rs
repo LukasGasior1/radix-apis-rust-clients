@@ -20,7 +20,7 @@ pub struct TransactionPreviewRequest {
     #[serde(rename = "end_epoch_exclusive")]
     pub end_epoch_exclusive: u64,
     #[serde(rename = "flags")]
-    pub flags: Box<models::TransactionPreviewRequestFlags>,
+    pub flags: models::TransactionPreviewRequestFlags,
     /// A text-representation of a transaction manifest
     #[serde(rename = "manifest")]
     pub manifest: String,
@@ -34,9 +34,9 @@ pub struct TransactionPreviewRequest {
     #[serde(rename = "notary_is_signatory", skip_serializing_if = "Option::is_none")]
     pub notary_is_signatory: Option<bool>,
     #[serde(rename = "notary_public_key", skip_serializing_if = "Option::is_none")]
-    pub notary_public_key: Option<Box<models::PublicKey>>,
+    pub notary_public_key: Option<models::PublicKey>,
     #[serde(rename = "opt_ins", skip_serializing_if = "Option::is_none")]
-    pub opt_ins: Option<Box<models::TransactionPreviewOptIns>>,
+    pub opt_ins: Option<models::TransactionPreviewOptIns>,
     /// A list of public keys to be used as transaction signers
     #[serde(rename = "signer_public_keys")]
     pub signer_public_keys: Vec<models::PublicKey>,
@@ -53,7 +53,7 @@ impl TransactionPreviewRequest {
         TransactionPreviewRequest {
             blobs_hex: None,
             end_epoch_exclusive,
-            flags: Box::new(flags),
+            flags,
             manifest,
             message: None,
             nonce,

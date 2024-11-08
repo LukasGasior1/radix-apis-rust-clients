@@ -17,9 +17,9 @@ pub struct StateComponentDescendentNode {
     #[serde(rename = "depth")]
     pub depth: u32,
     #[serde(rename = "entity")]
-    pub entity: Box<models::EntityReference>,
+    pub entity: models::EntityReference,
     #[serde(rename = "parent_entity")]
-    pub parent_entity: Box<models::EntityReference>,
+    pub parent_entity: models::EntityReference,
     #[serde(rename = "parent_partition_number")]
     pub parent_partition_number: u32,
     /// The hex-encoded bytes of the partially-hashed DB sort key, under the given entity partition
@@ -34,8 +34,8 @@ impl StateComponentDescendentNode {
     pub fn new(depth: u32, entity: models::EntityReference, parent_entity: models::EntityReference, parent_partition_number: u32, parent_substate_db_sort_key_hex: String, parent_substate_key_hex: String) -> StateComponentDescendentNode {
         StateComponentDescendentNode {
             depth,
-            entity: Box::new(entity),
-            parent_entity: Box::new(parent_entity),
+            entity,
+            parent_entity,
             parent_partition_number,
             parent_substate_db_sort_key_hex,
             parent_substate_key_hex,

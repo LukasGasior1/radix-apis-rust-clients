@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LocalNonFungibleKey {
     #[serde(rename = "non_fungible_local_id")]
-    pub non_fungible_local_id: Box<models::NonFungibleLocalId>,
+    pub non_fungible_local_id: models::NonFungibleLocalId,
 }
 
 impl LocalNonFungibleKey {
     pub fn new(non_fungible_local_id: models::NonFungibleLocalId) -> LocalNonFungibleKey {
         LocalNonFungibleKey {
-            non_fungible_local_id: Box::new(non_fungible_local_id),
+            non_fungible_local_id,
         }
     }
 }

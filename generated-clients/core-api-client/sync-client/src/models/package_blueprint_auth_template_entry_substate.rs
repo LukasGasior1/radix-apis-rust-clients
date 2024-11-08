@@ -16,17 +16,17 @@ pub struct PackageBlueprintAuthTemplateEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::BlueprintVersionKey>,
+    pub key: models::BlueprintVersionKey,
     #[serde(rename = "value")]
-    pub value: Box<models::PackageBlueprintAuthTemplateEntryValue>,
+    pub value: models::PackageBlueprintAuthTemplateEntryValue,
 }
 
 impl PackageBlueprintAuthTemplateEntrySubstate {
     pub fn new(is_locked: bool, key: models::BlueprintVersionKey, value: models::PackageBlueprintAuthTemplateEntryValue) -> PackageBlueprintAuthTemplateEntrySubstate {
         PackageBlueprintAuthTemplateEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

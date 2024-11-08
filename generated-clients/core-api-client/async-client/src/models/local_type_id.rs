@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct LocalTypeId {
     /// The SBOR encoding of the LocalTypeId. This is useful for passing to the Radix Engine toolkit along with a schema. 
     #[serde(rename = "as_sbor")]
-    pub as_sbor: Box<models::SborData>,
+    pub as_sbor: models::SborData,
     /// A reference to a type, interpreted according to `kind`: - If `WellKnown`, then it is a pointer to a well known scrypto type with that ID, - If `SchemaLocal`, then it is an index into the given schema. 
     #[serde(rename = "id")]
     pub id: u64,
@@ -27,7 +27,7 @@ pub struct LocalTypeId {
 impl LocalTypeId {
     pub fn new(as_sbor: models::SborData, id: u64, kind: Kind) -> LocalTypeId {
         LocalTypeId {
-            as_sbor: Box::new(as_sbor),
+            as_sbor,
             id,
             kind,
         }

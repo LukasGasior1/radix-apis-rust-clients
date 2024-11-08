@@ -16,49 +16,49 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "kind")]
 pub enum ProgrammaticScryptoSborValue {
     #[serde(rename="Bool")]
-    Bool(Box<models::ProgrammaticScryptoSborValueBool>),
+    Bool(models::ProgrammaticScryptoSborValueBool),
     #[serde(rename="I8")]
-    I8(Box<models::ProgrammaticScryptoSborValueI8>),
+    I8(models::ProgrammaticScryptoSborValueI8),
     #[serde(rename="I16")]
-    I16(Box<models::ProgrammaticScryptoSborValueI16>),
+    I16(models::ProgrammaticScryptoSborValueI16),
     #[serde(rename="I32")]
-    I32(Box<models::ProgrammaticScryptoSborValueI32>),
+    I32(models::ProgrammaticScryptoSborValueI32),
     #[serde(rename="I64")]
-    I64(Box<models::ProgrammaticScryptoSborValueI64>),
+    I64(models::ProgrammaticScryptoSborValueI64),
     #[serde(rename="I128")]
-    I128(Box<models::ProgrammaticScryptoSborValueI128>),
+    I128(models::ProgrammaticScryptoSborValueI128),
     #[serde(rename="U8")]
-    U8(Box<models::ProgrammaticScryptoSborValueU8>),
+    U8(models::ProgrammaticScryptoSborValueU8),
     #[serde(rename="U16")]
-    U16(Box<models::ProgrammaticScryptoSborValueU16>),
+    U16(models::ProgrammaticScryptoSborValueU16),
     #[serde(rename="U32")]
-    U32(Box<models::ProgrammaticScryptoSborValueU32>),
+    U32(models::ProgrammaticScryptoSborValueU32),
     #[serde(rename="U64")]
-    U64(Box<models::ProgrammaticScryptoSborValueU64>),
+    U64(models::ProgrammaticScryptoSborValueU64),
     #[serde(rename="U128")]
-    U128(Box<models::ProgrammaticScryptoSborValueU128>),
+    U128(models::ProgrammaticScryptoSborValueU128),
     #[serde(rename="String")]
-    String(Box<models::ProgrammaticScryptoSborValueString>),
+    String(models::ProgrammaticScryptoSborValueString),
     #[serde(rename="Enum")]
-    Enum(Box<models::ProgrammaticScryptoSborValueEnum>),
+    Enum(models::ProgrammaticScryptoSborValueEnum),
     #[serde(rename="Array")]
-    Array(Box<models::ProgrammaticScryptoSborValueArray>),
+    Array(models::ProgrammaticScryptoSborValueArray),
     #[serde(rename="Bytes")]
-    Bytes(Box<models::ProgrammaticScryptoSborValueBytes>),
+    Bytes(models::ProgrammaticScryptoSborValueBytes),
     #[serde(rename="Map")]
-    Map(Box<models::ProgrammaticScryptoSborValueMap>),
+    Map(models::ProgrammaticScryptoSborValueMap),
     #[serde(rename="Tuple")]
-    Tuple(Box<models::ProgrammaticScryptoSborValueTuple>),
+    Tuple(models::ProgrammaticScryptoSborValueTuple),
     #[serde(rename="Reference")]
-    Reference(Box<models::ProgrammaticScryptoSborValueReference>),
+    Reference(models::ProgrammaticScryptoSborValueReference),
     #[serde(rename="Own")]
-    Own(Box<models::ProgrammaticScryptoSborValueOwn>),
+    Own(models::ProgrammaticScryptoSborValueOwn),
     #[serde(rename="Decimal")]
-    Decimal(Box<models::ProgrammaticScryptoSborValueDecimal>),
+    Decimal(models::ProgrammaticScryptoSborValueDecimal),
     #[serde(rename="PreciseDecimal")]
-    PreciseDecimal(Box<models::ProgrammaticScryptoSborValuePreciseDecimal>),
+    PreciseDecimal(models::ProgrammaticScryptoSborValuePreciseDecimal),
     #[serde(rename="NonFungibleLocalId")]
-    NonFungibleLocalId(Box<models::ProgrammaticScryptoSborValueNonFungibleLocalId>),
+    NonFungibleLocalId(models::ProgrammaticScryptoSborValueNonFungibleLocalId),
 }
 
 impl Default for ProgrammaticScryptoSborValue {

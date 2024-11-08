@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AuthorizedDepositorKey {
     #[serde(rename = "badge")]
-    pub badge: Box<models::AuthorizedDepositorBadge>,
+    pub badge: models::AuthorizedDepositorBadge,
 }
 
 impl AuthorizedDepositorKey {
     pub fn new(badge: models::AuthorizedDepositorBadge) -> AuthorizedDepositorKey {
         AuthorizedDepositorKey {
-            badge: Box::new(badge),
+            badge,
         }
     }
 }

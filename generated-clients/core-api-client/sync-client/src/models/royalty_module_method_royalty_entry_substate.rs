@@ -16,16 +16,16 @@ pub struct RoyaltyModuleMethodRoyaltyEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::MainMethodKey>,
+    pub key: models::MainMethodKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::RoyaltyModuleMethodRoyaltyEntryValue>>,
+    pub value: Option<models::RoyaltyModuleMethodRoyaltyEntryValue>,
 }
 
 impl RoyaltyModuleMethodRoyaltyEntrySubstate {
     pub fn new(is_locked: bool, key: models::MainMethodKey) -> RoyaltyModuleMethodRoyaltyEntrySubstate {
         RoyaltyModuleMethodRoyaltyEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

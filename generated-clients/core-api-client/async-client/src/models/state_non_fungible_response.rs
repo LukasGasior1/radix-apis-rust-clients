@@ -15,16 +15,16 @@ use serde::{Deserialize, Serialize};
 pub struct StateNonFungibleResponse {
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     #[serde(rename = "non_fungible")]
-    pub non_fungible: Box<models::Substate>,
+    pub non_fungible: models::Substate,
 }
 
 impl StateNonFungibleResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, non_fungible: models::Substate) -> StateNonFungibleResponse {
         StateNonFungibleResponse {
-            at_ledger_state: Box::new(at_ledger_state),
-            non_fungible: Box::new(non_fungible),
+            at_ledger_state,
+            non_fungible,
         }
     }
 }

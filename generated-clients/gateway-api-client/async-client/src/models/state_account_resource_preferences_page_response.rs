@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateAccountResourcePreferencesPageResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     /// If specified, contains a cursor to query next page of the `items` collection.
     #[serde(rename = "next_cursor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub next_cursor: Option<Option<String>>,
@@ -31,7 +31,7 @@ pub struct StateAccountResourcePreferencesPageResponse {
 impl StateAccountResourcePreferencesPageResponse {
     pub fn new(ledger_state: models::LedgerState, items: Vec<models::AccountResourcePreferencesResponseItem>, account_address: String) -> StateAccountResourcePreferencesPageResponse {
         StateAccountResourcePreferencesPageResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             next_cursor: None,
             total_count: None,
             items,

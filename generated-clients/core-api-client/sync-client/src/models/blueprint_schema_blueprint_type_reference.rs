@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BlueprintSchemaBlueprintTypeReference {
     #[serde(rename = "local_type_id")]
-    pub local_type_id: Box<models::LocalTypeId>,
+    pub local_type_id: models::LocalTypeId,
 }
 
 impl BlueprintSchemaBlueprintTypeReference {
     pub fn new(local_type_id: models::LocalTypeId) -> BlueprintSchemaBlueprintTypeReference {
         BlueprintSchemaBlueprintTypeReference {
-            local_type_id: Box::new(local_type_id),
+            local_type_id,
         }
     }
 }

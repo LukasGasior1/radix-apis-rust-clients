@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BootLoaderModuleFieldSystemBootValue {
     #[serde(rename = "system_parameters")]
-    pub system_parameters: Box<models::SystemParameters>,
+    pub system_parameters: models::SystemParameters,
     #[serde(rename = "system_version", skip_serializing_if = "Option::is_none")]
     pub system_version: Option<models::SystemVersion>,
 }
@@ -22,7 +22,7 @@ pub struct BootLoaderModuleFieldSystemBootValue {
 impl BootLoaderModuleFieldSystemBootValue {
     pub fn new(system_parameters: models::SystemParameters) -> BootLoaderModuleFieldSystemBootValue {
         BootLoaderModuleFieldSystemBootValue {
-            system_parameters: Box::new(system_parameters),
+            system_parameters,
             system_version: None,
         }
     }

@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ResourceHoldersCollectionItem {
     #[serde(rename="FungibleResource")]
-    FungibleResource(Box<models::ResourceHoldersCollectionFungibleResourceItem>),
+    FungibleResource(models::ResourceHoldersCollectionFungibleResourceItem),
     #[serde(rename="NonFungibleResource")]
-    NonFungibleResource(Box<models::ResourceHoldersCollectionNonFungibleResourceItem>),
+    NonFungibleResource(models::ResourceHoldersCollectionNonFungibleResourceItem),
 }
 
 impl Default for ResourceHoldersCollectionItem {

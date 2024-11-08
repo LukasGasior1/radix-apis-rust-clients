@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ObjectSubstateTypeReference {
     #[serde(rename="Package")]
-    Package(Box<models::PackageTypeReference>),
+    Package(models::PackageTypeReference),
     #[serde(rename="ObjectInstance")]
-    ObjectInstance(Box<models::ObjectInstanceTypeReference>),
+    ObjectInstance(models::ObjectInstanceTypeReference),
 }
 
 impl Default for ObjectSubstateTypeReference {

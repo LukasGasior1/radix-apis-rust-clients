@@ -28,9 +28,9 @@ pub struct NetworkConfigurationResponse {
     #[serde(rename = "usd_price_in_xrd")]
     pub usd_price_in_xrd: String,
     #[serde(rename = "version")]
-    pub version: Box<models::NetworkConfigurationResponseVersion>,
+    pub version: models::NetworkConfigurationResponseVersion,
     #[serde(rename = "well_known_addresses")]
-    pub well_known_addresses: Box<models::NetworkConfigurationResponseWellKnownAddresses>,
+    pub well_known_addresses: models::NetworkConfigurationResponseWellKnownAddresses,
 }
 
 impl NetworkConfigurationResponse {
@@ -41,8 +41,8 @@ impl NetworkConfigurationResponse {
             network_hrp_suffix,
             network_id,
             usd_price_in_xrd,
-            version: Box::new(version),
-            well_known_addresses: Box::new(well_known_addresses),
+            version,
+            well_known_addresses,
         }
     }
 }

@@ -14,12 +14,12 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleResourcesCollectionItemVaultAggregated {
     #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
-    pub explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
+    pub explicit_metadata: Option<models::EntityMetadataCollection>,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "resource_address")]
     pub resource_address: String,
     #[serde(rename = "vaults")]
-    pub vaults: Box<models::NonFungibleResourcesCollectionItemVaultAggregatedVault>,
+    pub vaults: models::NonFungibleResourcesCollectionItemVaultAggregatedVault,
 }
 
 impl NonFungibleResourcesCollectionItemVaultAggregated {
@@ -27,7 +27,7 @@ impl NonFungibleResourcesCollectionItemVaultAggregated {
         NonFungibleResourcesCollectionItemVaultAggregated {
             explicit_metadata: None,
             resource_address,
-            vaults: Box::new(vaults),
+            vaults,
         }
     }
 }

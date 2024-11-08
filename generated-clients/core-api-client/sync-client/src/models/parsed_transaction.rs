@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ParsedTransaction {
     #[serde(rename="NotarizedTransaction")]
-    NotarizedTransaction(Box<models::ParsedNotarizedTransaction>),
+    NotarizedTransaction(models::ParsedNotarizedTransaction),
     #[serde(rename="NotarizedTransactionV2")]
-    NotarizedTransactionV2(Box<models::ParsedNotarizedTransactionV2>),
+    NotarizedTransactionV2(models::ParsedNotarizedTransactionV2),
     #[serde(rename="SignedTransactionIntent")]
-    SignedTransactionIntent(Box<models::ParsedSignedTransactionIntent>),
+    SignedTransactionIntent(models::ParsedSignedTransactionIntent),
     #[serde(rename="TransactionIntent")]
-    TransactionIntent(Box<models::ParsedTransactionIntent>),
+    TransactionIntent(models::ParsedTransactionIntent),
     #[serde(rename="LedgerTransaction")]
-    LedgerTransaction(Box<models::ParsedLedgerTransaction>),
+    LedgerTransaction(models::ParsedLedgerTransaction),
 }
 
 impl Default for ParsedTransaction {

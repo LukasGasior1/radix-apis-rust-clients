@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccountVaultEntryValue {
     #[serde(rename = "vault")]
-    pub vault: Box<models::EntityReference>,
+    pub vault: models::EntityReference,
 }
 
 impl AccountVaultEntryValue {
     pub fn new(vault: models::EntityReference) -> AccountVaultEntryValue {
         AccountVaultEntryValue {
-            vault: Box::new(vault),
+            vault,
         }
     }
 }

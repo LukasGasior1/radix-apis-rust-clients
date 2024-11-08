@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccessControllerFieldStateValue {
     #[serde(rename = "controlled_vault")]
-    pub controlled_vault: Box<models::EntityReference>,
+    pub controlled_vault: models::EntityReference,
     /// Whether the primary role badge withdraw is currently being attempted.
     #[serde(rename = "has_primary_role_badge_withdraw_attempt")]
     pub has_primary_role_badge_withdraw_attempt: bool,
@@ -26,25 +26,25 @@ pub struct AccessControllerFieldStateValue {
     pub is_primary_role_locked: bool,
     /// The current attempt to recover a primary role, if any.
     #[serde(rename = "primary_role_recovery_attempt", skip_serializing_if = "Option::is_none")]
-    pub primary_role_recovery_attempt: Option<Box<models::PrimaryRoleRecoveryAttempt>>,
+    pub primary_role_recovery_attempt: Option<models::PrimaryRoleRecoveryAttempt>,
     /// The Bech32m-encoded human readable version of the resource address
     #[serde(rename = "recovery_badge_resource_address")]
     pub recovery_badge_resource_address: String,
     /// The current attempt to recover a recovery role, if any.
     #[serde(rename = "recovery_role_recovery_attempt", skip_serializing_if = "Option::is_none")]
-    pub recovery_role_recovery_attempt: Option<Box<models::RecoveryRoleRecoveryAttempt>>,
+    pub recovery_role_recovery_attempt: Option<models::RecoveryRoleRecoveryAttempt>,
     /// An integer between `0` and `2^32 - 1`, specifying the amount of time (in minutes) that it takes for timed recovery to be done. When not present, then timed recovery can not be performed through this access controller. 
     #[serde(rename = "timed_recovery_delay_minutes", skip_serializing_if = "Option::is_none")]
     pub timed_recovery_delay_minutes: Option<u64>,
     /// An optional helper vault storing some amount of XRD that can be used by any of the roles for locking fees. 
     #[serde(rename = "xrd_fee_vault", skip_serializing_if = "Option::is_none")]
-    pub xrd_fee_vault: Option<Box<models::EntityReference>>,
+    pub xrd_fee_vault: Option<models::EntityReference>,
 }
 
 impl AccessControllerFieldStateValue {
     pub fn new(controlled_vault: models::EntityReference, has_primary_role_badge_withdraw_attempt: bool, has_recovery_role_badge_withdraw_attempt: bool, is_primary_role_locked: bool, recovery_badge_resource_address: String) -> AccessControllerFieldStateValue {
         AccessControllerFieldStateValue {
-            controlled_vault: Box::new(controlled_vault),
+            controlled_vault,
             has_primary_role_badge_withdraw_attempt,
             has_recovery_role_badge_withdraw_attempt,
             is_primary_role_locked,

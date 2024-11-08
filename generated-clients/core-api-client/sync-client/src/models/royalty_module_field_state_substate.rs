@@ -16,14 +16,14 @@ pub struct RoyaltyModuleFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::RoyaltyModuleFieldStateValue>,
+    pub value: models::RoyaltyModuleFieldStateValue,
 }
 
 impl RoyaltyModuleFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::RoyaltyModuleFieldStateValue) -> RoyaltyModuleFieldStateSubstate {
         RoyaltyModuleFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

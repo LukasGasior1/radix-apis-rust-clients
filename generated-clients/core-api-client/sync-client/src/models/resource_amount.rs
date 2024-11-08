@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "resource_type")]
 pub enum ResourceAmount {
     #[serde(rename="Fungible")]
-    Fungible(Box<models::FungibleResourceAmount>),
+    Fungible(models::FungibleResourceAmount),
     #[serde(rename="NonFungible")]
-    NonFungible(Box<models::NonFungibleResourceAmount>),
+    NonFungible(models::NonFungibleResourceAmount),
 }
 
 impl Default for ResourceAmount {

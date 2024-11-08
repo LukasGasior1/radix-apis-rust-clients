@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum TransactionSubmitErrorDetails {
     #[serde(rename="PriorityThresholdNotMet")]
-    PriorityThresholdNotMet(Box<models::TransactionSubmitPriorityThresholdNotMetErrorDetails>),
+    PriorityThresholdNotMet(models::TransactionSubmitPriorityThresholdNotMetErrorDetails),
     #[serde(rename="IntentAlreadyCommitted")]
-    IntentAlreadyCommitted(Box<models::TransactionSubmitIntentAlreadyCommitted>),
+    IntentAlreadyCommitted(models::TransactionSubmitIntentAlreadyCommitted),
     #[serde(rename="Rejected")]
-    Rejected(Box<models::TransactionSubmitRejectedErrorDetails>),
+    Rejected(models::TransactionSubmitRejectedErrorDetails),
 }
 
 impl Default for TransactionSubmitErrorDetails {

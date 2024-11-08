@@ -16,16 +16,16 @@ pub struct AccountAuthorizedDepositorEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::AuthorizedDepositorKey>,
+    pub key: models::AuthorizedDepositorKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::AccountAuthorizedDepositorEntryValue>>,
+    pub value: Option<models::AccountAuthorizedDepositorEntryValue>,
 }
 
 impl AccountAuthorizedDepositorEntrySubstate {
     pub fn new(is_locked: bool, key: models::AuthorizedDepositorKey) -> AccountAuthorizedDepositorEntrySubstate {
         AccountAuthorizedDepositorEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

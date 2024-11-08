@@ -18,7 +18,7 @@ pub struct ProtocolUpdateStatusModuleFieldSummarySubstate {
     #[serde(rename = "protocol_version")]
     pub protocol_version: String,
     #[serde(rename = "update_status")]
-    pub update_status: Box<models::ProtocolUpdateStatus>,
+    pub update_status: models::ProtocolUpdateStatus,
 }
 
 impl ProtocolUpdateStatusModuleFieldSummarySubstate {
@@ -26,7 +26,7 @@ impl ProtocolUpdateStatusModuleFieldSummarySubstate {
         ProtocolUpdateStatusModuleFieldSummarySubstate {
             is_locked,
             protocol_version,
-            update_status: Box::new(update_status),
+            update_status,
         }
     }
 }

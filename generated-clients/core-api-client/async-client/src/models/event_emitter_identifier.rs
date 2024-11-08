@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum EventEmitterIdentifier {
     #[serde(rename="Function")]
-    Function(Box<models::FunctionEventEmitterIdentifier>),
+    Function(models::FunctionEventEmitterIdentifier),
     #[serde(rename="Method")]
-    Method(Box<models::MethodEventEmitterIdentifier>),
+    Method(models::MethodEventEmitterIdentifier),
 }
 
 impl Default for EventEmitterIdentifier {

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionStatusResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     /// If the intent was committed, this gives the state version when this intent was committed. 
     #[serde(rename = "committed_state_version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub committed_state_version: Option<Option<i64>>,
@@ -38,7 +38,7 @@ pub struct TransactionStatusResponse {
 impl TransactionStatusResponse {
     pub fn new(ledger_state: models::LedgerState, intent_status: models::TransactionIntentStatus, intent_status_description: String, known_payloads: Vec<models::TransactionStatusResponseKnownPayloadItem>, status: models::TransactionStatus) -> TransactionStatusResponse {
         TransactionStatusResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             committed_state_version: None,
             error_message: None,
             intent_status,

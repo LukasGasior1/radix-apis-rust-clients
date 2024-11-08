@@ -16,16 +16,16 @@ pub struct GenericKeyValueStoreEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::GenericKey>,
+    pub key: models::GenericKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::GenericKeyValueStoreEntryValue>>,
+    pub value: Option<models::GenericKeyValueStoreEntryValue>,
 }
 
 impl GenericKeyValueStoreEntrySubstate {
     pub fn new(is_locked: bool, key: models::GenericKey) -> GenericKeyValueStoreEntrySubstate {
         GenericKeyValueStoreEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionReceipt {
     #[serde(rename = "costing_parameters")]
-    pub costing_parameters: Box<models::CostingParameters>,
+    pub costing_parameters: models::CostingParameters,
     /// Error message (only present if status is `Failed` or `Rejected`)
     #[serde(rename = "error_message", skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
@@ -23,19 +23,19 @@ pub struct TransactionReceipt {
     pub events: Option<Vec<models::Event>>,
     /// Only present if the `status` is not `Rejected`.
     #[serde(rename = "fee_destination", skip_serializing_if = "Option::is_none")]
-    pub fee_destination: Option<Box<models::FeeDestination>>,
+    pub fee_destination: Option<models::FeeDestination>,
     /// Only present if the `status` is not `Rejected`.
     #[serde(rename = "fee_source", skip_serializing_if = "Option::is_none")]
-    pub fee_source: Option<Box<models::FeeSource>>,
+    pub fee_source: Option<models::FeeSource>,
     #[serde(rename = "fee_summary")]
-    pub fee_summary: Box<models::FeeSummary>,
+    pub fee_summary: models::FeeSummary,
     #[serde(rename = "next_epoch", skip_serializing_if = "Option::is_none")]
-    pub next_epoch: Option<Box<models::NextEpoch>>,
+    pub next_epoch: Option<models::NextEpoch>,
     /// The manifest line-by-line engine return data (only present if `status` is `Succeeded`)
     #[serde(rename = "output", skip_serializing_if = "Option::is_none")]
     pub output: Option<Vec<models::SborData>>,
     #[serde(rename = "state_updates")]
-    pub state_updates: Box<models::StateUpdates>,
+    pub state_updates: models::StateUpdates,
     #[serde(rename = "status")]
     pub status: models::TransactionStatus,
 }
@@ -44,15 +44,15 @@ impl TransactionReceipt {
     /// The transaction execution receipt
     pub fn new(costing_parameters: models::CostingParameters, fee_summary: models::FeeSummary, state_updates: models::StateUpdates, status: models::TransactionStatus) -> TransactionReceipt {
         TransactionReceipt {
-            costing_parameters: Box::new(costing_parameters),
+            costing_parameters,
             error_message: None,
             events: None,
             fee_destination: None,
             fee_source: None,
-            fee_summary: Box::new(fee_summary),
+            fee_summary,
             next_epoch: None,
             output: None,
-            state_updates: Box::new(state_updates),
+            state_updates,
             status,
         }
     }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ConsensusManagerFieldConfigValue {
     #[serde(rename = "epoch_change_condition")]
-    pub epoch_change_condition: Box<models::EpochChangeCondition>,
+    pub epoch_change_condition: models::EpochChangeCondition,
     /// An integer between `0` and `10^10`, specifying the maximum number of validators in the active validator set. 
     #[serde(rename = "max_validators")]
     pub max_validators: u64,
@@ -44,7 +44,7 @@ pub struct ConsensusManagerFieldConfigValue {
 impl ConsensusManagerFieldConfigValue {
     pub fn new(epoch_change_condition: models::EpochChangeCondition, max_validators: u64, min_validator_reliability: String, num_fee_increase_delay_epochs: u64, num_owner_stake_units_unlock_epochs: u64, num_unstake_epochs: u64, total_emission_xrd_per_epoch: String, validator_creation_usd_equivalent_cost: String, validator_creation_xrd_cost: String) -> ConsensusManagerFieldConfigValue {
         ConsensusManagerFieldConfigValue {
-            epoch_change_condition: Box::new(epoch_change_condition),
+            epoch_change_condition,
             max_validators,
             min_validator_reliability,
             num_fee_increase_delay_epochs,

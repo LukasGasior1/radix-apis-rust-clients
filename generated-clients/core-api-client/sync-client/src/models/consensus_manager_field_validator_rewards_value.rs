@@ -16,14 +16,14 @@ pub struct ConsensusManagerFieldValidatorRewardsValue {
     #[serde(rename = "proposer_rewards")]
     pub proposer_rewards: Vec<models::ProposerReward>,
     #[serde(rename = "rewards_vault")]
-    pub rewards_vault: Box<models::EntityReference>,
+    pub rewards_vault: models::EntityReference,
 }
 
 impl ConsensusManagerFieldValidatorRewardsValue {
     pub fn new(proposer_rewards: Vec<models::ProposerReward>, rewards_vault: models::EntityReference) -> ConsensusManagerFieldValidatorRewardsValue {
         ConsensusManagerFieldValidatorRewardsValue {
             proposer_rewards,
-            rewards_vault: Box::new(rewards_vault),
+            rewards_vault,
         }
     }
 }

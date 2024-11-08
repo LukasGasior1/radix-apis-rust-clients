@@ -30,7 +30,7 @@ pub struct BlueprintInterface {
     #[serde(rename = "outer_blueprint", skip_serializing_if = "Option::is_none")]
     pub outer_blueprint: Option<String>,
     #[serde(rename = "state")]
-    pub state: Box<models::IndexedStateSchema>,
+    pub state: models::IndexedStateSchema,
     /// A map from the registered type name to the concrete type, resolved against a schema from the package's schema partition. 
     #[serde(rename = "types")]
     pub types: std::collections::HashMap<String, models::ScopedTypeId>,
@@ -45,7 +45,7 @@ impl BlueprintInterface {
             generic_type_parameters,
             is_transient,
             outer_blueprint: None,
-            state: Box::new(state),
+            state,
             types,
         }
     }

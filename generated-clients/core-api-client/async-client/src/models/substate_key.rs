@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "key_type")]
 pub enum SubstateKey {
     #[serde(rename="Field")]
-    Field(Box<models::FieldSubstateKey>),
+    Field(models::FieldSubstateKey),
     #[serde(rename="Map")]
-    Map(Box<models::MapSubstateKey>),
+    Map(models::MapSubstateKey),
     #[serde(rename="Sorted")]
-    Sorted(Box<models::SortedSubstateKey>),
+    Sorted(models::SortedSubstateKey),
 }
 
 impl Default for SubstateKey {

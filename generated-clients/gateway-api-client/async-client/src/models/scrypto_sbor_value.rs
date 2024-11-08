@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ScryptoSborValue {
     #[serde(rename = "programmatic_json")]
-    pub programmatic_json: Box<models::ProgrammaticScryptoSborValue>,
+    pub programmatic_json: models::ProgrammaticScryptoSborValue,
     /// Hex-encoded binary blob.
     #[serde(rename = "raw_hex")]
     pub raw_hex: String,
@@ -23,7 +23,7 @@ pub struct ScryptoSborValue {
 impl ScryptoSborValue {
     pub fn new(programmatic_json: models::ProgrammaticScryptoSborValue, raw_hex: String) -> ScryptoSborValue {
         ScryptoSborValue {
-            programmatic_json: Box::new(programmatic_json),
+            programmatic_json,
             raw_hex,
         }
     }

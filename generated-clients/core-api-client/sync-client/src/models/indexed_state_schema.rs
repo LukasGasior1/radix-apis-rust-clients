@@ -16,7 +16,7 @@ pub struct IndexedStateSchema {
     #[serde(rename = "collections")]
     pub collections: Vec<models::BlueprintSchemaCollectionPartition>,
     #[serde(rename = "fields", skip_serializing_if = "Option::is_none")]
-    pub fields: Option<Box<models::BlueprintSchemaFieldPartition>>,
+    pub fields: Option<models::BlueprintSchemaFieldPartition>,
     #[serde(rename = "num_partitions")]
     pub num_partitions: u32,
 }

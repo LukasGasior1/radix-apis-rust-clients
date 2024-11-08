@@ -17,14 +17,14 @@ pub struct RoundUpdateLedgerTransaction {
     #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
     pub payload_hex: Option<String>,
     #[serde(rename = "round_update_transaction")]
-    pub round_update_transaction: Box<models::RoundUpdateTransaction>,
+    pub round_update_transaction: models::RoundUpdateTransaction,
 }
 
 impl RoundUpdateLedgerTransaction {
     pub fn new(round_update_transaction: models::RoundUpdateTransaction) -> RoundUpdateLedgerTransaction {
         RoundUpdateLedgerTransaction {
             payload_hex: None,
-            round_update_transaction: Box::new(round_update_transaction),
+            round_update_transaction,
         }
     }
 }

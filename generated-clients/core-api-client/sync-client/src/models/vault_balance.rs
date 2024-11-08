@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct VaultBalance {
     #[serde(rename = "resource_amount")]
-    pub resource_amount: Box<models::ResourceAmount>,
+    pub resource_amount: models::ResourceAmount,
     #[serde(rename = "vault_entity")]
-    pub vault_entity: Box<models::EntityReference>,
+    pub vault_entity: models::EntityReference,
 }
 
 impl VaultBalance {
     pub fn new(resource_amount: models::ResourceAmount, vault_entity: models::EntityReference) -> VaultBalance {
         VaultBalance {
-            resource_amount: Box::new(resource_amount),
-            vault_entity: Box::new(vault_entity),
+            resource_amount,
+            vault_entity,
         }
     }
 }

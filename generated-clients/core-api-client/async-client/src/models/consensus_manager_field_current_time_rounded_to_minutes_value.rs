@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct ConsensusManagerFieldCurrentTimeRoundedToMinutesValue {
     /// The latest round proposer's timestamp (rounded down to the current minute). An honest quorum of validators keeps this aligned with wall-clock time, and non-decreasing.  Note: in abnormal cases (e.g. Byzantine network quorum), this on-ledger field may be set to an arbitrary, extreme value allowed by 64-bit signed integer. The API will still clamp the timestamp to `0 <= ms <= 100000000000000 (== 10^14)`, which translates to `1970-01-01T00:00:00.000Z <= t <= 5138-11-16T09:46:40.000Z`. 
     #[serde(rename = "proposer_timestamp_rounded_down_to_minute")]
-    pub proposer_timestamp_rounded_down_to_minute: Box<models::InstantMs>,
+    pub proposer_timestamp_rounded_down_to_minute: models::InstantMs,
 }
 
 impl ConsensusManagerFieldCurrentTimeRoundedToMinutesValue {
     pub fn new(proposer_timestamp_rounded_down_to_minute: models::InstantMs) -> ConsensusManagerFieldCurrentTimeRoundedToMinutesValue {
         ConsensusManagerFieldCurrentTimeRoundedToMinutesValue {
-            proposer_timestamp_rounded_down_to_minute: Box::new(proposer_timestamp_rounded_down_to_minute),
+            proposer_timestamp_rounded_down_to_minute,
         }
     }
 }

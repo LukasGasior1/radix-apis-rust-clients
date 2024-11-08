@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct TransactionSubmitIntentAlreadyCommitted {
     /// Details of an already-committed transaction that had the same intent. 
     #[serde(rename = "committed_as")]
-    pub committed_as: Box<models::CommittedIntentMetadata>,
+    pub committed_as: models::CommittedIntentMetadata,
 }
 
 impl TransactionSubmitIntentAlreadyCommitted {
     pub fn new(committed_as: models::CommittedIntentMetadata) -> TransactionSubmitIntentAlreadyCommitted {
         TransactionSubmitIntentAlreadyCommitted {
-            committed_as: Box::new(committed_as),
+            committed_as,
         }
     }
 }

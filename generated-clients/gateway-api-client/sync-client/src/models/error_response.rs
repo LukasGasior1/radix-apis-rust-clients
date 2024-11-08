@@ -17,7 +17,7 @@ pub struct ErrorResponse {
     #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
     pub code: Option<i32>,
     #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<Box<models::GatewayError>>,
+    pub details: Option<models::GatewayError>,
     /// A human-readable error message.
     #[serde(rename = "message")]
     pub message: String,

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateAccountLockersTouchedAtRequest {
     #[serde(rename = "at_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub at_ledger_state: Option<Option<models::LedgerStateSelector>>,
     #[serde(rename = "account_lockers")]
     pub account_lockers: Vec<models::AccountLockerAddress>,
 }

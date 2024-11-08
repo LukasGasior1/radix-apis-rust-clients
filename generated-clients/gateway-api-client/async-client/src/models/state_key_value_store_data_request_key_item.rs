@@ -18,7 +18,7 @@ pub struct StateKeyValueStoreDataRequestKeyItem {
     #[serde(rename = "key_hex", skip_serializing_if = "Option::is_none")]
     pub key_hex: Option<String>,
     #[serde(rename = "key_json", skip_serializing_if = "Option::is_none")]
-    pub key_json: Option<Box<models::ProgrammaticScryptoSborValue>>,
+    pub key_json: Option<models::ProgrammaticScryptoSborValue>,
 }
 
 impl StateKeyValueStoreDataRequestKeyItem {

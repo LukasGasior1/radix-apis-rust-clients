@@ -16,16 +16,16 @@ pub struct MetadataModuleEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::MetadataKey>,
+    pub key: models::MetadataKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::MetadataModuleEntryValue>>,
+    pub value: Option<models::MetadataModuleEntryValue>,
 }
 
 impl MetadataModuleEntrySubstate {
     pub fn new(is_locked: bool, key: models::MetadataKey) -> MetadataModuleEntrySubstate {
         MetadataModuleEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

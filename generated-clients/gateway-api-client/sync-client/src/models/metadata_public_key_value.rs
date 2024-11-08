@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataPublicKeyValue {
     #[serde(rename = "value")]
-    pub value: Box<models::PublicKey>,
+    pub value: models::PublicKey,
 }
 
 impl MetadataPublicKeyValue {
     pub fn new(value: models::PublicKey) -> MetadataPublicKeyValue {
         MetadataPublicKeyValue {
-            value: Box::new(value),
+            value,
         }
     }
 }

@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionParseResponse {
     #[serde(rename = "parsed")]
-    pub parsed: Box<models::ParsedTransaction>,
+    pub parsed: models::ParsedTransaction,
 }
 
 impl TransactionParseResponse {
     pub fn new(parsed: models::ParsedTransaction) -> TransactionParseResponse {
         TransactionParseResponse {
-            parsed: Box::new(parsed),
+            parsed,
         }
     }
 }

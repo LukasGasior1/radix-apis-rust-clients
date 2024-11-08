@@ -14,20 +14,20 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LedgerHeaderSummary {
     #[serde(rename = "epoch_round")]
-    pub epoch_round: Box<models::EpochRound>,
+    pub epoch_round: models::EpochRound,
     #[serde(rename = "ledger_hashes")]
-    pub ledger_hashes: Box<models::LedgerHashes>,
+    pub ledger_hashes: models::LedgerHashes,
     /// The time at which the consensus leader created the proposal for extending the ledger to the represented point.  Note: in abnormal cases (e.g. Byzantine network quorum), this on-ledger field may be set to an arbitrary, extreme value allowed by 64-bit signed integer. The API will still clamp the timestamp to `0 <= ms <= 100000000000000 (== 10^14)`, which translates to `1970-01-01T00:00:00.000Z <= t <= 5138-11-16T09:46:40.000Z`. 
     #[serde(rename = "proposer_timestamp")]
-    pub proposer_timestamp: Box<models::InstantMs>,
+    pub proposer_timestamp: models::InstantMs,
 }
 
 impl LedgerHeaderSummary {
     pub fn new(epoch_round: models::EpochRound, ledger_hashes: models::LedgerHashes, proposer_timestamp: models::InstantMs) -> LedgerHeaderSummary {
         LedgerHeaderSummary {
-            epoch_round: Box::new(epoch_round),
-            ledger_hashes: Box::new(ledger_hashes),
-            proposer_timestamp: Box::new(proposer_timestamp),
+            epoch_round,
+            ledger_hashes,
+            proposer_timestamp,
         }
     }
 }

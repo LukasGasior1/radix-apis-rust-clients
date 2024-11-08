@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TimestampedValidatorSignature {
     #[serde(rename = "signature")]
-    pub signature: Box<models::EcdsaSecp256k1Signature>,
+    pub signature: models::EcdsaSecp256k1Signature,
     /// An integer between `0` and `10^14`, marking the unix timestamp in ms.
     #[serde(rename = "timestamp_ms")]
     pub timestamp_ms: u64,
@@ -22,16 +22,16 @@ pub struct TimestampedValidatorSignature {
     #[serde(rename = "validator_address")]
     pub validator_address: String,
     #[serde(rename = "validator_key")]
-    pub validator_key: Box<models::EcdsaSecp256k1PublicKey>,
+    pub validator_key: models::EcdsaSecp256k1PublicKey,
 }
 
 impl TimestampedValidatorSignature {
     pub fn new(signature: models::EcdsaSecp256k1Signature, timestamp_ms: u64, validator_address: String, validator_key: models::EcdsaSecp256k1PublicKey) -> TimestampedValidatorSignature {
         TimestampedValidatorSignature {
-            signature: Box::new(signature),
+            signature,
             timestamp_ms,
             validator_address,
-            validator_key: Box::new(validator_key),
+            validator_key,
         }
     }
 }

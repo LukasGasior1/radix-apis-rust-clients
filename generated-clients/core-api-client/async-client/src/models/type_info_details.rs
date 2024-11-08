@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum TypeInfoDetails {
     #[serde(rename="Object")]
-    Object(Box<models::ObjectTypeInfoDetails>),
+    Object(models::ObjectTypeInfoDetails),
     #[serde(rename="KeyValueStore")]
-    KeyValueStore(Box<models::KeyValueStoreTypeInfoDetails>),
+    KeyValueStore(models::KeyValueStoreTypeInfoDetails),
 }
 
 impl Default for TypeInfoDetails {

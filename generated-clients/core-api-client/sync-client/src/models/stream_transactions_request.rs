@@ -26,11 +26,11 @@ pub struct StreamTransactionsRequest {
     #[serde(rename = "network")]
     pub network: String,
     #[serde(rename = "sbor_format_options", skip_serializing_if = "Option::is_none")]
-    pub sbor_format_options: Option<Box<models::SborFormatOptions>>,
+    pub sbor_format_options: Option<models::SborFormatOptions>,
     #[serde(rename = "substate_format_options", skip_serializing_if = "Option::is_none")]
-    pub substate_format_options: Option<Box<models::SubstateFormatOptions>>,
+    pub substate_format_options: Option<models::SubstateFormatOptions>,
     #[serde(rename = "transaction_format_options", skip_serializing_if = "Option::is_none")]
-    pub transaction_format_options: Option<Box<models::TransactionFormatOptions>>,
+    pub transaction_format_options: Option<models::TransactionFormatOptions>,
 }
 
 impl StreamTransactionsRequest {

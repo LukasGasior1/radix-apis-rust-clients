@@ -16,9 +16,9 @@ pub struct StateEntityDetailsResponseFungibleResourceDetails {
     #[serde(rename = "divisibility")]
     pub divisibility: u32,
     #[serde(rename = "native_resource_details", skip_serializing_if = "Option::is_none")]
-    pub native_resource_details: Option<Box<models::NativeResourceDetails>>,
+    pub native_resource_details: Option<models::NativeResourceDetails>,
     #[serde(rename = "role_assignments")]
-    pub role_assignments: Box<models::ComponentEntityRoleAssignments>,
+    pub role_assignments: models::ComponentEntityRoleAssignments,
     /// String-encoded decimal representing the amount of a related fungible resource.
     #[serde(rename = "total_burned")]
     pub total_burned: String,
@@ -29,7 +29,7 @@ pub struct StateEntityDetailsResponseFungibleResourceDetails {
     #[serde(rename = "total_supply")]
     pub total_supply: String,
     #[serde(rename = "two_way_linked_dapps", skip_serializing_if = "Option::is_none")]
-    pub two_way_linked_dapps: Option<Box<models::TwoWayLinkedDappsCollection>>,
+    pub two_way_linked_dapps: Option<models::TwoWayLinkedDappsCollection>,
 }
 
 impl StateEntityDetailsResponseFungibleResourceDetails {
@@ -37,7 +37,7 @@ impl StateEntityDetailsResponseFungibleResourceDetails {
         StateEntityDetailsResponseFungibleResourceDetails {
             divisibility,
             native_resource_details: None,
-            role_assignments: Box::new(role_assignments),
+            role_assignments,
             total_burned,
             total_minted,
             total_supply,

@@ -23,7 +23,7 @@ pub struct EntityMetadataItem {
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: u64,
     #[serde(rename = "value")]
-    pub value: Box<models::EntityMetadataItemValue>,
+    pub value: models::EntityMetadataItemValue,
 }
 
 impl EntityMetadataItem {
@@ -33,7 +33,7 @@ impl EntityMetadataItem {
             is_locked,
             key,
             last_updated_at_state_version,
-            value: Box::new(value),
+            value,
         }
     }
 }

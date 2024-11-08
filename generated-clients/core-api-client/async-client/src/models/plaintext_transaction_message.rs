@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PlaintextTransactionMessage {
     #[serde(rename = "content")]
-    pub content: Box<models::PlaintextMessageContent>,
+    pub content: models::PlaintextMessageContent,
     /// Intended to represent the RFC 2046 MIME type of the `content`. A client cannot trust that this field is a valid mime type - in particular, the choice between `String` or `Binary` representation of the content is not enforced by this `mime_type`. 
     #[serde(rename = "mime_type")]
     pub mime_type: String,
@@ -25,7 +25,7 @@ impl PlaintextTransactionMessage {
     /// An unencrypted message.
     pub fn new(content: models::PlaintextMessageContent, mime_type: String) -> PlaintextTransactionMessage {
         PlaintextTransactionMessage {
-            content: Box::new(content),
+            content,
             mime_type,
         }
     }

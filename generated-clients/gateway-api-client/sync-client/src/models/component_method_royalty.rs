@@ -16,7 +16,7 @@ pub struct ComponentMethodRoyalty {
     #[serde(rename = "method_name")]
     pub method_name: String,
     #[serde(rename = "royalty_amount", skip_serializing_if = "Option::is_none")]
-    pub royalty_amount: Option<Box<models::RoyaltyAmount>>,
+    pub royalty_amount: Option<models::RoyaltyAmount>,
 }
 
 impl ComponentMethodRoyalty {

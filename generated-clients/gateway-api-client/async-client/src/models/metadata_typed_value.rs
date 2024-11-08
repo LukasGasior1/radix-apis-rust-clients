@@ -15,69 +15,69 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum MetadataTypedValue {
     #[serde(rename="String")]
-    String(Box<models::MetadataStringValue>),
+    String(models::MetadataStringValue),
     #[serde(rename="Bool")]
-    Bool(Box<models::MetadataBoolValue>),
+    Bool(models::MetadataBoolValue),
     #[serde(rename="U8")]
-    U8(Box<models::MetadataU8Value>),
+    U8(models::MetadataU8Value),
     #[serde(rename="U32")]
-    U32(Box<models::MetadataU32Value>),
+    U32(models::MetadataU32Value),
     #[serde(rename="U64")]
-    U64(Box<models::MetadataU64Value>),
+    U64(models::MetadataU64Value),
     #[serde(rename="I32")]
-    I32(Box<models::MetadataI32Value>),
+    I32(models::MetadataI32Value),
     #[serde(rename="I64")]
-    I64(Box<models::MetadataI64Value>),
+    I64(models::MetadataI64Value),
     #[serde(rename="Decimal")]
-    Decimal(Box<models::MetadataDecimalValue>),
+    Decimal(models::MetadataDecimalValue),
     #[serde(rename="GlobalAddress")]
-    GlobalAddress(Box<models::MetadataGlobalAddressValue>),
+    GlobalAddress(models::MetadataGlobalAddressValue),
     #[serde(rename="PublicKey")]
-    PublicKey(Box<models::MetadataPublicKeyValue>),
+    PublicKey(models::MetadataPublicKeyValue),
     #[serde(rename="NonFungibleGlobalId")]
-    NonFungibleGlobalId(Box<models::MetadataNonFungibleGlobalIdValue>),
+    NonFungibleGlobalId(models::MetadataNonFungibleGlobalIdValue),
     #[serde(rename="NonFungibleLocalId")]
-    NonFungibleLocalId(Box<models::MetadataNonFungibleLocalIdValue>),
+    NonFungibleLocalId(models::MetadataNonFungibleLocalIdValue),
     #[serde(rename="Instant")]
-    Instant(Box<models::MetadataInstantValue>),
+    Instant(models::MetadataInstantValue),
     #[serde(rename="Url")]
-    Url(Box<models::MetadataUrlValue>),
+    Url(models::MetadataUrlValue),
     #[serde(rename="Origin")]
-    Origin(Box<models::MetadataOriginValue>),
+    Origin(models::MetadataOriginValue),
     #[serde(rename="PublicKeyHash")]
-    PublicKeyHash(Box<models::MetadataPublicKeyHashValue>),
+    PublicKeyHash(models::MetadataPublicKeyHashValue),
     #[serde(rename="StringArray")]
-    StringArray(Box<models::MetadataStringArrayValue>),
+    StringArray(models::MetadataStringArrayValue),
     #[serde(rename="BoolArray")]
-    BoolArray(Box<models::MetadataBoolArrayValue>),
+    BoolArray(models::MetadataBoolArrayValue),
     #[serde(rename="U8Array")]
-    U8Array(Box<models::MetadataU8ArrayValue>),
+    U8Array(models::MetadataU8ArrayValue),
     #[serde(rename="U32Array")]
-    U32Array(Box<models::MetadataU32ArrayValue>),
+    U32Array(models::MetadataU32ArrayValue),
     #[serde(rename="U64Array")]
-    U64Array(Box<models::MetadataU64ArrayValue>),
+    U64Array(models::MetadataU64ArrayValue),
     #[serde(rename="I32Array")]
-    I32Array(Box<models::MetadataI32ArrayValue>),
+    I32Array(models::MetadataI32ArrayValue),
     #[serde(rename="I64Array")]
-    I64Array(Box<models::MetadataI64ArrayValue>),
+    I64Array(models::MetadataI64ArrayValue),
     #[serde(rename="DecimalArray")]
-    DecimalArray(Box<models::MetadataDecimalArrayValue>),
+    DecimalArray(models::MetadataDecimalArrayValue),
     #[serde(rename="GlobalAddressArray")]
-    GlobalAddressArray(Box<models::MetadataGlobalAddressArrayValue>),
+    GlobalAddressArray(models::MetadataGlobalAddressArrayValue),
     #[serde(rename="PublicKeyArray")]
-    PublicKeyArray(Box<models::MetadataPublicKeyArrayValue>),
+    PublicKeyArray(models::MetadataPublicKeyArrayValue),
     #[serde(rename="NonFungibleGlobalIdArray")]
-    NonFungibleGlobalIdArray(Box<models::MetadataNonFungibleGlobalIdArrayValue>),
+    NonFungibleGlobalIdArray(models::MetadataNonFungibleGlobalIdArrayValue),
     #[serde(rename="NonFungibleLocalIdArray")]
-    NonFungibleLocalIdArray(Box<models::MetadataNonFungibleLocalIdArrayValue>),
+    NonFungibleLocalIdArray(models::MetadataNonFungibleLocalIdArrayValue),
     #[serde(rename="InstantArray")]
-    InstantArray(Box<models::MetadataInstantArrayValue>),
+    InstantArray(models::MetadataInstantArrayValue),
     #[serde(rename="UrlArray")]
-    UrlArray(Box<models::MetadataUrlArrayValue>),
+    UrlArray(models::MetadataUrlArrayValue),
     #[serde(rename="OriginArray")]
-    OriginArray(Box<models::MetadataOriginArrayValue>),
+    OriginArray(models::MetadataOriginArrayValue),
     #[serde(rename="PublicKeyHashArray")]
-    PublicKeyHashArray(Box<models::MetadataPublicKeyHashArrayValue>),
+    PublicKeyHashArray(models::MetadataPublicKeyHashArrayValue),
 }
 
 impl Default for MetadataTypedValue {

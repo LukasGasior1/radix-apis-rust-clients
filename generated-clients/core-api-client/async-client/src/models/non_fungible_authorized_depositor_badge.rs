@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleAuthorizedDepositorBadge {
     #[serde(rename = "non_fungible_global_id")]
-    pub non_fungible_global_id: Box<models::NonFungibleGlobalId>,
+    pub non_fungible_global_id: models::NonFungibleGlobalId,
 }
 
 impl NonFungibleAuthorizedDepositorBadge {
     pub fn new(non_fungible_global_id: models::NonFungibleGlobalId) -> NonFungibleAuthorizedDepositorBadge {
         NonFungibleAuthorizedDepositorBadge {
-            non_fungible_global_id: Box::new(non_fungible_global_id),
+            non_fungible_global_id,
         }
     }
 }

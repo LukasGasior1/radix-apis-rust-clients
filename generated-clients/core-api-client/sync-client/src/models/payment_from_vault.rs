@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PaymentFromVault {
     #[serde(rename = "vault_entity")]
-    pub vault_entity: Box<models::EntityReference>,
+    pub vault_entity: models::EntityReference,
     /// The string-encoded decimal representing the amount of fee in XRD paid by this vault. A decimal is formed of some signed integer `m` of attos (`10^(-18)`) units, where `-2^(192 - 1) <= m < 2^(192 - 1)`. 
     #[serde(rename = "xrd_amount")]
     pub xrd_amount: String,
@@ -23,7 +23,7 @@ pub struct PaymentFromVault {
 impl PaymentFromVault {
     pub fn new(vault_entity: models::EntityReference, xrd_amount: String) -> PaymentFromVault {
         PaymentFromVault {
-            vault_entity: Box::new(vault_entity),
+            vault_entity,
             xrd_amount,
         }
     }

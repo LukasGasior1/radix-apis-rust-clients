@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct KeyValueStoreTypeInfoDetails {
     /// The SBOR schema of the KeyValueStore
     #[serde(rename = "key_value_store_info")]
-    pub key_value_store_info: Box<models::KeyValueStoreInfo>,
+    pub key_value_store_info: models::KeyValueStoreInfo,
 }
 
 impl KeyValueStoreTypeInfoDetails {
     pub fn new(key_value_store_info: models::KeyValueStoreInfo) -> KeyValueStoreTypeInfoDetails {
         KeyValueStoreTypeInfoDetails {
-            key_value_store_info: Box::new(key_value_store_info),
+            key_value_store_info,
         }
     }
 }

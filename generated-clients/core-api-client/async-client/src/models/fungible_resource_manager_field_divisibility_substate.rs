@@ -16,14 +16,14 @@ pub struct FungibleResourceManagerFieldDivisibilitySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::FungibleResourceManagerFieldDivisibilityValue>,
+    pub value: models::FungibleResourceManagerFieldDivisibilityValue,
 }
 
 impl FungibleResourceManagerFieldDivisibilitySubstate {
     pub fn new(is_locked: bool, value: models::FungibleResourceManagerFieldDivisibilityValue) -> FungibleResourceManagerFieldDivisibilitySubstate {
         FungibleResourceManagerFieldDivisibilitySubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

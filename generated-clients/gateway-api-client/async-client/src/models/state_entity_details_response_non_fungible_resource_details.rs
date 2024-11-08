@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponseNonFungibleResourceDetails {
     #[serde(rename = "native_resource_details", skip_serializing_if = "Option::is_none")]
-    pub native_resource_details: Option<Box<models::NativeResourceDetails>>,
+    pub native_resource_details: Option<models::NativeResourceDetails>,
     #[serde(rename = "non_fungible_data_mutable_fields")]
     pub non_fungible_data_mutable_fields: Vec<String>,
     #[serde(rename = "non_fungible_id_type")]
     pub non_fungible_id_type: models::NonFungibleIdType,
     #[serde(rename = "role_assignments")]
-    pub role_assignments: Box<models::ComponentEntityRoleAssignments>,
+    pub role_assignments: models::ComponentEntityRoleAssignments,
     /// String-encoded decimal representing the amount of a related fungible resource.
     #[serde(rename = "total_burned")]
     pub total_burned: String,
@@ -31,7 +31,7 @@ pub struct StateEntityDetailsResponseNonFungibleResourceDetails {
     #[serde(rename = "total_supply")]
     pub total_supply: String,
     #[serde(rename = "two_way_linked_dapps", skip_serializing_if = "Option::is_none")]
-    pub two_way_linked_dapps: Option<Box<models::TwoWayLinkedDappsCollection>>,
+    pub two_way_linked_dapps: Option<models::TwoWayLinkedDappsCollection>,
 }
 
 impl StateEntityDetailsResponseNonFungibleResourceDetails {
@@ -40,7 +40,7 @@ impl StateEntityDetailsResponseNonFungibleResourceDetails {
             native_resource_details: None,
             non_fungible_data_mutable_fields,
             non_fungible_id_type,
-            role_assignments: Box::new(role_assignments),
+            role_assignments,
             total_burned,
             total_minted,
             total_supply,

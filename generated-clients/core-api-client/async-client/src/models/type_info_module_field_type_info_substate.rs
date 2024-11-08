@@ -16,14 +16,14 @@ pub struct TypeInfoModuleFieldTypeInfoSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::TypeInfoModuleFieldTypeInfoValue>,
+    pub value: models::TypeInfoModuleFieldTypeInfoValue,
 }
 
 impl TypeInfoModuleFieldTypeInfoSubstate {
     pub fn new(is_locked: bool, value: models::TypeInfoModuleFieldTypeInfoValue) -> TypeInfoModuleFieldTypeInfoSubstate {
         TypeInfoModuleFieldTypeInfoSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

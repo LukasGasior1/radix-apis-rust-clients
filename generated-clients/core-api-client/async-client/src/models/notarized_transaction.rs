@@ -20,12 +20,12 @@ pub struct NotarizedTransaction {
     #[serde(rename = "hash_bech32m")]
     pub hash_bech32m: String,
     #[serde(rename = "notary_signature")]
-    pub notary_signature: Box<models::Signature>,
+    pub notary_signature: models::Signature,
     /// The hex-encoded full notarized transaction payload. Returning this can be disabled in TransactionFormatOptions on your request (default true).
     #[serde(rename = "payload_hex", skip_serializing_if = "Option::is_none")]
     pub payload_hex: Option<String>,
     #[serde(rename = "signed_intent")]
-    pub signed_intent: Box<models::SignedTransactionIntent>,
+    pub signed_intent: models::SignedTransactionIntent,
 }
 
 impl NotarizedTransaction {
@@ -33,9 +33,9 @@ impl NotarizedTransaction {
         NotarizedTransaction {
             hash,
             hash_bech32m,
-            notary_signature: Box::new(notary_signature),
+            notary_signature,
             payload_hex: None,
-            signed_intent: Box::new(signed_intent),
+            signed_intent,
         }
     }
 }

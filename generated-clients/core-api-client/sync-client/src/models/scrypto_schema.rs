@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ScryptoSchema {
     #[serde(rename = "sbor_data")]
-    pub sbor_data: Box<models::SborData>,
+    pub sbor_data: models::SborData,
 }
 
 impl ScryptoSchema {
     pub fn new(sbor_data: models::SborData) -> ScryptoSchema {
         ScryptoSchema {
-            sbor_data: Box::new(sbor_data),
+            sbor_data,
         }
     }
 }

@@ -17,17 +17,17 @@ pub struct KeyValueStoreInfo {
     #[serde(rename = "allow_ownership")]
     pub allow_ownership: bool,
     #[serde(rename = "key_generic_substitution")]
-    pub key_generic_substitution: Box<models::GenericSubstitution>,
+    pub key_generic_substitution: models::GenericSubstitution,
     #[serde(rename = "value_generic_substitution")]
-    pub value_generic_substitution: Box<models::GenericSubstitution>,
+    pub value_generic_substitution: models::GenericSubstitution,
 }
 
 impl KeyValueStoreInfo {
     pub fn new(allow_ownership: bool, key_generic_substitution: models::GenericSubstitution, value_generic_substitution: models::GenericSubstitution) -> KeyValueStoreInfo {
         KeyValueStoreInfo {
             allow_ownership,
-            key_generic_substitution: Box::new(key_generic_substitution),
-            value_generic_substitution: Box::new(value_generic_substitution),
+            key_generic_substitution,
+            value_generic_substitution,
         }
     }
 }

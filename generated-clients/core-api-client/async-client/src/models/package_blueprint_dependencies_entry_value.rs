@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PackageBlueprintDependenciesEntryValue {
     #[serde(rename = "dependencies")]
-    pub dependencies: Box<models::BlueprintDependencies>,
+    pub dependencies: models::BlueprintDependencies,
 }
 
 impl PackageBlueprintDependenciesEntryValue {
     pub fn new(dependencies: models::BlueprintDependencies) -> PackageBlueprintDependenciesEntryValue {
         PackageBlueprintDependenciesEntryValue {
-            dependencies: Box::new(dependencies),
+            dependencies,
         }
     }
 }

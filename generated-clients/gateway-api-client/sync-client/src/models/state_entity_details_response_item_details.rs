@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum StateEntityDetailsResponseItemDetails {
     #[serde(rename="FungibleResource")]
-    FungibleResource(Box<models::StateEntityDetailsResponseFungibleResourceDetails>),
+    FungibleResource(models::StateEntityDetailsResponseFungibleResourceDetails),
     #[serde(rename="NonFungibleResource")]
-    NonFungibleResource(Box<models::StateEntityDetailsResponseNonFungibleResourceDetails>),
+    NonFungibleResource(models::StateEntityDetailsResponseNonFungibleResourceDetails),
     #[serde(rename="FungibleVault")]
-    FungibleVault(Box<models::StateEntityDetailsResponseFungibleVaultDetails>),
+    FungibleVault(models::StateEntityDetailsResponseFungibleVaultDetails),
     #[serde(rename="NonFungibleVault")]
-    NonFungibleVault(Box<models::StateEntityDetailsResponseNonFungibleVaultDetails>),
+    NonFungibleVault(models::StateEntityDetailsResponseNonFungibleVaultDetails),
     #[serde(rename="Package")]
-    Package(Box<models::StateEntityDetailsResponsePackageDetails>),
+    Package(models::StateEntityDetailsResponsePackageDetails),
     #[serde(rename="Component")]
-    Component(Box<models::StateEntityDetailsResponseComponentDetails>),
+    Component(models::StateEntityDetailsResponseComponentDetails),
 }
 
 impl Default for StateEntityDetailsResponseItemDetails {

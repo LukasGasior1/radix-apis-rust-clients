@@ -15,12 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct TransactionCallPreviewResponse {
     /// A summarized state of the ledger on top of which the preview was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     /// Error message (only present if status is Failed or Rejected)
     #[serde(rename = "error_message", skip_serializing_if = "Option::is_none")]
     pub error_message: Option<String>,
     #[serde(rename = "output", skip_serializing_if = "Option::is_none")]
-    pub output: Option<Box<models::SborData>>,
+    pub output: Option<models::SborData>,
     #[serde(rename = "status")]
     pub status: models::TransactionStatus,
 }
@@ -28,7 +28,7 @@ pub struct TransactionCallPreviewResponse {
 impl TransactionCallPreviewResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, status: models::TransactionStatus) -> TransactionCallPreviewResponse {
         TransactionCallPreviewResponse {
-            at_ledger_state: Box::new(at_ledger_state),
+            at_ledger_state,
             error_message: None,
             output: None,
             status,

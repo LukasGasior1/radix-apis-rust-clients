@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MethodEventEmitterIdentifier {
     #[serde(rename = "entity")]
-    pub entity: Box<models::EntityReference>,
+    pub entity: models::EntityReference,
     #[serde(rename = "object_module_id")]
     pub object_module_id: models::ModuleId,
 }
@@ -22,7 +22,7 @@ pub struct MethodEventEmitterIdentifier {
 impl MethodEventEmitterIdentifier {
     pub fn new(entity: models::EntityReference, object_module_id: models::ModuleId) -> MethodEventEmitterIdentifier {
         MethodEventEmitterIdentifier {
-            entity: Box::new(entity),
+            entity,
             object_module_id,
         }
     }

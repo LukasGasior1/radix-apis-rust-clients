@@ -20,7 +20,7 @@ pub struct TransactionReceiptRequest {
     #[serde(rename = "network")]
     pub network: String,
     #[serde(rename = "transaction_format_options", skip_serializing_if = "Option::is_none")]
-    pub transaction_format_options: Option<Box<models::TransactionFormatOptions>>,
+    pub transaction_format_options: Option<models::TransactionFormatOptions>,
 }
 
 impl TransactionReceiptRequest {

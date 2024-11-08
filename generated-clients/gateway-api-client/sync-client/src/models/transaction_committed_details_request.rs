@@ -14,12 +14,12 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionCommittedDetailsRequest {
     #[serde(rename = "at_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub at_ledger_state: Option<Option<models::LedgerStateSelector>>,
     /// Bech32m-encoded hash.
     #[serde(rename = "intent_hash")]
     pub intent_hash: String,
     #[serde(rename = "opt_ins", skip_serializing_if = "Option::is_none")]
-    pub opt_ins: Option<Box<models::TransactionDetailsOptIns>>,
+    pub opt_ins: Option<models::TransactionDetailsOptIns>,
 }
 
 impl TransactionCommittedDetailsRequest {

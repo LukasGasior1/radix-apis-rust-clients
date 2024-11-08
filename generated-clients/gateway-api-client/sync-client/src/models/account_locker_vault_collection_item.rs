@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum AccountLockerVaultCollectionItem {
     #[serde(rename="Fungible")]
-    Fungible(Box<models::AccountLockerVaultCollectionItemFungible>),
+    Fungible(models::AccountLockerVaultCollectionItemFungible),
     #[serde(rename="NonFungible")]
-    NonFungible(Box<models::AccountLockerVaultCollectionItemNonFungible>),
+    NonFungible(models::AccountLockerVaultCollectionItemNonFungible),
 }
 
 impl Default for AccountLockerVaultCollectionItem {

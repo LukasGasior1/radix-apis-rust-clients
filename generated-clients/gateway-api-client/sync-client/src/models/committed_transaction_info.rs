@@ -16,7 +16,7 @@ pub struct CommittedTransactionInfo {
     #[serde(rename = "affected_global_entities", skip_serializing_if = "Option::is_none")]
     pub affected_global_entities: Option<Vec<String>>,
     #[serde(rename = "balance_changes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub balance_changes: Option<Option<Box<models::TransactionBalanceChanges>>>,
+    pub balance_changes: Option<Option<models::TransactionBalanceChanges>>,
     #[serde(rename = "confirmed_at", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub confirmed_at: Option<Option<String>>,
     #[serde(rename = "epoch")]
@@ -45,7 +45,7 @@ pub struct CommittedTransactionInfo {
     #[serde(rename = "raw_hex", skip_serializing_if = "Option::is_none")]
     pub raw_hex: Option<String>,
     #[serde(rename = "receipt", skip_serializing_if = "Option::is_none")]
-    pub receipt: Option<Box<models::TransactionReceipt>>,
+    pub receipt: Option<models::TransactionReceipt>,
     #[serde(rename = "round")]
     pub round: i64,
     #[serde(rename = "round_timestamp")]

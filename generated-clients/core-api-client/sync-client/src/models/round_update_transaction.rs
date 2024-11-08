@@ -18,10 +18,10 @@ pub struct RoundUpdateTransaction {
     pub epoch: u64,
     /// A recent history (i.e. since the previous `RoundUpdateValidatorTransaction`) of consensus round leaders' reliability. Used for validator emissions calculation.
     #[serde(rename = "leader_proposal_history")]
-    pub leader_proposal_history: Box<models::LeaderProposalHistory>,
+    pub leader_proposal_history: models::LeaderProposalHistory,
     /// The round proposer's timestamp.  Note: in abnormal cases (e.g. Byzantine network quorum), this on-ledger field may be set to an arbitrary, extreme value allowed by 64-bit signed integer. The API will still clamp the timestamp to `0 <= ms <= 100000000000000 (== 10^14)`, which translates to `1970-01-01T00:00:00.000Z <= t <= 5138-11-16T09:46:40.000Z`. 
     #[serde(rename = "proposer_timestamp")]
-    pub proposer_timestamp: Box<models::InstantMs>,
+    pub proposer_timestamp: models::InstantMs,
     /// An integer between `0` and `10^10`, marking the consensus round in the epoch
     #[serde(rename = "round_in_epoch")]
     pub round_in_epoch: u64,
@@ -31,8 +31,8 @@ impl RoundUpdateTransaction {
     pub fn new(epoch: u64, leader_proposal_history: models::LeaderProposalHistory, proposer_timestamp: models::InstantMs, round_in_epoch: u64) -> RoundUpdateTransaction {
         RoundUpdateTransaction {
             epoch,
-            leader_proposal_history: Box::new(leader_proposal_history),
-            proposer_timestamp: Box::new(proposer_timestamp),
+            leader_proposal_history,
+            proposer_timestamp,
             round_in_epoch,
         }
     }

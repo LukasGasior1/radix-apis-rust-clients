@@ -17,7 +17,7 @@ pub struct TransactionHeaderV2 {
     #[serde(rename = "notary_is_signatory")]
     pub notary_is_signatory: bool,
     #[serde(rename = "notary_public_key")]
-    pub notary_public_key: Box<models::PublicKey>,
+    pub notary_public_key: models::PublicKey,
     /// An integer between `0` and `2^32 - 1 = 4294967295`, giving the validator tip as a basis points amount. That is, a value of `1` corresponds to an additional tip on 0.01% of the base fee. 
     #[serde(rename = "tip_basis_points")]
     pub tip_basis_points: u64,
@@ -27,7 +27,7 @@ impl TransactionHeaderV2 {
     pub fn new(notary_is_signatory: bool, notary_public_key: models::PublicKey, tip_basis_points: u64) -> TransactionHeaderV2 {
         TransactionHeaderV2 {
             notary_is_signatory,
-            notary_public_key: Box::new(notary_public_key),
+            notary_public_key,
             tip_basis_points,
         }
     }

@@ -18,7 +18,7 @@ pub struct LtsEntityFungibleBalanceChanges {
     pub entity_address: String,
     /// If present, this field indicates the entity contributed to the payment of the fee. The change in balance will always be negative. NOTE: This property is deprecated but kept for backwards compatibility. This entry is duplicated in  `fee_balance_changes`. 
     #[serde(rename = "fee_balance_change", skip_serializing_if = "Option::is_none")]
-    pub fee_balance_change: Option<Box<models::LtsFungibleResourceBalanceChange>>,
+    pub fee_balance_change: Option<models::LtsFungibleResourceBalanceChange>,
     /// If present, this field indicates fee-related balance changes, for example:  - Payment of the fee (including tip and royalty) - Distribution of royalties - Distribution of the fee and tip to the consensus-manager, for distributing to the relevant   validator/s at end of epoch  See https://www.radixdlt.com/blog/how-fees-work-in-babylon for further information on how fee payment works at Babylon. 
     #[serde(rename = "fee_balance_changes")]
     pub fee_balance_changes: Vec<models::LtsFeeFungibleResourceBalanceChange>,

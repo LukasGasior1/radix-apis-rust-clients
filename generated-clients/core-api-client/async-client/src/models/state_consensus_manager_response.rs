@@ -15,35 +15,35 @@ use serde::{Deserialize, Serialize};
 pub struct StateConsensusManagerResponse {
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     #[serde(rename = "config")]
-    pub config: Box<models::Substate>,
+    pub config: models::Substate,
     #[serde(rename = "current_proposal_statistic")]
-    pub current_proposal_statistic: Box<models::Substate>,
+    pub current_proposal_statistic: models::Substate,
     #[serde(rename = "current_time")]
-    pub current_time: Box<models::Substate>,
+    pub current_time: models::Substate,
     #[serde(rename = "current_time_rounded_to_minutes")]
-    pub current_time_rounded_to_minutes: Box<models::Substate>,
+    pub current_time_rounded_to_minutes: models::Substate,
     /// Protocol versions signalled by the current validator set. Every validator from `current_validator_set` will be referenced by exactly one of the items here. Only returned if enabled by `include_readiness_signals` on your request. 
     #[serde(rename = "current_validator_readiness_signals", skip_serializing_if = "Option::is_none")]
     pub current_validator_readiness_signals: Option<Vec<models::ProtocolVersionReadiness>>,
     #[serde(rename = "current_validator_set")]
-    pub current_validator_set: Box<models::Substate>,
+    pub current_validator_set: models::Substate,
     #[serde(rename = "state")]
-    pub state: Box<models::Substate>,
+    pub state: models::Substate,
 }
 
 impl StateConsensusManagerResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, config: models::Substate, current_proposal_statistic: models::Substate, current_time: models::Substate, current_time_rounded_to_minutes: models::Substate, current_validator_set: models::Substate, state: models::Substate) -> StateConsensusManagerResponse {
         StateConsensusManagerResponse {
-            at_ledger_state: Box::new(at_ledger_state),
-            config: Box::new(config),
-            current_proposal_statistic: Box::new(current_proposal_statistic),
-            current_time: Box::new(current_time),
-            current_time_rounded_to_minutes: Box::new(current_time_rounded_to_minutes),
+            at_ledger_state,
+            config,
+            current_proposal_statistic,
+            current_time,
+            current_time_rounded_to_minutes,
             current_validator_readiness_signals: None,
-            current_validator_set: Box::new(current_validator_set),
-            state: Box::new(state),
+            current_validator_set,
+            state,
         }
     }
 }

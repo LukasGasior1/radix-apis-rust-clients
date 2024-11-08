@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Event {
     #[serde(rename = "data")]
-    pub data: Box<models::SborData>,
+    pub data: models::SborData,
     #[serde(rename = "type")]
-    pub r#type: Box<models::EventTypeIdentifier>,
+    pub r#type: models::EventTypeIdentifier,
 }
 
 impl Event {
     /// Event emitted by a transaction.
     pub fn new(data: models::SborData, r#type: models::EventTypeIdentifier) -> Event {
         Event {
-            data: Box::new(data),
-            r#type: Box::new(r#type),
+            data,
+            r#type,
         }
     }
 }

@@ -15,26 +15,26 @@ use serde::{Deserialize, Serialize};
 pub struct CommittedTransaction {
     /// All balance changes of a transaction (including those fee-related), aggregated by resource and global entity within which the change occurred. Only returned if available and enabled in `TransactionFormatOptions` on your request. 
     #[serde(rename = "balance_changes", skip_serializing_if = "Option::is_none")]
-    pub balance_changes: Option<Box<models::CommittedTransactionBalanceChanges>>,
+    pub balance_changes: Option<models::CommittedTransactionBalanceChanges>,
     #[serde(rename = "ledger_transaction")]
-    pub ledger_transaction: Box<models::LedgerTransaction>,
+    pub ledger_transaction: models::LedgerTransaction,
     /// An integer between `0` and `10^14`, marking the proposer timestamp in ms.
     #[serde(rename = "proposer_timestamp_ms")]
     pub proposer_timestamp_ms: u64,
     #[serde(rename = "receipt")]
-    pub receipt: Box<models::TransactionReceipt>,
+    pub receipt: models::TransactionReceipt,
     #[serde(rename = "resultant_state_identifiers")]
-    pub resultant_state_identifiers: Box<models::CommittedStateIdentifier>,
+    pub resultant_state_identifiers: models::CommittedStateIdentifier,
 }
 
 impl CommittedTransaction {
     pub fn new(ledger_transaction: models::LedgerTransaction, proposer_timestamp_ms: u64, receipt: models::TransactionReceipt, resultant_state_identifiers: models::CommittedStateIdentifier) -> CommittedTransaction {
         CommittedTransaction {
             balance_changes: None,
-            ledger_transaction: Box::new(ledger_transaction),
+            ledger_transaction,
             proposer_timestamp_ms,
-            receipt: Box::new(receipt),
-            resultant_state_identifiers: Box::new(resultant_state_identifiers),
+            receipt,
+            resultant_state_identifiers,
         }
     }
 }

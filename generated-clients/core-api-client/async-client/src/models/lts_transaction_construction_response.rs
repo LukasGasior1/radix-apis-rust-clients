@@ -18,14 +18,14 @@ pub struct LtsTransactionConstructionResponse {
     pub current_epoch: u64,
     /// The latest round proposer's timestamp (rounded down to the current minute). This is provided so that the client can detect if the node is synced up or not.  Note: in abnormal cases (e.g. Byzantine network quorum), this on-ledger field may be set to an arbitrary, extreme value allowed by 64-bit signed integer. The API will still clamp the timestamp to `0 <= ms <= 100000000000000 (== 10^14)`, which translates to `1970-01-01T00:00:00.000Z <= t <= 5138-11-16T09:46:40.000Z`. 
     #[serde(rename = "ledger_clock")]
-    pub ledger_clock: Box<models::InstantMs>,
+    pub ledger_clock: models::InstantMs,
 }
 
 impl LtsTransactionConstructionResponse {
     pub fn new(current_epoch: u64, ledger_clock: models::InstantMs) -> LtsTransactionConstructionResponse {
         LtsTransactionConstructionResponse {
             current_epoch,
-            ledger_clock: Box::new(ledger_clock),
+            ledger_clock,
         }
     }
 }

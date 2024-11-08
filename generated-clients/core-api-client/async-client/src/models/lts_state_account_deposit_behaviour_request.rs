@@ -18,7 +18,7 @@ pub struct LtsStateAccountDepositBehaviourRequest {
     pub account_address: String,
     /// The depositor badge to check against the account's set of authorized depositors.
     #[serde(rename = "badge", skip_serializing_if = "Option::is_none")]
-    pub badge: Option<Box<models::PresentedBadge>>,
+    pub badge: Option<models::PresentedBadge>,
     /// The logical name of the network
     #[serde(rename = "network")]
     pub network: String,

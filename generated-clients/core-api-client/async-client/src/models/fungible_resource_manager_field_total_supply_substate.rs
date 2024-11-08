@@ -16,14 +16,14 @@ pub struct FungibleResourceManagerFieldTotalSupplySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::FungibleResourceManagerFieldTotalSupplyValue>,
+    pub value: models::FungibleResourceManagerFieldTotalSupplyValue,
 }
 
 impl FungibleResourceManagerFieldTotalSupplySubstate {
     pub fn new(is_locked: bool, value: models::FungibleResourceManagerFieldTotalSupplyValue) -> FungibleResourceManagerFieldTotalSupplySubstate {
         FungibleResourceManagerFieldTotalSupplySubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

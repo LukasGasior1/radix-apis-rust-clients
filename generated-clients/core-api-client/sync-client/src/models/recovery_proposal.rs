@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecoveryProposal {
     #[serde(rename = "confirmation_role")]
-    pub confirmation_role: Box<models::AccessRule>,
+    pub confirmation_role: models::AccessRule,
     #[serde(rename = "primary_role")]
-    pub primary_role: Box<models::AccessRule>,
+    pub primary_role: models::AccessRule,
     #[serde(rename = "recovery_role")]
-    pub recovery_role: Box<models::AccessRule>,
+    pub recovery_role: models::AccessRule,
     /// An integer between `0` and `2^32 - 1`, specifying the optional proposal delay of timed recoveries. 
     #[serde(rename = "timed_recovery_delay_minutes", skip_serializing_if = "Option::is_none")]
     pub timed_recovery_delay_minutes: Option<u64>,
@@ -27,9 +27,9 @@ pub struct RecoveryProposal {
 impl RecoveryProposal {
     pub fn new(confirmation_role: models::AccessRule, primary_role: models::AccessRule, recovery_role: models::AccessRule) -> RecoveryProposal {
         RecoveryProposal {
-            confirmation_role: Box::new(confirmation_role),
-            primary_role: Box::new(primary_role),
-            recovery_role: Box::new(recovery_role),
+            confirmation_role,
+            primary_role,
+            recovery_role,
             timed_recovery_delay_minutes: None,
         }
     }

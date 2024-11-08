@@ -16,14 +16,14 @@ pub struct RoyaltyModuleFieldStateValue {
     #[serde(rename = "is_enabled")]
     pub is_enabled: bool,
     #[serde(rename = "vault_entity")]
-    pub vault_entity: Box<models::EntityReference>,
+    pub vault_entity: models::EntityReference,
 }
 
 impl RoyaltyModuleFieldStateValue {
     pub fn new(is_enabled: bool, vault_entity: models::EntityReference) -> RoyaltyModuleFieldStateValue {
         RoyaltyModuleFieldStateValue {
             is_enabled,
-            vault_entity: Box::new(vault_entity),
+            vault_entity,
         }
     }
 }

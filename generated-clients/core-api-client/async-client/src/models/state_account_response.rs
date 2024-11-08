@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct StateAccountResponse {
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     #[serde(rename = "info")]
-    pub info: Box<models::Substate>,
+    pub info: models::Substate,
     #[serde(rename = "owner_role")]
-    pub owner_role: Box<models::Substate>,
+    pub owner_role: models::Substate,
     #[serde(rename = "state")]
-    pub state: Box<models::Substate>,
+    pub state: models::Substate,
     /// All of the account's vaults
     #[serde(rename = "vaults")]
     pub vaults: Vec<models::VaultBalance>,
@@ -30,10 +30,10 @@ pub struct StateAccountResponse {
 impl StateAccountResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, info: models::Substate, owner_role: models::Substate, state: models::Substate, vaults: Vec<models::VaultBalance>) -> StateAccountResponse {
         StateAccountResponse {
-            at_ledger_state: Box::new(at_ledger_state),
-            info: Box::new(info),
-            owner_role: Box::new(owner_role),
-            state: Box::new(state),
+            at_ledger_state,
+            info,
+            owner_role,
+            state,
             vaults,
         }
     }

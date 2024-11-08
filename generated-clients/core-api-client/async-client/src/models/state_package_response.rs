@@ -15,18 +15,18 @@ use serde::{Deserialize, Serialize};
 pub struct StatePackageResponse {
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     #[serde(rename = "owner_role")]
-    pub owner_role: Box<models::Substate>,
+    pub owner_role: models::Substate,
     #[serde(rename = "royalty", skip_serializing_if = "Option::is_none")]
-    pub royalty: Option<Box<models::Substate>>,
+    pub royalty: Option<models::Substate>,
 }
 
 impl StatePackageResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, owner_role: models::Substate) -> StatePackageResponse {
         StatePackageResponse {
-            at_ledger_state: Box::new(at_ledger_state),
-            owner_role: Box::new(owner_role),
+            at_ledger_state,
+            owner_role,
             royalty: None,
         }
     }

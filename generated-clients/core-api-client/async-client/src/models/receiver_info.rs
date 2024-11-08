@@ -16,14 +16,14 @@ pub struct ReceiverInfo {
     #[serde(rename = "receiver")]
     pub receiver: Receiver,
     #[serde(rename = "reference_type")]
-    pub reference_type: Box<models::ReferenceType>,
+    pub reference_type: models::ReferenceType,
 }
 
 impl ReceiverInfo {
     pub fn new(receiver: Receiver, reference_type: models::ReferenceType) -> ReceiverInfo {
         ReceiverInfo {
             receiver,
-            reference_type: Box::new(reference_type),
+            reference_type,
         }
     }
 }

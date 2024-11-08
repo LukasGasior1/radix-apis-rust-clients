@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct SubstateValue {
     /// The typed substate value. Only returned if enabled in SubstateFormatOptions on your request (default true).
     #[serde(rename = "substate_data", skip_serializing_if = "Option::is_none")]
-    pub substate_data: Option<Box<models::Substate>>,
+    pub substate_data: Option<models::Substate>,
     /// The hex-encoded Blake2b-256 hash of the substate data bytes. Only returned if enabled in SubstateFormatOptions on your request (default false).
     #[serde(rename = "substate_data_hash", skip_serializing_if = "Option::is_none")]
     pub substate_data_hash: Option<String>,

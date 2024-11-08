@@ -16,14 +16,14 @@ pub struct ValidatorFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::ValidatorFieldStateValue>,
+    pub value: models::ValidatorFieldStateValue,
 }
 
 impl ValidatorFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::ValidatorFieldStateValue) -> ValidatorFieldStateSubstate {
         ValidatorFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

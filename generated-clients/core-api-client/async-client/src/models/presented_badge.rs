@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum PresentedBadge {
     #[serde(rename="Resource")]
-    Resource(Box<models::ResourcePresentedBadge>),
+    Resource(models::ResourcePresentedBadge),
     #[serde(rename="NonFungible")]
-    NonFungible(Box<models::NonFungiblePresentedBadge>),
+    NonFungible(models::NonFungiblePresentedBadge),
 }
 
 impl Default for PresentedBadge {

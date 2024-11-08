@@ -26,7 +26,7 @@ pub struct TransactionHeader {
     #[serde(rename = "notary_is_signatory")]
     pub notary_is_signatory: bool,
     #[serde(rename = "notary_public_key")]
-    pub notary_public_key: Box<models::PublicKey>,
+    pub notary_public_key: models::PublicKey,
     /// An integer between `0` and `10^10`, marking the epoch from which the transaction can be submitted. In the case of uncommitted transactions, a value of `10^10` indicates that the epoch was >= `10^10`. 
     #[serde(rename = "start_epoch_inclusive")]
     pub start_epoch_inclusive: u64,
@@ -42,7 +42,7 @@ impl TransactionHeader {
             network_id,
             nonce,
             notary_is_signatory,
-            notary_public_key: Box::new(notary_public_key),
+            notary_public_key,
             start_epoch_inclusive,
             tip_percentage,
         }

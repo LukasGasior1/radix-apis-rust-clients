@@ -18,7 +18,7 @@ pub struct EncryptedMessageCurveDecryptorSet {
     pub decryptors: Vec<models::EncryptedMessageDecryptor>,
     /// The ephemeral Diffie-Helman public key for a particular ECDSA curve type (see its `key_type`).
     #[serde(rename = "dh_ephemeral_public_key")]
-    pub dh_ephemeral_public_key: Box<models::PublicKey>,
+    pub dh_ephemeral_public_key: models::PublicKey,
 }
 
 impl EncryptedMessageCurveDecryptorSet {
@@ -26,7 +26,7 @@ impl EncryptedMessageCurveDecryptorSet {
     pub fn new(decryptors: Vec<models::EncryptedMessageDecryptor>, dh_ephemeral_public_key: models::PublicKey) -> EncryptedMessageCurveDecryptorSet {
         EncryptedMessageCurveDecryptorSet {
             decryptors,
-            dh_ephemeral_public_key: Box::new(dh_ephemeral_public_key),
+            dh_ephemeral_public_key,
         }
     }
 }

@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GatewayStatusResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "release_info")]
-    pub release_info: Box<models::GatewayInfoResponseReleaseInfo>,
+    pub release_info: models::GatewayInfoResponseReleaseInfo,
 }
 
 impl GatewayStatusResponse {
     pub fn new(ledger_state: models::LedgerState, release_info: models::GatewayInfoResponseReleaseInfo) -> GatewayStatusResponse {
         GatewayStatusResponse {
-            ledger_state: Box::new(ledger_state),
-            release_info: Box::new(release_info),
+            ledger_state,
+            release_info,
         }
     }
 }

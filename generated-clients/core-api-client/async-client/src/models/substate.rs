@@ -15,113 +15,113 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "substate_type")]
 pub enum Substate {
     #[serde(rename="BootLoaderModuleFieldKernelBoot")]
-    BootLoaderModuleFieldKernelBoot(Box<models::BootLoaderModuleFieldKernelBootSubstate>),
+    BootLoaderModuleFieldKernelBoot(models::BootLoaderModuleFieldKernelBootSubstate),
     #[serde(rename="BootLoaderModuleFieldSystemBoot")]
-    BootLoaderModuleFieldSystemBoot(Box<models::BootLoaderModuleFieldSystemBootSubstate>),
+    BootLoaderModuleFieldSystemBoot(models::BootLoaderModuleFieldSystemBootSubstate),
     #[serde(rename="BootLoaderModuleFieldVmBoot")]
-    BootLoaderModuleFieldVmBoot(Box<models::BootLoaderModuleFieldVmBootSubstate>),
+    BootLoaderModuleFieldVmBoot(models::BootLoaderModuleFieldVmBootSubstate),
     #[serde(rename="BootLoaderModuleFieldTransactionValidationConfiguration")]
-    BootLoaderModuleFieldTransactionValidationConfiguration(Box<models::BootLoaderModuleFieldTransactionValidationConfigurationSubstate>),
+    BootLoaderModuleFieldTransactionValidationConfiguration(models::BootLoaderModuleFieldTransactionValidationConfigurationSubstate),
     #[serde(rename="ProtocolUpdateStatusModuleFieldSummary")]
-    ProtocolUpdateStatusModuleFieldSummary(Box<models::ProtocolUpdateStatusModuleFieldSummarySubstate>),
+    ProtocolUpdateStatusModuleFieldSummary(models::ProtocolUpdateStatusModuleFieldSummarySubstate),
     #[serde(rename="TypeInfoModuleFieldTypeInfo")]
-    TypeInfoModuleFieldTypeInfo(Box<models::TypeInfoModuleFieldTypeInfoSubstate>),
+    TypeInfoModuleFieldTypeInfo(models::TypeInfoModuleFieldTypeInfoSubstate),
     #[serde(rename="RoleAssignmentModuleFieldOwnerRole")]
-    RoleAssignmentModuleFieldOwnerRole(Box<models::RoleAssignmentModuleFieldOwnerRoleSubstate>),
+    RoleAssignmentModuleFieldOwnerRole(models::RoleAssignmentModuleFieldOwnerRoleSubstate),
     #[serde(rename="RoleAssignmentModuleRuleEntry")]
-    RoleAssignmentModuleRuleEntry(Box<models::RoleAssignmentModuleRuleEntrySubstate>),
+    RoleAssignmentModuleRuleEntry(models::RoleAssignmentModuleRuleEntrySubstate),
     #[serde(rename="RoyaltyModuleFieldState")]
-    RoyaltyModuleFieldState(Box<models::RoyaltyModuleFieldStateSubstate>),
+    RoyaltyModuleFieldState(models::RoyaltyModuleFieldStateSubstate),
     #[serde(rename="RoyaltyModuleMethodRoyaltyEntry")]
-    RoyaltyModuleMethodRoyaltyEntry(Box<models::RoyaltyModuleMethodRoyaltyEntrySubstate>),
+    RoyaltyModuleMethodRoyaltyEntry(models::RoyaltyModuleMethodRoyaltyEntrySubstate),
     #[serde(rename="MetadataModuleEntry")]
-    MetadataModuleEntry(Box<models::MetadataModuleEntrySubstate>),
+    MetadataModuleEntry(models::MetadataModuleEntrySubstate),
     #[serde(rename="PackageFieldRoyaltyAccumulator")]
-    PackageFieldRoyaltyAccumulator(Box<models::PackageFieldRoyaltyAccumulatorSubstate>),
+    PackageFieldRoyaltyAccumulator(models::PackageFieldRoyaltyAccumulatorSubstate),
     #[serde(rename="PackageCodeVmTypeEntry")]
-    PackageCodeVmTypeEntry(Box<models::PackageCodeVmTypeEntrySubstate>),
+    PackageCodeVmTypeEntry(models::PackageCodeVmTypeEntrySubstate),
     #[serde(rename="PackageCodeOriginalCodeEntry")]
-    PackageCodeOriginalCodeEntry(Box<models::PackageCodeOriginalCodeEntrySubstate>),
+    PackageCodeOriginalCodeEntry(models::PackageCodeOriginalCodeEntrySubstate),
     #[serde(rename="PackageCodeInstrumentedCodeEntry")]
-    PackageCodeInstrumentedCodeEntry(Box<models::PackageCodeInstrumentedCodeEntrySubstate>),
+    PackageCodeInstrumentedCodeEntry(models::PackageCodeInstrumentedCodeEntrySubstate),
     #[serde(rename="SchemaEntry")]
-    SchemaEntry(Box<models::SchemaEntrySubstate>),
+    SchemaEntry(models::SchemaEntrySubstate),
     #[serde(rename="PackageBlueprintDefinitionEntry")]
-    PackageBlueprintDefinitionEntry(Box<models::PackageBlueprintDefinitionEntrySubstate>),
+    PackageBlueprintDefinitionEntry(models::PackageBlueprintDefinitionEntrySubstate),
     #[serde(rename="PackageBlueprintDependenciesEntry")]
-    PackageBlueprintDependenciesEntry(Box<models::PackageBlueprintDependenciesEntrySubstate>),
+    PackageBlueprintDependenciesEntry(models::PackageBlueprintDependenciesEntrySubstate),
     #[serde(rename="PackageBlueprintRoyaltyEntry")]
-    PackageBlueprintRoyaltyEntry(Box<models::PackageBlueprintRoyaltyEntrySubstate>),
+    PackageBlueprintRoyaltyEntry(models::PackageBlueprintRoyaltyEntrySubstate),
     #[serde(rename="PackageBlueprintAuthTemplateEntry")]
-    PackageBlueprintAuthTemplateEntry(Box<models::PackageBlueprintAuthTemplateEntrySubstate>),
+    PackageBlueprintAuthTemplateEntry(models::PackageBlueprintAuthTemplateEntrySubstate),
     #[serde(rename="FungibleResourceManagerFieldDivisibility")]
-    FungibleResourceManagerFieldDivisibility(Box<models::FungibleResourceManagerFieldDivisibilitySubstate>),
+    FungibleResourceManagerFieldDivisibility(models::FungibleResourceManagerFieldDivisibilitySubstate),
     #[serde(rename="FungibleResourceManagerFieldTotalSupply")]
-    FungibleResourceManagerFieldTotalSupply(Box<models::FungibleResourceManagerFieldTotalSupplySubstate>),
+    FungibleResourceManagerFieldTotalSupply(models::FungibleResourceManagerFieldTotalSupplySubstate),
     #[serde(rename="NonFungibleResourceManagerFieldIdType")]
-    NonFungibleResourceManagerFieldIdType(Box<models::NonFungibleResourceManagerFieldIdTypeSubstate>),
+    NonFungibleResourceManagerFieldIdType(models::NonFungibleResourceManagerFieldIdTypeSubstate),
     #[serde(rename="NonFungibleResourceManagerFieldTotalSupply")]
-    NonFungibleResourceManagerFieldTotalSupply(Box<models::NonFungibleResourceManagerFieldTotalSupplySubstate>),
+    NonFungibleResourceManagerFieldTotalSupply(models::NonFungibleResourceManagerFieldTotalSupplySubstate),
     #[serde(rename="NonFungibleResourceManagerFieldMutableFields")]
-    NonFungibleResourceManagerFieldMutableFields(Box<models::NonFungibleResourceManagerFieldMutableFieldsSubstate>),
+    NonFungibleResourceManagerFieldMutableFields(models::NonFungibleResourceManagerFieldMutableFieldsSubstate),
     #[serde(rename="NonFungibleResourceManagerDataEntry")]
-    NonFungibleResourceManagerDataEntry(Box<models::NonFungibleResourceManagerDataEntrySubstate>),
+    NonFungibleResourceManagerDataEntry(models::NonFungibleResourceManagerDataEntrySubstate),
     #[serde(rename="FungibleVaultFieldBalance")]
-    FungibleVaultFieldBalance(Box<models::FungibleVaultFieldBalanceSubstate>),
+    FungibleVaultFieldBalance(models::FungibleVaultFieldBalanceSubstate),
     #[serde(rename="FungibleVaultFieldFrozenStatus")]
-    FungibleVaultFieldFrozenStatus(Box<models::FungibleVaultFieldFrozenStatusSubstate>),
+    FungibleVaultFieldFrozenStatus(models::FungibleVaultFieldFrozenStatusSubstate),
     #[serde(rename="NonFungibleVaultFieldBalance")]
-    NonFungibleVaultFieldBalance(Box<models::NonFungibleVaultFieldBalanceSubstate>),
+    NonFungibleVaultFieldBalance(models::NonFungibleVaultFieldBalanceSubstate),
     #[serde(rename="NonFungibleVaultFieldFrozenStatus")]
-    NonFungibleVaultFieldFrozenStatus(Box<models::NonFungibleVaultFieldFrozenStatusSubstate>),
+    NonFungibleVaultFieldFrozenStatus(models::NonFungibleVaultFieldFrozenStatusSubstate),
     #[serde(rename="NonFungibleVaultContentsIndexEntry")]
-    NonFungibleVaultContentsIndexEntry(Box<models::NonFungibleVaultContentsIndexEntrySubstate>),
+    NonFungibleVaultContentsIndexEntry(models::NonFungibleVaultContentsIndexEntrySubstate),
     #[serde(rename="ConsensusManagerFieldConfig")]
-    ConsensusManagerFieldConfig(Box<models::ConsensusManagerFieldConfigSubstate>),
+    ConsensusManagerFieldConfig(models::ConsensusManagerFieldConfigSubstate),
     #[serde(rename="ConsensusManagerFieldState")]
-    ConsensusManagerFieldState(Box<models::ConsensusManagerFieldStateSubstate>),
+    ConsensusManagerFieldState(models::ConsensusManagerFieldStateSubstate),
     #[serde(rename="ConsensusManagerFieldCurrentValidatorSet")]
-    ConsensusManagerFieldCurrentValidatorSet(Box<models::ConsensusManagerFieldCurrentValidatorSetSubstate>),
+    ConsensusManagerFieldCurrentValidatorSet(models::ConsensusManagerFieldCurrentValidatorSetSubstate),
     #[serde(rename="ConsensusManagerFieldCurrentProposalStatistic")]
-    ConsensusManagerFieldCurrentProposalStatistic(Box<models::ConsensusManagerFieldCurrentProposalStatisticSubstate>),
+    ConsensusManagerFieldCurrentProposalStatistic(models::ConsensusManagerFieldCurrentProposalStatisticSubstate),
     #[serde(rename="ConsensusManagerFieldCurrentTimeRoundedToMinutes")]
-    ConsensusManagerFieldCurrentTimeRoundedToMinutes(Box<models::ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate>),
+    ConsensusManagerFieldCurrentTimeRoundedToMinutes(models::ConsensusManagerFieldCurrentTimeRoundedToMinutesSubstate),
     #[serde(rename="ConsensusManagerFieldCurrentTime")]
-    ConsensusManagerFieldCurrentTime(Box<models::ConsensusManagerFieldCurrentTimeSubstate>),
+    ConsensusManagerFieldCurrentTime(models::ConsensusManagerFieldCurrentTimeSubstate),
     #[serde(rename="ConsensusManagerFieldValidatorRewards")]
-    ConsensusManagerFieldValidatorRewards(Box<models::ConsensusManagerFieldValidatorRewardsSubstate>),
+    ConsensusManagerFieldValidatorRewards(models::ConsensusManagerFieldValidatorRewardsSubstate),
     #[serde(rename="ConsensusManagerRegisteredValidatorsByStakeIndexEntry")]
-    ConsensusManagerRegisteredValidatorsByStakeIndexEntry(Box<models::ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate>),
+    ConsensusManagerRegisteredValidatorsByStakeIndexEntry(models::ConsensusManagerRegisteredValidatorsByStakeIndexEntrySubstate),
     #[serde(rename="ValidatorFieldState")]
-    ValidatorFieldState(Box<models::ValidatorFieldStateSubstate>),
+    ValidatorFieldState(models::ValidatorFieldStateSubstate),
     #[serde(rename="ValidatorFieldProtocolUpdateReadinessSignal")]
-    ValidatorFieldProtocolUpdateReadinessSignal(Box<models::ValidatorFieldProtocolUpdateReadinessSignalSubstate>),
+    ValidatorFieldProtocolUpdateReadinessSignal(models::ValidatorFieldProtocolUpdateReadinessSignalSubstate),
     #[serde(rename="AccountFieldState")]
-    AccountFieldState(Box<models::AccountFieldStateSubstate>),
+    AccountFieldState(models::AccountFieldStateSubstate),
     #[serde(rename="AccountVaultEntry")]
-    AccountVaultEntry(Box<models::AccountVaultEntrySubstate>),
+    AccountVaultEntry(models::AccountVaultEntrySubstate),
     #[serde(rename="AccountResourcePreferenceEntry")]
-    AccountResourcePreferenceEntry(Box<models::AccountResourcePreferenceEntrySubstate>),
+    AccountResourcePreferenceEntry(models::AccountResourcePreferenceEntrySubstate),
     #[serde(rename="AccountAuthorizedDepositorEntry")]
-    AccountAuthorizedDepositorEntry(Box<models::AccountAuthorizedDepositorEntrySubstate>),
+    AccountAuthorizedDepositorEntry(models::AccountAuthorizedDepositorEntrySubstate),
     #[serde(rename="AccountLockerAccountClaimsEntry")]
-    AccountLockerAccountClaimsEntry(Box<models::AccountLockerAccountClaimsEntrySubstate>),
+    AccountLockerAccountClaimsEntry(models::AccountLockerAccountClaimsEntrySubstate),
     #[serde(rename="AccessControllerFieldState")]
-    AccessControllerFieldState(Box<models::AccessControllerFieldStateSubstate>),
+    AccessControllerFieldState(models::AccessControllerFieldStateSubstate),
     #[serde(rename="GenericScryptoComponentFieldState")]
-    GenericScryptoComponentFieldState(Box<models::GenericScryptoComponentFieldStateSubstate>),
+    GenericScryptoComponentFieldState(models::GenericScryptoComponentFieldStateSubstate),
     #[serde(rename="GenericKeyValueStoreEntry")]
-    GenericKeyValueStoreEntry(Box<models::GenericKeyValueStoreEntrySubstate>),
+    GenericKeyValueStoreEntry(models::GenericKeyValueStoreEntrySubstate),
     #[serde(rename="OneResourcePoolFieldState")]
-    OneResourcePoolFieldState(Box<models::OneResourcePoolFieldStateSubstate>),
+    OneResourcePoolFieldState(models::OneResourcePoolFieldStateSubstate),
     #[serde(rename="TwoResourcePoolFieldState")]
-    TwoResourcePoolFieldState(Box<models::TwoResourcePoolFieldStateSubstate>),
+    TwoResourcePoolFieldState(models::TwoResourcePoolFieldStateSubstate),
     #[serde(rename="MultiResourcePoolFieldState")]
-    MultiResourcePoolFieldState(Box<models::MultiResourcePoolFieldStateSubstate>),
+    MultiResourcePoolFieldState(models::MultiResourcePoolFieldStateSubstate),
     #[serde(rename="TransactionTrackerFieldState")]
-    TransactionTrackerFieldState(Box<models::TransactionTrackerFieldStateSubstate>),
+    TransactionTrackerFieldState(models::TransactionTrackerFieldStateSubstate),
     #[serde(rename="TransactionTrackerCollectionEntry")]
-    TransactionTrackerCollectionEntry(Box<models::TransactionTrackerCollectionEntrySubstate>),
+    TransactionTrackerCollectionEntry(models::TransactionTrackerCollectionEntrySubstate),
 }
 
 impl Default for Substate {

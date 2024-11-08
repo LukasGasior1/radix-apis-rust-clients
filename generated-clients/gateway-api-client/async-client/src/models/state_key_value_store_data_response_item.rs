@@ -16,21 +16,21 @@ pub struct StateKeyValueStoreDataResponseItem {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::ScryptoSborValue>,
+    pub key: models::ScryptoSborValue,
     /// The most recent state version underlying object was modified at.
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: u64,
     #[serde(rename = "value")]
-    pub value: Box<models::ScryptoSborValue>,
+    pub value: models::ScryptoSborValue,
 }
 
 impl StateKeyValueStoreDataResponseItem {
     pub fn new(is_locked: bool, key: models::ScryptoSborValue, last_updated_at_state_version: u64, value: models::ScryptoSborValue) -> StateKeyValueStoreDataResponseItem {
         StateKeyValueStoreDataResponseItem {
             is_locked,
-            key: Box::new(key),
+            key,
             last_updated_at_state_version,
-            value: Box::new(value),
+            value,
         }
     }
 }

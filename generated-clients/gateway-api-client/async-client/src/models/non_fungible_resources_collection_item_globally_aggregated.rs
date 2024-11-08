@@ -17,7 +17,7 @@ pub struct NonFungibleResourcesCollectionItemGloballyAggregated {
     #[serde(rename = "amount")]
     pub amount: i64,
     #[serde(rename = "explicit_metadata", skip_serializing_if = "Option::is_none")]
-    pub explicit_metadata: Option<Box<models::EntityMetadataCollection>>,
+    pub explicit_metadata: Option<models::EntityMetadataCollection>,
     /// The most recent state version underlying object was modified at.
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: u64,

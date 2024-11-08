@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProposerReward {
     #[serde(rename = "validator_index")]
-    pub validator_index: Box<models::ActiveValidatorIndex>,
+    pub validator_index: models::ActiveValidatorIndex,
     /// The string-encoded decimal representing the amount of reward in XRD. A decimal is formed of some signed integer `m` of attos (`10^(-18)`) units, where `-2^(192 - 1) <= m < 2^(192 - 1)`. 
     #[serde(rename = "xrd_amount")]
     pub xrd_amount: String,
@@ -23,7 +23,7 @@ pub struct ProposerReward {
 impl ProposerReward {
     pub fn new(validator_index: models::ActiveValidatorIndex, xrd_amount: String) -> ProposerReward {
         ProposerReward {
-            validator_index: Box::new(validator_index),
+            validator_index,
             xrd_amount,
         }
     }

@@ -20,7 +20,7 @@ pub struct NetworkConfigurationResponse {
     #[serde(rename = "network_name")]
     pub network_name: String,
     #[serde(rename = "well_known_addresses")]
-    pub well_known_addresses: Box<models::NetworkConfigurationResponseWellKnownAddresses>,
+    pub well_known_addresses: models::NetworkConfigurationResponseWellKnownAddresses,
 }
 
 impl NetworkConfigurationResponse {
@@ -28,7 +28,7 @@ impl NetworkConfigurationResponse {
         NetworkConfigurationResponse {
             network_id,
             network_name,
-            well_known_addresses: Box::new(well_known_addresses),
+            well_known_addresses,
         }
     }
 }

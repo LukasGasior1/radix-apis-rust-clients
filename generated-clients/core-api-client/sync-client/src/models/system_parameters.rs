@@ -14,22 +14,22 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SystemParameters {
     #[serde(rename = "costing_module_config")]
-    pub costing_module_config: Box<models::CostingModuleConfig>,
+    pub costing_module_config: models::CostingModuleConfig,
     #[serde(rename = "costing_parameters")]
-    pub costing_parameters: Box<models::SystemCostingParameters>,
+    pub costing_parameters: models::SystemCostingParameters,
     #[serde(rename = "limit_parameters")]
-    pub limit_parameters: Box<models::LimitParameters>,
+    pub limit_parameters: models::LimitParameters,
     #[serde(rename = "network_definition")]
-    pub network_definition: Box<models::NetworkDefinition>,
+    pub network_definition: models::NetworkDefinition,
 }
 
 impl SystemParameters {
     pub fn new(costing_module_config: models::CostingModuleConfig, costing_parameters: models::SystemCostingParameters, limit_parameters: models::LimitParameters, network_definition: models::NetworkDefinition) -> SystemParameters {
         SystemParameters {
-            costing_module_config: Box::new(costing_module_config),
-            costing_parameters: Box::new(costing_parameters),
-            limit_parameters: Box::new(limit_parameters),
-            network_definition: Box::new(network_definition),
+            costing_module_config,
+            costing_parameters,
+            limit_parameters,
+            network_definition,
         }
     }
 }

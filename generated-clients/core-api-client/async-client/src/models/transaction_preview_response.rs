@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct TransactionPreviewResponse {
     /// A summarized state of the ledger on top of which the preview was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     /// The hex-sbor-encoded receipt.  This field is deprecated and will be removed from the API with the release of the next  protocol update, cuttlefish. This field was provided primarily for use with the Radix  Engine Toolkit and its execution summary functionality. If you still wish to use this  functionality update your Radix Engine Toolkit and use the receipt provided in the  `radix_engine_toolkit_receipt` field of this response. 
     #[serde(rename = "encoded_receipt")]
     pub encoded_receipt: String,
@@ -27,18 +27,18 @@ pub struct TransactionPreviewResponse {
     #[serde(rename = "radix_engine_toolkit_receipt", skip_serializing_if = "Option::is_none")]
     pub radix_engine_toolkit_receipt: Option<serde_json::Value>,
     #[serde(rename = "receipt")]
-    pub receipt: Box<models::TransactionReceipt>,
+    pub receipt: models::TransactionReceipt,
 }
 
 impl TransactionPreviewResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, encoded_receipt: String, instruction_resource_changes: Vec<models::InstructionResourceChanges>, logs: Vec<models::TransactionPreviewResponseLogsInner>, receipt: models::TransactionReceipt) -> TransactionPreviewResponse {
         TransactionPreviewResponse {
-            at_ledger_state: Box::new(at_ledger_state),
+            at_ledger_state,
             encoded_receipt,
             instruction_resource_changes,
             logs,
             radix_engine_toolkit_receipt: None,
-            receipt: Box::new(receipt),
+            receipt,
         }
     }
 }

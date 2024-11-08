@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValidatorsUptimeRequest {
     #[serde(rename = "at_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub at_ledger_state: Option<Option<models::LedgerStateSelector>>,
     #[serde(rename = "from_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub from_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub from_ledger_state: Option<Option<models::LedgerStateSelector>>,
     #[serde(rename = "validator_addresses", skip_serializing_if = "Option::is_none")]
     pub validator_addresses: Option<Vec<String>>,
 }

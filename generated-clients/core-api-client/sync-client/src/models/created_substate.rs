@@ -14,21 +14,21 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreatedSubstate {
     #[serde(rename = "substate_id")]
-    pub substate_id: Box<models::SubstateId>,
+    pub substate_id: models::SubstateId,
     /// A structure with type references describing the substate's schema.
     #[serde(rename = "system_structure")]
-    pub system_structure: Box<models::SubstateSystemStructure>,
+    pub system_structure: models::SubstateSystemStructure,
     /// The initial value assigned to the substate.
     #[serde(rename = "value")]
-    pub value: Box<models::SubstateValue>,
+    pub value: models::SubstateValue,
 }
 
 impl CreatedSubstate {
     pub fn new(substate_id: models::SubstateId, system_structure: models::SubstateSystemStructure, value: models::SubstateValue) -> CreatedSubstate {
         CreatedSubstate {
-            substate_id: Box::new(substate_id),
-            system_structure: Box::new(system_structure),
-            value: Box::new(value),
+            substate_id,
+            system_structure,
+            value,
         }
     }
 }

@@ -34,7 +34,7 @@ pub struct TransactionSubmitRejectedErrorDetails {
     pub retry_from_epoch: Option<u64>,
     /// The time after which the node will consider recalculating the validity of the transaction. Only present if the rejection is temporary, and not due to the header specifying a \"from epoch\" in the future. 
     #[serde(rename = "retry_from_timestamp", skip_serializing_if = "Option::is_none")]
-    pub retry_from_timestamp: Option<Box<models::InstantMs>>,
+    pub retry_from_timestamp: Option<models::InstantMs>,
 }
 
 impl TransactionSubmitRejectedErrorDetails {

@@ -14,16 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TransactionCommittedDetailsResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "transaction")]
-    pub transaction: Box<models::CommittedTransactionInfo>,
+    pub transaction: models::CommittedTransactionInfo,
 }
 
 impl TransactionCommittedDetailsResponse {
     pub fn new(ledger_state: models::LedgerState, transaction: models::CommittedTransactionInfo) -> TransactionCommittedDetailsResponse {
         TransactionCommittedDetailsResponse {
-            ledger_state: Box::new(ledger_state),
-            transaction: Box::new(transaction),
+            ledger_state,
+            transaction,
         }
     }
 }

@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "resource_type")]
 pub enum StateResourceManager {
     #[serde(rename="Fungible")]
-    Fungible(Box<models::StateFungibleResourceManager>),
+    Fungible(models::StateFungibleResourceManager),
     #[serde(rename="NonFungible")]
-    NonFungible(Box<models::StateNonFungibleResourceManager>),
+    NonFungible(models::StateNonFungibleResourceManager),
 }
 
 impl Default for StateResourceManager {

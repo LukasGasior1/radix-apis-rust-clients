@@ -15,16 +15,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RemoteGenericSubstitution {
     #[serde(rename = "blueprint_type_identifier")]
-    pub blueprint_type_identifier: Box<models::BlueprintTypeIdentifier>,
+    pub blueprint_type_identifier: models::BlueprintTypeIdentifier,
     #[serde(rename = "resolved_full_type_id", skip_serializing_if = "Option::is_none")]
-    pub resolved_full_type_id: Option<Box<models::FullyScopedTypeId>>,
+    pub resolved_full_type_id: Option<models::FullyScopedTypeId>,
 }
 
 impl RemoteGenericSubstitution {
     /// The generic substitution is provided remotely by a blueprint type. The `resolved_full_type_id` is added by the node, and is always present in the model returned from the transaction stream API. Other APIs may not resolve the type from the blueprint definition. 
     pub fn new(blueprint_type_identifier: models::BlueprintTypeIdentifier) -> RemoteGenericSubstitution {
         RemoteGenericSubstitution {
-            blueprint_type_identifier: Box::new(blueprint_type_identifier),
+            blueprint_type_identifier,
             resolved_full_type_id: None,
         }
     }

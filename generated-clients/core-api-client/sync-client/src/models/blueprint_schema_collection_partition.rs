@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BlueprintSchemaCollectionPartition {
     #[serde(rename = "collection_schema")]
-    pub collection_schema: Box<models::BlueprintCollectionSchema>,
+    pub collection_schema: models::BlueprintCollectionSchema,
     #[serde(rename = "partition_description")]
-    pub partition_description: Box<models::PartitionDescription>,
+    pub partition_description: models::PartitionDescription,
 }
 
 impl BlueprintSchemaCollectionPartition {
     /// The fields partition of the blueprint.
     pub fn new(collection_schema: models::BlueprintCollectionSchema, partition_description: models::PartitionDescription) -> BlueprintSchemaCollectionPartition {
         BlueprintSchemaCollectionPartition {
-            collection_schema: Box::new(collection_schema),
-            partition_description: Box::new(partition_description),
+            collection_schema,
+            partition_description,
         }
     }
 }

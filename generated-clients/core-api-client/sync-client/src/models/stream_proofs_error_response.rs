@@ -17,7 +17,7 @@ pub struct StreamProofsErrorResponse {
     #[serde(rename = "code")]
     pub code: i32,
     #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<Box<models::StreamProofsErrorDetails>>,
+    pub details: Option<models::StreamProofsErrorDetails>,
     /// A human-readable error message.
     #[serde(rename = "message")]
     pub message: String,

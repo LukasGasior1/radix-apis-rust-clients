@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LedgerStateMixin {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
 }
 
 impl LedgerStateMixin {
     pub fn new(ledger_state: models::LedgerState) -> LedgerStateMixin {
         LedgerStateMixin {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
         }
     }
 }

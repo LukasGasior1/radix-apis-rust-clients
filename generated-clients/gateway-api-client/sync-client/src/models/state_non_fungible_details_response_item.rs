@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateNonFungibleDetailsResponseItem {
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Box<models::ScryptoSborValue>>,
+    pub data: Option<models::ScryptoSborValue>,
     #[serde(rename = "is_burned")]
     pub is_burned: bool,
     /// The most recent state version underlying object was modified at.

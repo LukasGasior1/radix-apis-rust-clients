@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlashSetSubstate {
     #[serde(rename = "substate_id")]
-    pub substate_id: Box<models::SubstateId>,
+    pub substate_id: models::SubstateId,
     /// The new value set on the substate.
     #[serde(rename = "value")]
-    pub value: Box<models::SubstateValue>,
+    pub value: models::SubstateValue,
 }
 
 impl FlashSetSubstate {
     pub fn new(substate_id: models::SubstateId, value: models::SubstateValue) -> FlashSetSubstate {
         FlashSetSubstate {
-            substate_id: Box::new(substate_id),
-            value: Box::new(value),
+            substate_id,
+            value,
         }
     }
 }

@@ -15,21 +15,21 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum GatewayError {
     #[serde(rename="AccountLockerNotFoundError")]
-    AccountLockerNotFoundError(Box<models::AccountLockerAddress>),
+    AccountLockerNotFoundError(models::AccountLockerAddress),
     #[serde(rename="EntityNotFoundError")]
-    EntityNotFoundError(Box<models::EntityNotFoundError>),
+    EntityNotFoundError(models::EntityNotFoundError),
     #[serde(rename="InvalidEntityError")]
-    InvalidEntityError(Box<models::InvalidEntityError>),
+    InvalidEntityError(models::InvalidEntityError),
     #[serde(rename="NotSyncedUpError")]
-    NotSyncedUpError(Box<models::NotSyncedUpError>),
+    NotSyncedUpError(models::NotSyncedUpError),
     #[serde(rename="InvalidRequestError")]
-    InvalidRequestError(Box<models::InvalidRequestError>),
+    InvalidRequestError(models::InvalidRequestError),
     #[serde(rename="InvalidTransactionError")]
     InvalidTransactionError(serde_json::Value),
     #[serde(rename="TransactionNotFoundError")]
-    TransactionNotFoundError(Box<models::TransactionNotFoundError>),
+    TransactionNotFoundError(models::TransactionNotFoundError),
     #[serde(rename="InternalServerError")]
-    InternalServerError(Box<models::InternalServerError>),
+    InternalServerError(models::InternalServerError),
 }
 
 impl Default for GatewayError {

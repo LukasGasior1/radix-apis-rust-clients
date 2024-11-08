@@ -23,9 +23,9 @@ pub struct SignedTransactionIntentV2 {
     #[serde(rename = "non_root_subintent_signatures")]
     pub non_root_subintent_signatures: Vec<models::IntentSignatures>,
     #[serde(rename = "transaction_intent")]
-    pub transaction_intent: Box<models::TransactionIntentV2>,
+    pub transaction_intent: models::TransactionIntentV2,
     #[serde(rename = "transaction_intent_signatures")]
-    pub transaction_intent_signatures: Box<models::IntentSignatures>,
+    pub transaction_intent_signatures: models::IntentSignatures,
 }
 
 impl SignedTransactionIntentV2 {
@@ -34,8 +34,8 @@ impl SignedTransactionIntentV2 {
             hash,
             hash_bech32m,
             non_root_subintent_signatures,
-            transaction_intent: Box::new(transaction_intent),
-            transaction_intent_signatures: Box::new(transaction_intent_signatures),
+            transaction_intent,
+            transaction_intent_signatures,
         }
     }
 }

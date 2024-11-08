@@ -14,20 +14,20 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EntityMetadataItemValue {
     #[serde(rename = "programmatic_json")]
-    pub programmatic_json: Box<models::ProgrammaticScryptoSborValue>,
+    pub programmatic_json: models::ProgrammaticScryptoSborValue,
     /// Hex-encoded binary blob.
     #[serde(rename = "raw_hex")]
     pub raw_hex: String,
     #[serde(rename = "typed")]
-    pub typed: Box<models::MetadataTypedValue>,
+    pub typed: models::MetadataTypedValue,
 }
 
 impl EntityMetadataItemValue {
     pub fn new(programmatic_json: models::ProgrammaticScryptoSborValue, raw_hex: String, typed: models::MetadataTypedValue) -> EntityMetadataItemValue {
         EntityMetadataItemValue {
-            programmatic_json: Box::new(programmatic_json),
+            programmatic_json,
             raw_hex,
-            typed: Box::new(typed),
+            typed,
         }
     }
 }

@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataModuleEntryValue {
     #[serde(rename = "data_struct")]
-    pub data_struct: Box<models::DataStruct>,
+    pub data_struct: models::DataStruct,
 }
 
 impl MetadataModuleEntryValue {
     /// If missing, it represents a non-existing or deleted value.
     pub fn new(data_struct: models::DataStruct) -> MetadataModuleEntryValue {
         MetadataModuleEntryValue {
-            data_struct: Box::new(data_struct),
+            data_struct,
         }
     }
 }

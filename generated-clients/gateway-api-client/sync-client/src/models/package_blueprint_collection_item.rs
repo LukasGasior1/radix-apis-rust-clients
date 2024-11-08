@@ -26,7 +26,7 @@ pub struct PackageBlueprintCollectionItem {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "royalty_config", skip_serializing_if = "Option::is_none")]
-    pub royalty_config: Option<Box<models::BlueprintRoyaltyConfig>>,
+    pub royalty_config: Option<models::BlueprintRoyaltyConfig>,
     #[serde(rename = "royalty_config_is_locked", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub royalty_config_is_locked: Option<Option<bool>>,
     #[serde(rename = "version")]

@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TwoWayLinkedDappOnLedgerDetails {
     #[serde(rename = "dapps", skip_serializing_if = "Option::is_none")]
-    pub dapps: Option<Box<models::TwoWayLinkedDappsCollection>>,
+    pub dapps: Option<models::TwoWayLinkedDappsCollection>,
     #[serde(rename = "entities", skip_serializing_if = "Option::is_none")]
-    pub entities: Option<Box<models::TwoWayLinkedEntitiesCollection>>,
+    pub entities: Option<models::TwoWayLinkedEntitiesCollection>,
     /// Bech32m-encoded human readable version of the address.
     #[serde(rename = "primary_locker", skip_serializing_if = "Option::is_none")]
     pub primary_locker: Option<String>,

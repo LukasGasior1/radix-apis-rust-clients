@@ -16,14 +16,14 @@ pub struct TwoResourcePoolFieldStateSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::TwoResourcePoolFieldStateValue>,
+    pub value: models::TwoResourcePoolFieldStateValue,
 }
 
 impl TwoResourcePoolFieldStateSubstate {
     pub fn new(is_locked: bool, value: models::TwoResourcePoolFieldStateValue) -> TwoResourcePoolFieldStateSubstate {
         TwoResourcePoolFieldStateSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

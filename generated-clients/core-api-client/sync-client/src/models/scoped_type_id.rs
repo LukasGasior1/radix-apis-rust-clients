@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ScopedTypeId {
     #[serde(rename = "local_type_id")]
-    pub local_type_id: Box<models::LocalTypeId>,
+    pub local_type_id: models::LocalTypeId,
     /// The hex-encoded schema hash, capturing the identity of an SBOR schema.
     #[serde(rename = "schema_hash")]
     pub schema_hash: String,
@@ -25,7 +25,7 @@ impl ScopedTypeId {
     /// An identifier for a type in the context of a schema.  The location of the schema store to locate the schema is not included, and is known from context. Currently the schema store will be in the schema partition under a node (typically a package).  Note - this type provides scoping to a schema even for well-known types where the schema is irrelevant. 
     pub fn new(local_type_id: models::LocalTypeId, schema_hash: String) -> ScopedTypeId {
         ScopedTypeId {
-            local_type_id: Box::new(local_type_id),
+            local_type_id,
             schema_hash,
         }
     }

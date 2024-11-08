@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ParsedLedgerTransaction {
     #[serde(rename = "identifiers")]
-    pub identifiers: Box<models::ParsedLedgerTransactionIdentifiers>,
+    pub identifiers: models::ParsedLedgerTransactionIdentifiers,
     #[serde(rename = "ledger_transaction", skip_serializing_if = "Option::is_none")]
-    pub ledger_transaction: Option<Box<models::LedgerTransaction>>,
+    pub ledger_transaction: Option<models::LedgerTransaction>,
 }
 
 impl ParsedLedgerTransaction {
     pub fn new(identifiers: models::ParsedLedgerTransactionIdentifiers) -> ParsedLedgerTransaction {
         ParsedLedgerTransaction {
-            identifiers: Box::new(identifiers),
+            identifiers,
             ledger_transaction: None,
         }
     }

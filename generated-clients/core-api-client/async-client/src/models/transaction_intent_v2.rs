@@ -22,9 +22,9 @@ pub struct TransactionIntentV2 {
     #[serde(rename = "non_root_subintents")]
     pub non_root_subintents: Vec<models::SubintentV2>,
     #[serde(rename = "root_intent_core")]
-    pub root_intent_core: Box<models::IntentCoreV2>,
+    pub root_intent_core: models::IntentCoreV2,
     #[serde(rename = "transaction_header")]
-    pub transaction_header: Box<models::TransactionHeaderV2>,
+    pub transaction_header: models::TransactionHeaderV2,
 }
 
 impl TransactionIntentV2 {
@@ -33,8 +33,8 @@ impl TransactionIntentV2 {
             hash,
             hash_bech32m,
             non_root_subintents,
-            root_intent_core: Box::new(root_intent_core),
-            transaction_header: Box::new(transaction_header),
+            root_intent_core,
+            transaction_header,
         }
     }
 }

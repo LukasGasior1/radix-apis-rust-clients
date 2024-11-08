@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NonFungibleRequirement {
     #[serde(rename = "non_fungible")]
-    pub non_fungible: Box<models::NonFungibleGlobalId>,
+    pub non_fungible: models::NonFungibleGlobalId,
 }
 
 impl NonFungibleRequirement {
     pub fn new(non_fungible: models::NonFungibleGlobalId) -> NonFungibleRequirement {
         NonFungibleRequirement {
-            non_fungible: Box::new(non_fungible),
+            non_fungible,
         }
     }
 }

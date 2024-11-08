@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum BlueprintCollectionSchema {
     #[serde(rename="KeyValue")]
-    KeyValue(Box<models::KeyValueBlueprintCollectionSchema>),
+    KeyValue(models::KeyValueBlueprintCollectionSchema),
     #[serde(rename="Index")]
-    Index(Box<models::IndexBlueprintCollectionSchema>),
+    Index(models::IndexBlueprintCollectionSchema),
     #[serde(rename="SortedIndex")]
-    SortedIndex(Box<models::SortedIndexBlueprintCollectionSchema>),
+    SortedIndex(models::SortedIndexBlueprintCollectionSchema),
 }
 
 impl Default for BlueprintCollectionSchema {

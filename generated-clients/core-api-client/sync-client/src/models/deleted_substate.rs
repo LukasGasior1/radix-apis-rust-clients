@@ -15,20 +15,20 @@ use serde::{Deserialize, Serialize};
 pub struct DeletedSubstate {
     /// The previous value of the substate. Only returned if enabled in SubstateFormatOptions on your request (default false).
     #[serde(rename = "previous_value", skip_serializing_if = "Option::is_none")]
-    pub previous_value: Option<Box<models::SubstateValue>>,
+    pub previous_value: Option<models::SubstateValue>,
     #[serde(rename = "substate_id")]
-    pub substate_id: Box<models::SubstateId>,
+    pub substate_id: models::SubstateId,
     /// A structure with type references describing the substate's schema.
     #[serde(rename = "system_structure")]
-    pub system_structure: Box<models::SubstateSystemStructure>,
+    pub system_structure: models::SubstateSystemStructure,
 }
 
 impl DeletedSubstate {
     pub fn new(substate_id: models::SubstateId, system_structure: models::SubstateSystemStructure) -> DeletedSubstate {
         DeletedSubstate {
             previous_value: None,
-            substate_id: Box::new(substate_id),
-            system_structure: Box::new(system_structure),
+            substate_id,
+            system_structure,
         }
     }
 }

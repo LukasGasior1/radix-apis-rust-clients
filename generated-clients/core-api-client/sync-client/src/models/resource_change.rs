@@ -17,21 +17,21 @@ pub struct ResourceChange {
     #[serde(rename = "amount")]
     pub amount: String,
     #[serde(rename = "component_entity")]
-    pub component_entity: Box<models::EntityReference>,
+    pub component_entity: models::EntityReference,
     /// The Bech32m-encoded human readable version of the resource address
     #[serde(rename = "resource_address")]
     pub resource_address: String,
     #[serde(rename = "vault_entity")]
-    pub vault_entity: Box<models::EntityReference>,
+    pub vault_entity: models::EntityReference,
 }
 
 impl ResourceChange {
     pub fn new(amount: String, component_entity: models::EntityReference, resource_address: String, vault_entity: models::EntityReference) -> ResourceChange {
         ResourceChange {
             amount,
-            component_entity: Box::new(component_entity),
+            component_entity,
             resource_address,
-            vault_entity: Box::new(vault_entity),
+            vault_entity,
         }
     }
 }

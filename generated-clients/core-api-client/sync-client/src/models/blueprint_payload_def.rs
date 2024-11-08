@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum BlueprintPayloadDef {
     #[serde(rename="Static")]
-    Static(Box<models::StaticBlueprintPayloadDef>),
+    Static(models::StaticBlueprintPayloadDef),
     #[serde(rename="Generic")]
-    Generic(Box<models::GenericBlueprintPayloadDef>),
+    Generic(models::GenericBlueprintPayloadDef),
 }
 
 impl Default for BlueprintPayloadDef {

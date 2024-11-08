@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum AccessRule {
     #[serde(rename="Protected")]
-    Protected(Box<models::ProtectedAccessRule>),
+    Protected(models::ProtectedAccessRule),
     #[serde(rename="AllowAll")]
     AllowAll(serde_json::Value),
     #[serde(rename="DenyAll")]

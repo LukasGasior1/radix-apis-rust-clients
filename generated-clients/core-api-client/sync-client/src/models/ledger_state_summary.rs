@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct LedgerStateSummary {
     /// The excerpt from the ledger header committed at the `state_version`.
     #[serde(rename = "header_summary")]
-    pub header_summary: Box<models::LedgerHeaderSummary>,
+    pub header_summary: models::LedgerHeaderSummary,
     #[serde(rename = "state_version")]
     pub state_version: u64,
 }
@@ -23,7 +23,7 @@ pub struct LedgerStateSummary {
 impl LedgerStateSummary {
     pub fn new(header_summary: models::LedgerHeaderSummary, state_version: u64) -> LedgerStateSummary {
         LedgerStateSummary {
-            header_summary: Box::new(header_summary),
+            header_summary,
             state_version,
         }
     }

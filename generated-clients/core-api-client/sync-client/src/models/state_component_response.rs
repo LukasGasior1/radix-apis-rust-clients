@@ -15,18 +15,18 @@ use serde::{Deserialize, Serialize};
 pub struct StateComponentResponse {
     /// A summarized state of the ledger at which the query was performed.
     #[serde(rename = "at_ledger_state")]
-    pub at_ledger_state: Box<models::LedgerStateSummary>,
+    pub at_ledger_state: models::LedgerStateSummary,
     /// Any descendent nodes owned directly or indirectly by the component
     #[serde(rename = "descendent_nodes")]
     pub descendent_nodes: Vec<models::StateComponentDescendentNode>,
     #[serde(rename = "info")]
-    pub info: Box<models::Substate>,
+    pub info: models::Substate,
     #[serde(rename = "owner_role")]
-    pub owner_role: Box<models::Substate>,
+    pub owner_role: models::Substate,
     #[serde(rename = "royalty_accumulator", skip_serializing_if = "Option::is_none")]
-    pub royalty_accumulator: Option<Box<models::Substate>>,
+    pub royalty_accumulator: Option<models::Substate>,
     #[serde(rename = "state")]
-    pub state: Box<models::Substate>,
+    pub state: models::Substate,
     /// Any vaults owned directly or indirectly by the component
     #[serde(rename = "vaults")]
     pub vaults: Vec<models::VaultBalance>,
@@ -35,12 +35,12 @@ pub struct StateComponentResponse {
 impl StateComponentResponse {
     pub fn new(at_ledger_state: models::LedgerStateSummary, descendent_nodes: Vec<models::StateComponentDescendentNode>, info: models::Substate, owner_role: models::Substate, state: models::Substate, vaults: Vec<models::VaultBalance>) -> StateComponentResponse {
         StateComponentResponse {
-            at_ledger_state: Box::new(at_ledger_state),
+            at_ledger_state,
             descendent_nodes,
-            info: Box::new(info),
-            owner_role: Box::new(owner_role),
+            info,
+            owner_role,
             royalty_accumulator: None,
-            state: Box::new(state),
+            state,
             vaults,
         }
     }

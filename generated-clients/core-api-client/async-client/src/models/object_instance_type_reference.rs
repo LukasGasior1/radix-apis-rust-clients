@@ -17,14 +17,14 @@ pub struct ObjectInstanceTypeReference {
     #[serde(rename = "generic_index")]
     pub generic_index: u32,
     #[serde(rename = "resolved_full_type_id")]
-    pub resolved_full_type_id: Box<models::FullyScopedTypeId>,
+    pub resolved_full_type_id: models::FullyScopedTypeId,
 }
 
 impl ObjectInstanceTypeReference {
     pub fn new(generic_index: u32, resolved_full_type_id: models::FullyScopedTypeId) -> ObjectInstanceTypeReference {
         ObjectInstanceTypeReference {
             generic_index,
-            resolved_full_type_id: Box::new(resolved_full_type_id),
+            resolved_full_type_id,
         }
     }
 }

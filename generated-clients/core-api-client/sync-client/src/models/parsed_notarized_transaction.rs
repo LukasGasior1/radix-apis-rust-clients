@@ -14,17 +14,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ParsedNotarizedTransaction {
     #[serde(rename = "identifiers")]
-    pub identifiers: Box<models::ParsedNotarizedTransactionIdentifiers>,
+    pub identifiers: models::ParsedNotarizedTransactionIdentifiers,
     #[serde(rename = "notarized_transaction", skip_serializing_if = "Option::is_none")]
-    pub notarized_transaction: Option<Box<models::NotarizedTransaction>>,
+    pub notarized_transaction: Option<models::NotarizedTransaction>,
     #[serde(rename = "validation_error", skip_serializing_if = "Option::is_none")]
-    pub validation_error: Option<Box<models::ParsedNotarizedTransactionValidationError>>,
+    pub validation_error: Option<models::ParsedNotarizedTransactionValidationError>,
 }
 
 impl ParsedNotarizedTransaction {
     pub fn new(identifiers: models::ParsedNotarizedTransactionIdentifiers) -> ParsedNotarizedTransaction {
         ParsedNotarizedTransaction {
-            identifiers: Box::new(identifiers),
+            identifiers,
             notarized_transaction: None,
             validation_error: None,
         }

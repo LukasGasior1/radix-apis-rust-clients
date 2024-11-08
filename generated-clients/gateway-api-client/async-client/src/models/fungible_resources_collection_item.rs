@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "aggregation_level")]
 pub enum FungibleResourcesCollectionItem {
     #[serde(rename="Global")]
-    Global(Box<models::FungibleResourcesCollectionItemGloballyAggregated>),
+    Global(models::FungibleResourcesCollectionItemGloballyAggregated),
     #[serde(rename="Vault")]
-    Vault(Box<models::FungibleResourcesCollectionItemVaultAggregated>),
+    Vault(models::FungibleResourcesCollectionItemVaultAggregated),
 }
 
 impl Default for FungibleResourcesCollectionItem {

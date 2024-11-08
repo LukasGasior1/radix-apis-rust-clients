@@ -20,7 +20,7 @@ pub struct SignedTransactionIntent {
     #[serde(rename = "hash_bech32m")]
     pub hash_bech32m: String,
     #[serde(rename = "intent")]
-    pub intent: Box<models::TransactionIntent>,
+    pub intent: models::TransactionIntent,
     #[serde(rename = "intent_signatures")]
     pub intent_signatures: Vec<models::SignatureWithPublicKey>,
 }
@@ -30,7 +30,7 @@ impl SignedTransactionIntent {
         SignedTransactionIntent {
             hash,
             hash_bech32m,
-            intent: Box::new(intent),
+            intent,
             intent_signatures,
         }
     }

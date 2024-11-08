@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenericKeyValueStoreEntryValue {
     #[serde(rename = "data")]
-    pub data: Box<models::DataStruct>,
+    pub data: models::DataStruct,
 }
 
 impl GenericKeyValueStoreEntryValue {
     /// If not present, the entry has been deleted.
     pub fn new(data: models::DataStruct) -> GenericKeyValueStoreEntryValue {
         GenericKeyValueStoreEntryValue {
-            data: Box::new(data),
+            data,
         }
     }
 }

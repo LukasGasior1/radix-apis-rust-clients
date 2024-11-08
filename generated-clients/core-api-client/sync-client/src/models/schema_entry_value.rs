@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SchemaEntryValue {
     #[serde(rename = "schema")]
-    pub schema: Box<models::ScryptoSchema>,
+    pub schema: models::ScryptoSchema,
 }
 
 impl SchemaEntryValue {
     pub fn new(schema: models::ScryptoSchema) -> SchemaEntryValue {
         SchemaEntryValue {
-            schema: Box::new(schema),
+            schema,
         }
     }
 }

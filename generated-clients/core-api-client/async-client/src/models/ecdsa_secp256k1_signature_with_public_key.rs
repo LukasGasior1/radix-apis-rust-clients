@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EcdsaSecp256k1SignatureWithPublicKey {
     #[serde(rename = "recoverable_signature")]
-    pub recoverable_signature: Box<models::EcdsaSecp256k1Signature>,
+    pub recoverable_signature: models::EcdsaSecp256k1Signature,
 }
 
 impl EcdsaSecp256k1SignatureWithPublicKey {
     /// Because ECDSA has recoverable signatures, this only includes a signature
     pub fn new(recoverable_signature: models::EcdsaSecp256k1Signature) -> EcdsaSecp256k1SignatureWithPublicKey {
         EcdsaSecp256k1SignatureWithPublicKey {
-            recoverable_signature: Box::new(recoverable_signature),
+            recoverable_signature,
         }
     }
 }

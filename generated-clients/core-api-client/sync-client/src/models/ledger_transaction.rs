@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum LedgerTransaction {
     #[serde(rename="Genesis")]
-    Genesis(Box<models::GenesisLedgerTransaction>),
+    Genesis(models::GenesisLedgerTransaction),
     #[serde(rename="User")]
-    User(Box<models::UserLedgerTransaction>),
+    User(models::UserLedgerTransaction),
     #[serde(rename="UserV2")]
-    UserV2(Box<models::UserLedgerTransactionV2>),
+    UserV2(models::UserLedgerTransactionV2),
     #[serde(rename="RoundUpdate")]
-    RoundUpdate(Box<models::RoundUpdateLedgerTransaction>),
+    RoundUpdate(models::RoundUpdateLedgerTransaction),
     #[serde(rename="Flash")]
-    Flash(Box<models::FlashLedgerTransaction>),
+    Flash(models::FlashLedgerTransaction),
 }
 
 impl Default for LedgerTransaction {

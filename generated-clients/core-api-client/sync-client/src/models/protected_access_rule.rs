@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProtectedAccessRule {
     #[serde(rename = "access_rule")]
-    pub access_rule: Box<models::AccessRuleNode>,
+    pub access_rule: models::AccessRuleNode,
 }
 
 impl ProtectedAccessRule {
     pub fn new(access_rule: models::AccessRuleNode) -> ProtectedAccessRule {
         ProtectedAccessRule {
-            access_rule: Box::new(access_rule),
+            access_rule,
         }
     }
 }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HookExport {
     #[serde(rename = "export")]
-    pub export: Box<models::PackageExport>,
+    pub export: models::PackageExport,
     #[serde(rename = "object_hook")]
     pub object_hook: models::ObjectHook,
 }
@@ -22,7 +22,7 @@ pub struct HookExport {
 impl HookExport {
     pub fn new(export: models::PackageExport, object_hook: models::ObjectHook) -> HookExport {
         HookExport {
-            export: Box::new(export),
+            export,
             object_hook,
         }
     }

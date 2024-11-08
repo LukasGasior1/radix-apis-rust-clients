@@ -18,14 +18,14 @@ pub struct SignallingValidator {
     pub active_stake_proportion: String,
     /// Validator index within the `current_validator_set`.
     #[serde(rename = "index")]
-    pub index: Box<models::ActiveValidatorIndex>,
+    pub index: models::ActiveValidatorIndex,
 }
 
 impl SignallingValidator {
     pub fn new(active_stake_proportion: String, index: models::ActiveValidatorIndex) -> SignallingValidator {
         SignallingValidator {
             active_stake_proportion,
-            index: Box::new(index),
+            index,
         }
     }
 }

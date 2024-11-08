@@ -15,25 +15,25 @@ use serde::{Deserialize, Serialize};
 pub struct NetworkStatusResponse {
     /// The current epoch and round of the ledger. It is not present until genesis has been run. 
     #[serde(rename = "current_epoch_round", skip_serializing_if = "Option::is_none")]
-    pub current_epoch_round: Option<Box<models::EpochRound>>,
+    pub current_epoch_round: Option<models::EpochRound>,
     /// A descriptor for the current protocol version that the node is running. 
     #[serde(rename = "current_protocol_version")]
     pub current_protocol_version: String,
     /// The current state identifier at the top of the node's copy of the ledger (ie as of the latest committed transaction). It is not present until genesis has been run. 
     #[serde(rename = "current_state_identifier", skip_serializing_if = "Option::is_none")]
-    pub current_state_identifier: Option<Box<models::CommittedStateIdentifier>>,
+    pub current_state_identifier: Option<models::CommittedStateIdentifier>,
     /// The epoch details for the genesis epoch and round. The genesis epoch will be the last Olympia epoch + 1, and have a \"fake\" round-number 1 (because there is no round for the genesis transaction). In the Gateway, this can be used for the epoch and round number before the first RoundUpdate transaction. It is not present until genesis has been run. 
     #[serde(rename = "genesis_epoch_round", skip_serializing_if = "Option::is_none")]
-    pub genesis_epoch_round: Option<Box<models::EpochRound>>,
+    pub genesis_epoch_round: Option<models::EpochRound>,
     /// The post-genesis epoch and round. 
     #[serde(rename = "post_genesis_epoch_round", skip_serializing_if = "Option::is_none")]
-    pub post_genesis_epoch_round: Option<Box<models::EpochRound>>,
+    pub post_genesis_epoch_round: Option<models::EpochRound>,
     /// The ledger state after the genesis transactions have been executed. It is not present until genesis has been run. 
     #[serde(rename = "post_genesis_state_identifier", skip_serializing_if = "Option::is_none")]
-    pub post_genesis_state_identifier: Option<Box<models::CommittedStateIdentifier>>,
+    pub post_genesis_state_identifier: Option<models::CommittedStateIdentifier>,
     /// The ledger state identifier of a fresh ledger before any genesis transactions. 
     #[serde(rename = "pre_genesis_state_identifier")]
-    pub pre_genesis_state_identifier: Box<models::CommittedStateIdentifier>,
+    pub pre_genesis_state_identifier: models::CommittedStateIdentifier,
 }
 
 impl NetworkStatusResponse {
@@ -45,7 +45,7 @@ impl NetworkStatusResponse {
             genesis_epoch_round: None,
             post_genesis_epoch_round: None,
             post_genesis_state_identifier: None,
-            pre_genesis_state_identifier: Box::new(pre_genesis_state_identifier),
+            pre_genesis_state_identifier,
         }
     }
 }

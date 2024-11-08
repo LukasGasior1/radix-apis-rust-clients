@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PackageTypeReference {
     #[serde(rename = "full_type_id")]
-    pub full_type_id: Box<models::FullyScopedTypeId>,
+    pub full_type_id: models::FullyScopedTypeId,
 }
 
 impl PackageTypeReference {
     pub fn new(full_type_id: models::FullyScopedTypeId) -> PackageTypeReference {
         PackageTypeReference {
-            full_type_id: Box::new(full_type_id),
+            full_type_id,
         }
     }
 }

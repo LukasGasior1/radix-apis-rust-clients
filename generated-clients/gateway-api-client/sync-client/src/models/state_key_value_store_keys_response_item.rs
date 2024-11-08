@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateKeyValueStoreKeysResponseItem {
     #[serde(rename = "key")]
-    pub key: Box<models::ScryptoSborValue>,
+    pub key: models::ScryptoSborValue,
     /// The most recent state version underlying object was modified at.
     #[serde(rename = "last_updated_at_state_version")]
     pub last_updated_at_state_version: u64,
@@ -23,7 +23,7 @@ pub struct StateKeyValueStoreKeysResponseItem {
 impl StateKeyValueStoreKeysResponseItem {
     pub fn new(key: models::ScryptoSborValue, last_updated_at_state_version: u64) -> StateKeyValueStoreKeysResponseItem {
         StateKeyValueStoreKeysResponseItem {
-            key: Box::new(key),
+            key,
             last_updated_at_state_version,
         }
     }

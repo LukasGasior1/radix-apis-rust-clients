@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 pub struct RoyaltyModuleMethodRoyaltyEntryValue {
     /// The component royalty. If missing, it represents a free method.
     #[serde(rename = "royalty_amount", skip_serializing_if = "Option::is_none")]
-    pub royalty_amount: Option<Box<models::RoyaltyAmount>>,
+    pub royalty_amount: Option<models::RoyaltyAmount>,
 }
 
 impl RoyaltyModuleMethodRoyaltyEntryValue {

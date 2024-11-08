@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "badge_type")]
 pub enum TransactionAccountDepositPreValidationAuthorizedDepositorBadge {
     #[serde(rename="ResourceBadge")]
-    ResourceBadge(Box<models::AccountDepositPreValidationResourceBadge>),
+    ResourceBadge(models::AccountDepositPreValidationResourceBadge),
     #[serde(rename="NonFungibleBadge")]
-    NonFungibleBadge(Box<models::AccountDepositPreValidationNonFungibleBadge>),
+    NonFungibleBadge(models::AccountDepositPreValidationNonFungibleBadge),
 }
 
 impl Default for TransactionAccountDepositPreValidationAuthorizedDepositorBadge {

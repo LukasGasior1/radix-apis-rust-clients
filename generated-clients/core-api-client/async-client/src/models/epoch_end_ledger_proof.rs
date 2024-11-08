@@ -16,14 +16,14 @@ pub struct EpochEndLedgerProof {
     #[serde(rename = "end_of_epoch")]
     pub end_of_epoch: u64,
     #[serde(rename = "ledger_proof")]
-    pub ledger_proof: Box<models::LedgerProof>,
+    pub ledger_proof: models::LedgerProof,
 }
 
 impl EpochEndLedgerProof {
     pub fn new(end_of_epoch: u64, ledger_proof: models::LedgerProof) -> EpochEndLedgerProof {
         EpochEndLedgerProof {
             end_of_epoch,
-            ledger_proof: Box::new(ledger_proof),
+            ledger_proof,
         }
     }
 }

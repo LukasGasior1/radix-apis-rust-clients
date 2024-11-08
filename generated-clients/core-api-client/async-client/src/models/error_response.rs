@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "error_type")]
 pub enum ErrorResponse {
     #[serde(rename="Basic")]
-    Basic(Box<models::BasicErrorResponse>),
+    Basic(models::BasicErrorResponse),
     #[serde(rename="TransactionSubmit")]
-    TransactionSubmit(Box<models::TransactionSubmitErrorResponse>),
+    TransactionSubmit(models::TransactionSubmitErrorResponse),
     #[serde(rename="LtsTransactionSubmit")]
-    LtsTransactionSubmit(Box<models::LtsTransactionSubmitErrorResponse>),
+    LtsTransactionSubmit(models::LtsTransactionSubmitErrorResponse),
     #[serde(rename="StreamTransactions")]
-    StreamTransactions(Box<models::StreamTransactionsErrorResponse>),
+    StreamTransactions(models::StreamTransactionsErrorResponse),
     #[serde(rename="StreamProofs")]
-    StreamProofs(Box<models::StreamProofsErrorResponse>),
+    StreamProofs(models::StreamProofsErrorResponse),
 }
 
 impl Default for ErrorResponse {

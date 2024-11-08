@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FromLedgerStateMixin {
     #[serde(rename = "from_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub from_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub from_ledger_state: Option<Option<models::LedgerStateSelector>>,
 }
 
 impl FromLedgerStateMixin {

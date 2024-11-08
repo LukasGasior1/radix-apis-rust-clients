@@ -17,7 +17,7 @@ pub struct BlueprintMethodRoyalty {
     pub method_name: String,
     /// The due royalty; missing field denotes a free method.
     #[serde(rename = "royalty_amount", skip_serializing_if = "Option::is_none")]
-    pub royalty_amount: Option<Box<models::RoyaltyAmount>>,
+    pub royalty_amount: Option<models::RoyaltyAmount>,
 }
 
 impl BlueprintMethodRoyalty {

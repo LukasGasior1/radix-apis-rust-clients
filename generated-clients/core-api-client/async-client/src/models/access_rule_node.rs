@@ -15,11 +15,11 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum AccessRuleNode {
     #[serde(rename="ProofRule")]
-    ProofRule(Box<models::ProofAccessRuleNode>),
+    ProofRule(models::ProofAccessRuleNode),
     #[serde(rename="AnyOf")]
-    AnyOf(Box<models::AnyOfAccessRuleNode>),
+    AnyOf(models::AnyOfAccessRuleNode),
     #[serde(rename="AllOf")]
-    AllOf(Box<models::AllOfAccessRuleNode>),
+    AllOf(models::AllOfAccessRuleNode),
 }
 
 impl Default for AccessRuleNode {

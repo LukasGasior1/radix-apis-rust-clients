@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[serde(tag = "type")]
 pub enum ProtocolUpdateStatus {
     #[serde(rename="InProgress")]
-    InProgress(Box<models::InProgressProtocolUpdateStatus>),
+    InProgress(models::InProgressProtocolUpdateStatus),
     #[serde(rename="Complete")]
     Complete(serde_json::Value),
 }

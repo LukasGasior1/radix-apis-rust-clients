@@ -25,7 +25,7 @@ pub struct SubstateId {
     #[serde(rename = "partition_number")]
     pub partition_number: u32,
     #[serde(rename = "substate_key")]
-    pub substate_key: Box<models::SubstateKey>,
+    pub substate_key: models::SubstateKey,
     #[serde(rename = "substate_type")]
     pub substate_type: models::SubstateType,
 }
@@ -38,7 +38,7 @@ impl SubstateId {
             entity_type,
             partition_kind,
             partition_number,
-            substate_key: Box::new(substate_key),
+            substate_key,
             substate_type,
         }
     }

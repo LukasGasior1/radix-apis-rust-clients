@@ -16,17 +16,17 @@ pub struct TransactionTrackerCollectionEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::TransactionIdKey>,
+    pub key: models::TransactionIdKey,
     #[serde(rename = "value")]
-    pub value: Box<models::TransactionTrackerCollectionEntryValue>,
+    pub value: models::TransactionTrackerCollectionEntryValue,
 }
 
 impl TransactionTrackerCollectionEntrySubstate {
     pub fn new(is_locked: bool, key: models::TransactionIdKey, value: models::TransactionTrackerCollectionEntryValue) -> TransactionTrackerCollectionEntrySubstate {
         TransactionTrackerCollectionEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct EventsItem {
     #[serde(rename = "data")]
-    pub data: Box<models::ProgrammaticScryptoSborValue>,
+    pub data: models::ProgrammaticScryptoSborValue,
     /// This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details. 
     #[serde(rename = "emitter")]
     pub emitter: serde_json::Value,
@@ -25,7 +25,7 @@ pub struct EventsItem {
 impl EventsItem {
     pub fn new(data: models::ProgrammaticScryptoSborValue, emitter: serde_json::Value, name: String) -> EventsItem {
         EventsItem {
-            data: Box::new(data),
+            data,
             emitter,
             name,
         }

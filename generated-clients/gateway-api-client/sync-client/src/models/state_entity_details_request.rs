@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsRequest {
     #[serde(rename = "at_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub at_ledger_state: Option<Option<models::LedgerStateSelector>>,
     /// limited to max 20 items.
     #[serde(rename = "addresses")]
     pub addresses: Vec<String>,
     #[serde(rename = "aggregation_level", skip_serializing_if = "Option::is_none")]
     pub aggregation_level: Option<models::ResourceAggregationLevel>,
     #[serde(rename = "opt_ins", skip_serializing_if = "Option::is_none")]
-    pub opt_ins: Option<Box<models::StateEntityDetailsOptIns>>,
+    pub opt_ins: Option<models::StateEntityDetailsOptIns>,
 }
 
 impl StateEntityDetailsRequest {

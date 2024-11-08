@@ -16,14 +16,14 @@ pub struct NonFungibleResourceManagerFieldMutableFieldsSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::NonFungibleResourceManagerFieldMutableFieldsValue>,
+    pub value: models::NonFungibleResourceManagerFieldMutableFieldsValue,
 }
 
 impl NonFungibleResourceManagerFieldMutableFieldsSubstate {
     pub fn new(is_locked: bool, value: models::NonFungibleResourceManagerFieldMutableFieldsValue) -> NonFungibleResourceManagerFieldMutableFieldsSubstate {
         NonFungibleResourceManagerFieldMutableFieldsSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

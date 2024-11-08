@@ -22,10 +22,10 @@ pub struct IntentCoreV2 {
     #[serde(rename = "instructions", skip_serializing_if = "Option::is_none")]
     pub instructions: Option<String>,
     #[serde(rename = "intent_header")]
-    pub intent_header: Box<models::IntentHeaderV2>,
+    pub intent_header: models::IntentHeaderV2,
     /// The optional transaction message. Only returned if present and enabled in `TransactionFormatOptions` on your request.
     #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<Box<models::TransactionMessage>>,
+    pub message: Option<models::TransactionMessage>,
 }
 
 impl IntentCoreV2 {
@@ -34,7 +34,7 @@ impl IntentCoreV2 {
             blobs_hex: None,
             children_specifiers,
             instructions: None,
-            intent_header: Box::new(intent_header),
+            intent_header,
             message: None,
         }
     }

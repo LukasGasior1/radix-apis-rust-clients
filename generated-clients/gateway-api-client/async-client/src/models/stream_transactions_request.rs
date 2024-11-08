@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StreamTransactionsRequest {
     #[serde(rename = "at_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub at_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub at_ledger_state: Option<Option<models::LedgerStateSelector>>,
     #[serde(rename = "from_ledger_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub from_ledger_state: Option<Option<Box<models::LedgerStateSelector>>>,
+    pub from_ledger_state: Option<Option<models::LedgerStateSelector>>,
     /// This cursor allows forward pagination, by providing the cursor from the previous request.
     #[serde(rename = "cursor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<Option<String>>,
@@ -51,12 +51,12 @@ pub struct StreamTransactionsRequest {
     #[serde(rename = "manifest_badges_presented_filter", skip_serializing_if = "Option::is_none")]
     pub manifest_badges_presented_filter: Option<Vec<String>>,
     #[serde(rename = "manifest_class_filter", skip_serializing_if = "Option::is_none")]
-    pub manifest_class_filter: Option<Box<models::StreamTransactionsRequestAllOfManifestClassFilter>>,
+    pub manifest_class_filter: Option<models::StreamTransactionsRequestAllOfManifestClassFilter>,
     /// Allows specifying array of resource addresses. If specified, the response will contain only transactions containing the given resources in the manifest (regardless of their usage).
     #[serde(rename = "manifest_resources_filter", skip_serializing_if = "Option::is_none")]
     pub manifest_resources_filter: Option<Vec<String>>,
     #[serde(rename = "opt_ins", skip_serializing_if = "Option::is_none")]
-    pub opt_ins: Option<Box<models::TransactionDetailsOptIns>>,
+    pub opt_ins: Option<models::TransactionDetailsOptIns>,
     /// Configures the order of returned result set. Defaults to `desc`.
     #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
     pub order: Option<Order>,

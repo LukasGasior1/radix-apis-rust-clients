@@ -17,17 +17,17 @@ pub struct AccountLockerAccountClaimsEntrySubstate {
     pub is_locked: bool,
     /// An account which can claim the contents of associated vaults.
     #[serde(rename = "key")]
-    pub key: Box<models::AccountAddressKey>,
+    pub key: models::AccountAddressKey,
     #[serde(rename = "value")]
-    pub value: Box<models::AccountLockerAccountClaimsEntryValue>,
+    pub value: models::AccountLockerAccountClaimsEntryValue,
 }
 
 impl AccountLockerAccountClaimsEntrySubstate {
     pub fn new(is_locked: bool, key: models::AccountAddressKey, value: models::AccountLockerAccountClaimsEntryValue) -> AccountLockerAccountClaimsEntrySubstate {
         AccountLockerAccountClaimsEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

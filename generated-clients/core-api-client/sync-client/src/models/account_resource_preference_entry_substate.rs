@@ -16,16 +16,16 @@ pub struct AccountResourcePreferenceEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::ResourceKey>,
+    pub key: models::ResourceKey,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Box<models::AccountResourcePreferenceEntryValue>>,
+    pub value: Option<models::AccountResourcePreferenceEntryValue>,
 }
 
 impl AccountResourcePreferenceEntrySubstate {
     pub fn new(is_locked: bool, key: models::ResourceKey) -> AccountResourcePreferenceEntrySubstate {
         AccountResourcePreferenceEntrySubstate {
             is_locked,
-            key: Box::new(key),
+            key,
             value: None,
         }
     }

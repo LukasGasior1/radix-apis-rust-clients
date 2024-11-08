@@ -21,7 +21,7 @@ pub struct AuthConfig {
     #[serde(rename = "method_auth_type")]
     pub method_auth_type: models::MethodAuthType,
     #[serde(rename = "method_roles", skip_serializing_if = "Option::is_none")]
-    pub method_roles: Option<Box<models::StaticRoleDefinitionAuthTemplate>>,
+    pub method_roles: Option<models::StaticRoleDefinitionAuthTemplate>,
 }
 
 impl AuthConfig {

@@ -18,7 +18,7 @@ pub struct StreamProofsRequest {
     #[serde(rename = "continuation_token", skip_serializing_if = "Option::is_none")]
     pub continuation_token: Option<String>,
     #[serde(rename = "filter", skip_serializing_if = "Option::is_none")]
-    pub filter: Option<Box<models::StreamProofsFilter>>,
+    pub filter: Option<models::StreamProofsFilter>,
     /// If specified, the maximum number of proofs that will be returned.
     #[serde(rename = "max_page_size", skip_serializing_if = "Option::is_none")]
     pub max_page_size: Option<i32>,

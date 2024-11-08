@@ -17,14 +17,14 @@ pub struct OneResourcePoolFieldStateValue {
     #[serde(rename = "pool_unit_resource_address")]
     pub pool_unit_resource_address: String,
     #[serde(rename = "vault")]
-    pub vault: Box<models::EntityReference>,
+    pub vault: models::EntityReference,
 }
 
 impl OneResourcePoolFieldStateValue {
     pub fn new(pool_unit_resource_address: String, vault: models::EntityReference) -> OneResourcePoolFieldStateValue {
         OneResourcePoolFieldStateValue {
             pool_unit_resource_address,
-            vault: Box::new(vault),
+            vault,
         }
     }
 }

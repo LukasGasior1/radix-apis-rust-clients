@@ -20,7 +20,7 @@ pub struct BlueprintDefinition {
     #[serde(rename = "hook_exports")]
     pub hook_exports: Vec<models::HookExport>,
     #[serde(rename = "interface")]
-    pub interface: Box<models::BlueprintInterface>,
+    pub interface: models::BlueprintInterface,
 }
 
 impl BlueprintDefinition {
@@ -28,7 +28,7 @@ impl BlueprintDefinition {
         BlueprintDefinition {
             function_exports,
             hook_exports,
-            interface: Box::new(interface),
+            interface,
         }
     }
 }

@@ -19,7 +19,7 @@ pub enum MethodAccessibility {
     #[serde(rename="OuterObjectOnly")]
     OuterObjectOnly(serde_json::Value),
     #[serde(rename="RoleProtected")]
-    RoleProtected(Box<models::RoleProtectedMethodAccessibility>),
+    RoleProtected(models::RoleProtectedMethodAccessibility),
     #[serde(rename="OwnPackageOnly")]
     OwnPackageOnly(serde_json::Value),
 }

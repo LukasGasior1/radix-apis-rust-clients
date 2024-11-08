@@ -16,14 +16,14 @@ pub struct BootLoaderModuleFieldKernelBootSubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "value")]
-    pub value: Box<models::BootLoaderModuleFieldKernelBootValue>,
+    pub value: models::BootLoaderModuleFieldKernelBootValue,
 }
 
 impl BootLoaderModuleFieldKernelBootSubstate {
     pub fn new(is_locked: bool, value: models::BootLoaderModuleFieldKernelBootValue) -> BootLoaderModuleFieldKernelBootSubstate {
         BootLoaderModuleFieldKernelBootSubstate {
             is_locked,
-            value: Box::new(value),
+            value,
         }
     }
 }

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StateEntityDetailsResponse {
     #[serde(rename = "ledger_state")]
-    pub ledger_state: Box<models::LedgerState>,
+    pub ledger_state: models::LedgerState,
     #[serde(rename = "items")]
     pub items: Vec<models::StateEntityDetailsResponseItem>,
 }
@@ -22,7 +22,7 @@ pub struct StateEntityDetailsResponse {
 impl StateEntityDetailsResponse {
     pub fn new(ledger_state: models::LedgerState, items: Vec<models::StateEntityDetailsResponseItem>) -> StateEntityDetailsResponse {
         StateEntityDetailsResponse {
-            ledger_state: Box::new(ledger_state),
+            ledger_state,
             items,
         }
     }

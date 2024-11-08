@@ -16,17 +16,17 @@ pub struct NonFungibleVaultContentsIndexEntrySubstate {
     #[serde(rename = "is_locked")]
     pub is_locked: bool,
     #[serde(rename = "key")]
-    pub key: Box<models::LocalNonFungibleKey>,
+    pub key: models::LocalNonFungibleKey,
     #[serde(rename = "value")]
-    pub value: Box<models::NonFungibleVaultContentsIndexEntryValue>,
+    pub value: models::NonFungibleVaultContentsIndexEntryValue,
 }
 
 impl NonFungibleVaultContentsIndexEntrySubstate {
     pub fn new(is_locked: bool, key: models::LocalNonFungibleKey, value: models::NonFungibleVaultContentsIndexEntryValue) -> NonFungibleVaultContentsIndexEntrySubstate {
         NonFungibleVaultContentsIndexEntrySubstate {
             is_locked,
-            key: Box::new(key),
-            value: Box::new(value),
+            key,
+            value,
         }
     }
 }

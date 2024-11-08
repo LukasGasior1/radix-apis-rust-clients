@@ -24,24 +24,24 @@ pub struct ValidatorFieldStateValue {
     #[serde(rename = "is_registered")]
     pub is_registered: bool,
     #[serde(rename = "locked_owner_stake_unit_vault")]
-    pub locked_owner_stake_unit_vault: Box<models::EntityReference>,
+    pub locked_owner_stake_unit_vault: models::EntityReference,
     #[serde(rename = "pending_owner_stake_unit_unlock_vault")]
-    pub pending_owner_stake_unit_unlock_vault: Box<models::EntityReference>,
+    pub pending_owner_stake_unit_unlock_vault: models::EntityReference,
     #[serde(rename = "pending_owner_stake_unit_withdrawals")]
     pub pending_owner_stake_unit_withdrawals: Vec<models::PendingOwnerStakeWithdrawal>,
     #[serde(rename = "pending_xrd_withdraw_vault")]
-    pub pending_xrd_withdraw_vault: Box<models::EntityReference>,
+    pub pending_xrd_withdraw_vault: models::EntityReference,
     #[serde(rename = "public_key")]
-    pub public_key: Box<models::EcdsaSecp256k1PublicKey>,
+    pub public_key: models::EcdsaSecp256k1PublicKey,
     #[serde(rename = "sorted_key", skip_serializing_if = "Option::is_none")]
-    pub sorted_key: Option<Box<models::SubstateKey>>,
+    pub sorted_key: Option<models::SubstateKey>,
     /// The Bech32m-encoded human readable version of the resource address
     #[serde(rename = "stake_unit_resource_address")]
     pub stake_unit_resource_address: String,
     #[serde(rename = "stake_xrd_vault")]
-    pub stake_xrd_vault: Box<models::EntityReference>,
+    pub stake_xrd_vault: models::EntityReference,
     #[serde(rename = "validator_fee_change_request", skip_serializing_if = "Option::is_none")]
-    pub validator_fee_change_request: Option<Box<models::ValidatorFeeChangeRequest>>,
+    pub validator_fee_change_request: Option<models::ValidatorFeeChangeRequest>,
     /// A string-encoded fixed-precision decimal to 18 decimal places. A decimal is formed of some signed integer `m` of attos (`10^(-18)`) units, where `-2^(192 - 1) <= m < 2^(192 - 1)`. 
     #[serde(rename = "validator_fee_factor")]
     pub validator_fee_factor: String,
@@ -54,14 +54,14 @@ impl ValidatorFieldStateValue {
             already_unlocked_owner_stake_unit_amount,
             claim_token_resource_address,
             is_registered,
-            locked_owner_stake_unit_vault: Box::new(locked_owner_stake_unit_vault),
-            pending_owner_stake_unit_unlock_vault: Box::new(pending_owner_stake_unit_unlock_vault),
+            locked_owner_stake_unit_vault,
+            pending_owner_stake_unit_unlock_vault,
             pending_owner_stake_unit_withdrawals,
-            pending_xrd_withdraw_vault: Box::new(pending_xrd_withdraw_vault),
-            public_key: Box::new(public_key),
+            pending_xrd_withdraw_vault,
+            public_key,
             sorted_key: None,
             stake_unit_resource_address,
-            stake_xrd_vault: Box::new(stake_xrd_vault),
+            stake_xrd_vault,
             validator_fee_change_request: None,
             validator_fee_factor,
         }

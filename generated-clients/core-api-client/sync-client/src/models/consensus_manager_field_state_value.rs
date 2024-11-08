@@ -15,12 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct ConsensusManagerFieldStateValue {
     /// The actual time the epoch started. Not used by any logic, but the difference between this and the effective start gives a measure of the time it took for the end-of-epoch to be noticed.  Note: in abnormal cases (e.g. Byzantine network quorum), this on-ledger field may be set to an arbitrary, extreme value allowed by 64-bit signed integer. The API will still clamp the timestamp to `0 <= ms <= 100000000000000 (== 10^14)`, which translates to `1970-01-01T00:00:00.000Z <= t <= 5138-11-16T09:46:40.000Z`. 
     #[serde(rename = "actual_epoch_start")]
-    pub actual_epoch_start: Box<models::InstantMs>,
+    pub actual_epoch_start: models::InstantMs,
     #[serde(rename = "current_leader", skip_serializing_if = "Option::is_none")]
-    pub current_leader: Option<Box<models::ActiveValidatorIndex>>,
+    pub current_leader: Option<models::ActiveValidatorIndex>,
     /// The effective time the epoch started. A drift-free measure, used to work out when the epoch should ideally end.   Note: in abnormal cases (e.g. Byzantine network quorum), this on-ledger field may be set to an arbitrary, extreme value allowed by 64-bit signed integer. The API will still clamp the timestamp to `0 <= ms <= 100000000000000 (== 10^14)`, which translates to `1970-01-01T00:00:00.000Z <= t <= 5138-11-16T09:46:40.000Z`. 
     #[serde(rename = "effective_epoch_start")]
-    pub effective_epoch_start: Box<models::InstantMs>,
+    pub effective_epoch_start: models::InstantMs,
     /// An integer between `0` and `10^10`, marking the current epoch
     #[serde(rename = "epoch")]
     pub epoch: u64,
@@ -34,9 +34,9 @@ pub struct ConsensusManagerFieldStateValue {
 impl ConsensusManagerFieldStateValue {
     pub fn new(actual_epoch_start: models::InstantMs, effective_epoch_start: models::InstantMs, epoch: u64, is_started: bool, round: u64) -> ConsensusManagerFieldStateValue {
         ConsensusManagerFieldStateValue {
-            actual_epoch_start: Box::new(actual_epoch_start),
+            actual_epoch_start,
             current_leader: None,
-            effective_epoch_start: Box::new(effective_epoch_start),
+            effective_epoch_start,
             epoch,
             is_started,
             round,
