@@ -1,5 +1,6 @@
+from cli_command_parser import Command, Option, main
 from tempfile import TemporaryDirectory, NamedTemporaryFile
-from typing import Any, TypedDict, Literal, Self, Iterator
+from typing import Any, TypedDict, Literal, Self, Iterator, cast
 import toml
 import urllib.request
 import subprocess
@@ -387,51 +388,69 @@ def generate_crate(
     pass
 
 
-def main() -> None:
-    # The schemas should be obtained from the main branch of the various
-    # repositories containing them.
-    branch: str = "main"
+class Cli(
+    Command,
+    description="A script for generating the gateway and core API clients for Rust",
+):
+    node_branch: Option[Any, str] = Option(
+        "-n",
+        default="main",
+        help="The branch of the node to get the spec from.",
+    )
+    gateway_branch: Option[Any, str] = Option(
+        "-g",
+        default="main",
+        help="The branch of the gateway to get the spec from.",
+    )
 
-    # Creating a temporary directory where all of the files will be saved.
-    with TemporaryDirectory() as temporary_directory:
-        # Downloading version 7.6.0 of the generator CLI to the temporary
-        # directory.
-        generator_path: str = download_openapi_generator(
-            temporary_directory, "7.6.0"
-        )
-
-        # Download the OpenAPI spec of the Gateway and Core APIs and load them
-        # from file.
-        gateway_api_spec: dict[Any, Any]
-        core_api_spec: dict[Any, Any]
-        gateway_api_spec, core_api_spec = list(
-            map(
-                lambda path: yaml.safe_load(open(path)),
-                map(
-                    lambda func: func(temporary_directory, branch),
-                    [download_gateway_api_spec, download_core_api_spec],
-                ),
+    def main(self):
+        # Creating a temporary directory where all of the files will be saved.
+        with TemporaryDirectory() as temporary_directory:
+            # Downloading version 7.6.0 of the generator CLI to the temporary
+            # directory.
+            generator_path: str = download_openapi_generator(
+                temporary_directory, "7.6.0"
             )
-        )
 
-        # If clients already exist delete them.
-        generated_clients_path: str = "./generated-clients"
-        if os.path.exists(generated_clients_path):
-            shutil.rmtree(generated_clients_path)
+            # Download the OpenAPI spec of the Gateway and Core APIs and load them
+            # from file.
+            gateway_api_spec: dict[Any, Any]
+            core_api_spec: dict[Any, Any]
+            gateway_api_spec, core_api_spec = list(
+                map(
+                    lambda path: fix_discriminated_unions_in_spec(
+                        yaml.safe_load(open(path))
+                    ),
+                    map(
+                        lambda value: value[0](
+                            temporary_directory, cast(str, value[1])
+                        ),
+                        [
+                            (download_gateway_api_spec, self.gateway_branch),
+                            (download_core_api_spec, self.gateway_branch),
+                        ],
+                    ),
+                )
+            )
 
-        # Generate the clients.
-        generate_crate(
-            fix_discriminated_unions_in_spec(gateway_api_spec),
-            generator_path,
-            "gateway-api-client",
-            os.path.join(generated_clients_path, "gateway-api-client"),
-        )
-        generate_crate(
-            fix_discriminated_unions_in_spec(core_api_spec),
-            generator_path,
-            "core-api-client",
-            os.path.join(generated_clients_path, "core-api-client"),
-        )
+            # If clients already exist delete them.
+            generated_clients_path: str = "./generated-clients"
+            if os.path.exists(generated_clients_path):
+                shutil.rmtree(generated_clients_path)
+
+            # Generate the clients.
+            generate_crate(
+                gateway_api_spec,
+                generator_path,
+                "gateway-api-client",
+                os.path.join(generated_clients_path, "gateway-api-client"),
+            )
+            generate_crate(
+                core_api_spec,
+                generator_path,
+                "core-api-client",
+                os.path.join(generated_clients_path, "core-api-client"),
+            )
 
 
 if __name__ == "__main__":
