@@ -28,8 +28,10 @@ Name | Type | Description | Notes
 **royalty_module_package** | **String** |  | 
 **secp256k1_signature_virtual_badge** | **String** |  | 
 **system_transaction_badge** | **String** |  | 
+**test_utils_package** | Option<**String**> |  | [optional]
 **transaction_processor_package** | **String** |  | 
 **transaction_tracker** | **String** |  | 
+**transaction_tracker_package** | Option<**String**> |  | [optional]
 **validator_owner_badge** | **String** |  | 
 **xrd** | **String** |  | 
 

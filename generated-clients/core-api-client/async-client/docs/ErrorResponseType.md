@@ -7,6 +7,7 @@
 | Basic | Basic |
 | TransactionSubmit | TransactionSubmit |
 | LtsTransactionSubmit | LtsTransactionSubmit |
+| TransactionPreviewV2 | TransactionPreviewV2 |
 | StreamTransactions | StreamTransactions |
 | StreamProofs | StreamProofs |
 
